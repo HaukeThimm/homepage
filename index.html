@@ -12,171 +12,113 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary: #FDF7F2;
-      --secondary: #003153;
+    :root{
+      --bg: #FDF7F2;         /* page background */
+      --card: #FBF6F1;       /* inner panel */
+      --ink: #003153;        /* text */
+      --gold: #B7B19A;       /* border tone (warm grey-gold) */
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    *{ box-sizing: border-box; }
 
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
+    html,body{ height:100%; margin:0; }
 
-    body {
+    body{
+      background: var(--bg);
       font-family: "Cormorant Garamond", serif;
-      background-color: var(--primary);
-      color: var(--secondary);
-      line-height: 1.2;
-      letter-spacing: 0.3px;
+      color: var(--ink);
+      display:grid;
+      place-items:center;
     }
 
-    /* Highlight overlay as fine 5px lines */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url("highlights.png");
-      background-size: 5px 5px;
-      background-repeat: repeat;
-      opacity: 0.22;
-      mix-blend-mode: multiply;
-      pointer-events: none;
-    }
-
-    .page {
-      min-height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 40px;
-    }
-
-    .card {
+    .frame{
+      width: min(1120px, 92vw);
+      background: var(--card);
+      padding: 64px 88px;
+      border: 3px solid var(--gold);
       position: relative;
-      max-width: 960px;
-      width: 100%;
-      padding: 140px 64px 56px; /* Platz für Logo */
-      background-color: rgba(253, 247, 242, 0.96);
-      border: 2px solid var(--secondary);
     }
 
-    /* Inner border (protocol style) */
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border: 1px solid rgba(0, 49, 83, 0.35);
-      pointer-events: none;
+    /* inner border line */
+    .frame::before{
+      content:"";
+      position:absolute;
+      inset: 12px;
+      border: 1.5px solid rgba(183, 177, 154, 0.75);
+      pointer-events:none;
     }
 
-    /* Logo placement */
-    .logo {
-      position: absolute;
-      top: 33%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: 240px;
-      width: 100%;
-      height: auto;
-      opacity: 0.95;
-      z-index: 2;
-      pointer-events: none;
+    /* logo top-right */
+    .logo{
+      position:absolute;
+      top: 58px;
+      right: 78px;
+      width: 170px;
+      height:auto;
     }
 
-    h1 {
-      margin: 0 0 20px 0;
-      font-size: 32px;
+    .content{
+      max-width: 760px;
+      margin: 0 auto;
+      text-align:center;
+      line-height: 1.2;
+    }
+
+    .title{
+      margin: 56px 0 6px;
+      font-size: 54px;
       font-weight: 600;
     }
 
-    p {
-      margin: 0 0 18px 0;
-      font-size: 22px;
+    .domain{
+      margin: 0 0 96px;
+      font-size: 56px;
+      font-weight: 600;
+    }
+
+    .copy{
+      margin: 0;
+      font-size: 34px;
       font-weight: 500;
-      max-width: 60ch;
     }
 
-    .status {
-      margin-top: 24px;
-      display: inline-block;
-      padding: 8px 16px;
-      border: 1px solid var(--secondary);
-      font-size: 14px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    footer {
-      margin-top: 32px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(0, 49, 83, 0.3);
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive adjustment */
-    @media (max-width: 640px) {
-      .logo {
-        max-width: 180px;
+    @media (max-width: 820px){
+      .frame{ padding: 44px 26px; }
+      .logo{
+        position: static;
+        display:block;
+        margin: 0 auto 28px;
+        width: 150px;
       }
-
-      .card {
-        padding: 120px 28px 40px;
-      }
-
-      p {
-        font-size: 20px;
-      }
+      .title{ font-size: 40px; margin-top: 10px; }
+      .domain{ font-size: 42px; margin-bottom: 56px; }
+      .copy{ font-size: 24px; }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <section class="card" aria-label="Website under construction">
+  <section class="frame" aria-label="Under construction notice">
 
-      <!-- LOGO -->
-      <img
-        src="logo.png"
-        alt="Hauke Thimm – International Protocol & High-Level Event Management"
-        class="logo"
-      >
+    <!-- Place your seal here -->
+    <img
+      class="logo"
+      src="assets/logo.png"
+      alt="Hauke Thimm — High Level Events & Protocol Management"
+    />
 
-      <!-- TEXT -->
-      <h1>haukethimm.com</h1>
+    <div class="content">
+      <h1 class="title">Welcome to</h1>
+      <h2 class="domain">haukethimm.com</h2>
 
-      <p>
-        Welcome to haukethimm.com.<br>
+      <p class="copy">
         This website is currently under construction.<br>
-        Thank you for your interest — a refined digital presence dedicated to
-        international protocol and high-level event management will be available shortly.
+        Thank you for your interest — a refined digital presence dedicated to<br>
+        international protocol and high-level event management<br>
+        will be available shortly.
       </p>
+    </div>
 
-      <span class="status">Under Construction</span>
-
-      <footer>
-        <span>International Protocol &amp; High-Level Event Management</span>
-        <span>
-          <a href="mailto:info@haukethimm.com">mail@haukethimm.com</a>
-        </span>
-      </footer>
-
-    </section>
-  </main>
+  </section>
 </body>
 </html>
