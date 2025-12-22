@@ -1,3 +1,3 @@
 # Homepage
 
-- JS framework: https://getuikit.com/docs/int
+- JS framework: https://getuikit.com/
