@@ -1,94 +1,184 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <!-- Bootstrap -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+
         <!-- Schriftart Cormorant Garamond -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+            rel="stylesheet"
+        />
+
         <style>
+            :root {
+                --cream: #fdf7f2;
+                --blue: #003153;
+
+                --top-offset: 30px;
+                --banner-h: 110px;
+
+                --logo-h: 175px;
+                --side-pad: 175px;
+            }
+
             body {
-                color:#003153;
-                background-color:#fdf7f2;
+                margin: 0;
+                color: var(--blue);
+                background-color: var(--cream);
                 font-family: "Cormorant Garamond", serif;
                 font-optical-sizing: auto;
                 font-weight: 500;
-                /* font-style: italic; */
                 font-size: 36px;
             }
-            .container-xl {
-                padding-top: 30px;
+
+            /* --- FIXED NAV --- */
+            .nav-shell {
+                position: fixed;
+                top: var(--top-offset);
+                left: 0;
+                width: 100%;
+                z-index: 9999;
             }
-        
-        /* Full-width nav banner */
-        .container-xl {
-                padding-top: 30px;
-        }
-        .main-nav {
-            width: 100%;
-            height: 100px;
-            background-color: #003153;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
-        .main-nav a {
-            color: #fdf7f2;
-            text-decoration: none;
-            font-size: 18px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .main-nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Content spacing below the banner */
-        .container-xl {
-            padding-top: 30px;
-            text-align: center;
-        }
-
-        /* Mobile: stack nav items vertically */
-        @media (max-width: 768px) {
-        .main-nav {
-            height: auto;
-            padding: 24px 0;
+            .main-nav {
+                position: relative;
+                height: var(--banner-h);
+                background: var(--blue);
             }
-        }
+
+            /* Links (Menü) */
+            .nav-links {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 4rem;
+
+                padding-right: var(--side-pad); /* rechts 175px */
+                padding-left: calc(var(--side-pad) + 220px); /* Platz fürs Logo */
+            }
+
+            .nav-links a {
+                color: var(--cream);
+                text-decoration: none;
+                font-size: 32px;
+                letter-spacing: 0.02em;
+            }
+
+            .nav-links a:hover {
+                text-decoration: underline;
+            }
+
+            /* Logo: Mittelpunkt auf Unterkante des Banners */
+            .nav-logo {
+                position: absolute;
+                left: var(--side-pad); /* links 175px */
+                top: calc(var(--banner-h) - (var(--logo-h) / 2));
+                display: inline-block;
+            }
+
+            .nav-logo img {
+                height: var(--logo-h);
+                width: auto;
+                display: block;
+            }
+
+            /* Platz schaffen unter fixed nav + überlappendem Logo */
+            .page-offset {
+                padding-top: calc(
+                var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2) + 40px
+                );
+                text-align: center;
+            }
+
+            /* Responsive */
+            @media (max-width: 992px) {
+                :root {
+                --side-pad: 24px;
+            }
+            .nav-links {
+                gap: 1.5rem;
+                padding-left: calc(var(--side-pad) + 160px);
+            }
+            .nav-links a {
+                font-size: 20px;
+            }
+            body {
+                font-size: 28px;
+            }
+            }
+
+            @media (max-width: 576px) {
+            .main-nav {
+                height: auto;
+                padding: 18px 0;
+            }
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding-left: var(--side-pad);
+                padding-right: var(--side-pad);
+                gap: 0.8rem;
+            }
+            .nav-logo {
+                position: static;
+                margin-left: var(--side-pad);
+                margin-bottom: 10px;
+            }
+            .nav-logo img {
+                height: 120px;
+            }
+            .page-offset {
+                padding-top: calc(var(--top-offset) + 16px);
+            }
+            }
         </style>
     </head>
 
     <body>
-        <!-- Navigations Banner (Full Width) -->
-        <nav class="main-nav">
-            <div class="d-flex flex-column flex-md-row gap-3 gap-md-5"></div>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">References</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Imprint</a></li>
-            </ul>
-        </nav>
+        <div class="nav-shell">
+            <nav class="main-nav" aria-label="Primary">
+                <a class="nav-logo" href="#">
+                <img src="img/logo.png" alt="Hauke Thimm" />
+                </a>
 
-        <div class="container-xl">
-            <div class="d-flex justify-content-center">
-                <div><img src="img/logo.png" class="img-fluid" width="200"/></div>
-            </div>
-            <div class="d-flex justify-content-center">
-                <div>
-                Welcome to haukethimm.com<br><br>
-                Unfortunately this website is currently under construction.<br>
-                I look forward to welcoming you here soon.<br><br>
-                Kind regards,<br>
-                Hauke Thimm
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">References</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Imprint</a>
                 </div>
+            </nav>
+        </div>
+
+    <main class="page-offset">
+        <div class="container-xl">
+            <div>
+                Welcome to haukethimm.com<br /><br />
+                Unfortunately this website is currently under construction.<br />
+                I look forward to welcoming you here soon.<br /><br />
+                Kind regards,<br />
+                Hauke Thimm
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </main>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
     </body>
 </html>
