@@ -127,27 +127,22 @@
             );
         }
 
-        /* ===== HEADER IMAGE ===== */
+        /* ===== HEADER IMAGE ===== volle Bildbreite, keine abgeschnittenen Ränder */
         .header-image {
-            position: relative;
             width: 100%;
-            height: 430px; /* entspricht der Bildhöhe */
-            overflow: hidden;
-            z-index: 0; /* unter der Navigation */
+            margin: 0;
+            padding: 0;
         }
 
         .header-image img {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3000px;        /* native Bildbreite */
-            max-width: none;
-            height: 430px;
-            object-fit: cover;
-            object-position: center top;
+            display: block;
+            width: 100%;
+            max-width: 3000px;   /* Originalbreite als Obergrenze */
+            height: auto;        /* proportional */
+            margin: 0 auto;      /* horizontal zentriert */
+            object-fit: contain; /* nichts abschneiden */
+            object-position: center top; /* zentriert / vertikal oben */
         }
-
 
         /* ===== CONTENT WRAPPER ===== */
         .content {
@@ -261,7 +256,7 @@
                 padding-left: 220px;
             }
             .nav-links a {
-                font-size: 22px;
+                font-size: 18px;
             }
         }
 
@@ -336,29 +331,29 @@
         <!-- Fixed Nav -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
-                    <a class="nav-logo" href="#home">
-                    <img src="img/logo.png" alt="Hauke Thimm" />
-                    </a>
+            <a class="nav-logo" href="#home">
+                <img src="img/logo.png" alt="Hauke Thimm" />
+            </a>
 
-                    <div class="nav-inner">
-                    <div class="nav-links">
-                        <a href="#home">Home</a>
-                        <a href="#services">Services</a>
-                        <a href="#references">References</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#imprint">Imprint</a>
-                    </div>
-                    </div>
+            <div class="nav-inner">
+                <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#references">References</a>
+                <a href="#contact">Contact</a>
+                <a href="#imprint">Imprint</a>
+                </div>
+            </div>
             </nav>
         </div>
 
+        <!-- Header image at top of page (behind nav), keeps original width without cropping -->
+        <section class="header-image" aria-label="Header image">
+            <img src="img/header.jpg" alt="" />
+        </section>
+
         <!-- Page content starts below fixed nav + logo overlap -->
         <div class="page-offset" id="home">
-            <!-- Header image directly under nav area -->
-            <section class="header-image" aria-label="Header image">
-                <img src="img/header.jpg" alt="" />
-            </section>
-
             <div class="content">
                 <!-- About -->
                 <section class="about anchor" id="about">
@@ -376,58 +371,57 @@
                     </p>
                 </section>
 
-                <!-- Placeholder: Services -->
+                <!-- Placeholder: Services
                 <section class="placeholder anchor" id="services">
                     <h2>Services</h2>
                     <p>Section coming soon.</p>
                 </section>
 
-                <!-- Placeholder: References -->
+                Placeholder: References
                 <section class="placeholder anchor" id="references">
                     <h2>References</h2>
                     <p>Section coming soon.</p>
                 </section>
 
-                <!-- Placeholder: Contact -->
+                Placeholder: Contact
                 <section class="placeholder anchor" id="contact">
                     <h2>Contact</h2>
                     <p>Section coming soon.</p>
-                </section>
+                </section> -->
             </div>
 
             <!-- Footer / Certified by -->
             <footer class="footer anchor" id="imprint">
                 <div class="footer-inner">
                     <div class="certified">
-                        <div class="certified-label">Certified by:</div>
+                    <div class="certified-label">Certified by:</div>
 
-                            <!-- <a
-                            href="https://www.handelskammer-hamburg.de/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Handelskammer Hamburg"
-                            >
-                            <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
-                            </a> -->
+                    <!-- <a
+                        href="https://www.handelskammer-hamburg.de/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Handelskammer Hamburg">
+                        <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                    </a> -->
 
-                            <a
-                            href="https://protocolbureau.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Protocolbureau"
-                            >
-                            <img src="img/protocolbureau.png" alt="Protocolbureau" />
-                            </a>
-
+                    <a
+                        href="https://protocolbureau.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Protocolbureau"
+                    >
+                        <img src="img/protocolbureau.png" alt="Protocolbureau" />
+                    </a>
                     </div>
 
                     <div class="legal-text">
                     <span>Impressum</span>
-                        <span>DSGVO</span>
+                    <span>DSGVO</span>
                     </div>
                 </div>
             </footer>
         </div>
+
         <!-- Bootstrap JS (optional; remove if unused) -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
