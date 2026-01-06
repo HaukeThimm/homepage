@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
-        <!-- Bootstrap -->
+        <!-- Meta -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>haukethimm.com</title>
+
+        <!-- Bootstrap (optional; layout below does not depend on it) -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -11,173 +16,404 @@
             crossorigin="anonymous"
         />
 
-        <!-- Schriftart Cormorant Garamond -->
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-            <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+        <!-- Font: Cormorant Garamond -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
             rel="stylesheet"
         />
 
         <style>
             :root {
-                --cream: #fdf7f2;
-                --blue: #003153;
+            --cream: #fdf7f2;
+            --blue: #003153;
 
-                --top-offset: 20px;
-                --banner-h: 80px;
+            --top-offset: 30px;
+            --banner-h: 110px;
 
-                --logo-h: 175px;
-                --side-pad: 175px;
+            --logo-h: 175px;
+            --side-pad: 175px;
 
-                /* Platz links für das Logo, damit Menü nicht darunter läuft */
-                --logo-clearance: 220px;
+            --max-width: 1400px;
             }
 
-            body {
-                margin: 0;
-                color: var(--blue);
-                background-color: var(--cream);
-                font-family: "Cormorant Garamond", serif;
-                font-optical-sizing: auto;
-                font-weight: 500;
-                font-size: 24px;
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--blue);
+            background-color: var(--cream);
+            font-family: "Cormorant Garamond", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+        }
+
+        /* ===== FIXED NAV (banner + logo) ===== */
+        .nav-shell {
+            position: fixed;
+            top: var(--top-offset);
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .main-nav {
+            position: relative;
+            height: var(--banner-h);
+            background: var(--blue);
+            pointer-events: auto;
+        }
+
+        .nav-inner {
+            height: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-pad);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Logo: center point sits on bottom edge of banner */
+        .nav-logo {
+            position: absolute;
+            left: var(--side-pad);
+            top: calc(var(--banner-h) - (var(--logo-h) / 2));
+            display: inline-block;
+        }
+
+        .nav-logo img {
+            height: var(--logo-h);
+            width: auto;
+            display: block;
+        }
+
+        /* Links */
+        .nav-links {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+
+            /* reserve space on left for overlapping logo so menu doesn't collide */
+            padding-left: 260px;
+            padding-right: 0;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 32px;
+            letter-spacing: 0.02em;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== LAYOUT OFFSET ===== */
+        .page-offset {
+            padding-top: calc(
+                var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2)
+            );
+        }
+
+        /* ===== HEADER IMAGE ===== */
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== CONTENT WRAPPER ===== */
+        .content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-pad);
+        }
+
+        /* ===== SECTION BASE (for anchors) ===== */
+        section.anchor {
+            scroll-margin-top: calc(
+                var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2) + 20px
+            );
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .about h2 {
+            margin: 0 0 18px 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .about p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        /* ===== PLACEHOLDER SECTIONS ===== */
+        .placeholder {
+            padding: 60px 0;
+        }
+
+        .placeholder h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .placeholder p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* ===== FOOTER CERTIFIED BY ===== */
+        .footer {
+            border-top: 1px solid rgba(0, 49, 83, 0.25);
+            padding: 28px 0 40px;
+        }
+
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-pad);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .certified {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .certified-label {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--blue);
+        }
+
+        .certified a img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        .legal-text {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--blue);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            :root {
+                --side-pad: 32px;
             }
-
-            /* --- FIXED NAV --- */
-            .nav-shell {
-                position: fixed;
-                top: var(--top-offset);
-                left: 0;
-                width: 100%;
-                z-index: 9999;
-            }
-
-            .main-nav {
-                position: relative;
-                height: var(--banner-h);
-                background: var(--blue);
-            }
-
-            /* Links (Menü) */
-            .nav-links {
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 4rem;
-
-                padding-right: var(--side-pad); /* rechts 175px */
-                padding-left: calc(var(--side-pad) + 220px); /* Platz fürs Logo */
-            }
-
-            .nav-links a {
-                color: var(--cream);
-                text-decoration: none;
-                font-size: 24px;
-                letter-spacing: 0.02em;
-            }
-
-            .nav-links a:hover {
-                text-decoration: underline;
-            }
-
-            /* Logo: Mittelpunkt auf Unterkante des Banners */
             .nav-logo {
-                position: absolute;
-                left: var(--side-pad); /* links 175px */
-                top: calc(var(--banner-h) - (var(--logo-h) / 2));
-                display: inline-block;
-            }
-
-            .nav-logo img {
-                height: var(--logo-h);
-                width: auto;
-                display: block;
-            }
-
-            /* Platz schaffen unter fixed nav + überlappendem Logo */
-            .page-offset {
-                padding-top: calc(
-                var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2) + 40px
-                );
-                text-align: center;
-            }
-
-            /* Responsive */
-            @media (max-width: 992px) {
-                :root {
-                --side-pad: 24px;
+            left: var(--side-pad);
             }
             .nav-links {
-                gap: 1.5rem;
-                padding-left: calc(var(--side-pad) + 160px);
+                gap: 2rem;
+                padding-left: 220px;
             }
             .nav-links a {
-                font-size: 24px;
+                font-size: 22px;
             }
-            body {
-                font-size: 24px;
-            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --top-offset: 16px;
+                --banner-h: 86px;
+                --logo-h: 120px;
+                --side-pad: 18px;
             }
 
-            @media (max-width: 576px) {
+            .nav-inner {
+                padding: 0 var(--side-pad);
+            }
+
+            .nav-logo {
+                left: var(--side-pad);
+                top: calc(var(--banner-h) - (var(--logo-h) / 2));
+            }
+
+            .nav-links {
+                justify-content: flex-end;
+                gap: 12px;
+                padding-left: 150px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                font-size: 16px;
+            }
+
+            .content {
+                padding: 0 var(--side-pad);
+            }
+
+            .about h2,
+            .placeholder h2 {
+                font-size: 22px;
+            }
+
+            .about p,
+            .placeholder p {
+                font-size: 16px;
+            }
+
+            .certified a img {
+                height: 64px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                justify-content: flex-start;
+                padding-left: 0;
+                padding-top: 10px;
+            }
+            .nav-inner {
+                align-items: flex-start;
+            }
             .main-nav {
                 height: auto;
-                padding: 18px 0;
-            }
-            .nav-links {
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                padding-left: var(--side-pad);
-                padding-right: var(--side-pad);
-                gap: 0.8rem;
-            }
-            .nav-logo {
-                position: static;
-                margin-left: var(--side-pad);
-                margin-bottom: 10px;
-            }
-            .nav-logo img {
-                height: 120px;
+                padding-bottom: 14px;
             }
             .page-offset {
-                padding-top: calc(var(--top-offset) + 16px);
+                padding-top: calc(var(--top-offset) + 10px);
             }
-            }
+        }
         </style>
     </head>
 
     <body>
+        <!-- Fixed Nav -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
-                <a class="nav-logo" href="#">
-                <img src="img/logo.png" alt="Hauke Thimm" />
-                </a>
+                    <a class="nav-logo" href="#home">
+                    <img src="img/logo.png" alt="Hauke Thimm" />
+                    </a>
 
-                <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">Services</a>
-                    <a href="#">References</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Imprint</a>
-                </div>
+                    <div class="nav-inner">
+                    <div class="nav-links">
+                        <a href="#home">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="#references">References</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#imprint">Imprint</a>
+                    </div>
+                    </div>
             </nav>
         </div>
 
-    <main class="page-offset">
-        <div class="container-xl">
-            <div>
-                Welcome to haukethimm.com<br /><br />
-                Unfortunately this website is currently under construction.<br />
-                I look forward to welcoming you here soon.<br /><br />
-                Kind regards,<br />
-                Hauke Thimm
-            </div>
-        </div>
-    </main>
+        <!-- Page content starts below fixed nav + logo overlap -->
+        <div class="page-offset" id="home">
+            <!-- Header image directly under nav area -->
+            <section class="header-image" aria-label="Header image">
+                <img src="img/header.jpg" alt="" />
+            </section>
 
+            <div class="content">
+                <!-- About -->
+                <section class="about anchor" id="about">
+                    <h2>About me</h2>
+                    <p>
+                    Born near the North Sea, I found my professional home in Hamburg — connected to the North, yet open to new places, perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
+
+                    I have more than ten years of experience in event management, with a clear focus on (international) protocol management since 2022. My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security, discretion, and cultural precision.
+
+                    Several years spent working at sea, across nearly all major oceans, broadened my perspective. Operating in culturally diverse environments strengthened my openness, curiosity, and sensitivity to people and context — qualities that continue to shape my professional approach today.
+
+                    In demanding situations, I remain calm, structured, and decisive. Colleagues value my ability to provide stability under pressure and to keep focus on what truly matters.
+
+                    I work confidently in German and English at a professional level and am currently developing my French. In international settings, I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness.
+                    </p>
+                </section>
+
+                <!-- Placeholder: Services -->
+                <section class="placeholder anchor" id="services">
+                    <h2>Services</h2>
+                    <p>Section coming soon.</p>
+                </section>
+
+                <!-- Placeholder: References -->
+                <section class="placeholder anchor" id="references">
+                    <h2>References</h2>
+                    <p>Section coming soon.</p>
+                </section>
+
+                <!-- Placeholder: Contact -->
+                <section class="placeholder anchor" id="contact">
+                    <h2>Contact</h2>
+                    <p>Section coming soon.</p>
+                </section>
+            </div>
+
+            <!-- Footer / Certified by -->
+            <footer class="footer anchor" id="imprint">
+                <div class="footer-inner">
+                    <div class="certified">
+                        <div class="certified-label">Certified by:</div>
+
+                            <!-- <a
+                            href="https://www.handelskammer-hamburg.de/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Handelskammer Hamburg"
+                            >
+                            <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                            </a> -->
+
+                            <a
+                            href="https://protocolbureau.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Protocolbureau"
+                            >
+                            <img src="img/protocolbureau.jpg" alt="Protocolbureau" />
+                            </a>
+
+                    </div>
+
+                    <div class="legal-text">
+                    <span>Impressum</span>
+                        <span>DSGVO</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- Bootstrap JS (optional; remove if unused) -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
