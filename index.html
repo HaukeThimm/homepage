@@ -128,11 +128,26 @@
         }
 
         /* ===== HEADER IMAGE ===== */
-        .header-image img {
+        .header-image {
+            position: relative;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 430px; /* entspricht der Bildhöhe */
+            overflow: hidden;
+            z-index: 0; /* unter der Navigation */
         }
+
+        .header-image img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3000px;        /* native Bildbreite */
+            max-width: none;
+            height: 430px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
 
         /* ===== CONTENT WRAPPER ===== */
         .content {
@@ -401,7 +416,7 @@
                             rel="noopener noreferrer"
                             aria-label="Protocolbureau"
                             >
-                            <img src="img/protocolbureau.jpg" alt="Protocolbureau" />
+                            <img src="img/protocolbureau.png" alt="Protocolbureau" />
                             </a>
 
                     </div>
