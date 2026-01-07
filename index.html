@@ -25,7 +25,7 @@
         --logo-h: 175px;
         --side-pad: 175px;
 
-        --header-h: 520px; /* EXAKTE Pixelhöhe von header.jpg anpassen */
+        --header-h: 520px; /* EXAKTE Pixelhöhe von header.jpg */
         --footer-h: 140px;
 
         --max-width: 1400px;
@@ -80,35 +80,33 @@
         display: block;
       }
 
-      /* ===== ONE-SCREEN LAYOUT ===== */
-      .page-shell {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding-top: calc(
-          var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2)
-        );
-      }
-
-      /* ===== HEADER IMAGE ===== */
+      /* ===== HEADER IMAGE (full width, starts at top, fixed height) ===== */
       .header-image {
+        width: 100%;
         height: var(--header-h);
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        margin: 0;
+        padding: 0;
         overflow: hidden;
       }
 
       .header-image img {
+        width: 100%;
         height: 100%;
-        width: auto;
-        max-width: 3000px;
-        object-fit: contain;
-        object-position: center top;
         display: block;
+
+        /* full width + fixed height */
+        object-fit: cover;          /* fills full width; may crop edges */
+        object-position: center top; /* horizontal centered, vertical top */
       }
 
-      /* ===== MAINTENANCE TEXT ===== */
+      /* ===== ONE-SCREEN LAYOUT (header + centered text + footer, no scroll) ===== */
+      .page-shell {
+        min-height: calc(100vh - var(--header-h));
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ===== MAINTENANCE TEXT (centered within remaining space) ===== */
       .maintenance {
         flex: 1;
         min-height: 0;
@@ -152,16 +150,9 @@
           --banner-h: 86px;
           --logo-h: 120px;
           --side-pad: 18px;
-          --header-h: auto;
-        }
 
-        .header-image {
-          height: auto;
-        }
-
-        .header-image img {
-          width: 100%;
-          height: auto;
+          /* keep your fixed header height unless you want it smaller on mobile */
+          /* --header-h: 340px; */
         }
 
         .maintenance p {
@@ -182,13 +173,13 @@
       </nav>
     </div>
 
-    <!-- One-screen content -->
-    <main class="page-shell">
-      <!-- Header image -->
-      <section class="header-image" aria-label="Header image">
-        <img src="img/header.jpg" alt="" />
-      </section>
+    <!-- Header image (full width, starts at top, behind nav) -->
+    <section class="header-image" aria-label="Header image">
+      <img src="img/header.jpg" alt="" />
+    </section>
 
+    <!-- One-screen content (text + footer) -->
+    <main class="page-shell">
       <!-- Maintenance message -->
       <section class="maintenance" aria-label="Under construction message">
         <p>
