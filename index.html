@@ -25,7 +25,6 @@
         --logo-h: 175px;
         --side-pad: 175px;
 
-        --header-h: 520px; /* EXAKTE Pixelhöhe von header.jpg */
         --footer-h: 140px;
 
         --max-width: 1400px;
@@ -80,38 +79,32 @@
         display: block;
       }
 
-      /* ===== HEADER IMAGE (NO CROPPING) ===== */
+      /* ===== HEADER IMAGE (FULL WIDTH, NO CROPPING) ===== */
       .header-image {
         width: 100%;
-        height: var(--header-h);
         margin: 0;
         padding: 0;
-
-        /* If aspect ratio doesn't match, background shows (no cropping) */
-        background-color: var(--cream);
-
-        display: flex;
-        justify-content: center;    /* horizontal center */
-        align-items: flex-start;     /* vertical 0 (top) */
       }
 
       .header-image img {
-        height: 100%;
-        width: 100%;
+        width: 100%;   /* full width */
+        height: auto;  /* no cropping, keeps full image */
         display: block;
-
-        object-fit: contain;         /* NO CROPPING */
-        object-position: center top; /* centered horizontally, top aligned */
       }
 
-      /* ===== ONE-SCREEN LAYOUT (text + footer) ===== */
+      /* ===== CONTENT (text + footer) ===== */
       .page-shell {
-        min-height: calc(100vh - var(--header-h));
+        min-height: calc(100vh - var(--footer-h));
         display: flex;
         flex-direction: column;
+
+        /* space so content begins below fixed nav + logo overlap */
+        padding-top: calc(
+          var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2)
+        );
       }
 
-      /* ===== MAINTENANCE TEXT (centered) ===== */
+      /* ===== MAINTENANCE TEXT ===== */
       .maintenance {
         flex: 1;
         min-height: 0;
@@ -175,14 +168,13 @@
       </nav>
     </div>
 
-    <!-- Header image (full width container, image not cropped) -->
+    <!-- Header image (full width, no crop) -->
     <section class="header-image" aria-label="Header image">
       <img src="img/header.jpg" alt="" />
     </section>
 
-    <!-- One-screen content (text + footer) -->
+    <!-- Content (text + footer) -->
     <main class="page-shell">
-      <!-- Maintenance message -->
       <section class="maintenance" aria-label="Under construction message">
         <p>
           <strong>Welcome.</strong><br />
@@ -192,7 +184,6 @@
         </p>
       </section>
 
-      <!-- Footer -->
       <footer class="footer" aria-label="Footer"></footer>
     </main>
   </body>
