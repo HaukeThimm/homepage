@@ -37,7 +37,7 @@
       background: var(--cream);
       color: var(--blue);
       font-family: "Cormorant Garamond", serif;
-      overflow: hidden; /* keine Scrollbars */
+      overflow: hidden;
     }
 
     /* ===== HEADER IMAGE ===== */
@@ -50,12 +50,12 @@
     }
 
     .header-image img {
-      width: 100%;      /* volle Breite */
-      height: auto;     /* KEIN Cropping */
+      width: 100%;
+      height: auto; /* no cropping */
       display: block;
     }
 
-    /* ===== FIXED NAV ===== */
+    /* ===== FIXED NAV (DESKTOP) ===== */
     .nav-shell {
       position: fixed;
       top: var(--top-offset);
@@ -84,7 +84,7 @@
       display: block;
     }
 
-    /* ===== CENTERED TEXT ===== */
+    /* ===== CENTERED TEXT (DESKTOP) ===== */
     .maintenance {
       position: fixed;
       inset: 0;
@@ -111,17 +111,48 @@
       font-weight: 500;
     }
 
-    /* ===== RESPONSIVE ===== */
+    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       :root {
-        --top-offset: 16px;
-        --banner-h: 86px;
-        --logo-h: 120px;
+        --top-offset: 0;
+        --banner-h: auto;
         --side-pad: 18px;
       }
 
+      /* Remove banner look on mobile */
+      .main-nav {
+        background: transparent;
+        height: auto;
+      }
+
+      .nav-logo {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+      }
+
+      .nav-logo img {
+        width: 40vw;   /* 40% of viewport width */
+        height: auto;
+      }
+
+      /* Stack logo + text */
+      .maintenance {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 18px;
+        text-align: center;
+      }
+
       .maintenance p {
+        margin-top: 24px;
         font-size: 18px;
+        padding: 16px 20px;
       }
     }
   </style>
@@ -134,7 +165,7 @@
     <img src="img/header.jpg" alt="" />
   </section>
 
-  <!-- Fixed Nav -->
+  <!-- Nav / Logo -->
   <div class="nav-shell">
     <nav class="main-nav">
       <a class="nav-logo" href="#">
@@ -143,7 +174,7 @@
     </nav>
   </div>
 
-  <!-- Centered Text -->
+  <!-- Maintenance Text -->
   <section class="maintenance">
     <p>
       <strong>Welcome.</strong><br />
