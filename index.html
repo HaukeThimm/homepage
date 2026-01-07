@@ -1,204 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!-- Meta -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>haukethimm.com</title>
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>haukethimm.com</title>
 
-<!-- Font: Cormorant Garamond -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
-rel="stylesheet"
-/>
+    <!-- Font: Cormorant Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-:root {
---cream: #fdf7f2;
---blue: #003153;
+    <style>
+      :root {
+        --cream: #fdf7f2;
+        --blue: #003153;
 
---top-offset: 30px;
---banner-h: 110px;
+        --top-offset: 30px;
+        --banner-h: 110px;
 
---logo-h: 175px;
---side-pad: 175px;
+        --logo-h: 175px;
+        --side-pad: 175px;
 
---max-width: 3000px;
---header-h: 1200px;
-}
+        --header-h: 430px; /* EXAKTE Pixelhöhe von header.jpg anpassen */
+        --footer-h: 140px;
 
-* {
-box-sizing: border-box;
-}
+        --max-width: 1400px;
+      }
 
-body {
-margin: 0;
-color: var(--blue);
-background-color: var(--cream);
-font-family: "Cormorant Garamond", serif;
-font-optical-sizing: auto;
-font-weight: 500;
-}
+      * {
+        box-sizing: border-box;
+      }
 
-/* ===== FIXED NAV (banner + logo only) ===== */
-.nav-shell {
-position: fixed;
-top: var(--top-offset);
-left: 0;
-width: 100%;
-z-index: 9999;
-pointer-events: none;
-}
+      body {
+        margin: 0;
+        background-color: var(--cream);
+        color: var(--blue);
+        font-family: "Cormorant Garamond", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+      }
 
-.main-nav {
-position: relative;
-height: var(--banner-h);
-background: var(--blue);
-pointer-events: auto;
-}
+      /* ===== FIXED NAV (Banner + Logo, no text) ===== */
+      .nav-shell {
+        position: fixed;
+        top: var(--top-offset);
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        pointer-events: none;
+      }
 
-.nav-inner {
-height: 100%;
-max-width: var(--max-width);
-margin: 0 auto;
-padding: 0 var(--side-pad);
-display: flex;
-align-items: center;
-}
+      .main-nav {
+        position: relative;
+        height: var(--banner-h);
+        background-color: var(--blue);
+        pointer-events: auto;
+      }
 
-/* Logo: center point sits on bottom edge of banner */
-.nav-logo {
-position: absolute;
-left: var(--side-pad);
-top: calc(var(--banner-h) - (var(--logo-h) / 2));
-display: inline-block;
-}
+      .nav-inner {
+        height: 100%;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 var(--side-pad);
+      }
 
-.nav-logo img {
-height: var(--logo-h);
-width: auto;
-display: block;
-}
+      .nav-logo {
+        position: absolute;
+        left: var(--side-pad);
+        top: calc(var(--banner-h) - (var(--logo-h) / 2));
+      }
 
-/* ===== HEADER IMAGE ===== */
-.header-image {
-width: 100%;
-margin: 0;
-padding: 0;
-}
+      .nav-logo img {
+        height: var(--logo-h);
+        width: auto;
+        display: block;
+      }
 
-.header-image img {
-display: block;
-width: 100%;
-max-width: 3000px;
-height: auto;
-margin: 0 auto;
-object-fit: contain;
-object-position: center top;
-}
+      /* ===== ONE-SCREEN LAYOUT ===== */
+      .page-shell {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding-top: calc(
+          var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2)
+        );
+      }
 
-/* ===== LAYOUT OFFSET ===== */
-.page-offset {
-padding-top: calc(
-var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2)
-);
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-}
+      /* ===== HEADER IMAGE ===== */
+      .header-image {
+        height: var(--header-h);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+      }
 
-/* ===== MAINTENANCE CENTER TEXT ===== */
-.maintenance {
-flex: 1;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-padding: 48px var(--side-pad);
-}
+      .header-image img {
+        height: 100%;
+        width: auto;
+        max-width: 3000px;
+        object-fit: contain;
+        object-position: center top;
+        display: block;
+      }
 
-.maintenance p {
-margin: 0;
-font-size: 20px;
-font-weight: 300;
-line-height: 1.7;
-}
+      /* ===== MAINTENANCE TEXT ===== */
+      .maintenance {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 var(--side-pad);
+      }
 
-.maintenance strong {
-font-weight: 500;
-}
+      .maintenance p {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 1.7;
+      }
 
-/* ===== FOOTER (blue block, no text, no logos) ===== */
-.footer {
-background-color: var(--blue);
-height: 140px;
-}
+      .maintenance strong {
+        font-weight: 500;
+      }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1200px) {
-:root {
---side-pad: 32px;
-}
-.nav-logo {
-left: var(--side-pad);
-}
-}
+      /* ===== FOOTER ===== */
+      .footer {
+        height: var(--footer-h);
+        background-color: var(--blue);
+      }
 
-@media (max-width: 768px) {
-:root {
---top-offset: 16px;
---banner-h: 86px;
---logo-h: 120px;
---side-pad: 18px;
-}
-.nav-inner {
-padding: 0 var(--side-pad);
-}
-.nav-logo {
-left: var(--side-pad);
-top: calc(var(--banner-h) - (var(--logo-h) / 2));
-}
-.maintenance {
-padding: 36px var(--side-pad);
-}
-.maintenance p {
-font-size: 18px;
-}
-}
-</style>
-</head>
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 1200px) {
+        :root {
+          --side-pad: 32px;
+        }
+        .nav-logo {
+          left: var(--side-pad);
+        }
+      }
 
-<body>
-<!-- Fixed Nav -->
-<div class="nav-shell">
-<nav class="main-nav" aria-label="Primary">
-<a class="nav-logo" href="#">
-<img src="img/logo.png" alt="Hauke Thimm" />
-</a>
-<div class="nav-inner"></div>
-</nav>
-</div>
+      @media (max-width: 768px) {
+        :root {
+          --top-offset: 16px;
+          --banner-h: 86px;
+          --logo-h: 120px;
+          --side-pad: 18px;
+          --header-h: auto;
+        }
 
-<!-- Header image (visible behind nav, scrolls normally) -->
-<section class="header-image" aria-label="Header image">
-<img src="img/header.jpg" alt="" />
-</section>
+        .header-image {
+          height: auto;
+        }
 
-<!-- Page content starts below fixed nav + logo overlap -->
-<main class="page-offset">
-<section class="maintenance" aria-label="Under construction message">
-<p>
-<strong>Welcome.</strong><br />
-This website ist currently under construction.<br /><br />
-Kind regards,<br />
-Hauke Thimm
-</p>
-</section>
+        .header-image img {
+          width: 100%;
+          height: auto;
+        }
 
-<!-- Footer (no text, no logos, no links) -->
-<footer class="footer" aria-label="Footer"></footer>
-</main>
-</body>
+        .maintenance p {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Fixed Nav -->
+    <div class="nav-shell">
+      <nav class="main-nav" aria-label="Primary">
+        <a class="nav-logo" href="#">
+          <img src="img/logo.png" alt="Hauke Thimm" />
+        </a>
+        <div class="nav-inner"></div>
+      </nav>
+    </div>
+
+    <!-- One-screen content -->
+    <main class="page-shell">
+      <!-- Header image -->
+      <section class="header-image" aria-label="Header image">
+        <img src="img/header.jpg" alt="" />
+      </section>
+
+      <!-- Maintenance message -->
+      <section class="maintenance" aria-label="Under construction message">
+        <p>
+          <strong>Welcome.</strong><br />
+          This website ist currently under construction.<br /><br />
+          Kind regards,<br />
+          Hauke Thimm
+        </p>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer" aria-label="Footer"></footer>
+    </main>
+  </body>
 </html>
