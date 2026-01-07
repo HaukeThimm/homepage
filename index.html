@@ -80,33 +80,38 @@
         display: block;
       }
 
-      /* ===== HEADER IMAGE (full width, starts at top, fixed height) ===== */
+      /* ===== HEADER IMAGE (NO CROPPING) ===== */
       .header-image {
         width: 100%;
         height: var(--header-h);
         margin: 0;
         padding: 0;
-        overflow: hidden;
+
+        /* If aspect ratio doesn't match, background shows (no cropping) */
+        background-color: var(--cream);
+
+        display: flex;
+        justify-content: center;    /* horizontal center */
+        align-items: flex-start;     /* vertical 0 (top) */
       }
 
       .header-image img {
-        width: 100%;
         height: 100%;
+        width: 100%;
         display: block;
 
-        /* full width + fixed height */
-        object-fit: cover;          /* fills full width; may crop edges */
-        object-position: center top; /* horizontal centered, vertical top */
+        object-fit: contain;         /* NO CROPPING */
+        object-position: center top; /* centered horizontally, top aligned */
       }
 
-      /* ===== ONE-SCREEN LAYOUT (header + centered text + footer, no scroll) ===== */
+      /* ===== ONE-SCREEN LAYOUT (text + footer) ===== */
       .page-shell {
         min-height: calc(100vh - var(--header-h));
         display: flex;
         flex-direction: column;
       }
 
-      /* ===== MAINTENANCE TEXT (centered within remaining space) ===== */
+      /* ===== MAINTENANCE TEXT (centered) ===== */
       .maintenance {
         flex: 1;
         min-height: 0;
@@ -150,9 +155,6 @@
           --banner-h: 86px;
           --logo-h: 120px;
           --side-pad: 18px;
-
-          /* keep your fixed header height unless you want it smaller on mobile */
-          /* --header-h: 340px; */
         }
 
         .maintenance p {
@@ -173,7 +175,7 @@
       </nav>
     </div>
 
-    <!-- Header image (full width, starts at top, behind nav) -->
+    <!-- Header image (full width container, image not cropped) -->
     <section class="header-image" aria-label="Header image">
       <img src="img/header.jpg" alt="" />
     </section>
