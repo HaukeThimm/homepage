@@ -26,304 +26,339 @@
 
         <style>
             :root {
-            --cream: #fdf7f2;
-            --blue: #003153;
+                --cream: #fdf7f2;
+                --blue: #003153;
 
-            --top-offset: 30px;
-            --banner-h: 110px;
+                --top-offset: 30px;
+                --banner-h: 110px;
 
-            --logo-h: 175px;
-            --side-pad: 175px;
+                --logo-h: 175px;
+                --side-pad: 175px;
 
-            --max-width: 1400px;
+                --max-width: 1400px;
             }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            color: var(--blue);
-            background-color: var(--cream);
-            font-family: "Cormorant Garamond", serif;
-            font-optical-sizing: auto;
-            font-weight: 500;
-        }
-
-        /* ===== FIXED NAV (banner + logo) ===== */
-        .nav-shell {
-            position: fixed;
-            top: var(--top-offset);
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .main-nav {
-            position: relative;
-            height: var(--banner-h);
-            background: var(--blue);
-            pointer-events: auto;
-        }
-
-        .nav-inner {
-            height: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--side-pad);
-            display: flex;
-            align-items: center;
-        }
-
-        /* Logo: center point sits on bottom edge of banner */
-        .nav-logo {
-            position: absolute;
-            left: var(--side-pad);
-            top: calc(var(--banner-h) - (var(--logo-h) / 2));
-            display: inline-block;
-        }
-
-        .nav-logo img {
-            height: var(--logo-h);
-            width: auto;
-            display: block;
-        }
-
-        /* Links */
-        .nav-links {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4rem;
-
-            /* reserve space on left for overlapping logo so menu doesn't collide */
-            padding-left: 260px;
-            padding-right: 0;
-        }
-
-        .nav-links a {
-            color: var(--cream);
-            text-decoration: none;
-            font-size: 32px;
-            letter-spacing: 0.02em;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* ===== LAYOUT OFFSET ===== */
-        .page-offset {
-            padding-top: calc(
-                var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2)
-            );
-        }
-
-        /* ===== HEADER IMAGE ===== volle Bildbreite, keine abgeschnittenen Ränder */
-        .header-image {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header-image img {
-            display: block;
-            width: 100%;
-            max-width: 3000px;   /* Originalbreite als Obergrenze */
-            height: auto;        /* proportional */
-            margin: 0 auto;      /* horizontal zentriert */
-            object-fit: contain; /* nichts abschneiden */
-            object-position: center top; /* zentriert / vertikal oben */
-        }
-
-        /* ===== CONTENT WRAPPER ===== */
-        .content {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--side-pad);
-        }
-
-        /* ===== SECTION BASE (for anchors) ===== */
-        section.anchor {
-            scroll-margin-top: calc(
-                var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2) + 20px
-            );
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        .about {
-            padding-top: 60px;
-            padding-bottom: 60px;
-        }
-
-        .about h2 {
-            margin: 0 0 18px 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .about p {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 300;
-            line-height: 1.6;
-            white-space: pre-line;
-        }
-
-        /* ===== PLACEHOLDER SECTIONS ===== */
-        .placeholder {
-            padding: 60px 0;
-        }
-
-        .placeholder h2 {
-            margin: 0 0 10px 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .placeholder p {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 300;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-        /* ===== FOOTER CERTIFIED BY ===== */
-        .footer {
-            border-top: 1px solid rgba(0, 49, 83, 0.25);
-            padding: 28px 0 40px;
-        }
-
-        .footer-inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--side-pad);
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .certified {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        .certified-label {
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--blue);
-        }
-
-        .certified a img {
-            height: 80px;
-            width: auto;
-            display: block;
-        }
-
-        .legal-text {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--blue);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1200px) {
-            :root {
-                --side-pad: 32px;
+            * {
+                box-sizing: border-box;
             }
-            .nav-logo {
-            left: var(--side-pad);
-            }
-            .nav-links {
-                gap: 2rem;
-                padding-left: 220px;
-            }
-            .nav-links a {
-                font-size: 18px;
-            }
-        }
 
-        @media (max-width: 768px) {
-            :root {
-                --top-offset: 16px;
-                --banner-h: 86px;
-                --logo-h: 120px;
-                --side-pad: 18px;
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                color: var(--blue);
+                background-color: var(--cream);
+                font-family: "Cormorant Garamond", serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+            }
+
+            /* ===== FIXED NAV (banner + logo) ===== */
+            .nav-shell {
+                position: fixed;
+                top: var(--top-offset);
+                left: 0;
+                width: 100%;
+                z-index: 9999;
+                pointer-events: none;
+            }
+
+            .main-nav {
+                position: relative;
+                height: var(--banner-h);
+                background: var(--blue);
+                pointer-events: auto;
             }
 
             .nav-inner {
+                height: 100%;
+                max-width: var(--max-width);
+                margin: 0 auto;
+                padding: 0 var(--side-pad);
+                display: flex;
+                align-items: center;
+            }
+
+            /* Logo: center point sits on bottom edge of banner */
+            .nav-logo {
+                position: absolute;
+                left: var(--side-pad);
+                top: calc(var(--banner-h) - (var(--logo-h) / 2));
+                display: inline-block;
+            }
+
+            .nav-logo img {
+                height: var(--logo-h);
+                width: auto;
+                display: block;
+            }
+
+            /* Links */
+            .nav-links {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 4rem;
+
+                /* reserve space on left for overlapping logo so menu doesn't collide */
+                padding-left: 260px;
+                padding-right: 0;
+            }
+
+            .nav-links a {
+                color: var(--cream);
+                text-decoration: none;
+                font-size: 32px;
+                letter-spacing: 0.02em;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover {
+                text-decoration: underline;
+            }
+
+            /* ===== LAYOUT OFFSET ===== */
+            .page-offset {
+                padding-top: calc(
+                    var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2)
+                );
+            }
+
+            /* ===== HEADER IMAGE ===== volle Bildbreite, keine abgeschnittenen Ränder */
+            .header-image {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .header-image img {
+                display: block;
+                width: 100%;
+                max-width: 3000px;              /* Originalbreite als Obergrenze */
+                height: auto;                   /* proportional */
+                margin: 0 auto;                 /* horizontal zentriert */
+                object-fit: contain;            /* nichts abschneiden */
+                object-position: center top;    /* zentriert / vertikal oben */
+            }
+
+            /* ===== CONTENT WRAPPER ===== */
+            .content {
+                max-width: var(--max-width);
+                margin: 0 auto;
                 padding: 0 var(--side-pad);
             }
 
-            .nav-logo {
-                left: var(--side-pad);
-                top: calc(var(--banner-h) - (var(--logo-h) / 2));
+            /* ===== SECTION BASE (for anchors) ===== */
+            section.anchor {
+                scroll-margin-top: calc(
+                    var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2) + 20px
+                );
             }
 
-            .nav-links {
-                justify-content: flex-end;
-                gap: 12px;
-                padding-left: 150px;
+            /* ===== ABOUT SECTION ===== */
+            .about {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+
+            .about h2 {
+                margin: 0 0 18px 0;
+                font-size: 24px;
+                font-weight: 700;
+            }
+
+            .about p {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 300;
+                line-height: 1.6;
+                white-space: pre-line;
+            }
+            
+            /* ===== ABOUT: TEXT + PORTRAIT ===== */
+            .about-wrap {
+                position: relative;
+            }
+
+            .about-portrait {
+                float: right;
+                width: 300px;
+                max-width: 40%;
+                aspect-ratio: 3 / 4;
+                object-fit: cover;
+
+                margin: 0 0 20px 30px; /* uniform 30px gap to text */
+            }
+
+            .about-wrap p {
+                margin-top: 0;
+            }
+
+            .about-wrap::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* ===== PLACEHOLDER SECTIONS ===== */
+            /* .placeholder {
+                padding: 60px 0;
+            }
+
+            .placeholder h2 {
+                margin: 0 0 10px 0;
+                font-size: 24px;
+                font-weight: 700;
+            }
+
+            .placeholder p {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 300;
+                line-height: 1.6;
+                opacity: 0.9;
+            } */
+
+            /* ===== FOOTER CERTIFIED BY ===== */
+            .footer {
+                background-color: var(--blue);
+                color: var(--cream);
+                padding: 28px 0 40px;
+            }
+
+            .footer-inner {
+                max-width: var(--max-width);
+                margin: 0 auto;
+                padding: 0 var(--side-pad);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
                 flex-wrap: wrap;
             }
 
-            .nav-links a {
-                font-size: 16px;
+            /* Certified by (links) */
+            .certified {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                flex-wrap: wrap;
             }
 
-            .content {
-                padding: 0 var(--side-pad);
-            }
-
-            .about h2,
-            .placeholder h2 {
-                font-size: 22px;
-            }
-
-            .about p,
-            .placeholder p {
-                font-size: 16px;
+            .certified-label {
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--cream);
             }
 
             .certified a img {
-                height: 64px;
+                height: 80px;
+                width: auto;
+                display: block;
             }
-        }
 
-        @media (max-width: 480px) {
-            .nav-links {
-                justify-content: flex-start;
-                padding-left: 0;
-                padding-top: 10px;
+            /* Imprint / Privacy Policy (rechts) */
+            .legal-text {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--cream);
             }
-            .nav-inner {
-                align-items: flex-start;
+
+            /* ===== RESPONSIVE ===== */
+            @media (max-width: 1200px) {
+                :root {
+                    --side-pad: 32px;
+                }
+                .nav-logo {
+                left: var(--side-pad);
+                }
+                .nav-links {
+                    gap: 2rem;
+                    padding-left: 220px;
+                }
+                .nav-links a {
+                    font-size: 18px;
+                }
             }
-            .main-nav {
-                height: auto;
-                padding-bottom: 14px;
+
+            @media (max-width: 768px) {
+                :root {
+                    --top-offset: 16px;
+                    --banner-h: 86px;
+                    --logo-h: 120px;
+                    --side-pad: 18px;
+                }
+
+                .nav-inner {
+                    padding: 0 var(--side-pad);
+                }
+
+                .nav-logo {
+                    left: var(--side-pad);
+                    top: calc(var(--banner-h) - (var(--logo-h) / 2));
+                }
+
+                .nav-links {
+                    justify-content: flex-end;
+                    gap: 12px;
+                    padding-left: 150px;
+                    flex-wrap: wrap;
+                }
+
+                .nav-links a {
+                    font-size: 16px;
+                }
+
+                .content {
+                    padding: 0 var(--side-pad);
+                }
+
+                .about h2,
+                .placeholder h2 {
+                    font-size: 22px;
+                }
+
+                .about p,
+                .placeholder p {
+                    font-size: 16px;
+                }
+
+                .certified a img {
+                    height: 64px;
+                }
+                
+                .about-portrait {
+                    float: none;
+                    display: block;
+                    width: 100%;
+                    max-width: 360px;
+                    margin: 0 auto 24px auto;
+                }
             }
-            .page-offset {
-                padding-top: calc(var(--top-offset) + 10px);
+
+            @media (max-width: 480px) {
+                .nav-links {
+                    justify-content: flex-start;
+                    padding-left: 0;
+                    padding-top: 10px;
+                }
+                .nav-inner {
+                    align-items: flex-start;
+                }
+                .main-nav {
+                    height: auto;
+                    padding-bottom: 14px;
+                }
+                .page-offset {
+                    padding-top: calc(var(--top-offset) + 10px);
+                }
             }
-        }
         </style>
     </head>
 
@@ -331,43 +366,51 @@
         <!-- Fixed Nav -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
-            <a class="nav-logo" href="#home">
-                <img src="img/logo.png" alt="Hauke Thimm" />
-            </a>
+                <a class="nav-logo" href="#home">
+                    <img src="img/logo.png" alt="Hauke Thimm" />
+                </a>
 
-            <div class="nav-inner">
-                <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#references">References</a>
-                <a href="#contact">Contact</a>
-                <a href="#imprint">Imprint</a>
+                <div class="nav-inner">
+                    <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#references">References</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#imprint">Imprint</a>
+                    </div>
                 </div>
-            </div>
             </nav>
         </div>
 
-        <!-- Header image at top of page (behind nav), keeps original width without cropping -->
+        <!-- Header image at top of page (behind nav), original width / no cropping -->
         <section class="header-image" aria-label="Header image">
             <img src="img/header.jpg" alt="" />
         </section>
 
-        <!-- Page content starts below fixed nav + logo overlap -->
+        <!-- Page content starts below fixed nav + logo overlap + portrait placeholder -->
         <div class="page-offset" id="home">
             <div class="content">
                 <!-- About -->
                 <section class="about anchor" id="about">
                     <h2>About me</h2>
+
+                    <div class="about-wrap">
+                        <img
+                            src="img/haukethimm.jpg"
+                            alt="Portrait of Hauke Thimm"
+                            class="about-portrait"
+                        />
+
                     <p>
-                    Born near the North Sea, I found my professional home in Hamburg — connected to the North, yet open to new places, perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
+                        Born near the North Sea, I found my professional home in Hamburg — connected to the North, open to new places, perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
 
-                    I have more than ten years of experience in event management, with a clear focus on (international) protocol management since 2022. My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security, discretion, and cultural precision.
+                        I have more than ten years of experience in event management, with a clear focus on (international) protocol management since 2022. My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security, discretion, and cultural precision.
 
-                    Several years spent working at sea, across nearly all major oceans, broadened my perspective. Operating in culturally diverse environments strengthened my openness, curiosity, and sensitivity to people and context — qualities that continue to shape my professional approach today.
+                        Several years spent working at sea, across nearly all major oceans, broadened my perspective. Operating in culturally diverse environments strengthened my openness, curiosity, and sensitivity to people and context — qualities that continue to shape my professional approach today.
 
-                    In demanding situations, I remain calm, structured, and decisive. Colleagues value my ability to provide stability under pressure and to keep focus on what truly matters.
+                        In demanding situations, I remain calm, structured, and decisive. Colleagues value my ability to provide stability under pressure and to keep focus on what truly matters.
 
-                    I work confidently in German and English at a professional level and am currently developing my French. In international settings, I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness.
+                        I work confidently in German and English at a professional level and am currently developing my French. In international settings, I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness.
                     </p>
                 </section>
 
@@ -394,29 +437,28 @@
             <footer class="footer anchor" id="imprint">
                 <div class="footer-inner">
                     <div class="certified">
-                    <div class="certified-label">Certified by:</div>
+                        <div class="certified-label">Certified by:</div>
 
-                    <!-- <a
-                        href="https://www.handelskammer-hamburg.de/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Handelskammer Hamburg">
-                        <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
-                    </a> -->
+                        <!-- <a
+                            href="https://www.handelskammer-hamburg.de/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Handelskammer Hamburg">
+                            <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                        </a> -->
 
-                    <a
-                        href="https://protocolbureau.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Protocolbureau"
-                    >
-                        <img src="img/protocolbureau.png" alt="Protocolbureau" />
-                    </a>
+                        <a
+                            href="https://protocolbureau.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Protocolbureau">
+                            <img src="img/protocolbureau.png" alt="Protocolbureau" />
+                        </a>
                     </div>
 
                     <div class="legal-text">
-                    <span>Impressum</span>
-                    <span>DSGVO</span>
+                        <span>Imprint</span>
+                        <span>Privacy Policy</span>
                     </div>
                 </div>
             </footer>
