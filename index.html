@@ -37,7 +37,7 @@
       background: var(--cream);
       color: var(--blue);
       font-family: "Cormorant Garamond", serif;
-      overflow: hidden;
+      overflow: hidden; /* kein Scrollen */
     }
 
     /* ===== HEADER IMAGE ===== */
@@ -50,8 +50,8 @@
     }
 
     .header-image img {
-      width: 100%;
-      height: auto; /* no cropping */
+      width: 100%;      /* volle Breite */
+      height: auto;     /* kein Cropping */
       display: block;
     }
 
@@ -84,42 +84,38 @@
       display: block;
     }
 
-    /* ===== CENTERED TEXT (DESKTOP) ===== */
-    .maintenance {
-      position: fixed;
-      inset: 0;
+    /* ===== CONTENT BELOW HEADER ===== */
+    .content {
+      position: relative;
       z-index: 5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-top: calc(
+        (100vw * 430 / 3000)
+      ); 
+      /* Verhältnis: Headerhöhe = Bildhöhe/Bildbreite * Viewportbreite
+         → Passe 430/3000 an die echte Höhe/Breite deines header.jpg an */
       text-align: center;
-      padding: 0 var(--side-pad);
-      pointer-events: none;
+      padding: 40px var(--side-pad) 0;
     }
 
-    .maintenance p {
+    .content p {
       margin: 0;
       font-size: 20px;
       font-weight: 300;
       line-height: 1.7;
-      background: #fdf7f2);
-      padding: 18px 24px;
-      border-radius: 6px;
     }
 
-    .maintenance strong {
+    .content strong {
       font-weight: 500;
     }
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       :root {
-        --top-offset: 0;
+        --top-offset: 16px;
         --banner-h: auto;
         --side-pad: 18px;
       }
 
-      /* Remove banner look on mobile */
       .main-nav {
         background: transparent;
         height: auto;
@@ -133,26 +129,17 @@
       }
 
       .nav-logo img {
-        width: 40vw;   /* 40% of viewport width */
+        width: 40vw; /* 40% Displaybreite */
         height: auto;
       }
 
-      /* Stack logo + text */
-      .maintenance {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0 18px;
-        text-align: center;
+      .content {
+        padding: 24px 18px 0;
+        margin-top: auto; /* mobil: natürlich unter Bild */
       }
 
-      .maintenance p {
-        margin-top: 24px;
+      .content p {
         font-size: 18px;
-        padding: 16px 20px;
       }
     }
   </style>
@@ -165,7 +152,7 @@
     <img src="img/header.jpg" alt="" />
   </section>
 
-  <!-- Nav / Logo -->
+  <!-- Fixed Nav -->
   <div class="nav-shell">
     <nav class="main-nav">
       <a class="nav-logo" href="#">
@@ -174,15 +161,15 @@
     </nav>
   </div>
 
-  <!-- Maintenance Text -->
-  <section class="maintenance">
+  <!-- Text BELOW header image -->
+  <main class="content">
     <p>
       <strong>Welcome.</strong><br />
       This website is currently under construction.<br /><br />
       Kind regards,<br />
       Hauke Thimm
     </p>
-  </section>
+  </main>
 
 </body>
 </html>
