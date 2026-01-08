@@ -50,12 +50,12 @@
     }
 
     .header-image img {
-      width: 100%;      /* volle Breite */
-      height: auto;     /* kein Cropping */
+      width: 100%;
+      height: auto; /* Original vollständig sichtbar */
       display: block;
     }
 
-    /* ===== FIXED NAV (DESKTOP) ===== */
+    /* ===== FIXED NAV ===== */
     .nav-shell {
       position: fixed;
       top: var(--top-offset);
@@ -84,35 +84,40 @@
       display: block;
     }
 
-    /* ===== CONTENT BELOW HEADER ===== */
-    .content {
-      position: relative;
+    /* ===== TEXT AREA (unterhalb des Bildes) ===== */
+    .maintenance {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      bottom: 0;                 /* untere Bildschirmhälfte */
+      height: 50vh;              /* exakt untere Hälfte */
       z-index: 5;
-      margin-top: calc(
-        (100vw * 430 / 3000)
-      ); 
-      /* Verhältnis: Headerhöhe = Bildhöhe/Bildbreite * Viewportbreite
-         → Passe 430/3000 an die echte Höhe/Breite deines header.jpg an */
+
+      display: flex;
+      align-items: center;       /* vertikal zentriert in der unteren Hälfte */
+      justify-content: center;
       text-align: center;
-      padding: 40px var(--side-pad) 0;
+      padding: 0 var(--side-pad);
+      pointer-events: none;
     }
 
-    .content p {
+    .maintenance p {
       margin: 0;
       font-size: 20px;
       font-weight: 300;
       line-height: 1.7;
     }
 
-    .content strong {
+    .maintenance strong {
       font-weight: 500;
     }
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       :root {
-        --top-offset: 16px;
+        --top-offset: 0;
         --banner-h: auto;
+        --logo-h: auto;
         --side-pad: 18px;
       }
 
@@ -129,16 +134,16 @@
       }
 
       .nav-logo img {
-        width: 40vw; /* 40% Displaybreite */
+        width: 40vw;
         height: auto;
       }
 
-      .content {
-        padding: 24px 18px 0;
-        margin-top: auto; /* mobil: natürlich unter Bild */
+      .maintenance {
+        height: 50vh;
+        padding: 0 18px;
       }
 
-      .content p {
+      .maintenance p {
         font-size: 18px;
       }
     }
@@ -152,7 +157,7 @@
     <img src="img/header.jpg" alt="" />
   </section>
 
-  <!-- Fixed Nav -->
+  <!-- Nav / Logo -->
   <div class="nav-shell">
     <nav class="main-nav">
       <a class="nav-logo" href="#">
@@ -161,15 +166,15 @@
     </nav>
   </div>
 
-  <!-- Text BELOW header image -->
-  <main class="content">
+  <!-- Text in lower half -->
+  <section class="maintenance">
     <p>
       <strong>Welcome.</strong><br />
       This website is currently under construction.<br /><br />
       Kind regards,<br />
       Hauke Thimm
     </p>
-  </main>
+  </section>
 
 </body>
 </html>
