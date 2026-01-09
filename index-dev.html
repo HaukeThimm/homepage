@@ -30,7 +30,7 @@
             --blue: #003153;
 
             --top-offset: 50px;
-            --banner-h: 80px;
+            --banner-h: 60px;
 
             --logo-h: 175px;
             --side-pad: 175px;
@@ -102,10 +102,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2.25rem; /* tighter so it stays on one line */
 
-            /* reserve space on left for overlapping logo so menu doesn't collide */
-            padding-left: 260px;
+            gap: 1.8rem;          /* etwas enger */
+            padding-left: 260px;  /* Platz fürs Logo */
             padding-right: 0;
 
             flex-wrap: nowrap;
@@ -115,8 +114,10 @@
         .nav-links a {
             color: var(--cream);
             text-decoration: none;
-            font-size: 18px; /* reduced to avoid wrapping */
-            letter-spacing: 0.06em;
+
+            font-size: 16px;      /* passend für 60px Bannerhöhe */
+            line-height: 1;       /* verhindert „optisches Drücken“ */
+            letter-spacing: 0.08em;
             font-weight: 500;
             text-transform: uppercase;
         }
