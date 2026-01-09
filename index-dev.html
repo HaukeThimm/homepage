@@ -10,355 +10,479 @@
 
         <!-- Bootstrap (optional; layout below does not depend on it) -->
         <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-            crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"
         />
 
         <!-- Font: Cormorant Garamond -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
-            rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
+        rel="stylesheet"
         />
 
         <style>
+        :root {
+            --cream: #fdf7f2;
+            --blue: #003153;
+
+            --top-offset: 50px;
+            --banner-h: 80px;
+
+            --logo-h: 175px;
+            --side-pad: 175px;
+
+            --max-width: 1400px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--blue);
+            background-color: var(--cream);
+            font-family: "Cormorant Garamond", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+        }
+
+        /* ===== FIXED NAV (banner + logo) ===== */
+        .nav-shell {
+            position: fixed;
+            top: var(--top-offset);
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .main-nav {
+            position: relative;
+            height: var(--banner-h);
+            background: var(--blue);
+            pointer-events: auto;
+        }
+
+        .nav-inner {
+            height: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-pad);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* Logo: center point sits on bottom edge of banner */
+        .nav-logo {
+            position: absolute;
+            left: var(--side-pad);
+            top: calc(var(--banner-h) - (var(--logo-h) / 2));
+            display: inline-block;
+        }
+
+        .nav-logo img {
+            height: var(--logo-h);
+            width: auto;
+            display: block;
+        }
+
+        /* Links */
+        .nav-links {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+
+            /* reserve space on left for overlapping logo so menu doesn't collide */
+            padding-left: 260px;
+            padding-right: 0;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 24px; /* match section headlines */
+            letter-spacing: 0.06em;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Language toggle (EN default) */
+        .lang-toggle {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            pointer-events: auto;
+        }
+
+        .lang-btn {
+            border: 0;
+            background: transparent;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .lang-btn.is-active {
+            opacity: 1;
+        }
+
+        .lang-btn img {
+            width: 18px;
+            height: 18px;
+            display: block;
+            border-radius: 2px;
+        }
+
+        .lang-sep {
+            color: var(--cream);
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* ===== LAYOUT OFFSET ===== */
+        .page-offset {
+            padding-top: calc(var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2));
+        }
+
+        /* ===== HEADER IMAGE ===== volle Bildbreite, keine abgeschnittenen Ränder */
+        .header-image {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-image img {
+            display: block;
+            width: 100%;
+            max-width: 3000px; /* Originalbreite als Obergrenze */
+            height: auto; /* proportional */
+            margin: 0 auto; /* horizontal zentriert */
+            object-fit: contain; /* nichts abschneiden */
+            object-position: center top; /* zentriert / vertikal oben */
+        }
+
+        /* ===== CONTENT WRAPPER ===== */
+        .content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-pad);
+        }
+
+        /* ===== SECTION BASE (for anchors) ===== */
+        section.anchor {
+            scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2) + 20px);
+        }
+
+        /* ===== TYPOGRAPHY / SPACING ===== */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section h2 {
+            font-size: 24px; /* same as existing About me */
+            font-weight: 700;
+            margin: 0 0 18px 0;
+        }
+
+        .subline {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0 0 12px 0;
+        }
+
+        .body-text {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 0;
+            white-space: pre-line;
+        }
+
+        .body-text + .body-text {
+            margin-top: 14px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+        .hero .name {
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+        }
+
+        .hero .role {
+            font-size: 22px;
+            font-weight: 500;
+            margin: 0 0 18px 0;
+        }
+
+        .hero .claim {
+            font-size: 22px;
+            font-weight: 500;
+            margin: 0 0 12px 0;
+        }
+
+        .hero .intro {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 900px;
+            white-space: pre-line;
+        }
+
+        /* ===== VALUES / KEYWORD BAND ===== */
+        .values-band {
+            padding: 24px 0 10px;
+            text-align: center;
+        }
+
+        .values-band .lead {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0 0 12px 0;
+        }
+
+        .values-band .line {
+            font-size: 22px;
+            font-weight: 500;
+            margin: 0 0 10px 0;
+        }
+
+        .values-band .for {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0 0 10px 0;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .about h2 {
+            margin: 0 0 18px 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .about p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        /* ===== ABOUT: TEXT + PORTRAIT ===== */
+        .about-wrap {
+            position: relative;
+        }
+
+        .about-portrait {
+            float: right;
+            width: 300px;
+            max-width: 40%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            margin: 0 0 20px 30px; /* uniform 30px gap to text */
+        }
+
+        .about-wrap p {
+            margin-top: 0;
+        }
+
+        .about-wrap::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* ===== CONTACT CTA ===== */
+        .btn-primary-cta {
+            display: inline-block;
+            background: var(--blue);
+            color: var(--cream);
+            text-decoration: none;
+            padding: 12px 22px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .btn-primary-cta:hover {
+            text-decoration: underline;
+        }
+
+        .cta-sub {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--blue);
+            color: var(--cream);
+            padding: 28px 0 40px;
+        }
+
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-pad);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        /* Certified by (links) */
+        .certified {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .certified-label {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--cream);
+        }
+
+        .certified a img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        /* Imprint / Privacy Policy (rechts) */
+        .legal-text {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--cream);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
             :root {
-                --cream: #fdf7f2;
-                --blue: #003153;
-
-                --top-offset: 50px;
-                --banner-h: 80px;
-
-                --logo-h: 175px;
-                --side-pad: 175px;
-
-                --max-width: 1400px;
+            --side-pad: 32px;
             }
 
-            * {
-                box-sizing: border-box;
-            }
-
-            html {
-                scroll-behavior: smooth;
-            }
-
-            body {
-                margin: 0;
-                color: var(--blue);
-                background-color: var(--cream);
-                font-family: "Cormorant Garamond", serif;
-                font-optical-sizing: auto;
-                font-weight: 500;
-            }
-
-            /* ===== FIXED NAV (banner + logo) ===== */
-            .nav-shell {
-                position: fixed;
-                top: var(--top-offset);
-                left: 0;
-                width: 100%;
-                z-index: 9999;
-                pointer-events: none;
-            }
-
-            .main-nav {
-                position: relative;
-                height: var(--banner-h);
-                background: var(--blue);
-                pointer-events: auto;
-            }
-
-            .nav-inner {
-                height: 100%;
-                max-width: var(--max-width);
-                margin: 0 auto;
-                padding: 0 var(--side-pad);
-                display: flex;
-                align-items: center;
-            }
-
-            /* Logo: center point sits on bottom edge of banner */
             .nav-logo {
-                position: absolute;
-                left: var(--side-pad);
-                top: calc(var(--banner-h) - (var(--logo-h) / 2));
-                display: inline-block;
+            left: var(--side-pad);
             }
 
-            .nav-logo img {
-                height: var(--logo-h);
-                width: auto;
-                display: block;
-            }
-
-            /* Links */
             .nav-links {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 4rem;
-
-                /* reserve space on left for overlapping logo so menu doesn't collide */
-                padding-left: 260px;
-                padding-right: 0;
+            gap: 2rem;
+            padding-left: 220px;
             }
 
             .nav-links a {
-                color: var(--cream);
-                text-decoration: none;
-                font-size: 32px;
-                letter-spacing: 0.02em;
-                font-weight: 500;
+            font-size: 18px; /* FIX: do not shrink to 10px */
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+            --top-offset: 24px;
+            --banner-h: 56px;
+            --logo-h: 100px;
+            --side-pad: 18px;
             }
 
-            .nav-links a:hover {
-                text-decoration: underline;
+            .nav-inner {
+            padding: 0 var(--side-pad);
             }
 
-            /* ===== LAYOUT OFFSET ===== */
-            .page-offset {
-                padding-top: calc(
-                    var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2)
-                );
+            .nav-logo {
+            left: var(--side-pad);
+            top: calc(var(--banner-h) - (var(--logo-h) / 2));
             }
 
-            /* ===== HEADER IMAGE ===== volle Bildbreite, keine abgeschnittenen Ränder */
-            .header-image {
-                width: 100%;
-                margin: 0;
-                padding: 0;
+            .nav-links {
+            justify-content: flex-end;
+            gap: 12px;
+            padding-left: 150px;
+            flex-wrap: wrap;
             }
 
-            .header-image img {
-                display: block;
-                width: 100%;
-                max-width: 3000px;              /* Originalbreite als Obergrenze */
-                height: auto;                   /* proportional */
-                margin: 0 auto;                 /* horizontal zentriert */
-                object-fit: contain;            /* nichts abschneiden */
-                object-position: center top;    /* zentriert / vertikal oben */
+            .nav-links a {
+            font-size: 16px;
             }
 
-            /* ===== CONTENT WRAPPER ===== */
             .content {
-                max-width: var(--max-width);
-                margin: 0 auto;
-                padding: 0 var(--side-pad);
-            }
-
-            /* ===== SECTION BASE (for anchors) ===== */
-            section.anchor {
-                scroll-margin-top: calc(
-                    var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2) + 20px
-                );
-            }
-
-            /* ===== ABOUT SECTION ===== */
-            .about {
-                padding-top: 60px;
-                padding-bottom: 60px;
-            }
-
-            .about h2 {
-                margin: 0 0 18px 0;
-                font-size: 24px;
-                font-weight: 700;
-            }
-
-            .about p {
-                margin: 0;
-                font-size: 18px;
-                font-weight: 300;
-                line-height: 1.6;
-                white-space: pre-line;
-            }
-            
-            /* ===== ABOUT: TEXT + PORTRAIT ===== */
-            .about-wrap {
-                position: relative;
-            }
-
-            .about-portrait {
-                float: right;
-                width: 300px;
-                max-width: 40%;
-                aspect-ratio: 3 / 4;
-                object-fit: cover;
-
-                margin: 0 0 20px 30px; /* uniform 30px gap to text */
-            }
-
-            .about-wrap p {
-                margin-top: 0;
-            }
-
-            .about-wrap::after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            /* ===== PLACEHOLDER SECTIONS ===== */
-            /* .placeholder {
-                padding: 60px 0;
-            }
-
-            .placeholder h2 {
-                margin: 0 0 10px 0;
-                font-size: 24px;
-                font-weight: 700;
-            }
-
-            .placeholder p {
-                margin: 0;
-                font-size: 18px;
-                font-weight: 300;
-                line-height: 1.6;
-                opacity: 0.9;
-            } */
-
-            /* ===== FOOTER CERTIFIED BY ===== */
-            .footer {
-                background-color: var(--blue);
-                color: var(--cream);
-                padding: 28px 0 40px;
-            }
-
-            .footer-inner {
-                max-width: var(--max-width);
-                margin: 0 auto;
-                padding: 0 var(--side-pad);
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 24px;
-                flex-wrap: wrap;
-            }
-
-            /* Certified by (links) */
-            .certified {
-                display: flex;
-                align-items: center;
-                gap: 18px;
-                flex-wrap: wrap;
-            }
-
-            .certified-label {
-                font-size: 18px;
-                font-weight: 500;
-                color: var(--cream);
+            padding: 0 var(--side-pad);
             }
 
             .certified a img {
-                height: 80px;
-                width: auto;
-                display: block;
+            height: 64px;
             }
 
-            /* Imprint / Privacy Policy (rechts) */
-            .legal-text {
-                display: flex;
-                align-items: center;
-                gap: 18px;
-                font-size: 18px;
-                font-weight: 500;
-                color: var(--cream);
+            .about-portrait {
+            float: none;
+            display: block;
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto 24px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+            justify-content: flex-start;
+            padding-left: 0;
+            padding-top: 10px;
             }
 
-            /* ===== RESPONSIVE ===== */
-            @media (max-width: 1200px) {
-                :root {
-                    --side-pad: 32px;
-                }
-                .nav-logo {
-                left: var(--side-pad);
-                }
-                .nav-links {
-                    gap: 2rem;
-                    padding-left: 220px;
-                }
-                .nav-links a {
-                    font-size: 10px;
-                }
+            .nav-inner {
+            align-items: flex-start;
             }
 
-            @media (max-width: 768px) {
-                :root {
-                    --top-offset: 24px;
-                    --banner-h: 56px;
-                    --logo-h: 100px;
-                    --side-pad: 18px;
-                }
-
-                .nav-inner {
-                    padding: 0 var(--side-pad);
-                }
-
-                .nav-logo {
-                    left: var(--side-pad);
-                    top: calc(var(--banner-h) - (var(--logo-h) / 2));
-                }
-
-                .nav-links {
-                    justify-content: flex-end;
-                    gap: 12px;
-                    padding-left: 150px;
-                    flex-wrap: wrap;
-                }
-
-                .nav-links a {
-                    font-size: 16px;
-                }
-
-                .content {
-                    padding: 0 var(--side-pad);
-                }
-
-                .about h2,
-                .placeholder h2 {
-                    font-size: 22px;
-                }
-
-                .about p,
-                .placeholder p {
-                    font-size: 16px;
-                }
-
-                .certified a img {
-                    height: 64px;
-                }
-                
-                .about-portrait {
-                    float: none;
-                    display: block;
-                    width: 100%;
-                    max-width: 360px;
-                    margin: 0 auto 24px auto;
-                }
+            .main-nav {
+            height: auto;
+            padding-bottom: 14px;
             }
 
-            @media (max-width: 480px) {
-                .nav-links {
-                    justify-content: flex-start;
-                    padding-left: 0;
-                    padding-top: 10px;
-                }
-                .nav-inner {
-                    align-items: flex-start;
-                }
-                .main-nav {
-                    height: auto;
-                    padding-bottom: 14px;
-                }
-                .page-offset {
-                    padding-top: calc(var(--top-offset) + 10px);
-                }
+            .page-offset {
+            padding-top: calc(var(--top-offset) + 10px);
             }
+
+            .lang-toggle {
+            margin-left: 0;
+            }
+        }
         </style>
     </head>
 
@@ -366,17 +490,28 @@
         <!-- Fixed Nav -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
-                <a class="nav-logo" href="#home">
-                    <img src="img/logo.png" alt="Hauke Thimm" />
+                <a class="nav-logo" href="#about">
+                <img src="img/logo.png" alt="Hauke Thimm" />
                 </a>
 
                 <div class="nav-inner">
                     <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="#references">References</a>
-                    <a href="mailto:mail@haukethimm.com">Contact</a>
-                    <a href="#imprint">Imprint</a>
+                        <a href="#about">ABOUT ME</a>
+                        <a href="#services">SERVICES</a>
+                        <a href="#references">REFERENCES</a>
+                        <a href="#contact">CONTACT</a>
+                        <a href="#imprint">IMPRINT</a>
+                    </div>
+
+                    <!-- Language toggle (EN default) -->
+                    <div class="lang-toggle" aria-label="Language selector">
+                        <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
+                        <img src="img/flag-uk.png" alt="EN" />
+                        </button>
+                        <span class="lang-sep">/</span>
+                        <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
+                        <img src="img/flag-de.png" alt="DE" />
+                        </button>
                     </div>
                 </div>
             </nav>
@@ -387,22 +522,91 @@
             <img src="img/header.jpg" alt="" />
         </section>
 
-        <!-- Page content starts below fixed nav + logo overlap + portrait placeholder -->
-        <div class="page-offset" id="home">
+        <!-- Page content starts below fixed nav + logo overlap -->
+        <div class="page-offset">
             <div class="content">
-                <!-- About -->
+                <!-- HERO -->
+                <section class="hero anchor" id="hero">
+                    <div class="name" data-en="Hauke Thimm" data-de="Hauke Thimm">Hauke Thimm</div>
+
+                    <div
+                        class="role"
+                        data-en="High-Level Events &amp; Protocol Management"
+                        data-de="High-Level Events &amp; Protocol Management"
+                    >
+                        High-Level Events &amp; Protocol Management
+                    </div>
+
+                    <div
+                        class="claim"
+                        data-en="Trusted execution for governments, institutions and executive leadership."
+                        data-de="Verlässliche Umsetzung für Regierungen, Institutionen und Executive Leadership."
+                    >
+                        Trusted execution for governments, institutions and executive leadership.
+                    </div>
+
+                    <p
+                        class="intro"
+                        data-en="I support organisations and leaders in the planning and execution of high-level corporate, governmental and institutional events and protocol-sensitive engagements. My work is defined by precision, discretion and calm authority in politically, culturally and operationally complex environments."
+                        data-de="Ich unterstütze Organisationen und Führungskräfte bei der Planung und Durchführung hochrangiger Corporate-, Regierungs- und Institutionenformate sowie protokollsensibler Anlässe. Meine Arbeit ist geprägt von Präzision, Diskretion und ruhiger Souveränität in politisch, kulturell und operativ komplexen Umfeldern."
+                    >
+                        I support organisations and leaders in the planning and execution of high-level corporate, governmental and
+                        institutional events and protocol-sensitive engagements.
+                        My work is defined by precision, discretion and calm authority in politically, culturally and operationally
+                        complex environments.
+                    </p>
+                </section>
+
+                <!-- WERTE- / KEYWORD-BAND -->
+                <section class="values-band anchor" id="values">
+                    <p class="lead" data-en="Principles that guide my work:" data-de="Prinzipien, die meine Arbeit leiten:">
+                        Principles that guide my work:
+                    </p>
+                    <div
+                        class="line"
+                        data-en="Integrity · Trust · Respect · Discretion"
+                        data-de="Integrität · Vertrauen · Respekt · Diskretion"
+                    >
+                        Integrity · Trust · Respect · Discretion
+                    </div>
+                    <div class="for" data-en="for" data-de="für">for</div>
+                    <div
+                        class="line"
+                        data-en="Partnerships · Hospitality · Events · Ceremonies"
+                        data-de="Partnerschaften · Hospitality · Events · Zeremonien"
+                    >
+                        Partnerships · Hospitality · Events · Ceremonies
+                    </div>
+                </section>
+
+                <!-- ABOUT -->
                 <section class="about anchor" id="about">
-                    <h2>About me</h2>
+                    <h2 data-en="About me" data-de="Über mich">About me</h2>
 
                     <div class="about-wrap">
-                        <img
-                            src="img/haukethimm.png"
-                            alt="Portrait of Hauke Thimm"
-                            class="about-portrait"
-                        />
+                        <img src="img/haukethimm.jpg" alt="Portrait of Hauke Thimm" class="about-portrait" />
 
-                    <p>
-                        Born near the North Sea, I found my professional home in Hamburg — connected to the North, open to new places, perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
+                        <p
+                        data-en="Born near the North Sea, I found my professional home in Hamburg — connected to the North, yet open to new places, perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
+
+                        I have more than ten years of experience in event management, with a clear focus on (international) protocol management since 2022. My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security, discretion, and cultural precision.
+
+                        Several years spent working at sea, across nearly all major oceans, broadened my perspective. Operating in culturally diverse environments strengthened my openness, curiosity, and sensitivity to people and context — qualities that continue to shape my professional approach today.
+
+                        In demanding situations, I remain calm, structured, and decisive. Colleagues value my ability to provide stability under pressure and to keep focus on what truly matters.
+
+                        I work confidently in German and English at a professional level and am currently developing my French. In international settings, I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness."
+                                    data-de="Nahe der Nordsee geboren, habe ich in Hamburg meine berufliche Heimat gefunden — verbunden mit dem Norden und zugleich offen für neue Orte, Perspektiven und Begegnungen. Ich schätze Klarheit, Verlässlichkeit und den reflektierten Austausch mit Menschen, die Verantwortung übernehmen und mit Haltung führen.
+
+                        Ich bringe mehr als zehn Jahre Erfahrung im Eventmanagement mit; seit 2022 liegt mein klarer Schwerpunkt auf (internationalem) Protokollmanagement. Mein Weg führte mich von operativen Rollen bis zu hochrangigen Corporate- und Regierungsformaten — unter anderem bei Airbus, wo ich VIP-Besuche, Delegationsprogramme und protokollsensible Anlässe verantwortete: im Zusammenspiel von Marke, Sicherheit, Diskretion und kultureller Präzision.
+
+                        Mehrere Jahre beruflich auf See — auf nahezu allen großen Ozeanen — haben meinen Blick geweitet. Die Arbeit in kulturell diversen Umfeldern hat meine Offenheit, Neugier und mein Gespür für Menschen und Kontext geschärft — Qualitäten, die meinen professionellen Ansatz bis heute prägen.
+
+                        In anspruchsvollen Situationen bleibe ich ruhig, strukturiert und entscheidungsfähig. Kolleg:innen schätzen meine Fähigkeit, unter Druck Stabilität zu geben und den Fokus auf das Wesentliche zu halten.
+
+                        Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwickle derzeit mein Französisch weiter. In internationalen Settings sind mir sprachliches Bewusstsein und kulturelle Sensibilität wichtiger als formale Vollständigkeit."
+                                    >
+                        Born near the North Sea, I found my professional home in Hamburg — connected to the North, yet open to new places, perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
 
                         I have more than ten years of experience in event management, with a clear focus on (international) protocol management since 2022. My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security, discretion, and cultural precision.
 
@@ -411,55 +615,202 @@
                         In demanding situations, I remain calm, structured, and decisive. Colleagues value my ability to provide stability under pressure and to keep focus on what truly matters.
 
                         I work confidently in German and English at a professional level and am currently developing my French. In international settings, I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SERVICES -->
+                <section class="section anchor" id="services">
+                    <h2 data-en="Services" data-de="Services">Services</h2>
+
+                    <div class="subline" data-en="High-Level Event Management" data-de="High-Level Event Management">
+                        High-Level Event Management
+                    </div>
+                    <p
+                        class="body-text"
+                        data-en="I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and seamless execution — including VIP programmes, stage and run-of-show control, supplier coordination and contingency planning under time pressure and public attention."
+                        data-de="Ich plane und leite komplexe Corporate-, Regierungs- und Institutionenformate für Executive-Zielgruppen. Von der strategischen Vorbereitung und Stakeholder-Abstimmung bis zur Führung vor Ort sorge ich für klare Strukturen, verlässliche Abläufe und nahtlose Umsetzung — inklusive VIP-Programmen, Stage- und Run-of-Show-Steuerung, Dienstleisterkoordination sowie Contingency Planning unter Zeitdruck und öffentlicher Aufmerksamkeit."
+                    >
+                        I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic
+                        preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and
+                        seamless execution — including VIP programmes, stage and run-of-show control, supplier coordination and
+                        contingency planning under time pressure and public attention.
+                    </p>
+
+                    <div class="subline" style="margin-top: 18px" data-en="Protocol Management" data-de="Protocol Management">
+                        Protocol Management
+                    </div>
+                    <p
+                        class="body-text"
+                        data-en="I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating, flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional expectations and diplomatic context."
+                        data-de="Ich liefere Protokoll-Expertise für formelle, bilaterale und multilaterale Settings. Dazu zählen Präzedenz, Sitzordnung, Flaggenprotokoll, zeremonielle Choreografie und kulturell angemessenes Hosting — stets im Einklang mit institutionellen Erwartungen und diplomatischem Kontext."
+                    >
+                        I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating,
+                        flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional
+                        expectations and diplomatic context.
+                    </p>
+
+                    <div class="subline" style="margin-top: 18px" data-en="Master of Ceremony &amp; Moderation" data-de="Master of Ceremony &amp; Moderation">
+                        Master of Ceremony &amp; Moderation
+                    </div>
+                    <p
+                        class="body-text"
+                        data-en="As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality and confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between speakers, guests and institutions — in close coordination with programme, protocol and technical teams."
+                        data-de="Als Master of Ceremony und erfahrener Event Host unterstütze ich hochrangige Programme mit Klarheit, Neutralität und Souveränität. Meine Aufgabe ist es, Struktur, Timing und Ton zu halten und zugleich respektvolle Interaktion zwischen Speaker:innen, Gästen und Institutionen zu ermöglichen — in enger Abstimmung mit Programm-, Protokoll- und Technikteams."
+                    >
+                        As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality
+                        and confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between
+                        speakers, guests and institutions — in close coordination with programme, protocol and technical teams.
+                    </p>
+
+                    <div class="subline" style="margin-top: 18px" data-en="Executive &amp; Delegation Support" data-de="Executive &amp; Delegation Support">
+                        Executive &amp; Delegation Support
+                    </div>
+                    <p
+                        class="body-text"
+                        data-en="I support executives and delegations through preparation, accompaniment and coordination. My focus is on discretion, situational awareness and reliable guidance in sensitive environments where decisions, symbolism and timing matter."
+                        data-de="Ich unterstütze Executives und Delegationen durch Vorbereitung, Begleitung und Koordination. Mein Fokus liegt auf Diskretion, Situational Awareness und verlässlicher Führung in sensiblen Umfeldern, in denen Entscheidungen, Symbolik und Timing zählen."
+                    >
+                        I support executives and delegations through preparation, accompaniment and coordination. My focus is on
+                        discretion, situational awareness and reliable guidance in sensitive environments where decisions, symbolism and
+                        timing matter.
                     </p>
                 </section>
 
-                <!-- Placeholder: Services
-                <section class="placeholder anchor" id="services">
-                    <h2>Services</h2>
-                    <p>Section coming soon.</p>
+                <!-- EXPERTISE & POSITIONING -->
+                <section class="section anchor" id="expertise">
+                    <h2 data-en="Expertise &amp; positioning" data-de="Expertise &amp; Positionierung">Expertise &amp; positioning</h2>
+
+                    <p
+                        class="body-text"
+                        data-en="My approach combines operational event leadership with deep protocol awareness and intercultural competence. I work calmly and decisively in environments where hierarchy, symbolism and reputation are critical — and where errors are not an option."
+                        data-de="Mein Ansatz verbindet operative Eventführung mit ausgeprägtem Protokollbewusstsein und interkultureller Kompetenz. Ich arbeite ruhig und entschlossen in Umfeldern, in denen Hierarchie, Symbolik und Reputation kritisch sind — und in denen Fehler keine Option sind."
+                    >
+                        My approach combines operational event leadership with deep protocol awareness and intercultural competence.
+                        I work calmly and decisively in environments where hierarchy, symbolism and reputation are critical — and where
+                        errors are not an option.
+                    </p>
+
+                    <p class="body-text" style="margin-top: 14px" data-en="Key focus areas:" data-de="Schwerpunkte:">Key focus areas:</p>
+                    <p
+                        class="body-text"
+                        data-en="• Precision in planning and execution&#10;• Absolute discretion&#10;• Sovereign presence under pressure&#10;• Intercultural sensitivity"
+                        data-de="• Präzision in Planung und Umsetzung&#10;• Absolute Diskretion&#10;• Souveräne Präsenz unter Druck&#10;• Interkulturelle Sensibilität"
+                    >
+                        • Precision in planning and execution
+                        • Absolute discretion
+                        • Sovereign presence under pressure
+                        • Intercultural sensitivity
+                    </p>
                 </section>
 
-                Placeholder: References
-                <section class="placeholder anchor" id="references">
-                    <h2>References</h2>
-                    <p>Section coming soon.</p>
+                <!-- TRUST & ENGAGEMENTS (References anchor) -->
+                <section class="section anchor" id="references">
+                    <h2 data-en="Trust &amp; engagements" data-de="Vertrauen &amp; Engagements">Trust &amp; engagements</h2>
+
+                    <div class="subline" data-en="Engagements &amp; contexts" data-de="Einsätze &amp; Kontexte">Engagements &amp; contexts</div>
+                    <p
+                        class="body-text"
+                        data-en="My experience spans international, political and corporate environments, including executive meetings, institutional ceremonies and high-stakes events. I regularly collaborate with organisations, agencies and leadership teams operating at the intersection of public visibility and strategic relevance."
+                        data-de="Meine Erfahrung umfasst internationale, politische und Corporate-Umfelder — darunter Executive Meetings, institutionelle Zeremonien und High-Stakes-Formate. Ich arbeite regelmäßig mit Organisationen, Agenturen und Führungsteams zusammen, die an der Schnittstelle von öffentlicher Sichtbarkeit und strategischer Relevanz agieren."
+                    >
+                        My experience spans international, political and corporate environments, including executive meetings,
+                        institutional ceremonies and high-stakes events. I regularly collaborate with organisations, agencies and
+                        leadership teams operating at the intersection of public visibility and strategic relevance.
+                    </p>
                 </section>
 
-                Placeholder: Contact
-                <section class="placeholder anchor" id="contact">
-                    <h2>Contact</h2>
-                    <p>Section coming soon.</p>
-                </section> -->
+                <!-- HOW I WORK -->
+                <section class="section anchor" id="howiwork">
+                    <h2 data-en="How I work" data-de="Wie ich arbeite">How I work</h2>
+
+                    <p
+                        class="body-text"
+                        data-en="1. Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations."
+                        data-de="1. Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen."
+                    >
+                        1. Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations.
+                    </p>
+                    <p
+                        class="body-text"
+                        data-en="2. Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically."
+                        data-de="2. Protokoll & Struktur — Gestaltung des passenden Rahmens — prozessual, kulturell und symbolisch."
+                    >
+                        2. Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically.
+                    </p>
+                    <p
+                        class="body-text"
+                        data-en="3. Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination."
+                        data-de="3. Umsetzung & Führung vor Ort — Operatives Kommando, Entscheidungen in Echtzeit und ruhige Koordination."
+                    >
+                        3. Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination.
+                    </p>
+                    <p
+                        class="body-text"
+                        data-en="4. Review & Continuity — Evaluation, documentation and preparation for future engagements."
+                        data-de="4. Review & Kontinuität — Auswertung, Dokumentation und Vorbereitung zukünftiger Einsätze."
+                    >
+                        4. Review & Continuity — Evaluation, documentation and preparation for future engagements.
+                    </p>
+                </section>
+
+                <!-- CONTACT -->
+                <section class="section anchor" id="contact">
+                    <h2 data-en="Contact" data-de="Kontakt">Contact</h2>
+
+                    <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
+                        Let’s discuss your project
+                    </div>
+
+                    <p
+                        class="body-text"
+                        data-en="If you are planning a high-level event or protocol-sensitive engagement, I am happy to discuss your requirements in confidence."
+                        data-de="Wenn Sie ein hochrangiges Event oder einen protokollsensiblen Anlass planen, bespreche ich Ihre Anforderungen gern vertraulich."
+                    >
+                        If you are planning a high-level event or protocol-sensitive engagement, I am happy to discuss your requirements
+                        in confidence.
+                    </p>
+
+                    <div style="margin-top: 18px">
+                        <a class="btn-primary-cta" href="mailto:mail@haukethimm.com" data-en="Get in Touch" data-de="Kontakt aufnehmen">
+                        Get in Touch
+                        </a>
+                        <div class="cta-sub" data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">
+                        Discreet handling of all inquiries.
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <!-- Footer / Certified by -->
             <footer class="footer anchor" id="imprint">
                 <div class="footer-inner">
-                    <div class="certified">
-                        <div class="certified-label">Certified by:</div>
+                <div class="certified">
+                    <div class="certified-label" data-en="Certified by:" data-de="Zertifiziert durch:">Certified by:</div>
 
-                        <a
-                            href="https://www.handelskammer-hamburg.de/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Handelskammer Hamburg">
-                            <img src="img/placeholder1.jpg" alt="Handelskammer Hamburg" />
-                        </a>
+                    <a
+                    href="https://www.handelskammer-hamburg.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Handelskammer Hamburg"
+                    >
+                    <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                    </a>
 
-                        <a
-                            href="https://protocolbureau.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Protocolbureau">
-                            <img src="img/placeholder2.png" alt="Protocolbureau" />
-                        </a>
-                    </div>
+                    <a
+                    href="https://protocolbureau.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Protocolbureau"
+                    >
+                    <img src="img/protocolbureau.jpg" alt="Protocolbureau" />
+                    </a>
+                </div>
 
-                    <div class="legal-text">
-                        <span>Imprint</span>
-                        <span>Privacy Policy</span>
-                    </div>
+                <div class="legal-text">
+                    <span data-en="Imprint" data-de="Impressum">Imprint</span>
+                    <span data-en="Privacy policy" data-de="Datenschutz">Privacy policy</span>
+                </div>
                 </div>
             </footer>
         </div>
@@ -470,5 +821,27 @@
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"
         ></script>
+
+        <!-- Language toggle script -->
+        <script>
+        (function () {
+            const buttons = document.querySelectorAll(".lang-btn");
+            const translatable = document.querySelectorAll("[data-en][data-de]");
+
+            function setLang(lang) {
+            translatable.forEach((el) => {
+                const val = el.getAttribute(lang === "de" ? "data-de" : "data-en");
+                if (val != null) el.textContent = val;
+            });
+
+            buttons.forEach((b) => b.classList.toggle("is-active", b.dataset.lang === lang));
+            document.documentElement.lang = lang === "de" ? "de" : "en";
+            }
+
+            buttons.forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+            setLang("en"); // default
+        })();
+        </script>
     </body>
 </html>
