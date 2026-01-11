@@ -322,7 +322,7 @@
             /* About me as a heading */
             .about .about-label {
                 font-size: var(--h2);
-                font-weight: 500;
+                font-weight: 700;
                 margin: 0 0 14px 0;
             }
 
@@ -395,17 +395,24 @@
             }
 
             /* ADD (CTA button style): place anywhere in <style>, e.g. near SERVICES styles */
+            .contact-cta{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start; /* für zentriert: center */
+                gap: 14px;               /* gleicher Abstand oben/unten vom Button */
+            }
+
             .cta-btn{
-                display:inline-block;
-                margin-top: 14px;
-                padding: 12px 22px;
+                display: inline-block;
+                margin-top: 0;           /* wichtig: kein Extra-Abstand nach oben */
+                padding: 0.45em 0.9em;
 
                 background: var(--blue);
                 color: var(--cream);
                 text-decoration: none;
 
-                font-size: var(--body);
-                font-weight: 700;
+                font-size: var(--sub);
+                font-weight: 700;        /* wie von dir gewünscht: 700 */
                 font-style: italic;
 
                 border: 2px solid transparent;
@@ -436,7 +443,7 @@
                 margin-top: 18px;
             }
 
-            /* fade edges */
+            /* FADE EDGES */
             .carousel-viewport {
                 overflow: hidden;
                 -webkit-mask-image: linear-gradient(
@@ -487,8 +494,7 @@
 
                 padding: 26px;
             }
-
-
+            
             .feedback-text {
                 font-size: var(--body);
                 font-weight: 300;
@@ -682,26 +688,26 @@
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <a class="nav-logo" href="#about">
-                <img src="img/logo.png" alt="Hauke Thimm" />
+                    <img src="img/logo.png" alt="Hauke Thimm" />
                 </a>
 
                 <div class="nav-inner">
-                <div class="nav-items">
-                    <a class="nav-link" href="#about">ABOUT ME</a>
-                    <a class="nav-link" href="#services">SERVICES</a>
-                    <a class="nav-link" href="#references">REFERENCES</a>
-                    <a class="nav-link" href="#contact">CONTACT</a>
+                    <div class="nav-items">
+                        <a class="nav-link" href="#about">ABOUT ME</a>
+                        <a class="nav-link" href="#services">SERVICES</a>
+                        <a class="nav-link" href="#references">REFERENCES</a>
+                        <a class="nav-link" href="#contact">CONTACT</a>
 
-                    <!-- Language toggle (EN default) -->
-                    <div class="lang-toggle" aria-label="Language selector">
-                    <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
-                        <img src="img/flag-uk.png" alt="EN" />
-                    </button>
-                    <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
-                        <img src="img/flag-de.png" alt="DE" />
-                    </button>
+                        <!-- Language toggle (EN default) -->
+                        <div class="lang-toggle" aria-label="Language selector">
+                        <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
+                            <img src="img/flag-uk.png" alt="EN" />
+                        </button>
+                        <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
+                            <img src="img/flag-de.png" alt="DE" />
+                        </button>
+                        </div>
                     </div>
-                </div>
                 </div>
             </nav>
         </div>
@@ -722,19 +728,19 @@
                                 <div class="name" data-en="Hauke Thimm" data-de="Hauke Thimm">Hauke Thimm</div>
 
                                 <div
-                                class="role"
-                                data-en="High-Level Events &amp; Protocol Management"
-                                data-de="High-Level Events &amp; Protocol Management"
+                                    class="role"
+                                    data-en="High-Level Events &amp; Protocol Management"
+                                    data-de="High-Level Events &amp; Protocol Management"
                                 >
-                                High-Level Events &amp; Protocol Management
+                                    High-Level Events &amp; Protocol Management
                                 </div>
 
                                 <div
-                                class="claim"
-                                data-en="Trusted execution for governments, institutions and executive leadership."
-                                data-de="Verlässliche Umsetzung für Regierungen, Institutionen und Executive Leadership."
+                                    class="claim"
+                                    data-en="Trusted execution for governments, institutions and executive leadership."
+                                    data-de="Verlässliche Umsetzung für Regierungen, Institutionen und Executive Leadership."
                                 >
-                                Trusted execution for governments, institutions and executive leadership.
+                                    Trusted execution for governments, institutions and executive leadership.
                                 </div>
                             </div>
 
@@ -822,100 +828,100 @@
 
                     <div class="services-list">
                         <div class="service-item" data-service>
-                        <div class="service-head" role="button" tabindex="0" aria-expanded="false">
-                            <div class="service-bullet" aria-hidden="true"></div>
-                            <div class="service-title" data-en="High-Level Event Management" data-de="High-Level Event Management">
-                            High-Level Event Management
+                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
+                                <div class="service-bullet" aria-hidden="true"></div>
+                                    <div class="service-title" data-en="High-Level Event Management" data-de="High-Level Event Management">
+                                    High-Level Event Management
+                                    </div>
+                                <div class="service-arrow" aria-hidden="true"></div>
                             </div>
-                            <div class="service-arrow" aria-hidden="true"></div>
-                        </div>
 
-                        <div class="service-body">
-                            <div class="service-body-inner">
-                            <p
-                                class="body-text"
-                                data-en="I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and seamless execution — including VIP programmes, stage and run-of-show control, supplier coordination and contingency planning under time pressure and public attention."
-                                data-de="Ich plane und leite komplexe Corporate-, Regierungs- und Institutionenformate für Executive-Zielgruppen. Von der strategischen Vorbereitung und Stakeholder-Abstimmung bis zur Führung vor Ort sorge ich für klare Strukturen, verlässliche Abläufe und nahtlose Umsetzung — inklusive VIP-Programmen, Stage- und Run-of-Show-Steuerung, Dienstleisterkoordination sowie Contingency Planning unter Zeitdruck und öffentlicher Aufmerksamkeit."
-                            >
-                                I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic
-                                preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and
-                                seamless execution — including VIP programmes, stage and run-of-show control, supplier coordination and
-                                contingency planning under time pressure and public attention.
-                            </p>
+                            <div class="service-body">
+                                <div class="service-body-inner">
+                                    <p
+                                        class="body-text"
+                                        data-en="I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and seamless execution — including VIP programmes, stage and run-of-show control, supplier coordination and contingency planning under time pressure and public attention."
+                                        data-de="Ich plane und leite komplexe Corporate-, Regierungs- und Institutionenformate für Executive-Zielgruppen. Von der strategischen Vorbereitung und Stakeholder-Abstimmung bis zur Führung vor Ort sorge ich für klare Strukturen, verlässliche Abläufe und nahtlose Umsetzung — inklusive VIP-Programmen, Stage- und Run-of-Show-Steuerung, Dienstleisterkoordination sowie Contingency Planning unter Zeitdruck und öffentlicher Aufmerksamkeit."
+                                    >
+                                        I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic
+                                        preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and
+                                        seamless execution — including VIP programmes, stage and run-of-show control, supplier coordination and
+                                        contingency planning under time pressure and public attention.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        </div>
-
-                        <div class="service-item" data-service>
-                        <div class="service-head" role="button" tabindex="0" aria-expanded="false">
-                            <div class="service-bullet" aria-hidden="true"></div>
-                            <div class="service-title" data-en="Protocol Management" data-de="Protocol Management">
-                            Protocol Management
-                            </div>
-                            <div class="service-arrow" aria-hidden="true"></div>
-                        </div>
-
-                        <div class="service-body">
-                            <div class="service-body-inner">
-                            <p
-                                class="body-text"
-                                data-en="I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating, flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional expectations and diplomatic context."
-                                data-de="Ich liefere Protokoll-Expertise für formelle, bilaterale und multilaterale Settings. Dazu zählen Präzedenz, Sitzordnung, Flaggenprotokoll, zeremonielle Choreografie und kulturell angemessenes Hosting — stets im Einklang mit institutionellen Erwartungen und diplomatischem Kontext."
-                            >
-                                I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating,
-                                flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional
-                                expectations and diplomatic context.
-                            </p>
-                            </div>
-                        </div>
                         </div>
 
                         <div class="service-item" data-service>
-                        <div class="service-head" role="button" tabindex="0" aria-expanded="false">
-                            <div class="service-bullet" aria-hidden="true"></div>
-                            <div class="service-title" data-en="Master of Ceremony &amp; Moderation" data-de="Master of Ceremony &amp; Moderation">
-                            Master of Ceremony &amp; Moderation
+                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
+                                <div class="service-bullet" aria-hidden="true"></div>
+                                    <div class="service-title" data-en="Protocol Management" data-de="Protocol Management">
+                                    Protocol Management
+                                    </div>
+                                <div class="service-arrow" aria-hidden="true"></div>
                             </div>
-                            <div class="service-arrow" aria-hidden="true"></div>
-                        </div>
 
-                        <div class="service-body">
-                            <div class="service-body-inner">
-                            <p
-                                class="body-text"
-                                data-en="As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality and confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between speakers, guests and institutions — in close coordination with programme, protocol and technical teams."
-                                data-de="Als Master of Ceremony und erfahrener Event Host unterstütze ich hochrangige Programme mit Klarheit, Neutralität und Souveränität. Meine Aufgabe ist es, Struktur, Timing und Ton zu halten und zugleich respektvolle Interaktion zwischen Speaker:innen, Gästen und Institutionen zu ermöglichen — in enger Abstimmung mit Programm-, Protokoll- und Technikteams."
-                            >
-                                As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality
-                                and confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between
-                                speakers, guests and institutions — in close coordination with programme, protocol and technical teams.
-                            </p>
+                            <div class="service-body">
+                                <div class="service-body-inner">
+                                    <p
+                                        class="body-text"
+                                        data-en="I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating, flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional expectations and diplomatic context."
+                                        data-de="Ich liefere Protokoll-Expertise für formelle, bilaterale und multilaterale Settings. Dazu zählen Präzedenz, Sitzordnung, Flaggenprotokoll, zeremonielle Choreografie und kulturell angemessenes Hosting — stets im Einklang mit institutionellen Erwartungen und diplomatischem Kontext."
+                                    >
+                                        I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating,
+                                        flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional
+                                        expectations and diplomatic context.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
                         </div>
 
                         <div class="service-item" data-service>
-                        <div class="service-head" role="button" tabindex="0" aria-expanded="false">
-                            <div class="service-bullet" aria-hidden="true"></div>
-                            <div class="service-title" data-en="Executive &amp; Delegation Support" data-de="Executive &amp; Delegation Support">
-                            Executive &amp; Delegation Support
+                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
+                                <div class="service-bullet" aria-hidden="true"></div>
+                                    <div class="service-title" data-en="Master of Ceremony &amp; Moderation" data-de="Master of Ceremony &amp; Moderation">
+                                    Master of Ceremony &amp; Moderation
+                                    </div>
+                                <div class="service-arrow" aria-hidden="true"></div>
                             </div>
-                            <div class="service-arrow" aria-hidden="true"></div>
+
+                            <div class="service-body">
+                                <div class="service-body-inner">
+                                    <p
+                                        class="body-text"
+                                        data-en="As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality and confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between speakers, guests and institutions — in close coordination with programme, protocol and technical teams."
+                                        data-de="Als Master of Ceremony und erfahrener Event Host unterstütze ich hochrangige Programme mit Klarheit, Neutralität und Souveränität. Meine Aufgabe ist es, Struktur, Timing und Ton zu halten und zugleich respektvolle Interaktion zwischen Speaker:innen, Gästen und Institutionen zu ermöglichen — in enger Abstimmung mit Programm-, Protokoll- und Technikteams."
+                                    >
+                                        As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality
+                                        and confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between
+                                        speakers, guests and institutions — in close coordination with programme, protocol and technical teams.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="service-body">
-                            <div class="service-body-inner">
-                            <p
-                                class="body-text"
-                                data-en="I support executives and delegations through preparation, accompaniment and coordination. My focus is on discretion, situational awareness and reliable guidance in sensitive environments where decisions, symbolism and timing matter."
-                                data-de="Ich unterstütze Executives und Delegationen durch Vorbereitung, Begleitung und Koordination. Mein Fokus liegt auf Diskretion, Situational Awareness und verlässlicher Führung in sensiblen Umfeldern, in denen Entscheidungen, Symbolik und Timing zählen."
-                            >
-                                I support executives and delegations through preparation, accompaniment and coordination. My focus is on
-                                discretion, situational awareness and reliable guidance in sensitive environments where decisions, symbolism and
-                                timing matter.
-                            </p>
+                        <div class="service-item" data-service>
+                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
+                                <div class="service-bullet" aria-hidden="true"></div>
+                                    <div class="service-title" data-en="Executive &amp; Delegation Support" data-de="Executive &amp; Delegation Support">
+                                    Executive &amp; Delegation Support
+                                    </div>
+                                <div class="service-arrow" aria-hidden="true"></div>
                             </div>
-                        </div>
+
+                            <div class="service-body">
+                                <div class="service-body-inner">
+                                    <p
+                                        class="body-text"
+                                        data-en="I support executives and delegations through preparation, accompaniment and coordination. My focus is on discretion, situational awareness and reliable guidance in sensitive environments where decisions, symbolism and timing matter."
+                                        data-de="Ich unterstütze Executives und Delegationen durch Vorbereitung, Begleitung und Koordination. Mein Fokus liegt auf Diskretion, Situational Awareness und verlässlicher Führung in sensiblen Umfeldern, in denen Entscheidungen, Symbolik und Timing zählen."
+                                    >
+                                        I support executives and delegations through preparation, accompaniment and coordination. My focus is on
+                                        discretion, situational awareness and reliable guidance in sensitive environments where decisions, symbolism and
+                                        timing matter.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -943,70 +949,70 @@
 
                             <div class="carousel-viewport">
                                 <div class="carousel-track" id="fbTrack">
-                                <!-- Card 1 -->
-                                <div class="feedback-card">
-                                    <div class="feedback-text" data-en="“Feedback placeholder text — concise, specific, and credible. It highlights reliability, discretion, and precision in execution.”" data-de="„Feedback-Platzhalter — prägnant, konkret und glaubwürdig. Er betont Verlässlichkeit, Diskretion und Präzision in der Umsetzung.“">
-                                    “Feedback placeholder text — concise, specific, and credible. It highlights reliability, discretion, and precision in execution.”
+                                    <!-- Card 1 -->
+                                    <div class="feedback-card">
+                                        <div class="feedback-text" data-en="“Feedback placeholder text — concise, specific, and credible. It highlights reliability, discretion, and precision in execution.”" data-de="„Feedback-Platzhalter — prägnant, konkret und glaubwürdig. Er betont Verlässlichkeit, Diskretion und Präzision in der Umsetzung.“">
+                                        “Feedback placeholder text — concise, specific, and credible. It highlights reliability, discretion, and precision in execution.”
+                                        </div>
+
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                        Name
+                                        Position
+                                        Company
+                                        </div>
                                     </div>
 
-                                    <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                    Name
-                                    Position
-                                    Company
-                                    </div>
-                                </div>
+                                    <!-- Card 2 -->
+                                    <div class="feedback-card">
+                                        <div class="feedback-text" data-en="“Clear structure, calm leadership on-site, and a strong sense for protocol and stakeholder expectations.”" data-de="„Klare Struktur, ruhige Führung vor Ort und ein starkes Gespür für Protokoll und Stakeholder-Erwartungen.“">
+                                        “Clear structure, calm leadership on-site, and a strong sense for protocol and stakeholder expectations.”
+                                        </div>
 
-                                <!-- Card 2 -->
-                                <div class="feedback-card">
-                                    <div class="feedback-text" data-en="“Clear structure, calm leadership on-site, and a strong sense for protocol and stakeholder expectations.”" data-de="„Klare Struktur, ruhige Führung vor Ort und ein starkes Gespür für Protokoll und Stakeholder-Erwartungen.“">
-                                    “Clear structure, calm leadership on-site, and a strong sense for protocol and stakeholder expectations.”
-                                    </div>
-
-                                    <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                    Name
-                                    Position
-                                    Company
-                                    </div>
-                                </div>
-
-                                <!-- Card 3 -->
-                                <div class="feedback-card">
-                                    <div class="feedback-text" data-en="“Highly dependable under time pressure — precise communication, seamless coordination, no surprises.”" data-de="„Hochverlässlich unter Zeitdruck — präzise Kommunikation, nahtlose Koordination, keine Überraschungen.“">
-                                    “Highly dependable under time pressure — precise communication, seamless coordination, no surprises.”
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                        Name
+                                        Position
+                                        Company
+                                        </div>
                                     </div>
 
-                                    <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                    Name
-                                    Position
-                                    Company
-                                    </div>
-                                </div>
+                                    <!-- Card 3 -->
+                                    <div class="feedback-card">
+                                        <div class="feedback-text" data-en="“Highly dependable under time pressure — precise communication, seamless coordination, no surprises.”" data-de="„Hochverlässlich unter Zeitdruck — präzise Kommunikation, nahtlose Koordination, keine Überraschungen.“">
+                                        “Highly dependable under time pressure — precise communication, seamless coordination, no surprises.”
+                                        </div>
 
-                                <!-- Card 4 -->
-                                <div class="feedback-card">
-                                    <div class="feedback-text" data-en="“Strong cultural sensitivity and discretion in executive and institutional settings.”" data-de="„Hohe kulturelle Sensibilität und Diskretion in Executive- und Institutionen-Settings.“">
-                                    “Strong cultural sensitivity and discretion in executive and institutional settings.”
-                                    </div>
-
-                                    <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                    Name
-                                    Position
-                                    Company
-                                    </div>
-                                </div>
-
-                                <!-- Card 5 -->
-                                <div class="feedback-card">
-                                    <div class="feedback-text" data-en="“The kind of operational precision you want when reputations and visibility are on the line.”" data-de="„Die Art von operativer Präzision, die man braucht, wenn Reputation und Sichtbarkeit auf dem Spiel stehen.“">
-                                    “The kind of operational precision you want when reputations and visibility are on the line.”
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                        Name
+                                        Position
+                                        Company
+                                        </div>
                                     </div>
 
-                                    <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                    Name
-                                    Position
-                                    Company
+                                    <!-- Card 4 -->
+                                    <div class="feedback-card">
+                                        <div class="feedback-text" data-en="“Strong cultural sensitivity and discretion in executive and institutional settings.”" data-de="„Hohe kulturelle Sensibilität und Diskretion in Executive- und Institutionen-Settings.“">
+                                        “Strong cultural sensitivity and discretion in executive and institutional settings.”
+                                        </div>
+
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                        Name
+                                        Position
+                                        Company
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <!-- Card 5 -->
+                                    <div class="feedback-card">
+                                        <div class="feedback-text" data-en="“The kind of operational precision you want when reputations and visibility are on the line.”" data-de="„Die Art von operativer Präzision, die man braucht, wenn Reputation und Sichtbarkeit auf dem Spiel stehen.“">
+                                        “The kind of operational precision you want when reputations and visibility are on the line.”
+                                        </div>
+
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                        Name
+                                        Position
+                                        Company
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -1023,16 +1029,16 @@
 
                     <ol class="how-list">
                         <li data-en="Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations." data-de="Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen.">
-                        Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations.
+                            Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations.
                         </li>
                         <li data-en="Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically." data-de="Protokoll & Struktur — Gestaltung des passenden Rahmens — prozessual, kulturell und symbolisch.">
-                        Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically.
+                            Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically.
                         </li>
                         <li data-en="Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination." data-de="Umsetzung & Führung vor Ort — Operatives Kommando, Entscheidungen in Echtzeit und ruhige Koordination.">
-                        Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination.
+                            Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination.
                         </li>
                         <li data-en="Review & Continuity — Evaluation, documentation and preparation for future engagements." data-de="Review & Kontinuität — Auswertung, Dokumentation und Vorbereitung zukünftiger Einsätze.">
-                        Review & Continuity — Evaluation, documentation and preparation for future engagements.
+                            Review & Continuity — Evaluation, documentation and preparation for future engagements.
                         </li>
                     </ol>
                 </section>
@@ -1054,14 +1060,18 @@
                     </p>
 
                     <!-- “Get in Touch”: styled action button -->
-                    <p class="body-text">
-                    <a
-                        class="cta-btn"
-                        href="mailto:mail@haukethimm.com"
-                        data-en="Get in Touch"
-                        data-de="Kontakt aufnehmen"
-                    >Get in Touch</a><br />
-                    <span data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">Discreet handling of all inquiries.</span>
+                    <p class="body-text contact-cta">
+                        <a
+                            class="cta-btn"
+                            href="mailto:mail@haukethimm.com"
+                            data-en="Get in Touch"
+                            data-de="Kontakt aufnehmen"
+                        >
+                            Get in Touch</a>
+
+                        <span data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">
+                            Discreet handling of all inquiries.
+                        </span>
                     </p>
 
                 </section>
