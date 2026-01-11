@@ -32,7 +32,7 @@
                 --top-offset: 50px;
                 --banner-h: 60px;
 
-                --logo-h: 195px;
+                --logo-h: 180px;
                 --side-pad: 175px;
 
                 --max-width: 1400px;
@@ -319,9 +319,9 @@
                 padding-bottom: 60px;
             }
 
-            /* About me as regular body text (not a heading) */
+            /* About me as a heading */
             .about .about-label {
-                font-size: var(--body);
+                font-size: var(--h2);
                 font-weight: 500;
                 margin: 0 0 14px 0;
             }
@@ -385,11 +385,6 @@
                 padding-top: 14px;
             }
 
-            /* Open on hover */
-            .service-item:hover .service-body {
-                max-height: 600px;
-            }
-
             /* Open on click (for mobile): .open class toggled via JS */
             .service-item.open .service-body {
                 max-height: 600px;
@@ -397,6 +392,38 @@
 
             .service-item.open .service-arrow {
                 transform: rotate(90deg);
+            }
+
+            /* ADD (CTA button style): place anywhere in <style>, e.g. near SERVICES styles */
+            .cta-btn{
+                display:inline-block;
+                margin-top: 14px;
+                padding: 12px 22px;
+
+                background: var(--blue);
+                color: var(--cream);
+                text-decoration: none;
+
+                font-size: var(--body);
+                font-weight: 700;
+                font-style: italic;
+
+                border: 2px solid transparent;
+                border-radius: 10px;
+
+                background:
+                    linear-gradient(var(--blue), var(--blue)) padding-box,
+                    url("img/highlights_gold.png") border-box;
+                background-size: auto, cover;
+                background-repeat: no-repeat, no-repeat;
+                background-position: center, center;
+
+                line-height: 1;
+                white-space: nowrap;
+            }
+
+            .cta-btn:hover{
+                text-decoration: underline;
             }
 
             /* ===== REFERENCES / FEEDBACK CAROUSEL ===== */
@@ -437,10 +464,13 @@
                 will-change: transform;
             }
 
+            /* FEEDBACK CARDS: landscape format */
             .feedback-card {
                 flex: 0 0 auto;
-                width: 400px;
-                height: 600px;
+
+                width: 560px;
+                height: 360px;
+
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -449,14 +479,15 @@
                 border-radius: 14px;
 
                 background:
-                linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("img/highlights_gold.png") border-box;
+                    linear-gradient(var(--cream), var(--cream)) padding-box,
+                    url("img/highlights_gold.png") border-box;
                 background-size: auto, cover;
                 background-repeat: no-repeat, no-repeat;
                 background-position: center, center;
 
                 padding: 26px;
             }
+
 
             .feedback-text {
                 font-size: var(--body);
@@ -508,10 +539,18 @@
                 }
             }
 
+            /* FEEDBACK LANDSCAPE */
             @media (max-width: 900px) {
-                .feedback-card {
-                width: 360px;
-                height: 560px;
+            .feedback-card {
+                width: 520px;
+                height: 340px;
+                }
+            }
+            @media (max-width: 768px) {
+            .feedback-card {
+                width: 86vw;
+                height: auto; /* allows comfortable reading on small screens */
+                min-height: 320px;
                 }
             }
 
@@ -570,8 +609,15 @@
                 .carousel-btn.left {
                 left: 6px;
                 }
+
                 .carousel-btn.right {
                 right: 6px;
+                }
+
+                .feedback-card {
+                width: 86vw;
+                height: auto;
+                min-height: 320px;
                 }
             }
 
@@ -1007,10 +1053,17 @@
                         If you are planning a high-level event or protocol-sensitive engagement, I am happy to discuss your requirements in confidence.
                     </p>
 
+                    <!-- “Get in Touch”: styled action button -->
                     <p class="body-text">
-                        <a href="mailto:mail@haukethimm.com" data-en="Get in Touch" data-de="Kontakt aufnehmen">Get in Touch</a><br />
-                        <span data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">Discreet handling of all inquiries.</span>
+                    <a
+                        class="cta-btn"
+                        href="mailto:mail@haukethimm.com"
+                        data-en="Get in Touch"
+                        data-de="Kontakt aufnehmen"
+                    >Get in Touch</a><br />
+                    <span data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">Discreet handling of all inquiries.</span>
                     </p>
+
                 </section>
             </div>
 
@@ -1048,105 +1101,109 @@
 
         <!-- Language toggle script -->
         <script>
-        (function () {
-            const buttons = document.querySelectorAll(".lang-btn");
-            const translatable = document.querySelectorAll("[data-en][data-de]");
+            (function () {
+                const buttons = document.querySelectorAll(".lang-btn");
+                const translatable = document.querySelectorAll("[data-en][data-de]");
 
-            function setLang(lang) {
-            translatable.forEach((el) => {
-                const val = el.getAttribute(lang === "de" ? "data-de" : "data-en");
-                if (val != null) el.textContent = val;
-            });
+                function setLang(lang) {
+                translatable.forEach((el) => {
+                    const val = el.getAttribute(lang === "de" ? "data-de" : "data-en");
+                    if (val != null) el.textContent = val;
+                });
 
-            buttons.forEach((b) => b.classList.toggle("is-active", b.dataset.lang === lang));
-            document.documentElement.lang = lang === "de" ? "de" : "en";
-            }
-
-            buttons.forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
-
-            setLang("en"); // default
-        })();
-        </script>
-
-        <!-- Services expand/collapse (click) -->
-        <script>
-        (function () {
-            const items = document.querySelectorAll("[data-service]");
-            items.forEach((item) => {
-            const head = item.querySelector(".service-head");
-            const setExpanded = (open) => {
-                item.classList.toggle("open", open);
-                head.setAttribute("aria-expanded", open ? "true" : "false");
-            };
-
-            head.addEventListener("click", () => setExpanded(!item.classList.contains("open")));
-            head.addEventListener("keydown", (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                setExpanded(!item.classList.contains("open"));
+                buttons.forEach((b) => b.classList.toggle("is-active", b.dataset.lang === lang));
+                document.documentElement.lang = lang === "de" ? "de" : "en";
                 }
-            });
-            });
-        })();
+
+                buttons.forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+                setLang("en"); // default
+            })();
         </script>
 
-        <!-- Feedback carousel -->
+        <!-- SERVICES - Expand & Collapse (by Click) -->
         <script>
-        (function () {
-            const track = document.getElementById("fbTrack");
-            const prev = document.getElementById("fbPrev");
-            const next = document.getElementById("fbNext");
+            (function () {
+                const items = document.querySelectorAll("[data-service]");
+                items.forEach((item) => {
+                const head = item.querySelector(".service-head");
+                const setExpanded = (open) => {
+                    item.classList.toggle("open", open);
+                    head.setAttribute("aria-expanded", open ? "true" : "false");
+                };
 
-            if (!track || !prev || !next) return;
+                head.addEventListener("click", () => setExpanded(!item.classList.contains("open")));
+                head.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setExpanded(!item.classList.contains("open"));
+                    }
+                });
+                });
+            })();
+        </script>
 
-            let index = 0;
+        <!-- FEEDBACK CAROUSEL: Center active card horizontally -->
+        <script>
+            (function () {
+                const track = document.getElementById("fbTrack");
+                const prev = document.getElementById("fbPrev");
+                const next = document.getElementById("fbNext");
 
-            function cardStepPx() {
-            const card = track.querySelector(".feedback-card");
-            if (!card) return 0;
-            const styles = window.getComputedStyle(track);
-            const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-            return card.getBoundingClientRect().width + gap;
-            }
+                if (!track || !prev || !next) return;
 
-            function visibleCount() {
-            const viewport = track.parentElement;
-            const card = track.querySelector(".feedback-card");
-            if (!viewport || !card) return 1;
-            const vW = viewport.getBoundingClientRect().width;
-            const cW = card.getBoundingClientRect().width;
-            return Math.max(1, Math.floor(vW / cW));
-            }
+                let index = 0;
 
-            function maxIndex() {
-            const total = track.querySelectorAll(".feedback-card").length;
-            return Math.max(0, total - visibleCount());
-            }
+                function cardStepPx() {
+                    const card = track.querySelector(".feedback-card");
+                    if (!card) return 0;
+                    const styles = window.getComputedStyle(track);
+                    const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+                    return card.getBoundingClientRect().width + gap;
+                }
 
-            function render() {
-            const step = cardStepPx();
-            const max = maxIndex();
-            if (index < 0) index = 0;
-            if (index > max) index = max;
-            track.style.transform = `translateX(${-index * step}px)`;
-            }
+                function totalCards() {
+                    return track.querySelectorAll(".feedback-card").length;
+                }
 
-            prev.addEventListener("click", () => {
-            index -= 1;
-            render();
-            });
+                function maxIndex() {
+                    return Math.max(0, totalCards() - 1); // allow centering any single active card
+                }
 
-            next.addEventListener("click", () => {
-            index += 1;
-            render();
-            });
+                function centerOffsetPx() {
+                    const viewport = track.closest(".carousel-viewport");
+                    const card = track.querySelector(".feedback-card");
+                    if (!viewport || !card) return 0;
 
-            window.addEventListener("resize", () => {
-            render();
-            });
+                    const vW = viewport.getBoundingClientRect().width;
+                    const cW = card.getBoundingClientRect().width;
+                    return Math.max(0, (vW - cW) / 2);
+                }
 
-            render();
-        })();
+                function render() {
+                    const step = cardStepPx();
+                    const max = maxIndex();
+                    if (index < 0) index = 0;
+                    if (index > max) index = max;
+
+                    const offset = centerOffsetPx();
+                    track.style.transform = `translateX(${offset - index * step}px)`;
+                }
+
+                prev.addEventListener("click", () => {
+                    index -= 1;
+                    render();
+                });
+
+                next.addEventListener("click", () => {
+                    index += 1;
+                    render();
+                });
+
+                window.addEventListener("resize", render);
+
+                render();
+            })();
         </script>
     </body>
 </html>
