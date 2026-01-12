@@ -15,7 +15,7 @@
             /* ==== LOKALE SCHRIFT: CORMORANT GARAMOND (STATIC TTF) ==== */
             @font-face{
                 font-family: "Cormorant Garamond";
-                src: url("/fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
+                src: url("fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
                 font-weight: 300;
                 font-style: normal;
                 font-display: swap;
@@ -23,7 +23,7 @@
 
             @font-face{
                 font-family: "Cormorant Garamond";
-                src: url("/fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
+                src: url("fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
                 font-weight: 500;
                 font-style: normal;
                 font-display: swap;
@@ -31,7 +31,7 @@
 
             @font-face{
                 font-family: "Cormorant Garamond";
-                src: url("/fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
+                src: url("fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
                 font-weight: 700;
                 font-style: normal;
                 font-display: swap;
@@ -39,7 +39,7 @@
             
             @font-face{
                 font-family: "Cormorant Garamond";
-                src: url("/fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
+                src: url("fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
                 font-weight: 300;
                 font-style: italic;
                 font-display: swap;
@@ -47,7 +47,7 @@
 
             @font-face{
                 font-family: "Cormorant Garamond";
-                src: url("/fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
+                src: url("fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
                 font-weight: 500;
                 font-style: italic;
                 font-display: swap;
@@ -55,7 +55,7 @@
 
             @font-face{
                 font-family: "Cormorant Garamond";
-                src: url("/fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
+                src: url("fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
                 font-weight: 700;
                 font-style: italic;
                 font-display: swap;
@@ -808,20 +808,20 @@
                 display: block;
             }
 
-            .certified {
+            .qualifications {
                 display: flex;
                 flex-direction: column;
                 gap: 12px;
             }
 
-            .certified-label {
+            .qualifications-label {
                 font-size: 16px;
                 font-weight: var(--fw-sub);
                 color: var(--cream);
                 margin: 0;
             }
 
-            .certified-logos {
+            .qualifications-logos {
                 display: flex;
                 gap: 20px;
                 align-items: center;
@@ -829,7 +829,7 @@
             }
 
             /* ==== FOOTER: PLATZHALTER UND SPÄTERE LOGOS MIT RAHMEN ==== */
-            .certified-logos .gold-frame > img {
+            .qualifications-logos .gold-frame > img {
                 height: 60px;
                 width: auto;
                 object-fit: cover;
@@ -846,7 +846,7 @@
                 display: inline-flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 6px;
+                gap: 3px;
 
                 margin-top: 0;
                 padding-top: 0;
@@ -865,7 +865,7 @@
             }
 
             .backtop:hover {
-                font-weight: 500;
+                font-weight: 700;
             }
 
             .backtop:hover .backtop-text {
@@ -901,12 +901,12 @@
             /* ==== IMPRINT / PRIVACY POLICY RECHTS 10PX VOR SEITENENDE (UNTEN) / SCHRIFTGRÖSSE SUBLINE / STYLE 700 ==== */
             .legal-text {
                 position: absolute;
-                right: 10px;
-                bottom: 10px;
+                right: 100px;
+                bottom: 15px;
                 display: inline-flex;
                 gap: 18px;
                 font-size: var(--fs-sub);
-                font-weight: 700;
+                font-weight: 500;
                 color: var(--cream);
                 align-items: center;
                 justify-content: flex-end;
@@ -942,8 +942,8 @@
                 }
 
                 .legal-text {
-                right: 10px;
-                bottom: 10px;
+                right: 100px;
+                bottom: 15px;
                 font-size: var(--fs-sub);
                 }
             }
@@ -1410,10 +1410,10 @@
                         <img src="img/logo.png" alt="Hauke Thimm" />
                         </a>
 
-                        <div class="certified">
-                        <p class="certified-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifications:</p>
+                        <div class="qualifications">
+                        <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifications:</p>
 
-                        <div class="certified-logos">
+                        <div class="qualifications-logos">
                             <a
                             href="https://www.handelskammer-hamburg.de/"
                             target="_blank"
@@ -1425,7 +1425,9 @@
                                 </span>
 
                                 <!-- ==== SPÄTER: PLACEHOLDER1 DURCH HKHAMBURG.JPG ERSETZEN (GLEICHE GRÖSSE/POSITION) ==== -->
-                                <!-- <span class="gold-frame"><img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" /></span> -->
+                                <!-- <span class="gold-frame">
+                                    <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                                </span> -->
                             </a>
 
                             <a
@@ -1439,7 +1441,9 @@
                                 </span>
 
                                 <!-- ==== SPÄTER: PLACEHOLDER2 DURCH PROTOCOLBUREAU.PNG ERSETZEN (GLEICHE GRÖSSE/POSITION) ==== -->
-                                <!-- <span class="gold-frame"><img src="img/protocolbureau.png" alt="Protocolbureau" /></span> -->
+                                <!-- <span class="gold-frame">
+                                    <img src="img/protocolbureau.png" alt="Protocolbureau" />
+                                </span> -->
                             </a>
                         </div>
                         </div>
