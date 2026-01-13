@@ -91,6 +91,15 @@
 
                 --hero-portrait-w: 240px;
                 --hero-portrait-h: 320px;
+
+                /* ==== GOLD-RAHMEN-SYSTEM (EINHEITLICH, FEIN, FÜR ALLE FORMEN) ==== */
+                --frame-w-sm: 2px;
+                --frame-w-md: 3px;
+                --frame-w-lg: 4px;
+
+                --frame-r-sm: 6px;
+                --frame-r-md: 10px;
+                --frame-r-lg: 14px;
             }
 
             * {
@@ -110,24 +119,47 @@
                 font-weight: 500;
             }
 
-            /* ==== GOLD-RAHMEN (HIGHLIGHTS_GOLD.PNG) ==== */
-            .gold-frame {
-                display: inline-block;
-                border: 3px solid transparent; /* ==== STÄRKE DER UMRANDUNG ==== */
-                border-radius: 10px;
+            /* ==== BASIS: GOLD-RAHMEN ÜBER HIGHLIGHTS_GOLD.PNG ==== */
+            .gold-frame{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                border: var(--frame-w-md) solid transparent;
                 background:
                     linear-gradient(transparent, transparent) padding-box,
                     url("img/highlights_gold.png") border-box;
                 background-size: auto, cover;
                 background-repeat: no-repeat, no-repeat;
                 background-position: center, center;
+
+                overflow: hidden; /* WICHTIG: CLIP FÜR RUNDE FORMEN */
             }
 
-            .gold-frame > img {
+            /* GRÖSSEN (RAHMENSTÄRKE) */
+            .frame--sm{ border-width: var(--frame-w-sm); }
+            .frame--md{ border-width: var(--frame-w-md); }
+            .frame--lg{ border-width: var(--frame-w-lg); }
+
+            /* FORMEN */
+            .shape--r-sm{ border-radius: var(--frame-r-sm); }
+            .shape--r-md{ border-radius: var(--frame-r-md); }
+            .shape--r-lg{ border-radius: var(--frame-r-lg); }
+            .shape--pill{ border-radius: 999px; }
+            .shape--round{ border-radius: 999px; }
+
+            /* INHALT IM FRAME (BILDER) – IMMER BLOCK, DAMIT KEINE “BASELINE-GAPS” */
+            .gold-frame > img{
                 display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* OPTIONAL: wenn du auch ICONS (SVG/IMG) OHNE FESTE BOX hineinlegst */
+            .gold-frame.auto > img{
                 width: auto;
                 height: auto;
-                border-radius: 6px; /* OPTISCH SAUBER IM RAHMEN */
             }
 
             /* ==== FIXED NAV (NUR BANNER) ==== */
@@ -223,14 +255,15 @@
                 white-space: nowrap;
             }
 
-            .lang-btn {
-                border: 0;
-                background: transparent;
-                padding: 0;
-                display: inline-flex;
-                align-items: center;
-                cursor: pointer;
-                opacity: 0.7;
+            /* ==== SPRACH-ICONS: RAHMEN + FIXE BOX ==== */
+            .lang-btn .gold-frame{
+                width: 25px;
+                height: 25px;
+            }
+
+            .lang-btn .gold-frame > img{
+                width: 100%;
+                height: 100%;
             }
 
             .lang-btn.is-active {
@@ -452,8 +485,8 @@
             }
 
             .service-item {
-                border: 2px solid transparent;
-                border-radius: 10px;
+                border: var(--frame-w-md) solid transparent;
+                border-radius: var(--frame-r-md);
                 background: linear-gradient(var(--cream), var(--cream)) padding-box, url("img/highlights_gold.png") border-box;
                 background-size: auto, cover;
                 background-repeat: no-repeat, no-repeat;
@@ -530,8 +563,8 @@
                 font-weight: var(--fw-head);
                 font-style: normal;
 
-                border: 3px solid transparent;
-                border-radius: 10px;
+                border: var(--frame-w-md) solid transparent;
+                border-radius: var(--frame-r-md);
 
                 background: linear-gradient(var(--blue), var(--blue)) padding-box, url("img/highlights_gold.png") border-box;
                 background-size: auto, cover;
@@ -593,8 +626,8 @@
                 flex-direction: column;
                 justify-content: space-between;
 
-                border: 5px solid transparent;
-                border-radius: 14px;
+                border: var(--frame-w-lg) solid transparent;  /* oder md */
+                border-radius: var(--frame-r-lg);
 
                 background: linear-gradient(var(--cream), var(--cream)) padding-box, url("img/highlights_gold.png") border-box;
                 background-size: auto, cover;
@@ -757,11 +790,11 @@
                 min-width: 0;
             }
 
-            .pre-footer-item .gold-frame > img {
+            .pre-footer-item .gold-frame{
                 width: 75px;
                 height: 75px;
-                object-fit: cover;
             }
+
 
             .pre-footer-item .subline {
                 margin: 0;
@@ -829,11 +862,23 @@
             }
 
             /* ==== FOOTER: PLATZHALTER UND SPÄTERE LOGOS MIT RAHMEN ==== */
-            .qualifications-logos .gold-frame > img {
+            /* .qualifications-logos .gold-frame > img {
                 height: 50px;
                 width: auto;
                 object-fit: cover;
+            } */
+
+            .certified-logos .gold-frame{
+                height: 60px;
+                width: 60px;          /* falls quadratisch */
             }
+
+            .certified-logos .gold-frame > img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;  /* bei Logos oft besser als cover */
+            }
+
 
             /* ==== MITTE: BACK TO TOP (CHEVRON ALS BILD) ==== */
             .backtop {
@@ -892,10 +937,15 @@
                 display: inline-block;
             }
 
-            .follow-icons .gold-frame > img {
+            .follow-icons .gold-frame{
+                width: 60px;
                 height: 60px;
-                width: auto;
-                display: block;
+            }
+
+            .follow-icons .gold-frame > img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;  /* Icon nicht abschneiden */
             }
 
             /* ==== IMPRINT / PRIVACY POLICY RECHTS 10PX VOR SEITENENDE (UNTEN) / SCHRIFTGRÖSSE SUBLINE / STYLE 700 ==== */
@@ -966,10 +1016,14 @@
                     <!-- ==== SPRACHTOGGLE (EN DEFAULT) ==== -->
                     <div class="lang-toggle" aria-label="Language selector">
                     <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
-                        <img src="img/flag-uk.png" alt="EN" />
+                        <span class="gold-frame frame--sm shape--r-sm">
+                            <img src="img/flag-uk.png" alt="EN" />
+                        </span>
+
                     </button>
                     <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
-                        <img src="img/flag-de.png" alt="DE" />
+                        <span class="gold-frame frame--sm shape--r-sm">
+                            <img src="img/flag-de.png" alt="DE" />
                     </button>
                     </div>
                 </div>
@@ -1379,21 +1433,21 @@
             <section class="pre-footer" aria-label="Additional contact options">
                 <div class="pre-footer-inner">
                     <div class="pre-footer-item">
-                        <span class="gold-frame">
+                        <span class="gold-frame frame--md shape--r-md">
                             <img src="img/placeholder3.jpg" alt="" />
                         </span>
                         <p class="subline">+49 (0)160 95364569</p>
                     </div>
 
                     <div class="pre-footer-item">
-                        <span class="gold-frame">
+                        <span class="gold-frame frame--md shape--r-md">
                             <img src="img/placeholder4.jpg" alt="" />
                         </span>
                         <p class="subline">mail@haukethimm.com</p>
                     </div>
 
                     <div class="pre-footer-item">
-                        <span class="gold-frame">
+                        <span class="gold-frame frame--md shape--r-md">
                             <img src="img/placeholder5.jpg" alt="" />
                         </span>
                         <p class="subline">Business card</p>
@@ -1420,13 +1474,14 @@
                             rel="noopener noreferrer"
                             aria-label="Handelskammer Hamburg"
                             >
-                                <span class="gold-frame">
+                                <span class="gold-frame frame--md shape--r-md">
                                     <img src="img/placeholder1.jpg" alt="Handelskammer Hamburg" />
                                 </span>
 
+
                                 <!-- ==== SPÄTER: PLACEHOLDER1 DURCH HKHAMBURG.JPG ERSETZEN (GLEICHE GRÖSSE/POSITION) ==== -->
-                                <!-- <span class="gold-frame">
-                                    <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                                <!-- <span class="gold-frame frame--md shape--r-md">
+                                    <img src="img/placeholder1.jpg" alt="Handelskammer Hamburg" />
                                 </span> -->
                             </a>
 
@@ -1436,13 +1491,14 @@
                             rel="noopener noreferrer"
                             aria-label="Protocolbureau"
                             >
-                                <span class="gold-frame">
+                                <span class="gold-frame frame--md shape--round">
                                     <img src="img/placeholder2.png" alt="Protocolbureau" />
                                 </span>
 
+
                                 <!-- ==== SPÄTER: PLACEHOLDER2 DURCH PROTOCOLBUREAU.PNG ERSETZEN (GLEICHE GRÖSSE/POSITION) ==== -->
-                                <!-- <span class="gold-frame">
-                                    <img src="img/protocolbureau.png" alt="Protocolbureau" />
+                                <!-- <span class="gold-frame frame--md shape--round">
+                                    <img src="img/placeholder2.png" alt="Protocolbureau" />
                                 </span> -->
                             </a>
                         </div>
@@ -1465,9 +1521,10 @@
                             rel="noopener noreferrer"
                             aria-label="Instagram"
                         >
-                            <span class="gold-frame">
+                            <span class="gold-frame frame--md shape--round">
                                 <img src="img/instagram.png" alt="Instagram" />
                             </span>
+
                         </a>
                         </div>
                     </div>
