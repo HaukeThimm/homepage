@@ -1001,6 +1001,25 @@
                 white-space: nowrap;
             }
 
+            .legal-link{
+                color: var(--cream);
+                text-decoration: none;
+                font: inherit;
+                background: none;
+                border: 0;
+                padding: 0;
+                cursor: pointer;
+            }
+
+            .legal-link:hover{
+                text-decoration: underline;
+            }
+
+            .legal-sep{
+                opacity: 0.9;
+            }
+
+
             @media (max-width: 768px) {
                 .pre-footer {
                 height: auto;
@@ -1032,7 +1051,7 @@
                 .legal-text {
                 right: 100px;
                 bottom: 15px;
-                font-size: var(--fs-sub);
+                font-size: var(--fs-body);
                 }
             }
         </style>
@@ -1562,10 +1581,21 @@
                     </div>
 
                     <!-- ==== IMPRINT / PRIVACY POLICY (RECHTS UNTEN) ==== -->
-                    <div class="legal-text">
-                        <span data-en="Imprint" data-de="Impressum">Imprint</span>
-                        <span data-en="Privacy policy" data-de="Datenschutz">Privacy policy</span>
+                    <div class="legal-text" aria-label="Legal links">
+                        <a class="legal-link" href="/imprint.html" data-en="Imprint" data-de="Impressum">Imprint</a>
+                        <span class="legal-sep" aria-hidden="true">•</span>
+
+                        <a class="legal-link" href="/privacy.html" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>
+                        <span class="legal-sep" aria-hidden="true">•</span>
+
+                        <a class="legal-link" href="/terms.html" data-en="Terms &amp; Conditions" data-de="AGB">Terms &amp; Conditions</a>
+                        <span class="legal-sep" aria-hidden="true">•</span>
+
+                        <button type="button" class="legal-link legal-btn" data-en="Cookie settings" data-de="Cookie-Einstellungen">
+                            Cookie settings
+                        </button>
                     </div>
+
                 </div>
             </footer>
         </div>
