@@ -867,37 +867,43 @@
                 margin: 0;
             }
 
-            /* ==== BASIS: JEDES QUALIFICATION-LOGO BEKOMMT DIE GLEICHE HÖHE ==== */
+            /* ==== QUALIFICATIONS: FRAME IST EINE DEFINIERTE BOX ==== */
             .qualifications-logos .gold-frame{
                 height: var(--qual-logo-h);
-                width: auto;              /* ==== BREITE ORIENTIERT SICH AM ORIGINAL ==== */
+                width: auto;
+                max-width: var(--qual-logo-max-w);
+
                 display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                overflow: hidden;           /* ==== CLIP ==== */
             }
 
-            /* ==== WICHTIG: IMG NICHT STRETCHEN, NUR IN HÖHE PASSEN ==== */
+            /* ==== QUALIFICATIONS: IMG DARF NIE "AUS DEM FRAME" WACHSEN ==== */
             .qualifications-logos .gold-frame > img{
+                display: block;
                 height: 100%;
-                width: auto;              /* ==== ORIGINAL-ASPEKT BLEIBT ==== */
-                object-fit: contain;
+                width: auto;
+                max-width: 100%;
+                object-fit: contain;        /* ==== LOGO: NICHT CROPPEN ==== */
             }
 
-            /* ==== FORM: RECHTECKIGE LOGOS (KEINE RUNDUNG) ==== */
+            /* ==== RECHTECKIG: KEINE RUNDUNG ==== */
             .qualifications-logos .shape--rect{
-                border-radius: 0;         /* ==== GAR NICHT ABRUNDEN ==== */
-                overflow: hidden;         /* OK, schadet nicht */
+                border-radius: 0;
             }
 
-            /* ==== FORM: RUNDE LOGOS (KREIS) – MUSS QUADRATISCH SEIN ==== */
+            /* ==== RUND: MUSS QUADRATISCH SEIN ==== */
             .qualifications-logos .shape--round{
-                width: var(--qual-logo-h); /* ==== KREIS BRAUCHT FESTE BREITE ==== */
+                width: var(--qual-logo-h);  /* ==== KREIS ==== */
                 border-radius: 999px;
             }
 
-            /* ==== RUNDE LOGOS: IMG DARF QUADRAT AUSFÜLLEN ==== */
             .qualifications-logos .shape--round > img{
                 width: 100%;
                 height: 100%;
-                object-fit: contain;        /* contain, wenn nichts geclippt werden soll */
+                object-fit: contain;
             }
 
             /* ==== MITTE: BACK TO TOP (CHEVRON ALS BILD) ==== */
