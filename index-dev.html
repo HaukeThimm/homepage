@@ -458,7 +458,7 @@
             }
 
             /* ==== VALUES / KEYWORD-BAND ==== */
-            .values-band {
+            /* .values-band {
                 padding: 24px 0 10px;
                 text-align: center;
             }
@@ -479,6 +479,19 @@
                 font-size: 20px;
                 font-weight: var(--fw-sub);
                 margin: 0 0 10px 0;
+            } */
+
+            /* ==== VALUES: TEXTBLOCK DURCH BILD ERSETZEN + ABSTÄNDE WIE ANDERE SEKTIONEN ==== */
+            .values-band{
+                padding: 60px 0; /* ==== GLEICHER VERTIKALABSTAND WIE .SECTION ==== */
+                text-align: center;
+            }
+
+            .values-band img{
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                height: auto;
             }
 
             /* ==== ABOUT ==== */
@@ -783,13 +796,13 @@
             /* ==== PRE-FOOTER (ZUSÄTZLICHE KONTAKTMÖGLICHKEITEN) ==== */
             .pre-footer {
                 width: 100%;
-                height: 200px;
+                height: 150px;
 
-                /* ==== ÄNDERUNG: PRE-FOOTER MIT BLAUEM BANNER HINTERLEGT ==== */
+                /* ==== PRE-FOOTER MIT BLAUEM BANNER HINTERLEGT ==== */
                 background: var(--blue);
                 color: var(--cream);
 
-                /* ==== ÄNDERUNG: ABSTAND ZUM FOOTER 20PX ==== */
+                /* ==== ABSTAND ZUM FOOTER 20PX ==== */
                 margin-bottom: 20px;
 
                 display: flex;
@@ -1103,7 +1116,7 @@
                 </section>
 
                 <!-- ==== VALUES / KEYWORD-BAND ==== -->
-                <section class="values-band anchor" id="values">
+                <!-- <section class="values-band anchor" id="values">
                     <p class="lead" data-en="Principles that guide my work:" data-de="Prinzipien, die meine Arbeit leiten:">
                         Principles that guide my work:
                     </p>
@@ -1125,6 +1138,11 @@
                     >
                         Partnerships · Hospitality · Events · Ceremonies
                     </div>
+                </section> -->
+
+                <!-- ==== VALUES / KEYWORD-BAND ==== -->
+                <section class="values-band anchor" id="values">
+                    <img src="img/values.png" alt="" />
                 </section>
 
                 <!-- ==== ABOUT ==== -->
