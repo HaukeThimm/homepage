@@ -99,7 +99,7 @@
             --lang-btn-size: 30px;
 
             /* ==== QUALIFICATIONS-LOGOS ==== */
-            --qual-logo-h: 60px; /* einheitliche Höhe der Logos */
+            --qual-logo-h: 50px; /* einheitliche Höhe der Logos */
             --qual-logo-max-w: auto;
 
             /* ==== FOOTER-AUSRICHTUNG: ALLE SPALTEN AN "BACK TO TOP" TEXT AUSRICHTEN ==== */
@@ -213,55 +213,33 @@
         }
 
         /* ==== NAV: HOME LINK (MITTE AN LOGO-MITTE AUSGERICHTET) ==== */
-        .nav-home {
-            position: absolute;
-            top: 0;
-
-            /* gleicher Anker wie Logo links */
-            left: max(var(--side-pad), calc((100% - var(--max-width)) / 2 + var(--side-pad)));
-
-            /* approximiert: Logo-Breite ~ --logo-h; zentriert HOME auf Logo-Mitte */
-            transform: translateX(calc(var(--logo-h) / 2 - 50%));
-
-            height: var(--banner-h);
-            display: inline-flex;
-            align-items: center;
-
-            color: var(--cream);
-            text-decoration: none;
-            font-size: 15px;
-            letter-spacing: 0.1em;
-            font-weight: 500;
-            text-transform: uppercase;
-
-            padding-right: 10px;
-            white-space: nowrap;
+        .nav-home { 
+            display: none; 
         }
 
-        .nav-home:hover {
-            text-decoration: underline;
-        }
-
-        /* ==== NAV: LINKS + LANGUAGE TOGGLE ==== */
         .nav-items {
             width: 100%;
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
             align-items: center;
-            justify-content: space-between;
-
-            padding-left: 260px; /* Platz für überlappendes Logo */
             white-space: nowrap;
+            padding-left: 0;
         }
 
         .nav-items a.nav-link {
-            flex: 1;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             color: var(--cream);
             text-decoration: none;
             font-size: 15px;
             letter-spacing: 0.1em;
             font-weight: 500;
             text-transform: uppercase;
+
+            flex: initial;
+            text-align: initial;
         }
 
         .nav-items a.nav-link:hover {
@@ -270,11 +248,12 @@
 
         /* ==== LANGUAGE TOGGLE ==== */
         .lang-toggle {
-            flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
             white-space: nowrap;
+            flex: initial;
         }
 
         .lang-btn {
@@ -325,8 +304,8 @@
 
         /* ==== PAGE OFFSET: INHALT STARTET UNTER FIXED NAV + LOGO-ÜBERLAPPUNG ==== */
         .page-offset {
-            padding-top: calc(var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2));
-            margin-top: -300px; /* Feintuning: Positionierung relativ zum Header-Bild */
+            padding-top: calc(var(--top-offset) + var(--banner-h) + 20px);
+            margin-top: 0; /* oder nur leicht negativ, wenn du bewusst über Header ziehen willst */
         }
 
         /* ==== HEADER-BILD (VOLLE BREITE, KEIN CROP) ==== */
@@ -352,9 +331,8 @@
             padding: 0 var(--side-pad);
         }
 
-        /* ==== ANKER-OFFSET: DAMIT LINKS NICHT UNTER DEM FIXED NAV VERSCHWINDEN ==== */
         section.anchor {
-            scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + (var(--logo-h) / 2) + 20px);
+            scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + 20px);
         }
 
         /* ==== TYPO: STANDARD-SEKTIONEN ==== */
@@ -717,56 +695,65 @@
         /* ==== RESPONSIVE: GLOBAL TOKENS + LAYOUT ANPASSUNGEN ==== */
         @media (max-width: 768px) {
             :root {
-            --top-offset: 24px;
-            --banner-h: 56px;
-            --logo-h: 120px;
-            --side-pad: 18px;
+                --top-offset: 24px;
+                --banner-h: 56px;
+                --logo-h: 120px;
+                --side-pad: 18px;
 
-            --fs-head: 32px;
-            --fs-sub: 24px;
-            --fs-body: 18px;
+                --fs-head: 32px;
+                --fs-sub: 24px;
+                --fs-body: 18px;
 
-            --hero-portrait-w: 240px;
-            --hero-portrait-h: 320px;
+                --hero-portrait-w: 240px;
+                --hero-portrait-h: 320px;
             }
 
             .nav-inner {
-            padding: 0 var(--side-pad);
+                padding: 0 var(--side-pad);
             }
 
+            /* NAV: 2 Zeilen, gleichmäßige Spalten */
             .nav-items {
-            padding-left: 150px;
+                padding-left: 0;
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: 8px;
             }
 
             .nav-items a.nav-link {
-            font-size: 12px;
-            letter-spacing: 0.08em;
+                font-size: 12px;
+                letter-spacing: 0.08em;
+            }
+
+            .lang-toggle {
+                justify-content: center;
+                align-items: center;
             }
 
             .hero-grid {
-            grid-template-columns: 1fr;
-            row-gap: 22px;
+                grid-template-columns: 1fr;
+                row-gap: 22px;
             }
 
             .hero-textbox {
-            height: auto;
-            justify-content: flex-start;
-            gap: 14px;
+                height: auto;
+                justify-content: flex-start;
+                gap: 14px;
             }
 
             .hero-portrait {
-            margin-left: 0;
+                margin-left: 0;
             }
 
             .carousel-track {
-            padding: 10px 60px;
+                padding: 10px 60px;
             }
 
             .carousel-btn.left {
-            left: 6px;
+                left: 6px;
             }
+
             .carousel-btn.right {
-            right: 6px;
+                right: 6px;
             }
         }
 
@@ -849,11 +836,11 @@
             padding-top: var(--footer-align-to-backtop-text); /* richtet die Spalte an "Back to top" Text aus */
         }
 
-        .footer-logo img {
+        /* .footer-logo img {
             height: 150px; /* Logo-Größe im Footer */
-            width: auto;
-            display: block;
-        }
+            /* width: auto;
+            display: block; */
+        /* } */
 
         .qualifications {
             display: flex;
@@ -971,8 +958,8 @@
         }
 
         .follow-icons .gold-frame {
-            width: 60px;
-            height: 60px; /* Icon-Box */
+            width: auto;
+            height: 50px; /* Icon-Box */
         }
 
         .follow-icons .gold-frame > img {
@@ -1074,10 +1061,9 @@
         <!-- ==== FIXED NAV (BANNER + NAV-LINKS + LANGUAGE TOGGLE) ==== -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
-                <a class="nav-home" href="#top" data-en="HOME" data-de="HOME">HOME</a>
-
                 <div class="nav-inner">
                     <div class="nav-items">
+                        <a class="nav-link" href="#top" data-en="HOME" data-de="HOME">HOME</a>
                         <a class="nav-link" href="#about">ABOUT ME</a>
                         <a class="nav-link" href="#services">SERVICES</a>
                         <a class="nav-link" href="#references">REFERENCES</a>
@@ -1086,13 +1072,13 @@
                         <div class="lang-toggle" aria-label="Language selector">
                             <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
                                 <span class="gold-frame frame--sm shape--round">
-                                <img src="img/flag-uk.png" alt="EN" />
+                                    <img src="img/flag-uk.png" alt="EN" />
                                 </span>
                             </button>
 
                             <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
                                 <span class="gold-frame frame--sm shape--round">
-                                <img src="img/flag-de.png" alt="DE" />
+                                    <img src="img/flag-de.png" alt="DE" />
                                 </span>
                             </button>
                         </div>
@@ -1107,9 +1093,9 @@
         </section>
 
         <!-- ==== SCROLLING LOGO (ÜBER DEM FIXED BANNER) ==== -->
-        <a class="scroll-logo" href="#top" aria-label="Home">
+        <!-- <a class="scroll-logo" href="#top" aria-label="Home">
         <img src="img/logo.png" alt="Hauke Thimm" />
-        </a>
+        </a> -->
 
         <!-- ==== SEITENINHALT (STARTET UNTER NAV + LOGO-ÜBERLAPPUNG) ==== -->
         <div class="page-offset">
@@ -1502,9 +1488,9 @@
             <footer class="footer anchor" id="imprint">
                 <div class="footer-inner">
                     <div class="footer-left">
-                        <a class="footer-logo" href="#top" aria-label="Home">
+                        <!-- <a class="footer-logo" href="#top" aria-label="Home">
                         <img src="img/logo.png" alt="Hauke Thimm" />
-                        </a>
+                        </a> -->
 
                         <div class="qualifications">
                             <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifications:</p>
@@ -1597,23 +1583,37 @@
         <script>
         (function () {
             const items = document.querySelectorAll("[data-service]");
+
             items.forEach((item) => {
-            const head = item.querySelector(".service-head");
+                const head = item.querySelector(".service-head");
 
-            const setExpanded = (open) => {
-                item.classList.toggle("open", open);
-                head.setAttribute("aria-expanded", open ? "true" : "false");
-            };
+                const setExpanded = (targetItem, open) => {
+                const targetHead = targetItem.querySelector(".service-head");
+                targetItem.classList.toggle("open", open);
+                targetHead.setAttribute("aria-expanded", open ? "true" : "false");
+                };
 
-            head.addEventListener("click", () => setExpanded(!item.classList.contains("open")));
-            head.addEventListener("keydown", (e) => {
+                const closeAllExcept = (exceptItem) => {
+                items.forEach((it) => {
+                    if (it !== exceptItem) setExpanded(it, false);
+                });
+                };
+
+                const toggleItem = () => {
+                const willOpen = !item.classList.contains("open");
+                if (willOpen) closeAllExcept(item);
+                setExpanded(item, willOpen);
+                };
+
+                head.addEventListener("click", toggleItem);
+                head.addEventListener("keydown", (e) => {
                 if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                setExpanded(!item.classList.contains("open"));
+                    e.preventDefault();
+                    toggleItem();
                 }
+                });
             });
-            });
-        })();
+            })();
         </script>
 
         <!-- ==== FEEDBACK-CAROUSEL (ZENTRIERT + AUTO-SLIDE + LOOP + TIMER-RESET) ==== -->
