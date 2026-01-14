@@ -603,53 +603,48 @@
             );
         }
 
-        .carousel-track {
-            display: flex;
-            gap: 28px;
-            padding: 0;              /* WICHTIG: padding raus */
-            /* padding-block: 10px; */
-            margin: 0;               /* sauber */
-            transform: translateX(0);
-            transition: transform 320ms ease;
-            will-change: transform;
+        /* Track darf KEIN Padding haben, sonst verschiebt es die “gefühlte” Mitte */
+        .carousel-track{
+            display:flex;
+            gap:28px;
+            padding:0;                 /* <-- wichtig */
+            transform:translateX(0);
+            transition:transform 320ms ease;
+            will-change:transform;
         }
 
-        .feedback-card {
-            flex: 0 0 auto;
+        /* Card: Inhalt horizontal + vertikal zentriert */
+        .feedback-card{
+            flex:0 0 auto;
+            width:560px;
+            height:360px;
 
-            width: 560px;
-            height: 360px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;    /* <-- vertikal */
+            align-items:center;        /* <-- horizontal */
+            text-align:center;         /* <-- Text horizontal */
 
             border: var(--frame-w-lg) solid transparent;
             border-radius: var(--frame-r-lg);
-
             background: linear-gradient(var(--cream), var(--cream)) padding-box,
-            url("img/highlights_gold.png") border-box;
+                        url("img/highlights_gold.png") border-box;
+            background-size:auto, cover;
+            background-repeat:no-repeat, no-repeat;
+            background-position:center, center;
 
-            background-size: auto, cover;
-            background-repeat: no-repeat, no-repeat;
-            background-position: center, center;
-
-            padding: 26px;
+            padding:26px;
         }
 
-        .feedback-text {
-            font-size: var(--fs-body);
-            font-weight: var(--fw-body);
-            line-height: var(--lh-body);
-            white-space: pre-line;
+        /* Optional: Signatur bleibt unter dem Text, aber weiterhin zentriert */
+        .feedback-text{
+            width:100%;
+            white-space:pre-line;
         }
 
-        .feedback-signature {
-            margin-top: 18px;
-            font-size: 18px;
-            font-weight: var(--fw-sub);
-            line-height: 1.4;
-            white-space: pre-line;
+        .feedback-signature{
+            margin-top:22px;
+            white-space:pre-line;
         }
 
         .carousel-btn {
