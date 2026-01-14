@@ -582,27 +582,33 @@
         .carousel-viewport {
             overflow: hidden;
 
+            /* Platz für Pfeile: responsiv, ohne starre px-Korrektur */
+            padding-inline: clamp(2.75rem, 6vw, 5rem);
+            box-sizing: border-box;
+
             /* sanftes Ausfaden links/rechts */
             -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            rgba(0, 0, 0, 1) 10%,
-            rgba(0, 0, 0, 1) 90%,
-            transparent 100%
+                to right,
+                transparent 0%,
+                rgba(0, 0, 0, 1) 10%,
+                rgba(0, 0, 0, 1) 90%,
+                transparent 100%
             );
             mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            rgba(0, 0, 0, 1) 10%,
-            rgba(0, 0, 0, 1) 90%,
-            transparent 100%
+                to right,
+                transparent 0%,
+                rgba(0, 0, 0, 1) 10%,
+                rgba(0, 0, 0, 1) 90%,
+                transparent 100%
             );
         }
 
         .carousel-track {
             display: flex;
-            gap: 28px; /* Abstand zwischen Cards */
-            padding: 10px 70px; /* seitliches Polster für Pfeile */
+            gap: 28px;
+            padding: 0;              /* WICHTIG: padding raus */
+            /* padding-block: 10px; */
+            margin: 0;               /* sauber */
             transform: translateX(0);
             transition: transform 320ms ease;
             will-change: transform;
@@ -1630,70 +1636,77 @@
             const INTERVAL_MS = 4000; /* Autoplay-Intervall */
 
             function cardStepPx() {
-            const card = track.querySelector(".feedback-card");
-            if (!card) return 0;
-            const styles = window.getComputedStyle(track);
-            const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-            return card.getBoundingClientRect().width + gap;
+                const card = track.querySelector(".feedback-card");
+                if (!card) return 0;
+                const styles = window.getComputedStyle(track);
+                const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+                return card.getBoundingClientRect().width + gap;
             }
 
             function totalCards() {
-            return track.querySelectorAll(".feedback-card").length;
+                return track.querySelectorAll(".feedback-card").length;
             }
 
             function maxIndex() {
-            return Math.max(0, totalCards() - 1);
+                return Math.max(0, totalCards() - 1);
             }
 
             function centerOffsetPx() {
-            const viewport = track.closest(".carousel-viewport");
-            const card = track.querySelector(".feedback-card");
-            if (!viewport || !card) return 0;
+                const viewport = track.closest(".carousel-viewport");
+                const card = track.querySelector(".feedback-card");
+                if (!viewport || !card) return 0;
 
-            const vW = viewport.getBoundingClientRect().width;
-            const cW = card.getBoundingClientRect().width;
-            return Math.max(0, (vW - cW) / 2);
+                const vStyles = window.getComputedStyle(viewport);
+                const padL = parseFloat(vStyles.paddingLeft) || 0;
+                const padR = parseFloat(vStyles.paddingRight) || 0;
+
+                // Content-Box Breite (ohne Padding)
+                const contentW = viewport.clientWidth - padL - padR;
+                const cW = card.getBoundingClientRect().width;
+
+                // Offset innerhalb des Viewports inkl. linker Padding-Kante
+                return padL + Math.max(0, (contentW - cW) / 2);
             }
 
             function render() {
-            const step = cardStepPx();
-            const offset = centerOffsetPx();
-            track.style.transform = `translateX(${offset - index * step}px)`;
+                const step = cardStepPx();
+                const offset = centerOffsetPx();
+                track.style.transform = `translateX(${offset - index * step}px)`;
             }
 
             function goNext() {
-            const max = maxIndex();
-            index = max === 0 ? 0 : (index + 1) % (max + 1);
-            render();
+                const max = maxIndex();
+                index = max === 0 ? 0 : (index + 1) % (max + 1);
+                render();
             }
 
             function goPrev() {
-            const max = maxIndex();
-            if (max === 0) index = 0;
-            else index = (index - 1 + (max + 1)) % (max + 1);
-            render();
+                const max = maxIndex();
+                if (max === 0) index = 0;
+                else index = (index - 1 + (max + 1)) % (max + 1);
+                render();
             }
 
             function resetTimer() {
-            if (timerId) clearInterval(timerId);
-            timerId = setInterval(goNext, INTERVAL_MS);
+                if (timerId) clearInterval(timerId);
+                timerId = setInterval(goNext, INTERVAL_MS);
             }
 
             prev.addEventListener("click", () => {
-            goPrev();
-            resetTimer();
+                goPrev();
+                resetTimer();
             });
 
             next.addEventListener("click", () => {
-            goNext();
-            resetTimer();
+                goNext();
+                resetTimer();
             });
 
             window.addEventListener("resize", render);
 
             render();
             resetTimer();
-        })();
+            })();
         </script>
     </body>
 </html>
