@@ -62,20 +62,22 @@
             --banner-h: 60px; /* Höhe des fixen Nav-Banners */
 
             --logo-h: 180px; /* Höhe des großen Logos (oben über dem Banner) */
-            --side-pad: 175px; /* Seitlicher Innenabstand im Content */
+            --side-pad: 150px; /* Seitlicher Innenabstand im Content */
 
             --max-width: 1400px; /* maximale Layoutbreite */
 
             /* ==== TYPOGRAFIE-TOKENS (GLOBAL) ==== */
-            --fs-head: 36px; /* Überschriften (H2 + ABOUT LABEL) */
-            --fs-sub: 30px; /* Subline */
-            --fs-body: 24px; /* Fließtext */
+            --fs-head: 32px; /* Überschriften */
+            --fs-sub: 24px; /* Subline */
+            --fs-body: 20px; /* Fließtext */
 
             --fw-head: 700;
             --fw-sub: 500;
-            --fw-body: 300;
+            --fw-body: 500;
 
-            --lh-body: 1.6;
+            --lh-head: 1;
+            --lh-sub: 1;
+            --lh-body: 1;
 
             /* ==== BACKWARDS-KOMPATIBILITÄT (OPTIONAL) ==== */
             --h2: var(--fs-head);
@@ -91,9 +93,9 @@
             --frame-w-md: 3px;
             --frame-w-lg: 4px;
 
-            --frame-r-sm: 6px;
-            --frame-r-md: 10px;
-            --frame-r-lg: 14px;
+            --frame-r-sm: 5px;
+            --frame-r-md: 8px;
+            --frame-r-lg: 12px;
 
             /* ==== SPRACHBUTTON-KREIS-GRÖSSE ==== */
             --lang-btn-size: 30px;
@@ -120,10 +122,14 @@
         body {
             margin: 0;
             color: var(--blue);
-            background-color: var(--cream); /* globaler Seitenhintergrund */
+            background-color: var(--cream); /* GLOBEALER DEFAULT: HINTERGRUNDFARBE */
             font-family: "Cormorant Garamond", serif;
             font-optical-sizing: auto;
-            font-weight: 500;
+
+            /* GLOBALE DEFAULTS: SCHRIFT */
+            font-size: var(--fs-body);
+            font-weight: var(--fw-body);
+            line-height: var(--lh-body);
         }
 
         /* ==== GOLD-FRAME: BASISRAHMEN ÜBER highlights_gold.png ==== */
@@ -607,7 +613,7 @@
         .carousel-track{
             display:flex;
             gap:28px;
-            padding:0;                 /* <-- wichtig */
+            padding:0;                 /* <-- WICHTIG: verschiebt sonst den Frame */
             transform:translateX(0);
             transition:transform 320ms ease;
             will-change:transform;
