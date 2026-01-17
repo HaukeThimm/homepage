@@ -1,12 +1,21 @@
 <!doctype html>
 <html>
     <body>
-        <!-- 1) OUTER TABLE: Outlook-Sauberkeit (kein Einfluss auf Optik, aber stabilere Ausrichtung) -->
-        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+        <!--
+        SIGNATUR (TABELLENBASIERT)
+        Ziele:
+        - Outlook-/Client-stabile Darstellung (mso-table-lspace/rspace)
+        - Logo-Oberkante exakt auf Höhe der ersten Textzeile ("Hauke THIMM")
+        - Telefonnummer NICHT verlinkt
+        - Typo-Hierarchie: Cormorant (Name + Titel), Source Sans 3 (Kontakt)
+        - Keine Social-Icons (auskommentiert)
+        -->
 
-        <!-- <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"> -->
+        <!-- 1) AUSSEN-TABELLE: Outlook-kompatible Null-Ränder -->
+        <table cellpadding="0" cellspacing="0" border="0"
+            style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
             <tr>
-                <!-- 2) LEFT TD (LOGO): Top-Kante “hart” setzen (verhindert typisches Mail-Client Line-Box-Offset) -->
+                <!-- 2) LINKE SPALTE: LOGO (Top-Kante "hart", kein Zeilenhöhen-Offset) -->
                 <td style="vertical-align:top; padding:0 20px 0 0; line-height:0; mso-line-height-rule:exactly;">
                     <a href="https://haukethimm.com" style="text-decoration:none;">
                         <img
@@ -17,66 +26,75 @@
                     </a>
                 </td>
 
-                <!-- RIGHT: TEXT -->
-                <td style="vertical-align:top; color:#003153; padding:0; mso-line-height-rule:exactly;">
+                <!-- 3) RECHTE SPALTE: TEXT (line-height:1 verhindert Outlook-"Extra-Luft") -->
+                <td style="vertical-align:top; color:#003153; padding:0; line-height:1; mso-line-height-rule:exactly;">
 
-                    <!-- NESTED TABLE WITH FIXED HEIGHT EQUAL TO LOGO HEIGHT -->
+                    <!-- 4) INNERE TABELLE: optional, aber stabil in vielen Mail-Clients -->
                     <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
                         <tr>
-                            <td style="vertical-align:top; padding:0;">
+                            <!-- 5) INNERE ZELLE: ebenfalls line-height:1 für konsistente Top-Ausrichtung -->
+                            <td style="vertical-align:top; padding:0; line-height:1; mso-line-height-rule:exactly;">
 
-                                <!-- NAME (Cormorant) -->
+                                <!-- NAME (Cormorant Garamond) -->
                                 <div style="margin:0 0 5px 0; font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size:24px; font-weight:700; line-height:1.15;">
                                 Hauke <span style="letter-spacing:0.02em;">THIMM</span>
                                 </div>
 
-                                <!-- TITLE (Cormorant) -->
+                                <!-- TITEL / POSITION (Cormorant Garamond) -->
                                 <div style="margin:0 0 10px 0; font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size:20px; font-weight:500; line-height:1.15;">
                                 High-Level Events &amp; Protocol Management
                                 </div>
 
-                                <!-- PHONE (Source Sans 3) -->
+                                <!-- TELEFON (Source Sans 3) | WICHTIG: KEIN tel:-Link -->
                                 <div style="margin:0 0 3px 0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
                                 T: <span style="font-weight:400;">+49 160 95364569</span>
                                 </div>
 
-                                <!-- EMAIL (Source Sans 3) -->
+                                <!-- E-MAIL (Source Sans 3) -->
                                 <div style="margin:0 0 3px 0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
-                                E: <a href="mailto:mail@haukethimm.com" style="color:#003153; text-decoration:none; font-weight:500;">mail@haukethimm.com</a>
+                                E:
+                                <a href="mailto:mail@haukethimm.com" style="color:#003153; text-decoration:none; font-weight:500;">
+                                    mail@haukethimm.com
+                                </a>
                                 </div>
 
                                 <!-- WEBSITE (Source Sans 3) -->
                                 <div style="margin:0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
-                                W: <a href="https://haukethimm.com" style="color:#003153; text-decoration:none; font-weight:500;">haukethimm.com</a>
+                                W:
+                                <a href="https://haukethimm.com" style="color:#003153; text-decoration:none; font-weight:500;">
+                                    haukethimm.com
+                                </a>
                                 </div>
+
                             </td>
                         </tr>
 
-                        <!-- SOCIAL PINNED TO BOTTOM OF BLOCK
+                        <!-- SOCIAL-ICONS: derzeit deaktiviert (auskommentiert)
                         <tr>
-                            <td style="vertical-align:bottom; padding:0;">
-                                <div style="margin:0; line-height:1; font-size:0;">
-                                    <a href="https://www.linkedin.com/in/haukethimm/" style="text-decoration:none; display:inline-block;">
-                                        <img
-                                        src="linkedin.png"
-                                        alt="LinkedIn"
-                                        style="height:35px; width:auto; display:inline-block; vertical-align:middle; border:0; outline:none; text-decoration:none;"
-                                        />
-                                    </a>
+                        <td style="vertical-align:bottom; padding:0;">
+                            <div style="margin:0; line-height:1; font-size:0;">
+                            <a href="https://www.linkedin.com/in/haukethimm/" style="text-decoration:none; display:inline-block;">
+                                <img
+                                src="linkedin.png"
+                                alt="LinkedIn"
+                                style="height:35px; width:auto; display:inline-block; vertical-align:middle; border:0; outline:none; text-decoration:none;"
+                                />
+                            </a>
 
-                                    <span style="display:inline-block; width:10px; font-size:0; line-height:0;">&nbsp;</span>
+                            <span style="display:inline-block; width:10px; font-size:0; line-height:0;">&nbsp;</span>
 
-                                    <a href="https://instagram.com/haukethimm" style="text-decoration:none; display:inline-block;">
-                                        <img
-                                        src="instagram.png"
-                                        alt="Instagram"
-                                        style="height:35px; width:auto; display:inline-block; vertical-align:middle; border:0; outline:none; text-decoration:none;"
-                                        />
-                                    </a>
-                                </div>
-                            </td>
+                            <a href="https://instagram.com/haukethimm" style="text-decoration:none; display:inline-block;">
+                                <img
+                                src="instagram.png"
+                                alt="Instagram"
+                                style="height:35px; width:auto; display:inline-block; vertical-align:middle; border:0; outline:none; text-decoration:none;"
+                                />
+                            </a>
+                            </div>
+                        </td>
                         </tr>
                         -->
+
                     </table>
                 </td>
             </tr>
