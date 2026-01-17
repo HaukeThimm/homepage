@@ -8,8 +8,8 @@
         <title>haukethimm.com</title>
 
         <style>
-        /* ==== LOKALE SCHRIFT: CORMORANT GARAMOND (STATIC TTF) ==== */
-        /* WICHTIG: Pfade müssen relativ zur HTML-Datei stimmen (z.B. /fonts/...) */
+        /* ==== LOKALE SCHRIFTEN: CORMORANT GARAMOND / SOURCE SANS 3 ==== */
+        /* CORMORANT GARAMOND FÜR HERO UND HEADLINES */        
         @font-face {
             font-family: "Cormorant Garamond";
             src: url("fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
@@ -53,6 +53,50 @@
             font-display: swap;
         }
 
+        /* SOURCE SANS 3 FÜR FLIESSTEXTE */
+        @font-face{
+            font-family:"Source Sans 3";
+            src:url("fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
+            font-weight:400;
+            font-style:normal;
+            font-display:swap;
+        }
+        @font-face{
+            font-family:"Source Sans 3";
+            src:url("fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
+            font-weight:500;
+            font-style:normal;
+            font-display:swap;
+        }
+        @font-face{
+            font-family:"Source Sans 3";
+            src:url("fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
+            font-weight:600;
+            font-style:normal;
+            font-display:swap;
+        }
+        @font-face{
+            font-family:"Source Sans 3";
+            src:url("fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
+            font-weight:400;
+            font-style:italic;
+            font-display:swap;
+        }
+        @font-face{
+            font-family:"Source Sans 3";
+            src:url("fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
+            font-weight:500;
+            font-style:italic;
+            font-display:swap;
+        }
+        @font-face{
+            font-family:"Source Sans 3";
+            src:url("fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
+            font-weight:600;
+            font-style:italic;
+            font-display:swap;
+        }
+
         /* ==== ROOT: DESIGN-TOKENS (FARBEN, ABSTÄNDE, TYPO, FRAME-SYSTEM) ==== */
         :root {
             --cream: #fdf7f2;
@@ -67,17 +111,21 @@
             --max-width: 1400px; /* maximale Layoutbreite */
 
             /* ==== TYPOGRAFIE-TOKENS (GLOBAL) ==== */
+              /* Fonts zentral steuern */
+            --font-head: "Cormorant Garamond", serif;
+            --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
             --fs-head: 32px; /* Überschriften */
             --fs-sub: 24px; /* Subline */
             --fs-body: 20px; /* Fließtext */
 
             --fw-head: 700;
             --fw-sub: 500;
-            --fw-body: 500;
+            --fw-body: 400;
 
-            --lh-head: 1;
-            --lh-sub: 1;
-            --lh-body: 1;
+            --lh-head: 1.15;
+            --lh-sub: 1.25;
+            --lh-body: 1.65;
 
             /* ==== BACKWARDS-KOMPATIBILITÄT (OPTIONAL) ==== */
             --h2: var(--fs-head);
@@ -120,16 +168,16 @@
             scroll-behavior: smooth;
         }
         body {
-            margin: 0;
-            color: var(--blue);
-            background-color: var(--cream); /* GLOBEALER DEFAULT: HINTERGRUNDFARBE */
-            font-family: "Cormorant Garamond", serif;
-            font-optical-sizing: auto;
+            margin:0;
+            color:var(--blue);
+            background-color:var(--cream);
+            font-optical-sizing:auto;
 
-            /* GLOBALE DEFAULTS: SCHRIFT */
-            font-size: var(--fs-body);
-            font-weight: var(--fw-body);
-            line-height: var(--lh-body);
+            /* GLOBAL DEFAULTS */
+            font-family:var(--font-body);
+            font-size:var(--fs-body);
+            font-weight:var(--fw-body);
+            line-height:var(--lh-body);
         }
 
         /* ==== GOLD-FRAME: BASISRAHMEN ÜBER highlights_gold.png ==== */
@@ -346,26 +394,31 @@
             padding: 60px 0;
         }
 
-        .section h2 {
-            font-size: var(--fs-head);
-            font-weight: var(--fw-head);
-            margin: 0 0 18px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
+        /* HEAD (Cormorant) */
+        .section h2,
+        .about .about-label,
+        .hero .name,
+        .hero .role,
+        .hero .claim{
+            font-family:var(--font-head);
+            line-height:var(--lh-head);
         }
 
-        .subline {
-            font-size: var(--fs-sub);
-            font-weight: var(--fw-sub);
-            margin: 0 0 12px 0;
+        /* SUB (Sans) */
+        .subline,
+        .service-title,
+        .how-list{
+            font-family:var(--font-head);
+            line-height:var(--lh-sub);
         }
 
-        .body-text {
-            font-size: var(--fs-body);
-            font-weight: var(--fw-body);
-            line-height: var(--lh-body);
-            margin: 0;
-            white-space: pre-line; /* erlaubt Zeilenumbrüche aus TextContent */
+        /* BODY (Sans) */
+        .body-text,
+        .hero .intro,
+        .feedback-text,
+        .feedback-signature{
+            font-family:var(--font-body);
+            line-height:var(--lh-body);
         }
 
         .body-text + .body-text {
@@ -418,24 +471,27 @@
             margin-left: auto;
         }
 
-        .hero .name {
-            font-size: 42px;
-            font-weight: 700;
-            margin: 0 0 8px 0;
-            line-height: 1.05;
+        .hero .name{
+            font-size:42px;
+            font-weight:700;
+            margin:0 0 8px 0;
+            line-height:var(--lh-head);
         }
-        .hero .role {
-            font-size: var(--fs-sub);
-            font-weight: var(--fw-sub);
-            margin: 0 0 10px 0;
-            line-height: 1.15;
+        
+        .hero .role{
+            font-size:var(--fs-sub);
+            font-weight:var(--fw-sub);
+            margin:0 0 10px 0;
+            line-height:var(--lh-sub);
         }
-        .hero .claim {
-            font-size: var(--fs-sub);
-            font-weight: var(--fw-sub);
-            margin: 0;
-            line-height: 1.2;
+        
+        .hero .claim{
+            font-size:var(--fs-sub);
+            font-weight:var(--fw-sub);
+            margin:0;
+            line-height:var(--lh-sub);
         }
+
         .hero .intro {
             font-size: var(--fs-body);
             font-weight: var(--fw-body);
@@ -680,9 +736,9 @@
             right: 10px;
         }
 
-        @media (max-width: 1200px) {
-            .carousel-track {
-            padding: 10px 60px;
+        @media (max-width:1200px){
+        .carousel-viewport{
+            padding-inline: clamp(2.5rem, 5vw, 4.5rem);
             }
         }
         @media (max-width: 900px) {
@@ -751,9 +807,9 @@
                 margin-left: 0;
             }
 
-            .carousel-track {
+            /* .carousel-track {
                 padding: 10px 60px;
-            }
+            } */
 
             .carousel-btn.left {
                 left: 6px;
@@ -1629,85 +1685,67 @@
             const track = document.getElementById("fbTrack");
             const prev = document.getElementById("fbPrev");
             const next = document.getElementById("fbNext");
-
             if (!track || !prev || !next) return;
 
+            const viewport = track.closest(".carousel-viewport");
             let index = 0;
             let timerId = null;
-            const INTERVAL_MS = 4000; /* Autoplay-Intervall */
+            const INTERVAL_MS = 4000;
 
-            function cardStepPx() {
-                const card = track.querySelector(".feedback-card");
-                if (!card) return 0;
-                const styles = window.getComputedStyle(track);
-                const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-                return card.getBoundingClientRect().width + gap;
-            }
+            const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
 
-            function totalCards() {
-                return track.querySelectorAll(".feedback-card").length;
-            }
+            function cards() {
+            return Array.from(track.querySelectorAll(".feedback-card"));
+        }
 
-            function maxIndex() {
-                return Math.max(0, totalCards() - 1);
-            }
+        function maxIndex() {
+            return Math.max(0, cards().length - 1);
+        }
 
-            function centerOffsetPx() {
-                const viewport = track.closest(".carousel-viewport");
-                const card = track.querySelector(".feedback-card");
-                if (!viewport || !card) return 0;
+        function render() {
+            if (!viewport) return;
+            const list = cards();
+            const card = list[index];
+            if (!card) return;
 
-                const vStyles = window.getComputedStyle(viewport);
-                const padL = parseFloat(vStyles.paddingLeft) || 0;
-                const padR = parseFloat(vStyles.paddingRight) || 0;
+            const viewportW = viewport.clientWidth;
+            const trackW = track.scrollWidth;
 
-                // Content-Box Breite (ohne Padding)
-                const contentW = viewport.clientWidth - padL - padR;
-                const cW = card.getBoundingClientRect().width;
+            const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+            const desiredTranslate = (viewportW / 2) - cardCenter;
 
-                // Offset innerhalb des Viewports inkl. linker Padding-Kante
-                return padL + Math.max(0, (contentW - cW) / 2);
-            }
+            const minTranslate = viewportW - trackW;
+            const maxTranslate = 0;
 
-            function render() {
-                const step = cardStepPx();
-                const offset = centerOffsetPx();
-                track.style.transform = `translateX(${offset - index * step}px)`;
-            }
+            const translate = clamp(desiredTranslate, minTranslate, maxTranslate);
+            track.style.transform = `translateX(${translate}px)`;
+        }
 
-            function goNext() {
-                const max = maxIndex();
-                index = max === 0 ? 0 : (index + 1) % (max + 1);
-                render();
-            }
-
-            function goPrev() {
-                const max = maxIndex();
-                if (max === 0) index = 0;
-                else index = (index - 1 + (max + 1)) % (max + 1);
-                render();
-            }
-
-            function resetTimer() {
-                if (timerId) clearInterval(timerId);
-                timerId = setInterval(goNext, INTERVAL_MS);
-            }
-
-            prev.addEventListener("click", () => {
-                goPrev();
-                resetTimer();
-            });
-
-            next.addEventListener("click", () => {
-                goNext();
-                resetTimer();
-            });
-
-            window.addEventListener("resize", render);
-
+        function goNext() {
+            const max = maxIndex();
+            index = max === 0 ? 0 : (index + 1) % (max + 1);
             render();
-            resetTimer();
-            })();
+        }
+
+        function goPrev() {
+            const max = maxIndex();
+            index = max === 0 ? 0 : (index - 1 + (max + 1)) % (max + 1);
+            render();
+        }
+
+        function resetTimer() {
+            if (timerId) clearInterval(timerId);
+            timerId = setInterval(goNext, INTERVAL_MS);
+        }
+
+        prev.addEventListener("click", () => { goPrev(); resetTimer(); });
+        next.addEventListener("click", () => { goNext(); resetTimer(); });
+
+        window.addEventListener("resize", render);
+
+        render();
+        resetTimer();
+        })();
         </script>
     </body>
 </html>
