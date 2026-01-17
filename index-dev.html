@@ -111,21 +111,21 @@
             --max-width: 1400px; /* maximale Layoutbreite */
 
             /* ==== TYPOGRAFIE-TOKENS (GLOBAL) ==== */
-              /* Fonts zentral steuern */
+            /* Fonts zentral steuern */
             --font-head: "Cormorant Garamond", serif;
             --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
             --fs-head: 32px; /* Überschriften */
-            --fs-sub: 24px; /* Subline */
+            --fs-sub: 26px; /* Subline */
             --fs-body: 20px; /* Fließtext */
 
             --fw-head: 700;
             --fw-sub: 500;
-            --fw-body: 400;
+            --fw-body: 300;
 
-            --lh-head: 1.15;
+            --lh-head: 1.25;
             --lh-sub: 1.25;
-            --lh-body: 1.65;
+            --lh-body: 1.5;
 
             /* ==== BACKWARDS-KOMPATIBILITÄT (OPTIONAL) ==== */
             --h2: var(--fs-head);
@@ -427,9 +427,9 @@
 
         /* ==== HOW I WORK: SUBLINE-STYLE + 100PX EINRÜCKEN ==== */
         .how-list {
-            font-size: var(--fs-sub);
-            font-weight: var(--fw-sub);
-            line-height: 1.35;
+            font-size: var(--fs-body);
+            font-weight: var(--fw-body);
+            line-height: 1.5;
             margin: 0;
             padding-left: calc(100px + 1.2em); /* 100px zusätzlich zur Listennummer */
         }
