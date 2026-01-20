@@ -2,122 +2,154 @@
 <html>
     <body>
         <!--
-        SIGNATUR (TABELLENBASIERT)
-        Ziele:
-        - Outlook-/Client-stabile Darstellung (mso-table-lspace/rspace)
-        - Logo-Oberkante exakt auf Höhe der ersten Textzeile ("Hauke THIMM")
-        - Telefonnummer NICHT verlinkt
-        - Typo-Hierarchie: Cormorant (Name + Titel), Source Sans 3 (Kontakt)
-        - Keine Social-Icons (auskommentiert)
+        EMAIL SIGNATURE (HTML)
+        Assets (relative paths):
+        - /signature/logo.png
+        - /signature/highlights_golg.png
+        - /signature/linkedin.png
+        - /signature/instagram.png
+
+        Fonts:
+        - Head: Cormorant Garamond
+        - Body: Source Sans 3
+
+        Color:
+        - Text + Icons: #003153
         -->
 
-        <!-- 1) AUSSEN-TABELLE: Outlook-kompatible Null-Ränder -->
         <table cellpadding="0" cellspacing="0" border="0"
             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
             <tr>
-                <!-- 2) LINKE SPALTE: LOGO (Top-Kante "hart", kein Zeilenhöhen-Offset) -->
-                <td style="vertical-align:top; padding:0 20px 0 0; line-height:0; mso-line-height-rule:exactly;">
-                    <a href="https://haukethimm.com" style="text-decoration:none;">
-                        <img
-                        src="logo.png"
-                        alt="Hauke THIMM"
-                        style="height:125px; width:auto; display:block; border:0; outline:none; text-decoration:none; margin:0; padding:0;"
-                        />
-                    </a>
+                <!-- LEFT: LOGO -->
+                <td style="vertical-align:top; padding:0 24px 0 0; line-height:0; mso-line-height-rule:exactly;">
+                <img src="/signature/logo.png" alt="Hauke THIMM"
+                    style="height:125px; width:auto; display:block; border:0; outline:none; text-decoration:none; margin:0; padding:0;" />
                 </td>
 
-                <!-- 3) RECHTE SPALTE: TEXT (line-height:1 verhindert Outlook-"Extra-Luft") -->
-                <td style="vertical-align:top; color:#003153; padding:0; line-height:1; mso-line-height-rule:exactly;">
+                <!-- RIGHT: TEXT -->
+                <td style="vertical-align:top; padding:0; color:#003153; line-height:1; mso-line-height-rule:exactly;">
 
-                    <!-- 4) INNERE TABELLE: optional, aber stabil in vielen Mail-Clients -->
-                    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                    <table cellpadding="0" cellspacing="0" border="0"
+                            style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
                         <tr>
-                            <!-- 5) INNERE ZELLE: ebenfalls line-height:1 für konsistente Top-Ausrichtung -->
-                            <td style="vertical-align:top; padding:0; line-height:1; mso-line-height-rule:exactly;">
+                        <td style="vertical-align:top; padding:0; line-height:1; mso-line-height-rule:exactly;">
 
-                                <!-- NAME (Cormorant Garamond) -->
-                                <div style="margin:0 0 3px 0; font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size:24px; font-weight:700; line-height:1.15;">
-                                Hauke <span style="letter-spacing:0.02em;">THIMM</span>
-                                </div>
-
-                                <!-- TITEL / POSITION (Cormorant Garamond) -->
-                                <div style="margin:0 0 10px 0; font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size:20px; font-weight:500; line-height:1.15;">
-                                High-Level Events &amp; Protocol Management
-                                </div>
-
-                                <!-- TELEFON (Source Sans 3) | Labels haben feste Breite -> Texte starten bündig -->
-                                <div style="margin:0 0 3px 0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
-                                    <span style="display:inline-block; width:22px;">T:</span>
-                                    <span style="font-weight:400;">+49&#8203; 160&#8203; 95364569</span>
-                                </div>
-
-                                <!-- E-MAIL (Source Sans 3) -->
-                                <div style="margin:0 0 3px 0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
-                                    <span style="display:inline-block; width:22px;">E:</span>
-                                    <a href="mailto:mail@haukethimm.com" style="color:#003153 !important; text-decoration:none !important; font-weight:500;">
-                                        mail@haukethimm.com
-                                    </a>
-                                </div>
-
-                                <!-- WEBSITE (Source Sans 3) -->
-                                <div style="margin:0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
-                                    <span style="display:inline-block; width:22px;">W:</span>
-                                    <a href="https://haukethimm.com" style="color:#003153 !important; text-decoration:none !important; font-weight:500;">
-                                        haukethimm.com
-                                    </a>
-                                </div>
-
-                            <!--
-                                 TELEFON (Source Sans 3) | WICHTIG: KEIN tel:-Link 
-                                <div style="margin:0 0 3px 0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
-                                T: <span style="font-weight:400;">+49 160 95364569</span>
-                                </div>
-
-                                 E-MAIL (Source Sans 3) 
-                                <div style="margin:0 0 3px 0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
-                                E:
-                                <a href="mailto:mail@haukethimm.com" style="color:#003153; text-decoration:none; font-weight:500;">
-                                    mail@haukethimm.com
-                                </a>
-                                </div>
-
-                                 WEBSITE (Source Sans 3) 
-                                <div style="margin:0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; white-space:nowrap;">
-                                W:
-                                <a href="https://haukethimm.com" style="color:#003153; text-decoration:none; font-weight:500;">
-                                    haukethimm.com
-                                </a>
-                                </div> 
-                            -->
-
-                            </td>
-                        </tr>
-
-                        <!-- SOCIAL-ICONS: derzeit deaktiviert (auskommentiert)
-                        <tr>
-                        <td style="vertical-align:bottom; padding:0;">
-                            <div style="margin:0; line-height:1; font-size:0;">
-                            <a href="https://www.linkedin.com/in/haukethimm/" style="text-decoration:none; display:inline-block;">
-                                <img
-                                src="linkedin.png"
-                                alt="LinkedIn"
-                                style="height:35px; width:auto; display:inline-block; vertical-align:middle; border:0; outline:none; text-decoration:none;"
-                                />
-                            </a>
-
-                            <span style="display:inline-block; width:10px; font-size:0; line-height:0;">&nbsp;</span>
-
-                            <a href="https://instagram.com/haukethimm" style="text-decoration:none; display:inline-block;">
-                                <img
-                                src="instagram.png"
-                                alt="Instagram"
-                                style="height:35px; width:auto; display:inline-block; vertical-align:middle; border:0; outline:none; text-decoration:none;"
-                                />
-                            </a>
+                            <!-- NAME (Cormorant Garamond) -->
+                            <div style="margin:0 0 4px 0; font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size:26px; font-weight:700; line-height:1.1; color:#003153;">
+                            Hauke <span style="letter-spacing:0.02em;">THIMM</span>
                             </div>
+
+                            <!-- TITLE (Cormorant Garamond) -->
+                            <div style="margin:0 0 10px 0; font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size:20px; font-weight:500; line-height:1.15; color:#003153;">
+                            High-level Events &amp; Protocol Manager
+                            </div>
+
+                            <!-- DIVIDER (100x5, scaled to end aligned with rightmost text) -->
+                            <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; margin:0 0 12px 0;">
+                            <tr>
+                                <td style="padding:0; line-height:0;">
+                                <span style="display:block; height:5px; width:100%; max-width:520px; background-image:url('/signature/highlights_golg.png'); background-repeat:no-repeat; background-size:100% 100%; background-position:center;">
+                                    &nbsp;
+                                </span>
+                                </td>
+                            </tr>
+                            </table>
+
+                            <!-- CONTACT ROWS: ICON + TEXT -->
+                            <table cellpadding="0" cellspacing="0" border="0"
+                                style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                            <!-- PHONE -->
+                            <tr>
+                                <td style="vertical-align:middle; padding:0 10px 10px 0; line-height:0;">
+                                <!-- Inline SVG icon (phone) in #003153 -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    style="display:block;" aria-hidden="true">
+                                    <path fill="#003153" d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 01.98-.24c1.08.36 2.25.55 3.46.55a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.21.19 2.38.55 3.46a1 1 0 01-.24.98l-2.19 2.35z"/>
+                                </svg>
+                                </td>
+                                <td style="vertical-align:middle; padding:0 0 10px 0;">
+                                <div style="margin:0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; color:#003153; white-space:nowrap;">
+                                    +49 160 95364569
+                                </div>
+                                </td>
+                            </tr>
+
+                            <!-- EMAIL -->
+                            <tr>
+                                <td style="vertical-align:middle; padding:0 10px 10px 0; line-height:0;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    style="display:block;" aria-hidden="true">
+                                    <path fill="#003153" d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                </td>
+                                <td style="vertical-align:middle; padding:0 0 10px 0;">
+                                <div style="margin:0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; color:#003153; white-space:nowrap;">
+                                    <a href="mailto:mail@haukethimm.com"
+                                    style="color:#003153 !important; text-decoration:none !important; font-weight:400;">
+                                    mail@haukethimm.com
+                                    </a>
+                                </div>
+                                </td>
+                            </tr>
+
+                            <!-- WEBSITE -->
+                            <tr>
+                                <td style="vertical-align:middle; padding:0 10px 10px 0; line-height:0;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    style="display:block;" aria-hidden="true">
+                                    <path fill="#003153" d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.93 9h-3.16a15.7 15.7 0 00-1.2-5.02A8.02 8.02 0 0119.93 11zM12 4c.93 1.2 1.7 3.3 2.07 7H9.93C10.3 7.3 11.07 5.2 12 4zM4.07 13h3.16c.23 1.82.7 3.56 1.2 5.02A8.02 8.02 0 014.07 13zm3.16-2H4.07a8.02 8.02 0 014.36-5.02c-.5 1.46-.97 3.2-1.2 5.02zM9.93 13h4.14c-.37 3.7-1.14 5.8-2.07 7-.93-1.2-1.7-3.3-2.07-7zm5.64 5.02c.5-1.46.97-3.2 1.2-5.02h3.16a8.02 8.02 0 01-4.36 5.02z"/>
+                                </svg>
+                                </td>
+                                <td style="vertical-align:middle; padding:0 0 10px 0;">
+                                <div style="margin:0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; color:#003153; white-space:nowrap;">
+                                    <a href="https://haukethimm.com"
+                                    style="color:#003153 !important; text-decoration:none !important; font-weight:400;">
+                                    https://haukethimm.com
+                                    </a>
+                                </div>
+                                </td>
+                            </tr>
+
+                            <!-- ADDRESS -->
+                            <tr>
+                                <td style="vertical-align:middle; padding:0 10px 0 0; line-height:0;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    style="display:block;" aria-hidden="true">
+                                    <path fill="#003153" d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/>
+                                </svg>
+                                </td>
+                                <td style="vertical-align:middle; padding:0;">
+                                <div style="margin:0; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; font-size:14px; font-weight:400; line-height:1.35; color:#003153;">
+                                    Marienthaler Straße 124B, 20535 Hamburg, GERMANY
+                                </div>
+                                </td>
+                            </tr>
+                            </table>
+
                         </td>
                         </tr>
-                        -->
+
+                        <!-- SOCIAL ICONS (PNG) -->
+                        <tr>
+                            <td style="padding:12px 0 0 0; vertical-align:top;">
+                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+                                    <tr>
+                                        <td style="padding:0 10px 0 0; line-height:0;">
+                                            <a href="https://www.linkedin.com/in/haukethimm/" style="text-decoration:none;">
+                                                <img src="/signature/linkedin.png" alt="LinkedIn"
+                                                    style="height:28px; width:auto; display:block; border:0; outline:none; text-decoration:none;" />
+                                            </a>
+                                        </td>
+                                        <td style="padding:0; line-height:0;">
+                                            <a href="https://instagram.com/haukethimm" style="text-decoration:none;">
+                                                <img src="/signature/instagram.png" alt="Instagram"
+                                                    style="height:28px; width:auto; display:block; border:0; outline:none; text-decoration:none;" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
 
                     </table>
                 </td>
@@ -125,4 +157,3 @@
         </table>
     </body>
 </html>
-
