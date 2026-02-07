@@ -1680,7 +1680,7 @@
         </script>
 
         <!-- ==== FEEDBACK-CAROUSEL (ZENTRIERT + AUTO-SLIDE + LOOP + TIMER-RESET) ==== -->
-        <script>
+        <!-- <script>
         (function () {
             const track = document.getElementById("fbTrack");
             const prev = document.getElementById("fbPrev");
@@ -1746,6 +1746,154 @@
         render();
         resetTimer();
         })();
+        </script> -->
+        
+        <!-- ==== FEEDBACK-CAROUSEL (ENDLOS, IMMER GLEICHE RICHTUNG, EXAKT ZENTRIERT) ==== -->
+        <script>
+        (function () {
+        const track = document.getElementById("fbTrack");
+        const prevBtn = document.getElementById("fbPrev");
+        const nextBtn = document.getElementById("fbNext");
+        if (!track) return;
+
+        const INTERVAL_MS = 4000;
+        let timerId = null;
+
+        // --- 1) CLONES für nahtlosen Loop ---
+        const originals = Array.from(track.querySelectorAll(".feedback-card"));
+        if (originals.length < 2) return;
+
+        const firstClone = originals[0].cloneNode(true);
+        const lastClone  = originals[originals.length - 1].cloneNode(true);
+
+        firstClone.setAttribute("data-clone", "first");
+        lastClone.setAttribute("data-clone", "last");
+
+        track.insertBefore(lastClone, originals[0]);
+        track.appendChild(firstClone);
+
+        // Index zeigt auf "aktives Slide" innerhalb track.children (inkl. clones)
+        // Start: erstes echtes Slide (nach dem lastClone)
+        let index = 1;
+
+        // --- Helpers ---
+        function cards() {
+            return Array.from(track.querySelectorAll(".feedback-card"));
+        }
+
+        function realCount() {
+            return originals.length;
+        }
+
+        function getGapPx() {
+            const styles = window.getComputedStyle(track);
+            // flex gap wird als "column-gap" oder "gap" geliefert
+            return (parseFloat(styles.columnGap || styles.gap || "0") || 0);
+        }
+
+        function cardWidthPx() {
+            const c = track.querySelector(".feedback-card");
+            return c ? c.getBoundingClientRect().width : 0;
+        }
+
+        function stepPx() {
+            return cardWidthPx() + getGapPx();
+        }
+
+        function centerOffsetPx() {
+            const viewport = track.closest(".carousel-viewport");
+            const cW = cardWidthPx();
+            if (!viewport || !cW) return 0;
+
+            const vStyles = window.getComputedStyle(viewport);
+            const padL = parseFloat(vStyles.paddingLeft) || 0;
+            const padR = parseFloat(vStyles.paddingRight) || 0;
+
+            // sichtbare Content-Box ohne Padding
+            const contentW = viewport.clientWidth - padL - padR;
+
+            // Offset bis zur Mitte: linkes Padding + (Content-Mitte - Card/2)
+            return padL + Math.max(0, (contentW - cW) / 2);
+        }
+
+        function setTransition(on) {
+            track.style.transition = on ? "transform 320ms ease" : "none";
+        }
+
+        function render() {
+            const offset = centerOffsetPx();
+            const x = offset - index * stepPx();
+            // translate3d reduziert "jitter" auf manchen Clients
+            track.style.transform = `translate3d(${x}px, 0, 0)`;
+        }
+
+        // --- 2) Navigation (immer in gleicher Richtung möglich) ---
+        function goNext() {
+            index += 1;          // läuft nach rechts weiter
+            setTransition(true);
+            render();
+        }
+
+        // prev darf gern existieren; auch das bleibt sauber looping
+        function goPrev() {
+            index -= 1;
+            setTransition(true);
+            render();
+        }
+
+        // --- 3) Nahtloser Reset, wenn wir auf Clone landen ---
+        track.addEventListener("transitionend", () => {
+            const all = cards();
+            const active = all[index];
+            if (!active) return;
+
+            // Wenn wir auf firstClone (am Ende) gelandet sind: springe ohne Transition auf echtes erstes
+            if (active.getAttribute("data-clone") === "first") {
+            index = 1; // echtes erstes
+            setTransition(false);
+            render();
+            }
+
+            // Wenn wir auf lastClone (am Anfang) gelandet sind: springe ohne Transition auf echtes letztes
+            if (active.getAttribute("data-clone") === "last") {
+            index = realCount(); // echtes letztes liegt vor firstClone
+            setTransition(false);
+            render();
+            }
+        });
+
+        // --- 4) Timer ---
+        function resetTimer() {
+            if (timerId) clearInterval(timerId);
+            timerId = setInterval(goNext, INTERVAL_MS);
+        }
+
+        // Buttons
+        if (nextBtn) {
+            nextBtn.addEventListener("click", () => {
+            goNext();
+            resetTimer();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener("click", () => {
+            goPrev();
+            resetTimer();
+            });
+        }
+
+        // Resize: immer neu zentrieren
+        window.addEventListener("resize", () => {
+            setTransition(false);
+            render();
+        });
+
+        // Initial
+        setTransition(false);
+        render();
+        resetTimer();
+        })();
         </script>
+
     </body>
 </html>
