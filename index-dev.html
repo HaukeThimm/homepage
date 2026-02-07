@@ -407,7 +407,7 @@
         /* SUB (Sans) */
         .subline,
         .service-title,
-        .how-list{
+        .approach-list li,{
             font-family:var(--font-head);
             line-height:var(--lh-sub);
         }
@@ -425,18 +425,18 @@
             margin-top: 14px;
         }
 
-        /* ==== HOW I WORK: SUBLINE-STYLE + 100PX EINRÜCKEN ==== */
-        .how-list {
+        /* ==== APPROACH: SUBLINE-STYLE + 100PX EINRÜCKEN ==== */
+        .approach-list li {
             font-size: var(--fs-body);
             font-weight: var(--fw-body);
             line-height: 1.5;
             margin: 0;
             padding-left: calc(100px + 1.2em); /* 100px zusätzlich zur Listennummer */
         }
-        .how-list li {
+        .approach-list li {
             margin: 0 0 14px 0;
         }
-        .how-list li:last-child {
+        .approach-list li:last-child {
             margin-bottom: 0;
         }
 
@@ -678,8 +678,8 @@
         /* Card: Inhalt horizontal + vertikal zentriert */
         .feedback-card{
             flex:0 0 auto;
-            width:560px;
-            height:360px;
+            width:400px;
+            height:300px;
 
             display:flex;
             flex-direction:column;
@@ -735,7 +735,7 @@
         .carousel-btn.right {
             right: 10px;
         }
-
+        /* 
         @media (max-width:1200px){
         .carousel-viewport{
             padding-inline: clamp(2.5rem, 5vw, 4.5rem);
@@ -746,12 +746,12 @@
             width: 520px;
             height: 340px;
             }
-        }
+        } */
         @media (max-width: 768px) {
             .feedback-card {
             width: 86vw;
-            height: auto;
-            min-height: 320px;
+            height: 400px;
+            min-height: 300px;
             }
         }
 
@@ -1357,21 +1357,21 @@
                     </div>
                 </section>
 
-                <!-- ==== REFERENCES (TEXT + FEEDBACK-CAROUSEL) ==== -->
-                <section class="section anchor" id="references">
-                <h2 data-en="Trust &amp; engagements" data-de="Vertrauen &amp; Engagements">Trust &amp; engagements</h2>
-                    <div class="subline" data-en="Engagements &amp; contexts" data-de="Einsätze &amp; Kontexte">Engagements &amp; contexts</div>
-
-                    <p
-                        class="body-text"
-                        data-en="My experience spans international, political and corporate environments, including executive meetings, institutional ceremonies and high-stakes events. I regularly collaborate with organisations, agencies and leadership teams operating at the intersection of public visibility and strategic relevance."
-                        data-de="Meine Erfahrung umfasst internationale, politische und Corporate-Umfelder — darunter Executive Meetings, institutionelle Zeremonien und High-Stakes-Formate. Ich arbeite regelmäßig mit Organisationen, Agenturen und Führungsteams zusammen, die an der Schnittstelle von öffentlicher Sichtbarkeit und strategischer Relevanz agieren."
-                    >
-                        My experience spans international, political and corporate environments, including executive meetings, institutional ceremonies
-                        and high-stakes events. I regularly collaborate with organisations, agencies and leadership teams operating at the intersection of
-                        public visibility and strategic relevance.
-                    </p>
-
+                <!-- ==== CREDENTIALS (TRACK RECORD + FEEDBACK-CAROUSEL + APPROACH) ==== -->
+                <section class="section anchor" id="credentials">
+                <h2 data-en="Credentials" data-de="Expertise">Credentials</h2>
+                    <div class="subline" data-en="Track Record" data-de="Erfahrung &amp; Kontexte">Track Record</div>
+                        <p
+                            class="body-text"
+                            data-en="My experience spans international, political and corporate environments, including executive meetings, institutional ceremonies and high-stakes events. I regularly collaborate with organisations, agencies and leadership teams operating at the intersection of public visibility and strategic relevance."
+                            data-de="Meine Erfahrung umfasst internationale, politische und Corporate-Umfelder — darunter Executive Meetings, institutionelle Zeremonien und High-Stakes-Formate. Ich arbeite regelmäßig mit Organisationen, Agenturen und Führungsteams zusammen, die an der Schnittstelle von öffentlicher Sichtbarkeit und strategischer Relevanz agieren."
+                        >
+                            My experience spans international, political and corporate environments, including executive meetings, institutional ceremonies
+                            and high-stakes events. I regularly collaborate with organisations, agencies and leadership teams operating at the intersection of
+                            public visibility and strategic relevance.
+                        </p>
+                    
+                    <div class="subline" style="margin-top: 40px;" data-en="Endorsements" data-de="Empfehlungen">Endorsements</div>
                     <div class="feedback-section" aria-label="Feedback carousel">
                         <div class="carousel-shell">
                             <button class="carousel-btn left" type="button" aria-label="Previous feedback" id="fbPrev">
@@ -1460,11 +1460,11 @@
                     </div>
                 </section>
 
-                <!-- ==== HOW I WORK (NUMMERIERTE LISTE) ==== -->
-                <section class="section anchor" id="howiwork">
-                <h2 data-en="How I work" data-de="Wie ich arbeite">How I work</h2>
+                <!-- ==== APPROACH (NUMMERIERTE LISTE) ==== -->
+                <section class="section anchor" id="approach">
+                <h2 data-en="Approach" data-de="Arbeitsweise">Approach</h2>
 
-                    <ol class="how-list">
+                    <ol class="approach-list">
                         <li
                         data-en="Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations."
                         data-de="Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen."
