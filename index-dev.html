@@ -669,7 +669,7 @@
         .carousel-track{
             display:flex;
             gap:28px;
-            padding:0;                 /* <-- WICHTIG: verschiebt sonst den Frame */
+            padding:0 !important;                 /* <-- WICHTIG: verschiebt sonst den Frame */
             transform:translateX(0);
             transition:transform 320ms ease;
             will-change:transform;
@@ -735,18 +735,7 @@
         .carousel-btn.right {
             right: 10px;
         }
-        /* 
-        @media (max-width:1200px){
-        .carousel-viewport{
-            padding-inline: clamp(2.5rem, 5vw, 4.5rem);
-            }
-        }
-        @media (max-width: 900px) {
-            .feedback-card {
-            width: 520px;
-            height: 340px;
-            }
-        } */
+        
         @media (max-width: 768px) {
             .feedback-card {
             width: 86vw;
@@ -806,10 +795,6 @@
             .hero-portrait {
                 margin-left: 0;
             }
-
-            /* .carousel-track {
-                padding: 10px 60px;
-            } */
 
             .carousel-btn.left {
                 left: 6px;
@@ -1678,75 +1663,6 @@
             });
             })();
         </script>
-
-        <!-- ==== FEEDBACK-CAROUSEL (ZENTRIERT + AUTO-SLIDE + LOOP + TIMER-RESET) ==== -->
-        <!-- <script>
-        (function () {
-            const track = document.getElementById("fbTrack");
-            const prev = document.getElementById("fbPrev");
-            const next = document.getElementById("fbNext");
-            if (!track || !prev || !next) return;
-
-            const viewport = track.closest(".carousel-viewport");
-            let index = 0;
-            let timerId = null;
-            const INTERVAL_MS = 4000;
-
-            const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
-
-            function cards() {
-            return Array.from(track.querySelectorAll(".feedback-card"));
-        }
-
-        function maxIndex() {
-            return Math.max(0, cards().length - 1);
-        }
-
-        function render() {
-            if (!viewport) return;
-            const list = cards();
-            const card = list[index];
-            if (!card) return;
-
-            const viewportW = viewport.clientWidth;
-            const trackW = track.scrollWidth;
-
-            const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
-            const desiredTranslate = (viewportW / 2) - cardCenter;
-
-            const minTranslate = viewportW - trackW;
-            const maxTranslate = 0;
-
-            const translate = clamp(desiredTranslate, minTranslate, maxTranslate);
-            track.style.transform = `translateX(${translate}px)`;
-        }
-
-        function goNext() {
-            const max = maxIndex();
-            index = max === 0 ? 0 : (index + 1) % (max + 1);
-            render();
-        }
-
-        function goPrev() {
-            const max = maxIndex();
-            index = max === 0 ? 0 : (index - 1 + (max + 1)) % (max + 1);
-            render();
-        }
-
-        function resetTimer() {
-            if (timerId) clearInterval(timerId);
-            timerId = setInterval(goNext, INTERVAL_MS);
-        }
-
-        prev.addEventListener("click", () => { goPrev(); resetTimer(); });
-        next.addEventListener("click", () => { goNext(); resetTimer(); });
-
-        window.addEventListener("resize", render);
-
-        render();
-        resetTimer();
-        })();
-        </script> -->
         
         <!-- ==== FEEDBACK-CAROUSEL (ENDLOS, IMMER GLEICHE RICHTUNG, EXAKT ZENTRIERT) ==== -->
         <script>
