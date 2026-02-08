@@ -632,11 +632,33 @@
         }
 
         /* ==== CREDENTIALS / FEEDBACK-CAROUSEL ==== */
-        .feedback-section {
+        /* .feedback-section {
             padding: 60px 0;
-        }
+        } */
 
-        .carousel-shell {
+/* ==== REFERENCES: CAROUSEL FULL-BLEED (ignoriert .content Padding) ==== */
+#references .feedback-section{
+  /* optional: nichts nötig */
+}
+
+#references .carousel-shell{
+  /* Carousel über die Content-Padding-Kanten hinaus auf volle Viewport-Breite ziehen */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* Innen wieder “Content-Alignment” herstellen:
+   Der sichtbare Bereich bekommt links/rechts das gleiche Padding wie der Rest der Seite */
+#references .carousel-viewport{
+  padding-left: var(--side-pad);
+  padding-right: var(--side-pad);
+
+  /* dein Pfeilraum bleibt responsiv */
+  padding-inline: calc(var(--side-pad) + clamp(2.75rem, 6vw, 5rem));
+}
+
+        /* .carousel-shell {
             position: relative;
             margin-top: 18px;
         }
@@ -644,11 +666,11 @@
         .carousel-viewport {
             overflow: hidden;
 
-            /* Platz für Pfeile: responsiv, ohne starre px-Korrektur */
+            /* Platz für Pfeile: responsiv, ohne starre px-Korrektur 
             padding-inline: clamp(2.75rem, 6vw, 5rem);
             box-sizing: border-box;
 
-            /* sanftes Ausfaden links/rechts */
+            /* sanftes Ausfaden links/rechts 
             -webkit-mask-image: linear-gradient(
                 to right,
                 transparent 0%,
@@ -663,17 +685,21 @@
                 rgba(0, 0, 0, 1) 90%,
                 transparent 100%
             );
+        } */
+
+        .carousel-track { 
+            padding: 0 !important;
         }
 
         /* Track darf KEIN Padding haben, sonst verschiebt es die “gefühlte” Mitte */
-        .carousel-track{
+        /* .carousel-track{
             display:flex;
             gap:28px;
-            padding:0 !important;                 /* <-- WICHTIG: verschiebt sonst den Frame */
+            padding:0 !important;                 WICHTIG: verschiebt sonst den Frame 
             transform:translateX(0);
             transition:transform 320ms ease;
             will-change:transform;
-        }
+        } */
 
         /* Card: Inhalt horizontal + vertikal zentriert */
         .feedback-card{
