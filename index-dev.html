@@ -692,17 +692,20 @@
         }
 
         /* Track darf KEIN Padding haben, sonst verschiebt es die “gefühlte” Mitte */
-        /* .carousel-track{
+        .carousel-track{
             display:flex;
+            flex-direction: row;
             gap:28px;
-            padding:0 !important;                 WICHTIG: verschiebt sonst den Frame 
-            transform:translateX(0);
-            transition:transform 320ms ease;
-            will-change:transform;
-        } */
+            padding: 0 !important;      /* <-- WICHTIG: verschiebt sonst den Frame */
+            margin: 0;
+            /* transform:translateX(0); */
+            transform: translate3d(0,0,0);
+            transition: transform 320ms ease;
+            will-change: transform;
+        }
 
         /* Card: Inhalt horizontal + vertikal zentriert */
-        .feedback-card{
+        /* .feedback-card{
             flex:0 0 auto;
             width:400px;
             height:300px;
