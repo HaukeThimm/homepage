@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -138,16 +137,16 @@
             --hero-portrait-h: 320px;
 
             /* ==== GOLD-RAHMEN-SYSTEM ==== */
-            --frame-w-sm: 2px;
-            --frame-w-md: 3px;
-            --frame-w-lg: 4px;
+            --frame-w-sm: 1px;
+            --frame-w-md: 2px;
+            --frame-w-lg: 3px;
 
-            --frame-r-sm: 5px;
-            --frame-r-md: 8px;
-            --frame-r-lg: 12px;
+            --frame-r-sm: 3px;
+            --frame-r-md: 5px;
+            --frame-r-lg: 10px;
 
             /* ==== SPRACHBUTTON-KREIS-GRÖSSE ==== */
-            --lang-btn-size: 30px;
+            --lang-btn-size: 25px;
 
             /* ==== QUALIFICATIONS-LOGOS ==== */
             --qual-logo-h: 50px; /* einheitliche Höhe der Logos */
@@ -406,9 +405,10 @@
         }
 
         /* SUB (Sans) */
+        /* FIX: Entferntes Komma vor "{" (CSS-Syntaxfehler) */
         .subline,
         .service-title,
-        .approach-list li,{
+        .approach-list li{
             font-family:var(--font-head);
             line-height:var(--lh-sub);
         }
@@ -633,10 +633,6 @@
         }
 
         /* ==== CREDENTIALS / FEEDBACK-CAROUSEL ==== */
-        /* .feedback-section {
-            padding: 60px 0;
-        } */
-
         /* ==== REFERENCES: CAROUSEL FULL-BLEED (ignoriert .content Padding) ==== */
         #references .feedback-section{
         /* optional: nichts nötig */
@@ -659,7 +655,10 @@
         padding-inline: calc(var(--side-pad) + clamp(2.75rem, 6vw, 5rem));
         }
 
-        /* .carousel-shell {
+        /* HINWEIS: Dieser Block ist bewusst auskommentiert.
+           FIX: Keine verschachtelten Kommentare im CSS (CSS unterstützt kein "/* ... /* ... */ ... */"). */
+        /*
+        .carousel-shell {
             position: relative;
             margin-top: 18px;
         }
@@ -667,11 +666,9 @@
         .carousel-viewport {
             overflow: hidden;
 
-            /* Platz für Pfeile: responsiv, ohne starre px-Korrektur 
             padding-inline: clamp(2.75rem, 6vw, 5rem);
             box-sizing: border-box;
 
-            /* sanftes Ausfaden links/rechts 
             -webkit-mask-image: linear-gradient(
                 to right,
                 transparent 0%,
@@ -686,7 +683,8 @@
                 rgba(0, 0, 0, 1) 90%,
                 transparent 100%
             );
-        } */
+        }
+        */
 
         .carousel-track { 
             padding: 0 !important;
@@ -914,12 +912,6 @@
             padding-top: var(--footer-align-to-backtop-text); /* richtet die Spalte an "Back to top" Text aus */
         }
 
-        /* .footer-logo img {
-            height: 150px; /* Logo-Größe im Footer */
-            /* width: auto;
-            display: block; */
-        /* } */
-
         .qualifications {
             display: flex;
             flex-direction: column;
@@ -1123,15 +1115,6 @@
 
         /* ==== SEKTION-SPEZIFISCHE OVERRIDES (OPTIONAL / DERZEIT IDENTISCH) ==== */
         /* Hier kannst du später pro Sektion individuelle Anpassungen ergänzen, ohne globales Layout zu ändern. */
-        /* #services.section { */
-            /* z.B.: --fs-head: 34px; */
-        /* } */
-        /* #credentials.section { */
-            /* z.B.: --frame-w-lg: 5px; */
-        /* } */
-        /* #contact.section { */
-            /* z.B.: --fs-sub: 28px; */
-        /*} */ /* */
         </style>
     </head>
 
@@ -1142,10 +1125,10 @@
                 <div class="nav-inner">
                     <div class="nav-items">
                         <a class="nav-link" href="#top" data-en="HOME" data-de="HOME">HOME</a>
-                        <a class="nav-link" href="#about">ABOUT ME</a>
-                        <a class="nav-link" href="#services">SERVICES</a>
-                        <a class="nav-link" href="#credentials">CREDENTIALS</a>
-                        <a class="nav-link" href="#contact">CONTACT</a>
+                        <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
+                        <a class="nav-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
+                        <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a>
+                        <a class="nav-link" href="#contact" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
 
                         <div class="lang-toggle" aria-label="Language selector">
                             <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
@@ -1238,7 +1221,7 @@
                         I work confidently in German and English at a professional level and am currently developing my French. In international settings, I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness."
                         data-de="Nahe der Nordsee aufgewachsen, habe ich in Hamburg meine berufliche Heimat gefunden — verbunden mit dem Norden und zugleich offen für neue Orte, Perspektiven und Begegnungen. Ich schätze Klarheit, Verlässlichkeit und den reflektierten Austausch mit Menschen, die Verantwortung übernehmen und mit Haltung führen.
 
-                        Mit mehr als zehn Jahren Erfahrung im Eventmanagement liegt seit 2022 mein klarer Schwerpunkt auf Protokollmanagement. Mein Weg führte mich von operativen Rollen bis zu hochrangigen Corporate- und Regierungsformaten — unter anderem bei Airbus, wo ich VIP-Besuche, Delegationsprogramme und protokollsensible Anlässe verantwortete: im Zusammenspiel von Marke, Sicherheit, Diskretion und kultureller Präzision.
+                        Mit mehr als zehn Jahren Erfahrung im Eventmanagement liegt seit 2022 mein klarer Schwerpunkt auf (internationalem) Protokollmanagement. Mein Weg führte mich von operativen Rollen bis zu hochrangigen Corporate- und Regierungsformaten — unter anderem bei Airbus, wo ich VIP-Besuche, Delegationsprogramme und protokollsensible Anlässe verantwortete: im Zusammenspiel von Marke, Sicherheit, Diskretion und kultureller Präzision.
 
                         Mehrere Jahre beruflich auf See — auf nahezu allen großen Ozeanen — haben meinen Blick geweitet. Die Arbeit in kulturell diversen Umfeldern hat meine Offenheit, Neugier und mein Gespür für Menschen und Kontext geschärft — Qualitäten, die meinen professionellen Ansatz bis heute prägen.
 
@@ -1250,9 +1233,9 @@
                         perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and
                         lead with conviction.
 
-                        With more than ten years of experience in event management, with a clear focus on protocol management since 2022. My career
-                        has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was
-                        responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security,
+                        I have more than ten years of experience in event management, with a clear focus on (international) protocol management since
+                        2022. My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I
+                        was responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security,
                         discretion, and cultural precision.
 
                         Several years spent working at sea, across nearly all major oceans, broadened my perspective. Operating in culturally diverse
@@ -1557,14 +1540,14 @@
                         <span class="gold-frame frame--md shape--round">
                         <img src="img/contact_businesscard.png" alt="" />
                         </span>
-                        <p class="subline">Business card (vcf)</p>
+                        <p class="subline" data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">Business card (vcf)</p>
                     </div>
 
                     <div class="pre-footer-item">
                         <span class="gold-frame frame--md shape--round">
                         <img src="img/contact_onepager.png" alt="" />
                         </span>
-                        <p class="subline">One-pager</p>
+                        <p class="subline" data-en="One-pager" data-de="One-Pager">One-pager</p>
                     </div>
                 </div>
             </section>
@@ -1573,10 +1556,6 @@
             <footer class="footer anchor" id="imprint">
                 <div class="footer-inner">
                     <div class="footer-left">
-                        <!-- <a class="footer-logo" href="#top" aria-label="Home">
-                        <img src="img/logo.png" alt="Hauke Thimm" />
-                        </a> -->
-
                         <div class="qualifications">
                             <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifications:</p>
 
@@ -1588,13 +1567,13 @@
                                 aria-label="Handelskammer Hamburg"
                                 >
                                 <span class="gold-frame frame--md shape--rect">
-                                    <img src="img/placeholder1.jpg" alt="Handelskammer Hamburg" />
+                                    <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
                                 </span>
                                 </a>
 
                                 <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
                                 <span class="gold-frame frame--md shape--round">
-                                    <img src="img/placeholder2.png" alt="Protocolbureau" />
+                                    <img src="img/protocolbureau.png" alt="Protocolbureau" />
                                 </span>
                                 </a>
                             </div>
@@ -1627,14 +1606,6 @@
                         <span class="legal-sep" aria-hidden="true">•</span>
 
                         <a class="legal-link" href="/privacy.html" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>
-                        <!-- <span class="legal-sep" aria-hidden="true">•</span>
-
-                        <a class="legal-link" href="/terms.html" data-en="Terms &amp; Conditions" data-de="AGB">Terms &amp; Conditions</a>
-                        <span class="legal-sep" aria-hidden="true">•</span>
-
-                        <button type="button" class="legal-link legal-btn" data-en="Cookie settings" data-de="Cookie-Einstellungen">
-                        Cookie settings
-                        </button> -->
                     </div>
                 </div>
             </footer>
