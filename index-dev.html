@@ -392,7 +392,7 @@
             padding: 60px 0;
         }
 
-        /* HEAD (Cormorant) */
+        /* HEADLINES (Cormorant, 30px) */
         .section h2{
             font-family: var(--font-head);
             font-size: var(--fs-head);      /* 30px */
@@ -401,7 +401,7 @@
             margin: 0 0 14px 0; /* für einheitliche Abstände */
         }
 
-        /* SUBLINES (Cormorant) */
+        /* SUBLINES (Cormorant, 24px) */
         .subline,
         .service-title{
             font-family: var(--font-head);
@@ -410,7 +410,7 @@
             line-height: var(--lh-sub);
         }
 
-        /* BODY (Source Sans 3) */
+        /* BODY (Source Sans 3, 18px) */
         .body-text,
         .hero .intro,
         .feedback-text,
@@ -448,7 +448,7 @@
             padding-bottom: 30px;
         }
         .hero-shift {
-            padding-top: 25px;
+            padding-top: 0px; /* wichtig: nicht doppelt verschieben */
         }
 
         .hero-grid {
@@ -466,14 +466,18 @@
             gap: 14px;
         }
 
+        /* HEADLINE: Hauke Thimm (Cormorant) */
         .hero .name{
-            font-size:42px;
-            font-weight:700;
+            font-family: var(--font-head);
+            font-size: 42px; /* bleibt bewusst größer als Standard-Headline */
+            font-weight: var(--fw-head);
             margin:0 0 8px 0;
             line-height:var(--lh-head);
         }
         
+        /* SUBLINES: Role + Claim (Cormorant, 24px) */
         .hero .role{
+            font-family: var(--font-head);
             font-size:var(--fs-sub);
             font-weight:var(--fw-sub);
             margin:0 0 10px 0;
@@ -481,6 +485,7 @@
         }
         
         .hero .claim{
+            font-family: var(--font-head);
             font-size:var(--fs-sub);
             font-weight:var(--fw-sub);
             margin:0;
@@ -512,12 +517,15 @@
             padding-top: 20px;
             padding-bottom: 30px;
         }
+        /* HEADLINE: ABOUT ME (Cormorant, 30px) */
         .about .about-label {
+            font-family: var(--font-head);
             font-size: var(--fs-head);
             font-weight: var(--fw-head);
             margin: 0 0 14px 0;
             text-transform: uppercase;
             letter-spacing: 0.04em;
+            line-height: var(--lh-head);
         }
 
         /* ==== SERVICES (EXPAND/COLLAPSE) ==== */
@@ -597,6 +605,7 @@
             gap: 14px;
         }
 
+        /* HEADLINE-BUTTON: Get in Touch (Cormorant, 30px) */
         .cta-btn {
             display: inline-block;
             padding: 0.45em 0.9em;
@@ -604,9 +613,11 @@
             color: var(--cream);
             text-decoration: none;
 
-            font-size: var(--fs-sub);
+            font-family: var(--font-head);
+            font-size: var(--fs-head);      /* 30px */
             font-weight: var(--fw-head);
             font-style: normal;
+            line-height: 1;
 
             border: var(--frame-w-md) solid transparent;
             border-radius: var(--frame-r-md);
@@ -618,7 +629,6 @@
             background-repeat: no-repeat, no-repeat;
             background-position: center, center;
 
-            line-height: 1;
             white-space: nowrap;
         }
 
@@ -765,7 +775,7 @@
                 --logo-h: 120px;
                 --side-pad: 18px;
 
-                --fs-head: 32px;
+                --fs-head: 30px;
                 --fs-sub: 24px;
                 --fs-body: 18px;
             }
@@ -854,7 +864,7 @@
             border-radius: 50%;
             overflow: hidden;              /* clippt auch die Gold-Textur sauber im Kreis */
 
-            border-width: var(--frame-w-sm); /* fein umrandet (z. B. 2px) */
+            border-width: var(--frame-w-sm); /* fein umrandet */
 
             /* Innenfläche (cream) + Goldrahmen (highlights_gold.png) */
             background: linear-gradient(var(--cream), var(--cream)) padding-box,
@@ -870,7 +880,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 0;                /* Luft zum Rand -> wirkt "fein" */
+            padding: 14px;               /* Luft zum Rand -> wirkt "fein" */
             display: block;
         }
 
@@ -990,7 +1000,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 0;
+            padding: 8px;
             display: block;
         }
 
@@ -1056,7 +1066,7 @@
             height: 50px; /* Icon-Box */
         }
 
-        /* FIX: Follow-Icon im Kreis (falls shape--round genutzt wird) */
+        /* FIX: Follow-Icon im Kreis */
         .follow-icons .gold-frame.shape--round{
             width: 50px;
             height: 50px;
@@ -1078,7 +1088,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 0;
+            padding: 8px;
             display: block;
         }
 
