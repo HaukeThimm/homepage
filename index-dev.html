@@ -116,9 +116,9 @@
             --font-head: "Cormorant Garamond", serif;
             --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-            --fs-head: 32px; /* Überschriften */
-            --fs-sub: 26px; /* Subline */
-            --fs-body: 20px; /* Fließtext */
+            --fs-head: 30px; /* Überschriften */
+            --fs-sub: 24px; /* Subline */
+            --fs-body: 18px; /* Fließtext */
 
             --fw-head: 700;
             --fw-sub: 500;
@@ -394,26 +394,32 @@
 
         /* HEAD (Cormorant) */
         .section h2{
-            font-size: var(--fs-head);
+            font-family: var(--font-head);
+            font-size: var(--fs-head);      /* 30px */
             font-weight: var(--fw-head);
+            line-height: var(--lh-head);
             margin: 0 0 14px 0; /* für einheitliche Abstände */
         }
 
-        /* SUB (Sans) */
+        /* SUBLINES (Cormorant) */
         .subline,
-        .service-title,
-        .approach-list li{
-            font-family:var(--font-head);
-            line-height:var(--lh-sub);
+        .service-title{
+            font-family: var(--font-head);
+            font-size: var(--fs-sub);       /* 24px */
+            font-weight: var(--fw-sub);
+            line-height: var(--lh-sub);
         }
 
-        /* BODY (Sans) */
+        /* BODY (Source Sans 3) */
         .body-text,
         .hero .intro,
         .feedback-text,
-        .feedback-signature{
-            font-family:var(--font-body);
-            line-height:var(--lh-body);
+        .feedback-signature,
+        .approach-list li{
+            font-family: var(--font-body);
+            font-size: var(--fs-body);      /* 18px */
+            font-weight: var(--fw-body);
+            line-height: var(--lh-body);
         }
 
         .body-text + .body-text {
