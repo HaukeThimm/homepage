@@ -844,19 +844,33 @@
             min-width: 0;
         }
 
-        /* FIX: Contact Options sollen RUND sein -> Box muss quadratisch + border-radius */
+        /* FIX: Icon-Container rund + Goldrahmen rund */
         .pre-footer-item .gold-frame {
             width: 75px;
-            height: 75px; /* definiert die sichtbare Frame-Box (Quadrat -> echter Kreis bei shape--round) */
-            border-radius: 999px;
-            overflow: hidden;
+            height: 75px;                 /* Icon-Kreis: 75px */
+            flex: 0 0 75px;               /* verhindert Stretching im Flex-Layout */
+            aspect-ratio: 1 / 1;          /* doppelte Absicherung: bleibt quadratisch */
+
+            border-radius: 50%;
+            overflow: hidden;              /* clippt auch die Gold-Textur sauber im Kreis */
+
+            border-width: var(--frame-w-sm); /* fein umrandet (z. B. 2px) */
+
+            /* Innenfläche (cream) + Goldrahmen (highlights_gold.png) */
+            background: linear-gradient(var(--cream), var(--cream)) padding-box,
+                        url("img/highlights_gold.png") border-box;
+
+            background-size: auto, cover;
+            background-repeat: no-repeat, no-repeat;
+            background-position: center, center;
         }
 
-        /* FIX: Bild sauber in den Kreis einpassen (kein "vertikales Rechteck" Eindruck) */
+        /* FIX: Icon selbst sauber im Kreis zentrieren */
         .pre-footer-item .gold-frame > img{
             width: 100%;
             height: 100%;
-            object-fit: contain; /* alternativ: cover, wenn es den Kreis komplett füllen soll */
+            object-fit: contain;
+            padding: 14px;                /* Luft zum Rand -> wirkt "fein" */
             display: block;
         }
 
