@@ -133,19 +133,14 @@
             --sub: var(--fs-sub);
             --body: var(--fs-body);
 
-            /* ==== HERO BILD-GRÖSSEN ==== */
-            /* Portrait wird entfernt -> Tokens bleiben optional (schadet nicht) */
-            --hero-portrait-w: 240px;
-            --hero-portrait-h: 320px;
-
             /* ==== GOLD-RAHMEN-SYSTEM ==== */
-            --frame-w-sm: 2px;
-            --frame-w-md: 3px;
-            --frame-w-lg: 4px;
+            --frame-w-sm: 1px;
+            --frame-w-md: 2px;
+            --frame-w-lg: 3px;
 
             --frame-r-sm: 5px;
-            --frame-r-md: 8px;
-            --frame-r-lg: 12px;
+            --frame-r-md: 7px;
+            --frame-r-lg: 10px;
 
             /* ==== SPRACHBUTTON-KREIS-GRÖSSE ==== */
             --lang-btn-size: 30px;
@@ -360,7 +355,7 @@
 
         /* ==== PAGE OFFSET: INHALT STARTET UNTER FIXED NAV + LOGO-ÜBERLAPPUNG ==== */
         .page-offset {
-            /* FIX: Hero soll 25px unter header3.png beginnen -> kein zusätzliches Pushen durch page-offset */
+            /* Hero soll 25px unter header3.png beginnen -> kein zusätzliches Pushen durch page-offset */
             padding-top: 0;
             margin-top: 0;
         }
@@ -408,7 +403,6 @@
         }
 
         /* SUB (Sans) */
-        /* FIX: Kein Komma vor "{" (CSS-Syntaxfehler) */
         .subline,
         .service-title,
         .approach-list li{
@@ -446,38 +440,27 @@
 
         /* ==== HERO ==== */
         .hero {
-            /* FIX: Hero beginnt 25px unter header3.png */
+            /* Hero beginnt 25px unter header3.png */
             padding-top: 25px;
             padding-bottom: 30px;
         }
         .hero-shift {
-            padding-top: 0px; /* verschiebt Hero-Content weiter nach unten */
+            padding-top: 0px;
         }
 
         .hero-grid {
             display: grid;
-            /* FIX: Portrait entfernt -> 1 Spalte */
             grid-template-columns: 1fr;
             column-gap: 30px;
             align-items: start;
         }
 
         .hero-textbox {
-            /* Portrait entfernt -> Höhe automatisch */
             height: auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: 14px;
-        }
-
-        .hero-portrait {
-            /* Portrait entfernt -> Regel bleibt als Fallback, aber Bild existiert nicht mehr */
-            width: var(--hero-portrait-w);
-            height: var(--hero-portrait-h);
-            object-fit: cover;
-            display: block;
-            margin-left: auto;
         }
 
         .hero .name{
@@ -641,7 +624,6 @@
         }
 
         /* ==== CREDENTIALS / FEEDBACK-CAROUSEL ==== */
-        /* FIX: Die Regeln waren auf "#references" gemünzt, aber das Carousel liegt in "#credentials". */
         #credentials .carousel-shell{
             width: 100vw;
             margin-left: calc(50% - 50vw);
@@ -695,9 +677,8 @@
             display:flex;
             flex-direction: row;
             gap:28px;
-            padding: 0 !important;      /* <-- WICHTIG: verschiebt sonst den Frame */
+            padding: 0 !important;
             margin: 0;
-            /* transform:translateX(0); */
             transform: translate3d(0,0,0);
             transition: transform 320ms ease;
             will-change: transform;
@@ -711,9 +692,9 @@
 
             display:flex;
             flex-direction:column;
-            justify-content:center;    /* <-- vertikal */
-            align-items:center;        /* <-- horizontal */
-            text-align:center;         /* <-- Text horizontal */
+            justify-content:center;
+            align-items:center;
+            text-align:center;
 
             border: var(--frame-w-lg) solid transparent;
             border-radius: var(--frame-r-lg);
@@ -726,7 +707,6 @@
             padding:26px;
         }
 
-        /* Optional: Signatur bleibt unter dem Text, aber weiterhin zentriert */
         .feedback-text{
             width:100%;
             white-space:pre-line;
@@ -785,9 +765,6 @@
                 --fs-head: 32px;
                 --fs-sub: 24px;
                 --fs-body: 18px;
-
-                --hero-portrait-w: 240px;
-                --hero-portrait-h: 320px;
             }
 
             .nav-inner {
@@ -955,11 +932,9 @@
             border-radius: 0;
         }
 
-        /* WICHTIG: "shape--round" ist NUR die Box-Geometrie.
-        Quadratische Box => border-radius => echter Kreis (kein Quadrat-Effekt!). */
         .qualifications-logos .shape--round {
-            width: var(--qual-logo-h); /* macht die Box quadratisch */
-            height: var(--qual-logo-h); /* doppelte Absicherung: bleibt Kreis, nie oval */
+            width: var(--qual-logo-h);
+            height: var(--qual-logo-h);
             border-radius: 999px;
         }
         .qualifications-logos .shape--round > img {
@@ -979,10 +954,10 @@
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            gap: var(--backtop-gap); /* muss zu Root-Token passen */
+            gap: var(--backtop-gap);
 
             margin-top: 0;
-            padding-top: var(--footer-col-top); /* Startpunkt Chevron */
+            padding-top: var(--footer-col-top);
 
             color: var(--cream);
             text-decoration: none;
@@ -992,7 +967,7 @@
         }
 
         .backtop .chevron-img {
-            width: var(--backtop-icon-h); /* muss zu Root-Token passen */
+            width: var(--backtop-icon-h);
             height: auto;
             display: block;
         }
@@ -1010,7 +985,7 @@
             grid-row: 1;
 
             justify-self: end;
-            padding-top: var(--footer-align-to-backtop-text); /* richtet "Follow me" an Backtop-Text aus */
+            padding-top: var(--footer-align-to-backtop-text);
             text-align: right;
         }
 
@@ -1027,13 +1002,13 @@
 
         .follow-icons .gold-frame {
             width: auto;
-            height: 50px; /* Icon-Box */
+            height: 50px;
         }
 
         .follow-icons .gold-frame > img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Icon nicht abschneiden */
+            object-fit: contain;
         }
 
         /* ==== FOOTER LEGAL-LINKS: HORIZONTAL ZENTRIERT AM SEITENENDE ==== */
@@ -1046,7 +1021,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 20px; /* Abstand zwischen Items/Seps */
+            gap: 20px;
 
             font-size: var(--fs-sub);
             font-weight: 500;
@@ -1057,7 +1032,7 @@
         .legal-link {
             color: var(--cream);
             text-decoration: none;
-            font: inherit; /* übernimmt font-size / weight */
+            font: inherit;
             background: none;
             border: 0;
             padding: 0;
@@ -1068,7 +1043,7 @@
         }
 
         .legal-sep {
-            opacity: 0.9; /* Bullet etwas softer */
+            opacity: 0.9;
         }
 
         /* ==== RESPONSIVE FOOTER/PRE-FOOTER ==== */
@@ -1105,9 +1080,9 @@
             bottom: 20px;
             transform: translateX(-50%);
             font-size: var(--fs-sub);
-            white-space: normal; /* erlaubt Umbruch, falls nötig */
+            white-space: normal;
             text-align: center;
-            flex-wrap: wrap; /* verhindert Überlauf auf sehr kleinen Screens */
+            flex-wrap: wrap;
             }
         }
 
@@ -1563,13 +1538,13 @@
                                 aria-label="Handelskammer Hamburg"
                                 >
                                 <span class="gold-frame frame--md shape--rect">
-                                    <img src="img/placeholder1.jpg" alt="Handelskammer Hamburg" />
+                                    <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
                                 </span>
                                 </a>
 
                                 <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
                                 <span class="gold-frame frame--md shape--round">
-                                    <img src="img/placeholder2.png" alt="Protocolbureau" />
+                                    <img src="img/protocolbureau.png" alt="Protocolbureau" />
                                 </span>
                                 </a>
                             </div>
@@ -1602,14 +1577,6 @@
                         <span class="legal-sep" aria-hidden="true">•</span>
 
                         <a class="legal-link" href="/privacy.html" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>
-                        <!-- <span class="legal-sep" aria-hidden="true">•</span>
-
-                        <a class="legal-link" href="/terms.html" data-en="Terms &amp; Conditions" data-de="AGB">Terms &amp; Conditions</a>
-                        <span class="legal-sep" aria-hidden="true">•</span>
-
-                        <button type="button" class="legal-link legal-btn" data-en="Cookie settings" data-de="Cookie-Einstellungen">
-                        Cookie settings
-                        </button> -->
                     </div>
                 </div>
             </footer>
@@ -1715,7 +1682,6 @@
 
         function getGapPx() {
             const styles = window.getComputedStyle(track);
-            // flex gap wird als "column-gap" oder "gap" geliefert
             return (parseFloat(styles.columnGap || styles.gap || "0") || 0);
         }
 
@@ -1737,10 +1703,7 @@
             const padL = parseFloat(vStyles.paddingLeft) || 0;
             const padR = parseFloat(vStyles.paddingRight) || 0;
 
-            // sichtbare Content-Box ohne Padding
             const contentW = viewport.clientWidth - padL - padR;
-
-            // Offset bis zur Mitte: linkes Padding + (Content-Mitte - Card/2)
             return padL + Math.max(0, (contentW - cW) / 2);
         }
 
@@ -1751,7 +1714,6 @@
         function render() {
             const offset = centerOffsetPx();
             const x = offset - index * stepPx();
-            // translate3d reduziert "jitter" auf manchen Clients
             track.style.transform = `translate3d(${x}px, 0, 0)`;
         }
 
@@ -1774,16 +1736,14 @@
             const active = all[index];
             if (!active) return;
 
-            // Wenn wir auf firstClone (am Ende) gelandet sind: springe ohne Transition auf echtes erstes
             if (active.getAttribute("data-clone") === "first") {
-            index = 1; // echtes erstes
+            index = 1;
             setTransition(false);
             render();
             }
 
-            // Wenn wir auf lastClone (am Anfang) gelandet sind: springe ohne Transition auf echtes letztes
             if (active.getAttribute("data-clone") === "last") {
-            index = realCount(); // echtes letztes liegt vor firstClone
+            index = realCount();
             setTransition(false);
             render();
             }
@@ -1795,7 +1755,6 @@
             timerId = setInterval(goNext, INTERVAL_MS);
         }
 
-        // Buttons
         if (nextBtn) {
             nextBtn.addEventListener("click", () => {
             goNext();
@@ -1809,13 +1768,11 @@
             });
         }
 
-        // Resize: immer neu zentrieren
         window.addEventListener("resize", () => {
             setTransition(false);
             render();
         });
 
-        // Initial
         setTransition(false);
         render();
         resetTimer();
