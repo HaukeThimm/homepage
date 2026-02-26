@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 
 <html lang="en">
@@ -102,8 +103,9 @@
             --cream: #fdf7f2;
             --blue: #003153;
 
-            --top-offset: 50px; /* Abstand des fixen Nav-Banners von oben */
-            --banner-h: 60px; /* Höhe des fixen Nav-Banners */
+            /* NAV: oben bündig + vergrößert */
+            --top-offset: 0px; /* Abstand des fixen Nav-Banners von oben */
+            --banner-h: 76px; /* Höhe des fixen Nav-Banners */
 
             --logo-h: 180px; /* Höhe des großen Logos (oben über dem Banner) */
             --side-pad: 150px; /* Seitlicher Innenabstand im Content */
@@ -137,16 +139,16 @@
             --hero-portrait-h: 320px;
 
             /* ==== GOLD-RAHMEN-SYSTEM ==== */
-            --frame-w-sm: 1px;
-            --frame-w-md: 2px;
-            --frame-w-lg: 3px;
+            --frame-w-sm: 2px;
+            --frame-w-md: 3px;
+            --frame-w-lg: 4px;
 
-            --frame-r-sm: 3px;
-            --frame-r-md: 5px;
-            --frame-r-lg: 10px;
+            --frame-r-sm: 5px;
+            --frame-r-md: 8px;
+            --frame-r-lg: 12px;
 
             /* ==== SPRACHBUTTON-KREIS-GRÖSSE ==== */
-            --lang-btn-size: 25px;
+            --lang-btn-size: 30px;
 
             /* ==== QUALIFICATIONS-LOGOS ==== */
             --qual-logo-h: 50px; /* einheitliche Höhe der Logos */
@@ -405,7 +407,7 @@
         }
 
         /* SUB (Sans) */
-        /* FIX: Entferntes Komma vor "{" (CSS-Syntaxfehler) */
+        /* FIX: Kein Komma vor "{" (CSS-Syntaxfehler) */
         .subline,
         .service-title,
         .approach-list li{
@@ -633,31 +635,22 @@
         }
 
         /* ==== CREDENTIALS / FEEDBACK-CAROUSEL ==== */
-        /* ==== REFERENCES: CAROUSEL FULL-BLEED (ignoriert .content Padding) ==== */
-        #references .feedback-section{
-        /* optional: nichts nötig */
+        /* FIX: Die Regeln waren auf "#references" gemünzt, aber das Carousel liegt in "#credentials". */
+        #credentials .carousel-shell{
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
         }
 
-        #references .carousel-shell{
-        /* Carousel über die Content-Padding-Kanten hinaus auf volle Viewport-Breite ziehen */
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
-        margin-right: calc(50% - 50vw);
+        #credentials .carousel-viewport{
+            padding-left: var(--side-pad);
+            padding-right: var(--side-pad);
+
+            /* dein Pfeilraum bleibt responsiv */
+            padding-inline: calc(var(--side-pad) + clamp(2.75rem, 6vw, 5rem));
         }
 
-        /* Innen wieder “Content-Alignment” herstellen:
-        Der sichtbare Bereich bekommt links/rechts das gleiche Padding wie der Rest der Seite */
-        #references .carousel-viewport{
-        padding-left: var(--side-pad);
-        padding-right: var(--side-pad);
-
-        /* dein Pfeilraum bleibt responsiv */
-        padding-inline: calc(var(--side-pad) + clamp(2.75rem, 6vw, 5rem));
-        }
-
-        /* HINWEIS: Dieser Block ist bewusst auskommentiert.
-           FIX: Keine verschachtelten Kommentare im CSS (CSS unterstützt kein "/* ... /* ... */ ... */"). */
-        /*
+        /* ==== CAROUSEL: GRUNDLAYOUT (MUSS AKTIV SEIN) ==== */
         .carousel-shell {
             position: relative;
             margin-top: 18px;
@@ -666,9 +659,11 @@
         .carousel-viewport {
             overflow: hidden;
 
+            /* Platz für Pfeile: responsiv, ohne starre px-Korrektur */
             padding-inline: clamp(2.75rem, 6vw, 5rem);
             box-sizing: border-box;
 
+            /* sanftes Ausfaden links/rechts */
             -webkit-mask-image: linear-gradient(
                 to right,
                 transparent 0%,
@@ -684,7 +679,6 @@
                 transparent 100%
             );
         }
-        */
 
         .carousel-track { 
             padding: 0 !important;
@@ -775,8 +769,10 @@
         /* ==== RESPONSIVE: GLOBAL TOKENS + LAYOUT ANPASSUNGEN ==== */
         @media (max-width: 768px) {
             :root {
-                --top-offset: 24px;
-                --banner-h: 56px;
+                /* NAV: auch mobil oben bündig + vergrößert */
+                --top-offset: 0px;
+                --banner-h: 64px;
+
                 --logo-h: 120px;
                 --side-pad: 18px;
 
@@ -1170,8 +1166,8 @@
 
                                 <div
                                 class="role"
-                                data-en="High-Level Events &amp; Protocol Management"
-                                data-de="High-Level Events &amp; Protocol Management"
+                                data-en="High-Level Events & Protocol Management"
+                                data-de="High-Level Events & Protocol Management"
                                 >
                                 High-Level Events &amp; Protocol Management
                                 </div>
@@ -1305,7 +1301,7 @@
                         <div class="service-item" data-service>
                             <div class="service-head" role="button" tabindex="0" aria-expanded="false">
                                 <div class="service-bullet" aria-hidden="true"></div>
-                                    <div class="service-title" data-en="Master of Ceremony &amp; Moderation" data-de="Master of Ceremony &amp; Moderation">
+                                    <div class="service-title" data-en="Master of Ceremony & Moderation" data-de="Master of Ceremony & Moderation">
                                     Master of Ceremony &amp; Moderation
                                     </div>
                                 <div class="service-arrow" aria-hidden="true"></div>
@@ -1331,8 +1327,8 @@
                                 <div class="service-bullet" aria-hidden="true"></div>
                                     <div
                                         class="service-title"
-                                        data-en="Executive &amp; Delegation Support"
-                                        data-de="Executive &amp; Delegation Support"
+                                        data-en="Executive & Delegation Support"
+                                        data-de="Executive & Delegation Support"
                                         >
                                         Executive &amp; Delegation Support
                                     </div>
@@ -1355,7 +1351,7 @@
                     </div>
                 </section>
 
-                <!-- ==== CREDENTIALS (TRACK RECORD + FEEDBACK-CAROUSEL + APPROACH) ==== -->
+                <!-- ==== CREDENTIALS (TRACK RECORD + FEEDBACK-CAROUSEL) ==== -->
                 <section class="section anchor" id="credentials">
                 <h2 data-en="Credentials" data-de="Expertise">Credentials</h2>
                     <div class="subline" data-en="Track Record" data-de="Erfahrung &amp; Kontexte">Track Record</div>
@@ -1519,7 +1515,7 @@
                 </section>
             </div>
 
-            <!-- ==== PRE-FOOTER (KONTAKT-TEASER MIT 3 ITEMS) ==== -->
+            <!-- ==== PRE-FOOTER (KONTAKT-TEASER) ==== -->
             <section class="pre-footer" aria-label="Additional contact options">
                 <div class="pre-footer-inner">
                     <div class="pre-footer-item">
@@ -1533,7 +1529,7 @@
                         <span class="gold-frame frame--md shape--round">
                         <img src="img/contact_email.png" alt="" />
                         </span>
-                        <p class="subline">mail[at]haukethimm.com</p>
+                        <p class="subline">mail@haukethimm.com</p>
                     </div>
 
                     <div class="pre-footer-item">
@@ -1552,7 +1548,7 @@
                 </div>
             </section>
 
-            <!-- ==== FOOTER (LOGO+QUALIFICATIONS | BACK TO TOP | FOLLOW | LEGAL LINKS) ==== -->
+            <!-- ==== FOOTER (QUALIFICATIONS | BACK TO TOP | FOLLOW | LEGAL LINKS) ==== -->
             <footer class="footer anchor" id="imprint">
                 <div class="footer-inner">
                     <div class="footer-left">
@@ -1567,13 +1563,13 @@
                                 aria-label="Handelskammer Hamburg"
                                 >
                                 <span class="gold-frame frame--md shape--rect">
-                                    <img src="img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                                    <img src="img/placeholder1.jpg" alt="Handelskammer Hamburg" />
                                 </span>
                                 </a>
 
                                 <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
                                 <span class="gold-frame frame--md shape--round">
-                                    <img src="img/protocolbureau.png" alt="Protocolbureau" />
+                                    <img src="img/placeholder2.png" alt="Protocolbureau" />
                                 </span>
                                 </a>
                             </div>
@@ -1606,6 +1602,14 @@
                         <span class="legal-sep" aria-hidden="true">•</span>
 
                         <a class="legal-link" href="/privacy.html" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>
+                        <!-- <span class="legal-sep" aria-hidden="true">•</span>
+
+                        <a class="legal-link" href="/terms.html" data-en="Terms &amp; Conditions" data-de="AGB">Terms &amp; Conditions</a>
+                        <span class="legal-sep" aria-hidden="true">•</span>
+
+                        <button type="button" class="legal-link legal-btn" data-en="Cookie settings" data-de="Cookie-Einstellungen">
+                        Cookie settings
+                        </button> -->
                     </div>
                 </div>
             </footer>
@@ -1751,14 +1755,13 @@
             track.style.transform = `translate3d(${x}px, 0, 0)`;
         }
 
-        // --- 2) Navigation (immer in gleicher Richtung möglich) ---
+        // --- 2) Navigation ---
         function goNext() {
-            index += 1;          // läuft nach rechts weiter
+            index += 1;
             setTransition(true);
             render();
         }
 
-        // prev darf gern existieren; auch das bleibt sauber looping
         function goPrev() {
             index -= 1;
             setTransition(true);
