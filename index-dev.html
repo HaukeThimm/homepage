@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 
 <html lang="en">
@@ -135,6 +134,7 @@
             --body: var(--fs-body);
 
             /* ==== HERO BILD-GRÖSSEN ==== */
+            /* Portrait wird entfernt -> Tokens bleiben optional (schadet nicht) */
             --hero-portrait-w: 240px;
             --hero-portrait-h: 320px;
 
@@ -360,8 +360,9 @@
 
         /* ==== PAGE OFFSET: INHALT STARTET UNTER FIXED NAV + LOGO-ÜBERLAPPUNG ==== */
         .page-offset {
-            padding-top: calc(var(--top-offset) + var(--banner-h) + 20px);
-            margin-top: 0; /* oder nur leicht negativ, wenn du bewusst über Header ziehen willst */
+            /* FIX: Hero soll 25px unter header3.png beginnen -> kein zusätzliches Pushen durch page-offset */
+            padding-top: 0;
+            margin-top: 0;
         }
 
         /* ==== HEADER-BILD (VOLLE BREITE, KEIN CROP) ==== */
@@ -445,7 +446,8 @@
 
         /* ==== HERO ==== */
         .hero {
-            padding-top: 20px;
+            /* FIX: Hero beginnt 25px unter header3.png */
+            padding-top: 25px;
             padding-bottom: 30px;
         }
         .hero-shift {
@@ -454,19 +456,23 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr var(--hero-portrait-w);
+            /* FIX: Portrait entfernt -> 1 Spalte */
+            grid-template-columns: 1fr;
             column-gap: 30px;
             align-items: start;
         }
 
         .hero-textbox {
-            height: var(--hero-portrait-h);
+            /* Portrait entfernt -> Höhe automatisch */
+            height: auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 14px;
         }
 
         .hero-portrait {
+            /* Portrait entfernt -> Regel bleibt als Fallback, aber Bild existiert nicht mehr */
             width: var(--hero-portrait-w);
             height: var(--hero-portrait-h);
             object-fit: cover;
@@ -816,10 +822,6 @@
                 gap: 14px;
             }
 
-            .hero-portrait {
-                margin-left: 0;
-            }
-
             .carousel-btn.left {
                 left: 6px;
             }
@@ -896,7 +898,7 @@
             align-items: start;
         }
 
-        /* ==== FOOTER LINKS: LOGO + QUALIFICATIONS (AN BACKTOP-TEXT AUSGERICHTET) ==== */
+        /* ==== FOOTER LINKS: LOGO + QUALIFICATIONS (AN BACKTOP-TEXT AUSRICHTET) ==== */
         .footer-left {
             grid-column: 1;
             grid-row: 1;
@@ -1002,7 +1004,7 @@
             text-decoration: underline;
         }
 
-        /* ==== FOOTER RECHTS: FOLLOW (AN BACKTOP-TEXT AUSGERICHTET) ==== */
+        /* ==== FOOTER RECHTS: FOLLOW (AN BACKTOP-TEXT AUSRICHTET) ==== */
         .follow {
             grid-column: 3;
             grid-row: 1;
@@ -1154,10 +1156,10 @@
         <img src="img/logo.png" alt="Hauke Thimm" />
         </a> -->
 
-        <!-- ==== SEITENINHALT (STARTET UNTER NAV + LOGO-ÜBERLAPPUNG) ==== -->
+        <!-- ==== SEITENINHALT (STARTET NACH HEADER-BILD) ==== -->
         <div class="page-offset">
             <div class="content">
-                <!-- ==== HERO (NAME, CLAIM, INTRO, PORTRAIT) ==== -->
+                <!-- ==== HERO (NAME, CLAIM, INTRO) ==== -->
                 <section class="hero anchor hero-shift" id="hero">
                     <div class="hero-grid">
                         <div class="hero-textbox">
@@ -1191,8 +1193,6 @@
                                 culturally and operationally complex environments.
                             </p>
                         </div>
-
-                        <img src="img/haukethimm.jpg" alt="Portrait of Hauke Thimm" class="hero-portrait" />
                     </div>
                 </section>
 
