@@ -372,8 +372,8 @@
         }
         .header-image img {
             display: block;
-            width: 100%;
-            max-width: 3000px;
+            width: 100% important; /* überschreibt max-width: var(--max-width) */
+            max-width: auto;
             height: auto;
             margin: 0 auto;
             object-fit: contain;
