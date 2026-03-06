@@ -142,7 +142,7 @@
     --frame-r-lg: 6px;
 
     /* UI-Größen */
-    --lang-btn-size: 30px;
+    --lang-btn-size: 25px;
 
     /* Carousel: Fade-Breite an den Fluchten */
     --carousel-fade: 40px;
@@ -627,7 +627,7 @@ section.anchor {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 14px;
+    padding: none;
     display: block;
 }
 
