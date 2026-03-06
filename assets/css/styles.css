@@ -1,5 +1,5 @@
-/* ==== LOKALE SCHRIFTEN: CORMORANT GARAMOND / SOURCE SANS 3 ==== */
-/* CORMORANT GARAMOND FÜR HERO UND HEADLINES */        
+/* ==== SCHRIFTEN (LOKAL) ==== */
+/* Hinweis: Pfade sind relativ zur CSS-Datei in assets/css/ => ../fonts/... */
 @font-face {
     font-family: "Cormorant Garamond";
     src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
@@ -43,7 +43,6 @@
     font-display: swap;
 }
 
-/* SOURCE SANS 3 FÜR FLIESSTEXTE */
 @font-face{
     font-family:"Source Sans 3";
     src:url("../fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
@@ -87,44 +86,52 @@
     font-display:swap;
 }
 
-/* ==== ROOT: DESIGN-TOKENS (FARBEN, ABSTÄNDE, TYPO, FRAME-SYSTEM) ==== */
+/* ==== DESIGN TOKENS (FARBEN, TYPO, ABSTÄNDE) ==== */
+/* Alle Größen/Abstände zentral steuerbar:
+   - Headlines: Cormorant 30px
+   - Sublines: Cormorant 24px
+   - Body: Source Sans 18px */
 :root {
     --cream: #fdf7f2;
     --blue: #003153;
 
-    /* NAV: oben bündig + vergrößert */
+    /* Nav: fixed oben, Höhe steuert Layout-Offsets auf Unterseiten */
     --top-offset: 0px;
     --banner-h: 75px;
 
+    /* Inhalt: max Breite + gleichmäßige Seitenränder */
     --side-pad: 150px;
     --max-width: 1400px;
 
-    /* TYPO */
+    /* Typografie-Rollen */
     --font-head: "Cormorant Garamond", serif;
     --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-    --fs-head: 30px;
-    --fs-sub: 24px;
-    --fs-body: 18px;
+    --fs-head: 30px;  /* Section Headline */
+    --fs-sub: 24px;   /* Subline */
+    --fs-body: 18px;  /* Fließtext */
 
     --fw-head: 700;
     --fw-sub: 500;
     --fw-body: 300;
 
-    --lh-head: 1.5;
+    --lh-head: 1.25;
     --lh-sub: 1.25;
     --lh-body: 1.5;
 
-    /* SPACING (EINHEITLICH) */
+    /* Rhythmus/Abstände:
+       - section-pad-y: Abstand ober/unter jeder Section
+       - hero-offset: Abstand zwischen Headerbild und Hero-Start
+       - block-gap: Abstand zwischen Body-Block und nächster Subline/Headline */
     --section-pad-y: 60px;
-    --hero-offset: 14px;
-    --h-gap-bottom: 14px;
-    --sub-gap-bottom: 12px;
-    --p-gap: 14px;
-    --block-gap: 40px; /* Abstand zwischen inhaltlichen Blöcken */
-    --legal-gap: 40px;
+    --hero-offset: 25px;
 
-    /* GOLD-RAHMEN */
+    --h-gap-bottom: 14px;   /* Abstand Headline -> nächstes Element */
+    --sub-gap-bottom: 12px; /* Abstand Subline -> Body */
+    --p-gap: 14px;          /* Abstand Absatz -> Absatz */
+    --block-gap: 40px;      /* Abstand Body -> nächste Subline/Headline */
+
+    /* Goldrahmen: Rahmenbreiten + Radien */
     --frame-w-sm: 2px;
     --frame-w-md: 4px;
     --frame-w-lg: 6px;
@@ -133,18 +140,20 @@
     --frame-r-md: 4px;
     --frame-r-lg: 6px;
 
-    /* LANGUAGE BUTTON */
-    --lang-btn-size: 24px;
+    /* Language Buttons */
+    --lang-btn-size: 30px;
 
-    /* QUALIFICATIONS */
-    --qual-logo-h: 75px;
+    /* Qualifications Logos */
+    --qual-logo-h: 50px;
     --qual-logo-max-w: auto;
 
-    /* FOOTER ALIGN */
+    /* Footer Alignment + Legal */
     --footer-col-top: 10px;
     --backtop-icon-h: 20px;
     --backtop-gap: 3px;
     --footer-align-to-backtop-text: calc(var(--footer-col-top) + var(--backtop-icon-h) + var(--backtop-gap));
+
+    --legal-gap: 40px; /* Abstand zwischen "Imprint" und "Privacy" */
 }
 
 /* ==== RESET / BASIS ==== */
@@ -155,7 +164,6 @@ body {
     margin: 0;
     color: var(--blue);
     background-color: var(--cream);
-    font-optical-sizing: auto;
 
     font-family: var(--font-body);
     font-size: var(--fs-body);
@@ -163,7 +171,9 @@ body {
     line-height: var(--lh-body);
 }
 
-/* ==== GOLD-FRAME: BASISRAHMEN ==== */
+/* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
+/* Default ist border-width: --frame-w-md.
+   Per Modifier .frame--sm/.frame--md/.frame--lg wird die Stärke gesetzt. */
 .gold-frame {
     display: inline-flex;
     align-items: center;
@@ -171,6 +181,9 @@ body {
 
     border: var(--frame-w-md) solid transparent;
 
+    /* 2-Layer Hintergrund:
+       - padding-box: "Innenfläche"
+       - border-box: Goldtextur als Rahmen */
     background: linear-gradient(transparent, transparent) padding-box,
                 url("../img/highlights_gold.png") border-box;
 
@@ -200,12 +213,8 @@ body {
     height: 100%;
     object-fit: cover;
 }
-.gold-frame.auto > img {
-    width: auto;
-    height: auto;
-}
 
-/* ==== FIXED NAV ==== */
+/* ==== NAVIGATION (FIXED) ==== */
 .nav-shell {
     position: fixed;
     top: var(--top-offset);
@@ -215,7 +224,6 @@ body {
     pointer-events: none;
 }
 .main-nav {
-    position: relative;
     height: var(--banner-h);
     background: var(--blue);
     pointer-events: auto;
@@ -234,7 +242,6 @@ body {
     grid-template-columns: repeat(6, 1fr);
     align-items: center;
     white-space: nowrap;
-    padding-left: 0;
 }
 .nav-items a.nav-link {
     display: flex;
@@ -250,13 +257,12 @@ body {
 }
 .nav-items a.nav-link:hover { text-decoration: underline; }
 
-/* Language Toggle */
+/* ==== LANGUAGE TOGGLE ==== */
 .lang-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    white-space: nowrap;
 }
 .lang-btn {
     border: 0;
@@ -268,64 +274,52 @@ body {
     opacity: 0.7;
 }
 .lang-btn.is-active { opacity: 1; }
-
 .lang-btn .gold-frame {
     width: var(--lang-btn-size);
     height: var(--lang-btn-size);
 }
-.lang-btn .gold-frame > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.lang-btn img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 0;
-}
+.lang-btn .gold-frame > img { object-fit: cover; }
 
-/* ==== HEADER ==== */
-.header-image {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
+/* ==== HEADER IMAGE (FULL-WIDTH) ==== */
+.header-image { width: 100%; margin: 0; padding: 0; }
 .header-image img {
     display: block;
     width: 100%;
     max-width: none;
     height: auto;
-    margin: 0 auto;
     object-fit: contain;
     object-position: center top;
 }
 
 /* ==== LAYOUT WRAPPER ==== */
+/* page-offset ist auf der Main Page 0 (Headerbild erzeugt "Bühne") */
 .page-offset { padding-top: 0; margin-top: 0; }
 
+/* content: hält Textbreite, setzt Seitenabstände */
 .content {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--side-pad);
 }
 
+/* Anchor-Offset: verhindert, dass fixed Nav Zieltexte überdeckt */
 section.anchor {
     scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + 20px);
 }
 
-/* ==== SECTIONS: EINHEITLICH ==== */
+/* ==== SECTION-RHYTHMUS ==== */
 .section { padding: var(--section-pad-y) 0; }
 
-/* Hero: eigener Startabstand */
+/* Hero: startet mit definierter Distanz unter dem Headerbild */
 .hero {
     padding-top: var(--hero-offset);
     padding-bottom: calc(var(--section-pad-y) / 2);
 }
 
-/* ==== HEADLINES ==== */
+/* ==== TYPOGRAFIE: HEADLINES / SUBLINES / BODY ==== */
+/* Headline: Cormorant 30px */
 .section h2,
-.about .about-label{
+.about .about-label {
     font-family: var(--font-head);
     font-size: var(--fs-head);
     font-weight: var(--fw-head);
@@ -333,8 +327,8 @@ section.anchor {
     margin: 0 0 var(--h-gap-bottom) 0;
 }
 
-/* Hero Name größer */
-.hero .name{
+/* Hero-Name: größer (42px) als Section Headline */
+.hero .name {
     font-family: var(--font-head);
     font-size: 42px;
     font-weight: var(--fw-head);
@@ -342,11 +336,11 @@ section.anchor {
     margin: 0 0 var(--h-gap-bottom) 0;
 }
 
-/* ==== SUBLINES ==== */
+/* Subline: Cormorant 24px */
 .subline,
 .hero .role,
 .hero .claim,
-.service-title{
+.service-title {
     font-family: var(--font-head);
     font-size: var(--fs-sub);
     font-weight: var(--fw-sub);
@@ -354,12 +348,12 @@ section.anchor {
     margin: 0 0 var(--sub-gap-bottom) 0;
 }
 
-/* ==== BODY ==== */
+/* Body: Source Sans 18px */
 .body-text,
 .hero .intro,
 .feedback-text,
 .feedback-signature,
-.approach-list li{
+.approach-list li {
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
@@ -368,62 +362,37 @@ section.anchor {
 .body-text { margin: 0; }
 .body-text + .body-text { margin-top: var(--p-gap); }
 
-/* Einheitlicher Abstand: Body -> nächste Subline/Headline */
+/* Einheitlicher "Blockabstand": Body -> nächste Subline/Headline */
 .body-text + .subline,
-.body-text + h2{
+.body-text + h2 {
     margin-top: var(--block-gap);
 }
 
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 30px;
-    align-items: start;
-}
-.hero-textbox {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-.hero .intro { margin: 0; white-space: pre-line; }
-.hero .role { margin-bottom: 10px; }
-
-/* Values Band */
-.values-band {
-    padding: var(--section-pad-y) 0;
-    text-align: center;
-}
-.values-band img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-}
-
-/* About: uppercase & tracking */
+/* About Label: uppercase + leichtes Tracking */
 .about .about-label {
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
 
-/* ==== SERVICES (Accordion) ==== */
-.services-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
+/* ==== HERO LAYOUT ==== */
+.hero-grid { display: grid; grid-template-columns: 1fr; }
+.hero-textbox { display: flex; flex-direction: column; gap: 14px; }
+.hero .intro { margin: 0; white-space: pre-line; }
+
+/* ==== VALUES BAND ==== */
+.values-band { padding: var(--section-pad-y) 0; text-align: center; }
+.values-band img { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+/* ==== SERVICES (ACCORDION) ==== */
+.services-list { display: flex; flex-direction: column; gap: 18px; }
 .service-item {
     border: var(--frame-w-md) solid transparent;
     border-radius: var(--frame-r-md);
-
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
                 url("../img/highlights_gold.png") border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
-
     padding: 18px;
 }
 .service-head {
@@ -434,11 +403,7 @@ section.anchor {
     cursor: pointer;
     user-select: none;
 }
-.service-bullet {
-    width: 22px;
-    height: 22px;
-    background: url("../img/bulletpoint.png") center / contain no-repeat;
-}
+.service-bullet { width: 22px; height: 22px; background: url("../img/bulletpoint.png") center / contain no-repeat; }
 .service-title { margin: 0; }
 .service-arrow {
     width: 18px;
@@ -448,22 +413,14 @@ section.anchor {
     transform: translateY(1px);
     transition: transform 180ms ease;
 }
-.service-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 240ms ease;
-}
+.service-body { max-height: 0; overflow: hidden; transition: max-height 240ms ease; }
 .service-body-inner { padding-top: 14px; }
 .service-item.open .service-body { max-height: 600px; }
 .service-item.open .service-arrow { transform: rotate(90deg); }
 
 /* ==== CTA BUTTON ==== */
-.contact-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-}
+/* CTA ist als "Headline-Rolle" ausgeführt (Cormorant, 30px) */
+.contact-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 .cta-btn {
     display: inline-block;
     padding: 0.45em 0.9em;
@@ -481,7 +438,6 @@ section.anchor {
 
     background: linear-gradient(var(--blue), var(--blue)) padding-box,
                 url("../img/highlights_gold.png") border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
@@ -490,44 +446,26 @@ section.anchor {
 }
 .cta-btn:hover { text-decoration: underline; }
 
-/* ==== CAROUSEL ==== */
+/* ==== CAROUSEL (CREDENTIALS) ==== */
+/* Full-bleed: Carousel breitet sich über den Viewport aus, der Inhalt wird via padding wieder
+   auf das Content-Raster zurückgeholt. */
 #credentials .carousel-shell{
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
 }
 #credentials .carousel-viewport{
-    padding-left: var(--side-pad);
-    padding-right: var(--side-pad);
     padding-inline: calc(var(--side-pad) + clamp(2.75rem, 6vw, 5rem));
 }
-.carousel-shell {
-    position: relative;
-    margin-top: 18px;
-}
+.carousel-shell { position: relative; margin-top: 18px; }
 .carousel-viewport {
     overflow: hidden;
     padding-inline: clamp(2.75rem, 6vw, 5rem);
-    box-sizing: border-box;
-
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0, 0, 0, 1) 10%,
-        rgba(0, 0, 0, 1) 90%,
-        transparent 100%
-    );
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0, 0, 0, 1) 10%,
-        rgba(0, 0, 0, 1) 90%,
-        transparent 100%
-    );
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, transparent 100%);
 }
 .carousel-track{
     display:flex;
-    flex-direction: row;
     gap:28px;
     padding: 0 !important;
     margin: 0;
@@ -556,15 +494,9 @@ section.anchor {
 
     padding:26px;
 }
-.feedback-text{
-    width:100%;
-    white-space:pre-line;
-    margin: 0;
-}
-.feedback-signature{
-    margin-top:22px;
-    white-space:pre-line;
-}
+.feedback-text { width:100%; white-space:pre-line; margin:0; }
+.feedback-signature { margin-top:22px; white-space:pre-line; }
+
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -578,95 +510,38 @@ section.anchor {
     z-index: 3;
     opacity: 0.9;
 }
-.carousel-btn img {
-    width: 50px;
-    height: 50px;
-    display: block;
-}
+.carousel-btn img { width: 50px; height: 50px; display: block; }
 .carousel-btn.left { left: 10px; }
 .carousel-btn.right { right: 10px; }
 
-@media (max-width: 768px) {
-    .feedback-card {
-        width: 86vw;
-        height: 400px;
-        min-height: 300px;
-    }
-}
+/* ==== APPROACH (LISTE) ==== */
+.approach-list { margin: 0; padding-left: 1.2em; }
+.approach-list li { margin: 0 0 var(--p-gap) 0; padding-left: calc(100px + 1.2em); }
+.approach-list li:last-child { margin-bottom: 0; }
 
-/* ==== APPROACH ==== */
-.approach-list{
-    margin: 0;
-    padding-left: 0;              /* keine Standard-Einrückung */
-    list-style: none;             /* Standard-Marker aus */
-    counter-reset: step;
-}
-
-.approach-list li{
-    counter-increment: step;
-    position: relative;
-
-    /* Text bleibt dort, wo er aktuell ist: das entspricht ungefähr deiner bisherigen Textposition */
-    padding-left: calc(100px + 1.2em);
-
-    margin: 0 0 var(--p-gap) 0;
-}
-
-.approach-list li:last-child{
-    margin-bottom: 0;
-}
-
-/* Die Zahl separat setzen und „halb so weit“ einrücken */
-.approach-list li::before{
-    content: counter(step) ".";
-    position: absolute;
-
-    /* Zahl-Position: vorher war „100px“, jetzt „50px“ (halber Abstand) */
-    left: 50px;                   /* <- DAS ist dein Regler */
-
-    /* an die erste Textzeile ausrichten */
-    top: 0;
-
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: var(--fw-body);
-    line-height: var(--lh-body);
-}
-
-/* ==== PRE-FOOTER (ZUSÄTZLICHE KONTAKTMÖGLICHKEITEN) ==== */
+/* ==== PRE-FOOTER (KONTAKT) ==== */
 .pre-footer {
     width: 100%;
     height: 150px;
-
     background: var(--blue);
     color: var(--cream);
-
     margin-bottom: 20px;
-
     display: flex;
     align-items: center;
 }
-
 .pre-footer-inner {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--side-pad);
     width: 100%;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
 }
+.pre-footer-item { display: flex; align-items: center; gap: 18px; min-width: 0; }
 
-.pre-footer-item {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    min-width: 0;
-}
-
-/* Icon-Kreis + feiner Goldrahmen */
+/* Icon-Kreis 75px: rund + feiner Goldrahmen */
 .pre-footer-item .gold-frame {
     width: 75px;
     height: 75px;
@@ -680,21 +555,19 @@ section.anchor {
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
                 url("../img/highlights_gold.png") border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
 }
-
 .pre-footer-item .gold-frame > img{
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: none;
+    padding: 14px;
     display: block;
 }
 
-/* PRE-FOOTER: Text = Body (Source Sans, 18px, 300) */
+/* Pre-Footer Text: bewusst Body (Source Sans 18px) */
 .pre-footer-text{
     font-family: var(--font-body);
     font-size: var(--fs-body);
@@ -706,6 +579,8 @@ section.anchor {
 }
 
 /* ==== FOOTER ==== */
+/* Footer: Grundtypografie Body (Source Sans 18px, 300).
+   Labels ("Qualifications:", "Follow me:") sind 500. */
 .footer {
     background-color: var(--blue);
     color: var(--cream);
@@ -713,13 +588,11 @@ section.anchor {
     padding: 5px 0 30px;
     position: relative;
 
-    /* FOOTER: Grundtypografie = Body (Source Sans, 18px, 300) */
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
     line-height: var(--lh-body);
 }
-
 .footer-inner {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -730,182 +603,118 @@ section.anchor {
     grid-template-rows: auto auto;
     column-gap: 24px;
     row-gap: 18px;
-
     align-items: start;
 }
-
 .footer-left {
     grid-column: 1;
     grid-row: 1;
-
     display: flex;
     align-items: flex-start;
     gap: 20px;
-
     padding-top: var(--footer-align-to-backtop-text);
 }
 
-.qualifications {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* FOOTER LABELS: 500 */
+/* Footer Labels: Source Sans 18px, 500 */
 .qualifications-label,
 .follow-label{
     font-family: var(--font-body);
     font-size: var(--fs-body);
-    font-weight: var(--fw-sub); /* 500 */
+    font-weight: var(--fw-sub);
     line-height: var(--lh-body);
     margin: 0 0 12px 0;
     color: var(--cream);
 }
 
-.qualifications-logos {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    flex-wrap: wrap;
-}
+/* Qualifications Logos */
+.qualifications-logos { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.qualifications-logos .gold-frame { height: var(--qual-logo-h); width: auto; max-width: var(--qual-logo-max-w); display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
+.qualifications-logos .gold-frame > img { display:block; height:100%; width:auto; max-width:100%; object-fit:contain; }
 
-.qualifications-logos .gold-frame {
-    height: var(--qual-logo-h);
-    width: auto;
-    max-width: var(--qual-logo-max-w);
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.qualifications-logos .gold-frame > img {
-    display: block;
-    height: 100%;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-}
-
-/* Rechteck-Logos: feiner Goldrahmen */
+/* Rechteck-Logos: feiner Rahmen */
 .qualifications-logos .gold-frame.shape--rect{
     border-width: var(--frame-w-sm);
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
                 url("../img/highlights_gold.png") border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
+    background-size:auto, cover;
+    background-repeat:no-repeat, no-repeat;
+    background-position:center, center;
 }
 
-/* Runde Logos: echter Kreis + feiner Goldrahmen */
+/* Runde Logos: echter Kreis */
 .qualifications-logos .gold-frame.shape--round{
     width: var(--qual-logo-h);
     height: var(--qual-logo-h);
     flex: 0 0 var(--qual-logo-h);
     aspect-ratio: 1 / 1;
-
     border-radius: 50%;
     overflow: hidden;
 
     border-width: var(--frame-w-sm);
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
                 url("../img/highlights_gold.png") border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
+    background-size:auto, cover;
+    background-repeat:no-repeat, no-repeat;
+    background-position:center, center;
 }
-
 .qualifications-logos .gold-frame.shape--round > img{
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: none;
-    display: block;
+    padding: 8px;
+    display:block;
 }
 
-/* Back to top */
+/* Back-to-top */
 .backtop {
     grid-column: 2;
     grid-row: 1;
-
     justify-self: center;
     align-self: start;
-
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     gap: var(--backtop-gap);
-
     margin-top: 0;
     padding-top: var(--footer-col-top);
-
     color: var(--cream);
     text-decoration: none;
-
     font-size: 16px;
     font-weight: 300;
 }
+.backtop .chevron-img { width: var(--backtop-icon-h); height: auto; display:block; }
+.backtop:hover { font-weight: 700; }
+.backtop:hover .backtop-text { text-decoration: underline; }
 
-.backtop .chevron-img {
-    width: var(--backtop-icon-h);
-    height: auto;
-    display: block;
-}
-
-.backtop:hover {
-    font-weight: 700;
-}
-.backtop:hover .backtop-text {
-    text-decoration: underline;
-}
-
-/* Follow */
+/* Follow Icon */
 .follow {
     grid-column: 3;
     grid-row: 1;
-
     justify-self: end;
     padding-top: var(--footer-align-to-backtop-text);
     text-align: right;
 }
-
-.follow-icons a {
-    display: inline-block;
-}
-
 .follow-icons .gold-frame.shape--round{
     width: 50px;
     height: 50px;
     flex: 0 0 50px;
     aspect-ratio: 1 / 1;
-
     border-radius: 50%;
     overflow: hidden;
 
     border-width: var(--frame-w-sm);
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
                 url("../img/highlights_gold.png") border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
+    background-size:auto, cover;
+    background-repeat:no-repeat, no-repeat;
+    background-position:center, center;
 }
+.follow-icons .gold-frame > img{ width:100%; height:100%; object-fit:contain; padding:8px; display:block; }
 
-.follow-icons .gold-frame > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: none;
-    display: block;
-}
-
-/* LEGAL: rechtsbündig, Body (18px, 300), 40px Abstand */
+/* Legal Links: rechtsbündig, 40px Abstand, Body 300 */
 .legal-text {
     position: absolute;
     right: var(--side-pad);
     bottom: 15px;
-
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
@@ -913,27 +722,43 @@ section.anchor {
 
     font-family: var(--font-body);
     font-size: var(--fs-body);
-    font-weight: var(--fw-body); /* 300 */
+    font-weight: var(--fw-body);
     line-height: var(--lh-body);
 
     color: var(--cream);
     white-space: nowrap;
 }
+.legal-link { color: var(--cream); text-decoration: none; font: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.legal-link:hover { text-decoration: underline; }
 
-.legal-link {
-    color: var(--cream);
-    text-decoration: none;
-    font: inherit;
-    background: none;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-}
-.legal-link:hover {
-    text-decoration: underline;
+/* ==== RESPONSIVE (MOBILE) ==== */
+@media (max-width: 768px) {
+    :root {
+        --banner-h: 64px;
+        --side-pad: 18px;
+    }
+
+    .nav-inner { padding: 0 var(--side-pad); }
+    .nav-items { grid-template-columns: repeat(3, 1fr); row-gap: 8px; }
+    .nav-items a.nav-link { font-size: 12px; letter-spacing: 0.08em; }
+
+    .carousel-btn.left { left: 6px; }
+    .carousel-btn.right { right: 6px; }
+
+    .pre-footer { height: auto; padding: 24px 0; }
+    .pre-footer-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
+
+    .footer-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+    .backtop { align-self: center; }
+    .follow { align-self: flex-start; text-align: left; }
+
+    /* Legal in Mobile: nicht absolut, damit nichts kollidiert */
+    .legal-text { position: static; margin-top: 8px; align-self: flex-end; }
 }
 
-/* ==== PAGE: IMPRINT - gleicher Startabstand wie Main Page (Nav + Hero Offset) ==== */
+/* ==== PAGE: IMPRINT (STARTABSTAND UNTER FIXED NAV) ==== */
+/* Auf /imprint/ gibt es kein Headerbild. Damit "IMPRINT" nicht unter die fixed Nav läuft,
+   simulieren wir den Main-Page-Start: Nav-Höhe + Hero-Offset */
 .page--imprint .page-offset{
     padding-top: calc(var(--banner-h) + var(--hero-offset));
 }

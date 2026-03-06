@@ -1,4 +1,6 @@
-/* ==== SPRACHTOGGLE (SCHALTET ALLE [data-en][data-de]) ==== */
+/* ==== LANGUAGE TOGGLE (TEXTUMSCHALTUNG) ==== */
+/* Schaltet alle Elemente mit data-en/data-de um.
+   Wichtig: Es wird textContent gesetzt (keine HTML-Injection). */
 (function () {
     const buttons = document.querySelectorAll(".lang-btn");
     const translatable = document.querySelectorAll("[data-en][data-de]");
@@ -14,10 +16,13 @@
     }
 
     buttons.forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
-    setLang("en");
+    setLang("en"); /* Default */
 })();
 
-/* ==== SERVICES ACCORDION (KLICK + ENTER/SPACE) ==== */
+/* ==== SERVICES ACCORDION (INTERAKTION + A11Y) ==== */
+/* - Klick oder Enter/Space toggelt den Block
+   - aria-expanded wird synchron gehalten
+   - immer nur ein Block offen (closeAllExcept) */
 (function () {
     const items = document.querySelectorAll("[data-service]");
     if (!items.length) return;
@@ -54,7 +59,12 @@
     });
 })();
 
-/* ==== FEEDBACK-CAROUSEL (ENDLOS, EXAKT ZENTRIERT) ==== */
+/* ==== FEEDBACK CAROUSEL (ENDLOS + ZENTRIERT) ==== */
+/* Ziel:
+   - Karten sind immer optisch zentriert (berechnet aus Viewport-Padding und Card-Breite)
+   - Endlos-Loop durch Clones (first/last)
+   - Auto-Advance per Timer (INTERVAL_MS)
+   - Resize re-render (Layout bleibt stabil bei Breakpoints) */
 (function () {
     const track = document.getElementById("fbTrack");
     const prevBtn = document.getElementById("fbPrev");
@@ -76,6 +86,7 @@
     track.insertBefore(lastClone, originals[0]);
     track.appendChild(firstClone);
 
+    /* index zeigt auf das aktive Element in track.children (inkl. clones) */
     let index = 1;
 
     function cards() {
@@ -100,6 +111,9 @@
         return cardWidthPx() + getGapPx();
     }
 
+    /* Zentrierung:
+       - berücksichtigt das Padding der .carousel-viewport (damit Full-bleed sauber wirkt)
+       - positioniert die aktive Card in der Content-Mitte */
     function centerOffsetPx() {
         const viewport = track.closest(".carousel-viewport");
         const cW = cardWidthPx();
@@ -135,6 +149,7 @@
         render();
     }
 
+    /* Clone-Reset ohne sichtbare Animation */
     track.addEventListener("transitionend", () => {
         const all = cards();
         const active = all[index];

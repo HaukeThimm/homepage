@@ -1,3 +1,5 @@
+<!-- ===== IMPRESSUM ==== -->
+ 
 <!DOCTYPE html>
 
 <html lang="de">
@@ -7,15 +9,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Impressum | haukethimm.com</title>
 
-        <!-- ==== STYLES (EXTERN, ABSOLUTER PFAD) ==== -->
+        <!-- ==== STYLES (ABSOLUTER PFAD, DAMIT /imprint/ FUNKTIONIERT) ==== -->
         <link rel="stylesheet" href="/assets/css/styles.css" />
     </head>
 
     <body class="page--imprint">
-        <!-- Anker für Back-to-top -->
+        <!-- Anker für "Back to top" (falls du später wieder Footer/Backtop ergänzt) -->
         <div id="top"></div>
 
-        <!-- ==== FIXED NAV (BANNER + NAV-LINKS + LANGUAGE TOGGLE) ==== -->
+        <!-- ==== FIXED NAV (WIE MAIN PAGE, LINKS ZEIGEN ZUR STARTSEITE) ==== -->
+        <!-- Wichtig: auf Unterseiten müssen Sprunglinks als /#section referenzieren. -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
@@ -45,9 +48,12 @@
         </div>
 
         <!-- ==== SEITENINHALT ==== -->
+        <!-- Kein Headerbild auf /imprint/.
+             Der Startabstand wird über .page--imprint .page-offset in CSS gesetzt:
+             padding-top = banner-h + hero-offset */
         <div class="page-offset">
             <main class="content" id="content">
-                <!-- ==== IMPRESSUM (ALS .section WIE MAIN PAGE) ==== -->
+                <!-- ==== IMPRESSUM (ALS .section IM MAIN-STYLE) ==== -->
                 <section class="section imprint anchor" id="imprint-page">
                     <h2 class="about-label" data-en="IMPRINT" data-de="IMPRESSUM">IMPRESSUM</h2>
 
@@ -59,24 +65,21 @@
                         Hauke Thimm<br />
                         Marienthaler Str. 124B<br />
                         20535 Hamburg<br />
-                        <span data-en="GERMANY" data-de="DEUTSCHLAND">DEUTSCHLAND</span>
+                        <span data-en="Germany" data-de="Deutschland">Deutschland</span>
                     </p>
 
                     <div class="subline" data-en="Contact" data-de="Kontakt">Kontakt</div>
                     <p class="body-text">
                         <span data-en="Phone:" data-de="Telefon:">Telefon:</span> +49 160 95364569<br />
-                        <span data-en="Email:" data-de="E-Mail:">E-Mail:</span> mail[at]haukethimm.com
+                        <span data-en="Email:" data-de="E-Mail:">E-Mail:</span> mail@haukethimm.com
                     </p>
 
                     <div class="subline" data-en="Tax information" data-de="Steuerliche Angaben">Steuerliche Angaben</div>
                     <p class="body-text">
-                        <span
-                            data-en="Business Identification Number (W-IdNr.):"
-                            data-de="Wirtschafts-Identifikationsnummer (W-IdNr.):"
-                        >
+                        <span data-en="Business Identification Number (W-IdNr.):" data-de="Wirtschafts-Identifikationsnummer (W-IdNr.):">
                             Wirtschafts-Identifikationsnummer (W-IdNr.):
                         </span>
-                        224624702374
+                        22123456789
                     </p>
 
                     <div class="subline" data-en="Liability for content" data-de="Haftung für Inhalte">Haftung für Inhalte</div>
@@ -100,7 +103,7 @@
             </main>
         </div>
 
-        <!-- ==== DEIN JS (EXTERN, ABSOLUTER PFAD) ==== -->
+        <!-- ==== JAVASCRIPT (ABSOLUTER PFAD) ==== -->
         <script defer src="/assets/js/main.js"></script>
     </body>
 </html>
