@@ -675,9 +675,29 @@ section.anchor {
 }
 
 /* Qualifications Logos: Höhe über --qual-logo-h */
-.qualifications-logos { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
-.qualifications-logos .gold-frame { height: var(--qual-logo-h); width: auto; max-width: var(--qual-logo-max-w); display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
-.qualifications-logos .gold-frame > img { display:block; height:100%; width:auto; max-width:100%; object-fit:contain; }
+.qualifications-logos { 
+    display: flex; 
+    gap: 18px; 
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+.qualifications-logos .gold-frame { 
+    height: var(--qual-logo-h); 
+    width: auto; 
+    max-width: var(--qual-logo-max-w); 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+}
+.qualifications-logos .gold-frame > img { 
+    display:block; 
+    height:100%; 
+    width:auto; 
+    max-width:100%; 
+    object-fit:contain; 
+}
 
 .qualifications-logos .gold-frame.shape--rect{
     border-width: var(--frame-w-sm);
@@ -750,14 +770,15 @@ section.anchor {
 }
 
 .follow-icons {
-    display: flex;
-    align-items: center;
-    gap: 18px;
+    display: flex; 
+    gap: 18px; 
+    align-items: center; 
+    flex-wrap: wrap; 
 }
 
 .follow-icons .gold-frame.shape--round {
-    width: auto;
-    height: 90px;
+    width: 75px;
+    height: 75px;
     flex: 0 0 75px;
     aspect-ratio: 1 / 1;
 
