@@ -144,8 +144,8 @@
     /* UI-Größen */
     --lang-btn-size: 30px;
 
-    /* Carousel: Rand-Ausfaden entlang der Text-Flucht */
-    --carousel-fade: 40px; /* Breite der Fade-Zone links/rechts */
+    /* Carousel: Fade-Breite an den Fluchten */
+    --carousel-fade: 40px;
 
     /* Footer Align */
     --footer-col-top: 10px;
@@ -155,6 +155,10 @@
 
     /* Legal Links Abstand */
     --legal-gap: 40px;
+
+    /* Qualifications-Logos: Höhe zentral steuerbar */
+    --qual-logo-h: 50px;
+    --qual-logo-max-w: auto;
 }
 
 /* ==== RESET / BASIS ==== */
@@ -442,46 +446,54 @@ section.anchor {
 .cta-btn:hover { text-decoration: underline; }
 
 /* ==== CAROUSEL (CREDENTIALS) ==== */
-/* Full-bleed:
-   - carousel-shell wird auf 100vw gezogen
-   - carousel-viewport holt das Raster über padding-inline zurück.
-   - Edge-Fade basiert exakt auf dieser padding-inline "Textflucht". */
+/* Ziel:
+   - Full-bleed Breite (100vw)
+   - Karten sind optisch innerhalb der Textflucht "voll sichtbar"
+   - Alles außerhalb der Textflucht fädelt elegant aus
+   - Pfeile sitzen exakt auf der Textflucht (side-pad) */
 #credentials .carousel-shell{
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+
+    /* Pfeilposition / Textflucht im Carousel: identisch zum Content */
+    --carousel-text-pad: var(--side-pad);
+
+    /* Extra Raum für Pfeile + "Luft" (nur innen, nicht die Flucht selbst) */
+    --carousel-gutter: clamp(2.75rem, 6vw, 5rem);
 }
 
 #credentials .carousel-viewport{
-    /* Einheitliche "Textflucht" + Pfeilraum (identisch wie bisher) */
-    --carousel-pad: calc(var(--side-pad) + clamp(2.75rem, 6vw, 5rem));
-    padding-inline: var(--carousel-pad);
+    /* Viewport bekommt EXTRA Padding (Textflucht + Gutter),
+       damit die Karten mittig stehen können und Pfeile Platz haben. */
+    padding-inline: calc(var(--carousel-text-pad) + var(--carousel-gutter));
+    overflow: hidden;
+    box-sizing: border-box;
 
-    /* Elegantes Ausfaden:
-       - Voll sichtbar innerhalb der Textflucht
-       - Cards, die in den Side-Padding-Bereich ragen, faden aus */
+    /* Ausfaden exakt an der Textflucht:
+       - ab Textflucht ist voll sichtbar
+       - innerhalb der Side-Padding-Zone wird ausgefaded */
     -webkit-mask-image: linear-gradient(
         to right,
         transparent 0,
-        transparent calc(var(--carousel-pad) - var(--carousel-fade)),
-        rgba(0,0,0,1) var(--carousel-pad),
-        rgba(0,0,0,1) calc(100% - var(--carousel-pad)),
-        transparent calc(100% - (var(--carousel-pad) - var(--carousel-fade))),
+        transparent calc(var(--carousel-text-pad) - var(--carousel-fade)),
+        rgba(0,0,0,1) var(--carousel-text-pad),
+        rgba(0,0,0,1) calc(100% - var(--carousel-text-pad)),
+        transparent calc(100% - (var(--carousel-text-pad) - var(--carousel-fade))),
         transparent 100%
     );
     mask-image: linear-gradient(
         to right,
         transparent 0,
-        transparent calc(var(--carousel-pad) - var(--carousel-fade)),
-        rgba(0,0,0,1) var(--carousel-pad),
-        rgba(0,0,0,1) calc(100% - var(--carousel-pad)),
-        transparent calc(100% - (var(--carousel-pad) - var(--carousel-fade))),
+        transparent calc(var(--carousel-text-pad) - var(--carousel-fade)),
+        rgba(0,0,0,1) var(--carousel-text-pad),
+        rgba(0,0,0,1) calc(100% - var(--carousel-text-pad)),
+        transparent calc(100% - (var(--carousel-text-pad) - var(--carousel-fade))),
         transparent 100%
     );
 }
 
 .carousel-shell { position: relative; margin-top: 18px; }
-.carousel-viewport { overflow: hidden; box-sizing: border-box; }
 
 .carousel-track{
     display:flex;
@@ -518,13 +530,17 @@ section.anchor {
 .feedback-text { width:100%; white-space:pre-line; margin:0; }
 .feedback-signature { margin-top:22px; white-space:pre-line; }
 
-/* Pfeile: Hit-Area bleibt groß, Icon wird 50% kleiner (50px -> 25px) */
+/* Pfeile:
+   - feste Größe 40px
+   - Position auf der Textflucht (side-pad) */
 .carousel-btn{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;   /* Klickfläche bleibt 50x50 (gut bedienbar) */
-    height: 50px;
+
+    width: 40px;
+    height: 40px;
+
     border: 0;
     background: transparent;
     cursor: pointer;
@@ -537,12 +553,17 @@ section.anchor {
     justify-content: center;
 }
 .carousel-btn img{
-    width: 25px;   /* 50% der bisherigen Größe */
-    height: 25px;
+    width: 40px;
+    height: 40px;
     display: block;
 }
-.carousel-btn.left { left: 10px; }
-.carousel-btn.right { right: 10px; }
+
+#credentials .carousel-btn.left{
+    left: var(--carousel-text-pad);
+}
+#credentials .carousel-btn.right{
+    right: var(--carousel-text-pad);
+}
 
 @media (max-width: 768px) {
     .feedback-card {
@@ -550,8 +571,6 @@ section.anchor {
         height: 400px;
         min-height: 300px;
     }
-    .carousel-btn.left { left: 6px; }
-    .carousel-btn.right { right: 6px; }
 }
 
 /* ==== APPROACH ==== */
@@ -669,7 +688,7 @@ section.anchor {
     color: var(--cream);
 }
 
-/* Qualifications Logos */
+/* Qualifications Logos: Höhe über --qual-logo-h */
 .qualifications-logos { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
 .qualifications-logos .gold-frame { height: var(--qual-logo-h); width: auto; max-width: var(--qual-logo-max-w); display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
 .qualifications-logos .gold-frame > img { display:block; height:100%; width:auto; max-width:100%; object-fit:contain; }
@@ -784,7 +803,7 @@ section.anchor {
     :root {
         --banner-h: 64px;
         --side-pad: 18px;
-        --carousel-fade: 28px; /* etwas kompakteres Fade auf Mobile */
+        --carousel-fade: 28px;
     }
 
     .nav-inner { padding: 0 var(--side-pad); }
@@ -799,12 +818,14 @@ section.anchor {
     .follow { align-self: flex-start; text-align: left; }
 
     .legal-text { position: static; margin-top: 8px; align-self: flex-end; }
+
+    /* Pfeile bleiben 40px, sitzen auf der Mobile-Textflucht (side-pad=18px) */
 }
 
 /* ==== PAGE: IMPRINT (OFFSETS + PADDING) ==== */
 /* Auf /imprint/ gibt es kein Headerbild.
-   Damit der erste Textblock nicht unter die fixed Nav rutscht:
-   Startabstand = banner-h + hero-offset (wie Main Page: Bühne + Abstand). */
+   Startabstand unter der fixed Nav:
+   Start = banner-h + hero-offset (wie Main Page: Bühne + Abstand). */
 .page--imprint .page-offset{
     padding-top: calc(var(--banner-h) + var(--hero-offset));
 }
