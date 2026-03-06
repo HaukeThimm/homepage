@@ -62,19 +62,18 @@
     });
 })();
 
-/* ==== FEEDBACK CAROUSEL (ENDLOS + ZENTRIERT) ==== */
-/* Zentrierung:
-   - basiert auf Viewport-Padding + Kartenbreite (CSS setzt padding-inline)
-   - sorgt dafür, dass die aktive Karte exakt in der Content-Mitte sitzt */
+/* ==== FEEDBACK CAROUSEL (MANUELL + ZENTRIERT) ==== */
+/* Ziel:
+   - keine Automatik (kein setInterval)
+   - 2. Karte ist initial exakt mittig
+   - Pfeile navigieren manuell mit Endlos-Loop (Clones) */
 (function () {
     const track = document.getElementById("fbTrack");
     const prevBtn = document.getElementById("fbPrev");
     const nextBtn = document.getElementById("fbNext");
     if (!track) return;
 
-    const INTERVAL_MS = 4000;
-    let timerId = null;
-
+    // --- 1) CLONES für nahtlosen Loop ---
     const originals = Array.from(track.querySelectorAll(".feedback-card"));
     if (originals.length < 2) return;
 
@@ -87,8 +86,12 @@
     track.insertBefore(lastClone, originals[0]);
     track.appendChild(firstClone);
 
-    let index = 1;
+    // --- 2) Start: 2. echtes Slide soll mittig sein ---
+    // track.children: [lastClone, original1, original2, ..., originalN, firstClone]
+    // original2 liegt bei index = 2
+    let index = Math.min(2, originals.length); // falls nur 2 Cards vorhanden sind
 
+    // --- Helpers ---
     function cards() {
         return Array.from(track.querySelectorAll(".feedback-card"));
     }
@@ -146,48 +149,36 @@
         render();
     }
 
+    // --- 3) Nahtloser Reset bei Clones ---
     track.addEventListener("transitionend", () => {
         const all = cards();
         const active = all[index];
         if (!active) return;
 
         if (active.getAttribute("data-clone") === "first") {
-            index = 1;
+            index = 1; // echtes erstes
             setTransition(false);
             render();
         }
 
         if (active.getAttribute("data-clone") === "last") {
-            index = realCount();
+            index = realCount(); // echtes letztes
             setTransition(false);
             render();
         }
     });
 
-    function resetTimer() {
-        if (timerId) clearInterval(timerId);
-        timerId = setInterval(goNext, INTERVAL_MS);
-    }
+    // Buttons (nur manuell)
+    if (nextBtn) nextBtn.addEventListener("click", goNext);
+    if (prevBtn) prevBtn.addEventListener("click", goPrev);
 
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            goNext();
-            resetTimer();
-        });
-    }
-    if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-            goPrev();
-            resetTimer();
-        });
-    }
-
+    // Resize: neu zentrieren
     window.addEventListener("resize", () => {
         setTransition(false);
         render();
     });
 
+    // Initial
     setTransition(false);
     render();
-    resetTimer();
 })();

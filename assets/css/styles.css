@@ -447,32 +447,25 @@ section.anchor {
 
 /* ==== CAROUSEL (CREDENTIALS) ==== */
 /* Ziel:
-   - Full-bleed Breite (100vw)
-   - Karten sind optisch innerhalb der Textflucht "voll sichtbar"
-   - Alles außerhalb der Textflucht fädelt elegant aus
-   - Pfeile sitzen exakt auf der Textflucht (side-pad) */
+   - 3 Karten sichtbar, die mittlere ist exakt zentriert (JS zentriert aktive Karte)
+   - Pfeile sitzen auf der Textflucht (side-pad)
+   - Edge-Fade beginnt genau in der Side-Padding-Zone */
 #credentials .carousel-shell{
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
 
-    /* Pfeilposition / Textflucht im Carousel: identisch zum Content */
+    /* Textflucht (identisch zum Content) */
     --carousel-text-pad: var(--side-pad);
-
-    /* Extra Raum für Pfeile + "Luft" (nur innen, nicht die Flucht selbst) */
-    --carousel-gutter: clamp(2.75rem, 6vw, 5rem);
 }
 
+/* Viewport: keine zusätzliche "Gutter"-Einengung, damit 3 Karten Platz haben */
 #credentials .carousel-viewport{
-    /* Viewport bekommt EXTRA Padding (Textflucht + Gutter),
-       damit die Karten mittig stehen können und Pfeile Platz haben. */
-    padding-inline: calc(var(--carousel-text-pad) + var(--carousel-gutter));
+    padding-inline: var(--carousel-text-pad);
     overflow: hidden;
     box-sizing: border-box;
 
-    /* Ausfaden exakt an der Textflucht:
-       - ab Textflucht ist voll sichtbar
-       - innerhalb der Side-Padding-Zone wird ausgefaded */
+    /* Ausfaden exakt an der Textflucht */
     -webkit-mask-image: linear-gradient(
         to right,
         transparent 0,
@@ -493,46 +486,7 @@ section.anchor {
     );
 }
 
-.carousel-shell { position: relative; margin-top: 18px; }
-
-.carousel-track{
-    display:flex;
-    gap:28px;
-    padding: 0 !important;
-    margin: 0;
-    transform: translate3d(0,0,0);
-    transition: transform 320ms ease;
-    will-change: transform;
-}
-
-.feedback-card{
-    flex:0 0 auto;
-    width:400px;
-    height:300px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-
-    border: var(--frame-w-lg) solid transparent;
-    border-radius: var(--frame-r-lg);
-    background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
-    background-size:auto, cover;
-    background-repeat:no-repeat, no-repeat;
-    background-position:center, center;
-
-    padding:26px;
-}
-
-.feedback-text { width:100%; white-space:pre-line; margin:0; }
-.feedback-signature { margin-top:22px; white-space:pre-line; }
-
-/* Pfeile:
-   - feste Größe 40px
-   - Position auf der Textflucht (side-pad) */
+/* Pfeile: fest 40px, Position auf Textflucht */
 .carousel-btn{
     position: absolute;
     top: 50%;
@@ -552,18 +506,15 @@ section.anchor {
     align-items: center;
     justify-content: center;
 }
+
 .carousel-btn img{
     width: 40px;
     height: 40px;
     display: block;
 }
 
-#credentials .carousel-btn.left{
-    left: var(--carousel-text-pad);
-}
-#credentials .carousel-btn.right{
-    right: var(--carousel-text-pad);
-}
+#credentials .carousel-btn.left{ left: var(--carousel-text-pad); }
+#credentials .carousel-btn.right{ right: var(--carousel-text-pad); }
 
 @media (max-width: 768px) {
     .feedback-card {
