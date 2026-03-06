@@ -597,14 +597,40 @@ section.anchor {
 /* ==== APPROACH ==== */
 .approach-list{
     margin: 0;
-    padding-left: 1.2em;
+    padding-left: 0;              /* keine Standard-Einrückung */
+    list-style: none;             /* Standard-Marker aus */
+    counter-reset: step;
 }
+
 .approach-list li{
-    margin: 0 0 var(--p-gap) 0;
+    counter-increment: step;
+    position: relative;
+
+    /* Text bleibt dort, wo er aktuell ist: das entspricht ungefähr deiner bisherigen Textposition */
     padding-left: calc(100px + 1.2em);
+
+    margin: 0 0 var(--p-gap) 0;
 }
+
 .approach-list li:last-child{
     margin-bottom: 0;
+}
+
+/* Die Zahl separat setzen und „halb so weit“ einrücken */
+.approach-list li::before{
+    content: counter(step) ".";
+    position: absolute;
+
+    /* Zahl-Position: vorher war „100px“, jetzt „50px“ (halber Abstand) */
+    left: 50px;                   /* <- DAS ist dein Regler */
+
+    /* an die erste Textzeile ausrichten */
+    top: 0;
+
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
 }
 
 /* ==== PRE-FOOTER ==== */
