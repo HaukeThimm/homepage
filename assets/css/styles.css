@@ -117,7 +117,7 @@
 
     /* SPACING (EINHEITLICH) */
     --section-pad-y: 60px;
-    --hero-offset: 0px;
+    --hero-offset: 14px;
     --h-gap-bottom: 14px;
     --sub-gap-bottom: 12px;
     --p-gap: 14px;
