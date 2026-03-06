@@ -932,3 +932,8 @@ section.anchor {
 .legal-link:hover {
     text-decoration: underline;
 }
+
+/* ==== PAGE: IMPRINT - gleicher Startabstand wie Main Page (Nav + Hero Offset) ==== */
+.page--imprint .page-offset{
+    padding-top: calc(var(--banner-h) + var(--hero-offset));
+}
