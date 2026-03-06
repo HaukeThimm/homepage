@@ -157,7 +157,7 @@
     --legal-gap: 40px;
 
     /* Qualifications-Logos: Höhe zentral steuerbar */
-    --qual-logo-h: 50px;
+    --qual-logo-h: 75px;
     --qual-logo-max-w: auto;
 }
 
@@ -672,7 +672,7 @@ section.anchor {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 8px;
+    padding: none;
     display:block;
 }
 
