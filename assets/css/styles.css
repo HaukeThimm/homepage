@@ -1,5 +1,7 @@
-/* ==== SCHRIFTEN (LOKAL) ==== */
-/* Hinweis: Pfade sind relativ zur CSS-Datei in assets/css/ => ../fonts/... */
+/* ===== FILE: assets/css/styles.css ===== */
+
+/* ==== FONTS (LOKAL) ==== */
+/* Pfade relativ zu assets/css/ -> ../fonts/... */
 @font-face {
     font-family: "Cormorant Garamond";
     src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
@@ -86,52 +88,51 @@
     font-display:swap;
 }
 
-/* ==== DESIGN TOKENS (FARBEN, TYPO, ABSTÄNDE) ==== */
-/* Alle Größen/Abstände zentral steuerbar:
-   - Headlines: Cormorant 30px
-   - Sublines: Cormorant 24px
-   - Body: Source Sans 18px */
+/* ==== TOKENS (FARBEN / TYPO / ABSTÄNDE) ==== */
+/* Headline: Cormorant 30px
+   Subline:  Cormorant 24px
+   Body:     Source Sans 18px */
 :root {
     --cream: #fdf7f2;
     --blue: #003153;
 
-    /* Nav: fixed oben, Höhe steuert Layout-Offsets auf Unterseiten */
+    /* Nav: fixed oben, Höhe steuert Offsets (Anchors/Unterseiten) */
     --top-offset: 0px;
     --banner-h: 75px;
 
-    /* Inhalt: max Breite + gleichmäßige Seitenränder */
+    /* Content Raster: Seitenpadding + maximale Breite */
     --side-pad: 150px;
     --max-width: 1400px;
 
-    /* Typografie-Rollen */
+    /* Fonts */
     --font-head: "Cormorant Garamond", serif;
     --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-    --fs-head: 30px;  /* Section Headline */
-    --fs-sub: 24px;   /* Subline */
-    --fs-body: 18px;  /* Fließtext */
+    /* Schriftgrößen */
+    --fs-head: 30px;
+    --fs-sub: 24px;
+    --fs-body: 18px;
 
+    /* Schriftgewichte */
     --fw-head: 700;
     --fw-sub: 500;
     --fw-body: 300;
 
+    /* Zeilenhöhen */
     --lh-head: 1.25;
     --lh-sub: 1.25;
     --lh-body: 1.5;
 
-    /* Rhythmus/Abstände:
-       - section-pad-y: Abstand ober/unter jeder Section
-       - hero-offset: Abstand zwischen Headerbild und Hero-Start
-       - block-gap: Abstand zwischen Body-Block und nächster Subline/Headline */
-    --section-pad-y: 60px;
-    --hero-offset: 25px;
+    /* Vertikale Rhythmik */
+    --section-pad-y: 60px;   /* Abstand ober/unter jeder .section */
+    --hero-offset: 25px;     /* Abstand vom Headerbild zur ersten Hero-Typo */
 
-    --h-gap-bottom: 14px;   /* Abstand Headline -> nächstes Element */
-    --sub-gap-bottom: 12px; /* Abstand Subline -> Body */
-    --p-gap: 14px;          /* Abstand Absatz -> Absatz */
-    --block-gap: 40px;      /* Abstand Body -> nächste Subline/Headline */
+    --h-gap-bottom: 14px;    /* Abstand Headline -> nächstes Element */
+    --sub-gap-bottom: 12px;  /* Abstand Subline -> Body */
+    --p-gap: 14px;           /* Abstand Absatz -> Absatz */
+    --block-gap: 40px;       /* Abstand Body -> nächste Subline/Headline */
 
-    /* Goldrahmen: Rahmenbreiten + Radien */
+    /* Goldrahmen */
     --frame-w-sm: 2px;
     --frame-w-md: 4px;
     --frame-w-lg: 6px;
@@ -140,20 +141,20 @@
     --frame-r-md: 4px;
     --frame-r-lg: 6px;
 
-    /* Language Buttons */
+    /* UI-Größen */
     --lang-btn-size: 30px;
 
-    /* Qualifications Logos */
-    --qual-logo-h: 50px;
-    --qual-logo-max-w: auto;
+    /* Carousel: Rand-Ausfaden entlang der Text-Flucht */
+    --carousel-fade: 40px; /* Breite der Fade-Zone links/rechts */
 
-    /* Footer Alignment + Legal */
+    /* Footer Align */
     --footer-col-top: 10px;
     --backtop-icon-h: 20px;
     --backtop-gap: 3px;
     --footer-align-to-backtop-text: calc(var(--footer-col-top) + var(--backtop-icon-h) + var(--backtop-gap));
 
-    --legal-gap: 40px; /* Abstand zwischen "Imprint" und "Privacy" */
+    /* Legal Links Abstand */
+    --legal-gap: 40px;
 }
 
 /* ==== RESET / BASIS ==== */
@@ -172,18 +173,15 @@ body {
 }
 
 /* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
-/* Default ist border-width: --frame-w-md.
-   Per Modifier .frame--sm/.frame--md/.frame--lg wird die Stärke gesetzt. */
 .gold-frame {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
+    /* Default-Rahmenstärke: md (überschreibbar via frame--sm/md/lg) */
     border: var(--frame-w-md) solid transparent;
 
-    /* 2-Layer Hintergrund:
-       - padding-box: "Innenfläche"
-       - border-box: Goldtextur als Rahmen */
+    /* 2-Layer: Innenfläche (padding-box) + Goldtextur (border-box) */
     background: linear-gradient(transparent, transparent) padding-box,
                 url("../img/highlights_gold.png") border-box;
 
@@ -194,19 +192,16 @@ body {
     overflow: hidden;
 }
 
-/* Rahmenstärken */
 .frame--sm { border-width: var(--frame-w-sm); }
 .frame--md { border-width: var(--frame-w-md); }
 .frame--lg { border-width: var(--frame-w-lg); }
 
-/* Formen */
 .shape--r-sm { border-radius: var(--frame-r-sm); }
 .shape--r-md { border-radius: var(--frame-r-md); }
 .shape--r-lg { border-radius: var(--frame-r-lg); }
 .shape--pill { border-radius: 999px; }
 .shape--round { border-radius: 999px; }
 
-/* Bilder im Frame */
 .gold-frame > img {
     display: block;
     width: 100%;
@@ -214,7 +209,7 @@ body {
     object-fit: cover;
 }
 
-/* ==== NAVIGATION (FIXED) ==== */
+/* ==== NAV (FIXED) ==== */
 .nav-shell {
     position: fixed;
     top: var(--top-offset);
@@ -280,7 +275,7 @@ body {
 }
 .lang-btn .gold-frame > img { object-fit: cover; }
 
-/* ==== HEADER IMAGE (FULL-WIDTH) ==== */
+/* ==== HEADER IMAGE ==== */
 .header-image { width: 100%; margin: 0; padding: 0; }
 .header-image img {
     display: block;
@@ -292,34 +287,32 @@ body {
 }
 
 /* ==== LAYOUT WRAPPER ==== */
-/* page-offset ist auf der Main Page 0 (Headerbild erzeugt "Bühne") */
 .page-offset { padding-top: 0; margin-top: 0; }
 
-/* content: hält Textbreite, setzt Seitenabstände */
+/* Content: gleiche Flucht links/rechts für alle Texte (side-pad) */
 .content {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--side-pad);
 }
 
-/* Anchor-Offset: verhindert, dass fixed Nav Zieltexte überdeckt */
+/* Anchor Offset gegen fixed Nav */
 section.anchor {
     scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + 20px);
 }
 
-/* ==== SECTION-RHYTHMUS ==== */
+/* ==== SECTION RHYTHMUS ==== */
 .section { padding: var(--section-pad-y) 0; }
 
-/* Hero: startet mit definierter Distanz unter dem Headerbild */
+/* Hero: Abstand unter Headerbild (25px) */
 .hero {
     padding-top: var(--hero-offset);
     padding-bottom: calc(var(--section-pad-y) / 2);
 }
 
-/* ==== TYPOGRAFIE: HEADLINES / SUBLINES / BODY ==== */
-/* Headline: Cormorant 30px */
+/* ==== TYPO: HEADLINES ==== */
 .section h2,
-.about .about-label {
+.about .about-label{
     font-family: var(--font-head);
     font-size: var(--fs-head);
     font-weight: var(--fw-head);
@@ -327,8 +320,8 @@ section.anchor {
     margin: 0 0 var(--h-gap-bottom) 0;
 }
 
-/* Hero-Name: größer (42px) als Section Headline */
-.hero .name {
+/* Hero Name: bewusst größer als Section Headline */
+.hero .name{
     font-family: var(--font-head);
     font-size: 42px;
     font-weight: var(--fw-head);
@@ -336,11 +329,11 @@ section.anchor {
     margin: 0 0 var(--h-gap-bottom) 0;
 }
 
-/* Subline: Cormorant 24px */
+/* ==== TYPO: SUBLINES ==== */
 .subline,
 .hero .role,
 .hero .claim,
-.service-title {
+.service-title{
     font-family: var(--font-head);
     font-size: var(--fs-sub);
     font-weight: var(--fw-sub);
@@ -348,12 +341,12 @@ section.anchor {
     margin: 0 0 var(--sub-gap-bottom) 0;
 }
 
-/* Body: Source Sans 18px */
+/* ==== TYPO: BODY ==== */
 .body-text,
 .hero .intro,
 .feedback-text,
 .feedback-signature,
-.approach-list li {
+.approach-list li{
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
@@ -362,14 +355,14 @@ section.anchor {
 .body-text { margin: 0; }
 .body-text + .body-text { margin-top: var(--p-gap); }
 
-/* Einheitlicher "Blockabstand": Body -> nächste Subline/Headline */
+/* Einheitlicher Abstand: Body -> nächste Subline/Headline */
 .body-text + .subline,
-.body-text + h2 {
+.body-text + h2{
     margin-top: var(--block-gap);
 }
 
 /* About Label: uppercase + leichtes Tracking */
-.about .about-label {
+.about .about-label{
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
@@ -385,7 +378,8 @@ section.anchor {
 
 /* ==== SERVICES (ACCORDION) ==== */
 .services-list { display: flex; flex-direction: column; gap: 18px; }
-.service-item {
+
+.service-item{
     border: var(--frame-w-md) solid transparent;
     border-radius: var(--frame-r-md);
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
@@ -395,7 +389,7 @@ section.anchor {
     background-position: center, center;
     padding: 18px;
 }
-.service-head {
+.service-head{
     display: grid;
     grid-template-columns: 30px 1fr 22px;
     align-items: center;
@@ -403,9 +397,9 @@ section.anchor {
     cursor: pointer;
     user-select: none;
 }
-.service-bullet { width: 22px; height: 22px; background: url("../img/bulletpoint.png") center / contain no-repeat; }
-.service-title { margin: 0; }
-.service-arrow {
+.service-bullet{ width: 22px; height: 22px; background: url("../img/bulletpoint.png") center / contain no-repeat; }
+.service-title{ margin: 0; }
+.service-arrow{
     width: 18px;
     height: 18px;
     background: url("../img/button_R.png") center / contain no-repeat;
@@ -413,21 +407,22 @@ section.anchor {
     transform: translateY(1px);
     transition: transform 180ms ease;
 }
-.service-body { max-height: 0; overflow: hidden; transition: max-height 240ms ease; }
-.service-body-inner { padding-top: 14px; }
-.service-item.open .service-body { max-height: 600px; }
-.service-item.open .service-arrow { transform: rotate(90deg); }
+.service-body{ max-height: 0; overflow: hidden; transition: max-height 240ms ease; }
+.service-body-inner{ padding-top: 14px; }
+.service-item.open .service-body{ max-height: 600px; }
+.service-item.open .service-arrow{ transform: rotate(90deg); }
 
 /* ==== CTA BUTTON ==== */
-/* CTA ist als "Headline-Rolle" ausgeführt (Cormorant, 30px) */
 .contact-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
-.cta-btn {
+
+.cta-btn{
     display: inline-block;
     padding: 0.45em 0.9em;
 
     color: var(--cream);
     text-decoration: none;
 
+    /* CTA als "Headline-Rolle": Cormorant 30px */
     font-family: var(--font-head);
     font-size: var(--fs-head);
     font-weight: var(--fw-head);
@@ -447,23 +442,47 @@ section.anchor {
 .cta-btn:hover { text-decoration: underline; }
 
 /* ==== CAROUSEL (CREDENTIALS) ==== */
-/* Full-bleed: Carousel breitet sich über den Viewport aus, der Inhalt wird via padding wieder
-   auf das Content-Raster zurückgeholt. */
+/* Full-bleed:
+   - carousel-shell wird auf 100vw gezogen
+   - carousel-viewport holt das Raster über padding-inline zurück.
+   - Edge-Fade basiert exakt auf dieser padding-inline "Textflucht". */
 #credentials .carousel-shell{
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
 }
+
 #credentials .carousel-viewport{
-    padding-inline: calc(var(--side-pad) + clamp(2.75rem, 6vw, 5rem));
+    /* Einheitliche "Textflucht" + Pfeilraum (identisch wie bisher) */
+    --carousel-pad: calc(var(--side-pad) + clamp(2.75rem, 6vw, 5rem));
+    padding-inline: var(--carousel-pad);
+
+    /* Elegantes Ausfaden:
+       - Voll sichtbar innerhalb der Textflucht
+       - Cards, die in den Side-Padding-Bereich ragen, faden aus */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        transparent calc(var(--carousel-pad) - var(--carousel-fade)),
+        rgba(0,0,0,1) var(--carousel-pad),
+        rgba(0,0,0,1) calc(100% - var(--carousel-pad)),
+        transparent calc(100% - (var(--carousel-pad) - var(--carousel-fade))),
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        transparent calc(var(--carousel-pad) - var(--carousel-fade)),
+        rgba(0,0,0,1) var(--carousel-pad),
+        rgba(0,0,0,1) calc(100% - var(--carousel-pad)),
+        transparent calc(100% - (var(--carousel-pad) - var(--carousel-fade))),
+        transparent 100%
+    );
 }
+
 .carousel-shell { position: relative; margin-top: 18px; }
-.carousel-viewport {
-    overflow: hidden;
-    padding-inline: clamp(2.75rem, 6vw, 5rem);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, transparent 100%);
-}
+.carousel-viewport { overflow: hidden; box-sizing: border-box; }
+
 .carousel-track{
     display:flex;
     gap:28px;
@@ -473,6 +492,7 @@ section.anchor {
     transition: transform 320ms ease;
     will-change: transform;
 }
+
 .feedback-card{
     flex:0 0 auto;
     width:400px;
@@ -494,14 +514,16 @@ section.anchor {
 
     padding:26px;
 }
+
 .feedback-text { width:100%; white-space:pre-line; margin:0; }
 .feedback-signature { margin-top:22px; white-space:pre-line; }
 
-.carousel-btn {
+/* Pfeile: Hit-Area bleibt groß, Icon wird 50% kleiner (50px -> 25px) */
+.carousel-btn{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
+    width: 50px;   /* Klickfläche bleibt 50x50 (gut bedienbar) */
     height: 50px;
     border: 0;
     background: transparent;
@@ -509,23 +531,44 @@ section.anchor {
     padding: 0;
     z-index: 3;
     opacity: 0.9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.carousel-btn img { width: 50px; height: 50px; display: block; }
+.carousel-btn img{
+    width: 25px;   /* 50% der bisherigen Größe */
+    height: 25px;
+    display: block;
+}
 .carousel-btn.left { left: 10px; }
 .carousel-btn.right { right: 10px; }
 
-/* ==== APPROACH (LISTE) ==== */
+@media (max-width: 768px) {
+    .feedback-card {
+        width: 86vw;
+        height: 400px;
+        min-height: 300px;
+    }
+    .carousel-btn.left { left: 6px; }
+    .carousel-btn.right { right: 6px; }
+}
+
+/* ==== APPROACH ==== */
 .approach-list { margin: 0; padding-left: 1.2em; }
 .approach-list li { margin: 0 0 var(--p-gap) 0; padding-left: calc(100px + 1.2em); }
 .approach-list li:last-child { margin-bottom: 0; }
 
-/* ==== PRE-FOOTER (KONTAKT) ==== */
+/* ==== PRE-FOOTER ==== */
 .pre-footer {
     width: 100%;
     height: 150px;
+
     background: var(--blue);
     color: var(--cream);
+
     margin-bottom: 20px;
+
     display: flex;
     align-items: center;
 }
@@ -534,6 +577,7 @@ section.anchor {
     margin: 0 auto;
     padding: 0 var(--side-pad);
     width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -541,7 +585,7 @@ section.anchor {
 }
 .pre-footer-item { display: flex; align-items: center; gap: 18px; min-width: 0; }
 
-/* Icon-Kreis 75px: rund + feiner Goldrahmen */
+/* Icon-Kreis 75px: rund + feiner Rahmen */
 .pre-footer-item .gold-frame {
     width: 75px;
     height: 75px;
@@ -555,6 +599,7 @@ section.anchor {
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
                 url("../img/highlights_gold.png") border-box;
+
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
@@ -567,7 +612,7 @@ section.anchor {
     display: block;
 }
 
-/* Pre-Footer Text: bewusst Body (Source Sans 18px) */
+/* Pre-Footer Text: Body (Sans, 18px, 300) */
 .pre-footer-text{
     font-family: var(--font-body);
     font-size: var(--fs-body);
@@ -579,8 +624,6 @@ section.anchor {
 }
 
 /* ==== FOOTER ==== */
-/* Footer: Grundtypografie Body (Source Sans 18px, 300).
-   Labels ("Qualifications:", "Follow me:") sind 500. */
 .footer {
     background-color: var(--blue);
     color: var(--cream);
@@ -588,6 +631,7 @@ section.anchor {
     padding: 5px 0 30px;
     position: relative;
 
+    /* Footer insgesamt: Body */
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
@@ -614,7 +658,7 @@ section.anchor {
     padding-top: var(--footer-align-to-backtop-text);
 }
 
-/* Footer Labels: Source Sans 18px, 500 */
+/* Labels: 500 */
 .qualifications-label,
 .follow-label{
     font-family: var(--font-body);
@@ -630,7 +674,6 @@ section.anchor {
 .qualifications-logos .gold-frame { height: var(--qual-logo-h); width: auto; max-width: var(--qual-logo-max-w); display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
 .qualifications-logos .gold-frame > img { display:block; height:100%; width:auto; max-width:100%; object-fit:contain; }
 
-/* Rechteck-Logos: feiner Rahmen */
 .qualifications-logos .gold-frame.shape--rect{
     border-width: var(--frame-w-sm);
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
@@ -640,7 +683,6 @@ section.anchor {
     background-position:center, center;
 }
 
-/* Runde Logos: echter Kreis */
 .qualifications-logos .gold-frame.shape--round{
     width: var(--qual-logo-h);
     height: var(--qual-logo-h);
@@ -664,20 +706,24 @@ section.anchor {
     display:block;
 }
 
-/* Back-to-top */
+/* Back to top */
 .backtop {
     grid-column: 2;
     grid-row: 1;
     justify-self: center;
     align-self: start;
+
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     gap: var(--backtop-gap);
+
     margin-top: 0;
     padding-top: var(--footer-col-top);
+
     color: var(--cream);
     text-decoration: none;
+
     font-size: 16px;
     font-weight: 300;
 }
@@ -685,7 +731,7 @@ section.anchor {
 .backtop:hover { font-weight: 700; }
 .backtop:hover .backtop-text { text-decoration: underline; }
 
-/* Follow Icon */
+/* Follow */
 .follow {
     grid-column: 3;
     grid-row: 1;
@@ -698,6 +744,7 @@ section.anchor {
     height: 50px;
     flex: 0 0 50px;
     aspect-ratio: 1 / 1;
+
     border-radius: 50%;
     overflow: hidden;
 
@@ -715,6 +762,7 @@ section.anchor {
     position: absolute;
     right: var(--side-pad);
     bottom: 15px;
+
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
@@ -736,14 +784,12 @@ section.anchor {
     :root {
         --banner-h: 64px;
         --side-pad: 18px;
+        --carousel-fade: 28px; /* etwas kompakteres Fade auf Mobile */
     }
 
     .nav-inner { padding: 0 var(--side-pad); }
     .nav-items { grid-template-columns: repeat(3, 1fr); row-gap: 8px; }
     .nav-items a.nav-link { font-size: 12px; letter-spacing: 0.08em; }
-
-    .carousel-btn.left { left: 6px; }
-    .carousel-btn.right { right: 6px; }
 
     .pre-footer { height: auto; padding: 24px 0; }
     .pre-footer-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
@@ -752,13 +798,19 @@ section.anchor {
     .backtop { align-self: center; }
     .follow { align-self: flex-start; text-align: left; }
 
-    /* Legal in Mobile: nicht absolut, damit nichts kollidiert */
     .legal-text { position: static; margin-top: 8px; align-self: flex-end; }
 }
 
-/* ==== PAGE: IMPRINT (STARTABSTAND UNTER FIXED NAV) ==== */
-/* Auf /imprint/ gibt es kein Headerbild. Damit "IMPRINT" nicht unter die fixed Nav läuft,
-   simulieren wir den Main-Page-Start: Nav-Höhe + Hero-Offset */
+/* ==== PAGE: IMPRINT (OFFSETS + PADDING) ==== */
+/* Auf /imprint/ gibt es kein Headerbild.
+   Damit der erste Textblock nicht unter die fixed Nav rutscht:
+   Startabstand = banner-h + hero-offset (wie Main Page: Bühne + Abstand). */
 .page--imprint .page-offset{
     padding-top: calc(var(--banner-h) + var(--hero-offset));
+}
+
+/* Robustes Content-Padding auf Unterseiten erzwingen (identische Textflucht) */
+.page--imprint .content{
+    padding-left: var(--side-pad);
+    padding-right: var(--side-pad);
 }

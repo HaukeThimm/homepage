@@ -1,5 +1,3 @@
-<!-- ===== IMPRESSUM ==== -->
- 
 <!DOCTYPE html>
 
 <html lang="de">
@@ -14,11 +12,8 @@
     </head>
 
     <body class="page--imprint">
-        <!-- Anker für "Back to top" (falls du später wieder Footer/Backtop ergänzt) -->
-        <div id="top"></div>
-
-        <!-- ==== FIXED NAV (WIE MAIN PAGE, LINKS ZEIGEN ZUR STARTSEITE) ==== -->
-        <!-- Wichtig: auf Unterseiten müssen Sprunglinks als /#section referenzieren. -->
+        <!-- ==== FIXED NAV (WIE MAIN PAGE, LINKS ZUR STARTSEITE) ==== -->
+        <!-- Unterseiten: Sprunglinks müssen /#section nutzen, nicht #section. -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
@@ -48,12 +43,12 @@
         </div>
 
         <!-- ==== SEITENINHALT ==== -->
-        <!-- Kein Headerbild auf /imprint/.
-             Der Startabstand wird über .page--imprint .page-offset in CSS gesetzt:
-             padding-top = banner-h + hero-offset */
+        <!-- Imprint hat kein Headerbild. Der Startabstand unter der fixed Nav
+             wird in CSS über .page--imprint .page-offset gesetzt (banner-h + hero-offset).
+             Das Content-Padding wird zusätzlich über .page--imprint .content erzwungen. -->
         <div class="page-offset">
             <main class="content" id="content">
-                <!-- ==== IMPRESSUM (ALS .section IM MAIN-STYLE) ==== -->
+                <!-- ==== IMPRESSUM (MAIN-PAGE-SECTION-STIL) ==== -->
                 <section class="section imprint anchor" id="imprint-page">
                     <h2 class="about-label" data-en="IMPRINT" data-de="IMPRESSUM">IMPRESSUM</h2>
 
