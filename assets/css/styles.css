@@ -111,8 +111,8 @@
     --fw-sub: 500;
     --fw-body: 300;
 
-    --lh-head: 1.25;
-    --lh-sub: 1.25;
+    --lh-head: 1.5;
+    --lh-sub: 1.5;
     --lh-body: 1.5;
 
     /* SPACING (EINHEITLICH) */
@@ -121,6 +121,7 @@
     --h-gap-bottom: 14px;
     --sub-gap-bottom: 12px;
     --p-gap: 14px;
+    --block-gap: 40px; /* Abstand zwischen inhaltlichen Blöcken */
     --legal-gap: 40px;
 
     /* GOLD-RAHMEN */
@@ -366,6 +367,12 @@ section.anchor {
 }
 .body-text { margin: 0; }
 .body-text + .body-text { margin-top: var(--p-gap); }
+
+/* Einheitlicher Abstand: Body -> nächste Subline/Headline */
+.body-text + .subline,
+.body-text + h2{
+    margin-top: var(--block-gap);
+}
 
 .hero-grid {
     display: grid;
