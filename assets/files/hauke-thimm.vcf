@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Thimm;Hauke;;;
+FN:Hauke Thimm
+ORG:Hauke Thimm
+TITLE:Protocol and Event Manager
+ROLE:High-Level Events & Protocol Management
+TEL;TYPE=CELL,VOICE:+4916095364569
+EMAIL;TYPE=INTERNET:mail@haukethimm.com
+ADR;TYPE=WORK:;;;Hamburg;;20535;Germany
+URL:https://haukethimm.com
+NOTE:International Protocol & High-Level Event Management
+REV:20260307T120000Z
+END:VCARD

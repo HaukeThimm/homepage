@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>haukethimm.com</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --cream: #fdf7f2;
+      --blue: #003153;
+
+      --top-offset: 50px;
+      --banner-h: 60px;
+      --logo-h: 200px;
+      --side-pad: 150px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--blue);
+      font-family: "Cormorant Garamond", serif;
+      overflow: hidden; /* kein Scrollen */
+    }
+
+    /* ===== HEADER IMAGE ===== */
+    .header-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .header-image img {
+      width: 100%;
+      height: auto; /* Original vollständig sichtbar */
+      display: block;
+    }
+
+    /* ===== FIXED NAV ===== */
+    .nav-shell {
+      position: fixed;
+      top: var(--top-offset);
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .main-nav {
+      height: var(--banner-h);
+      background: var(--blue);
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .nav-logo {
+      position: absolute;
+      left: var(--side-pad);
+      top: calc(var(--banner-h) - (var(--logo-h) / 2));
+    }
+
+    .nav-logo img {
+      height: var(--logo-h);
+      width: auto;
+      display: block;
+    }
+
+    /* ===== TEXT AREA (unterhalb des Bildes) ===== */
+    .maintenance {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      bottom: 0;                 /* untere Bildschirmhälfte */
+      height: 50vh;              /* exakt untere Hälfte */
+      z-index: 5;
+
+      display: flex;
+      align-items: center;       /* vertikal zentriert in der unteren Hälfte */
+      justify-content: center;
+      text-align: center;
+      padding: 0 var(--side-pad);
+      pointer-events: none;
+    }
+
+    .maintenance p {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .maintenance strong {
+      font-weight: 500;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      :root {
+        --top-offset: 0;
+        --banner-h: auto;
+        --logo-h: auto;
+        --side-pad: 18px;
+      }
+
+      .main-nav {
+        background: transparent;
+        height: auto;
+      }
+
+      .nav-logo {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+      }
+
+      .nav-logo img {
+        width: 40vw;
+        height: auto;
+      }
+
+      .maintenance {
+        height: 50vh;
+        padding: 0 18px;
+      }
+
+      .maintenance p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header image -->
+  <section class="header-image">
+    <img src="assets/img/header2.png" alt="" />
+  </section>
+
+  <!-- Nav / Logo -->
+  <div class="nav-shell">
+    <nav class="main-nav">
+      <a class="nav-logo" href="#">
+        <img src="assets/img/logo.png" alt="Hauke Thimm" />
+      </a>
+    </nav>
+  </div>
+
+  <!-- Text in lower half -->
+  <section class="maintenance">
+    <p>
+      <strong>Welcome.</strong><br />
+      This website is currently under construction.<br /><br />
+      Kind regards,<br />
+      Hauke Thimm
+    </p>
+  </section>
+
+</body>
+</html>
