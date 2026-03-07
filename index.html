@@ -241,6 +241,10 @@
                 margin-top: 20px;
             }
 
+            .signoff-line {
+                display: block;
+            }
+
             @media (max-width: 900px) {
                 :root {
                     --side-pad: 28px;
@@ -340,12 +344,21 @@
                     Vielen Dank für Ihren Besuch auf meiner Website. Sie befindet sich derzeit im Aufbau und wird Ihnen hier in Kürze zur Verfügung stehen. In der Zwischenzeit freue ich mich über Ihre Kontaktaufnahme per E-Mail.
                 </p>
 
-                <p
-                    class="welcome-signoff"
-                    data-en="Kind regards, <br> Hauke THIMM"
-                    data-de="Mit freundlichen Grüßen, <br> Hauke THIMM"
-                >
-                    Mit freundlichen Grüßen, Hauke THIMM
+                <p class="welcome-signoff">
+                    <span
+                        class="signoff-line"
+                        data-en="Kind regards,"
+                        data-de="Mit freundlichen Grüßen,"
+                    >
+                        Mit freundlichen Grüßen,
+                    </span>
+                    <span
+                        class="signoff-line"
+                        data-en="Hauke Thimm"
+                        data-de="Hauke Thimm"
+                    >
+                        Hauke Thimm
+                    </span>
                 </p>
             </div>
         </section>
