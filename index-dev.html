@@ -22,22 +22,22 @@
                         <a class="nav-link" href="#top" data-en="HOME" data-de="HOME">HOME</a>
                         <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
                         <a class="nav-link" href="#services" data-en="SERVICES" data-de="LEISTUNGEN">SERVICES</a>
-                        <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a>
+                        <!-- <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
                         <a class="nav-link" href="#contact" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
 
                         <!-- Language Toggle: ersetzt textContent aus data-en/data-de (JS) -->
-                        <div class="lang-toggle" aria-label="Language selector">
-                            <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
-                                <span class="gold-frame frame--sm shape--round">
-                                    <img src="assets/img/flag-uk.png" alt="EN" />
-                                </span>
-                            </button>
-
-                            <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
-                                <span class="gold-frame frame--sm shape--round">
-                                    <img src="assets/img/flag-de.png" alt="DE" />
-                                </span>
-                            </button>
+                        <div class="lang-toggle" aria-label="Language selector">                      
+                          <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
+                              <span class="gold-frame frame--sm shape--round">
+                                  <img src="assets/img/flag-de.png" alt="DE" />
+                              </span>
+                          </button>
+                          
+                          <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
+                              <span class="gold-frame frame--sm shape--round">
+                                  <img src="assets/img/flag-uk.png" alt="EN" />
+                              </span>
+                          </button>
                         </div>
                     </div>
                 </div>
@@ -216,7 +216,7 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                 </section>
 
                 <!-- ==== CREDENTIALS (TEXT + CAROUSEL) ==== -->
-                <section class="section anchor" id="credentials">
+                <!-- <section class="section anchor" id="credentials">
                     <h2 data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</h2>
 
                     <div class="subline" data-en="Track Record" data-de="Erfahrung &amp; Kontexte">Track Record</div>
@@ -318,7 +318,7 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                             </button>
                         </div>
                     </div>
-                </section>
+                </section> -->
 
                 <!-- ==== CONTACT ==== -->
                 <section class="section anchor" id="contact">
@@ -351,42 +351,34 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
             <!-- ==== PRE-FOOTER ==== -->
             <!-- Typografie: bewusst Body (Source Sans 18px, 300) -->
             <section class="pre-footer" aria-label="Additional contact options">
-                <div class="pre-footer-inner">
-                    <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="assets/img/contact_phone.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text">+49 (0)160 95364569</p>
-                    </div>
+              <div class="pre-footer-inner">
+                  <div class="pre-footer-col">
+                      <div class="pre-footer-item">
+                          <span class="gold-frame frame--md shape--round">
+                              <img src="assets/img/contact_phone.png" alt="" />
+                          </span>
+                          <p class="pre-footer-text">+49 (0)160 95364569</p>
+                      </div>
+                  </div>
 
-                    <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="assets/img/contact_email.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text">mail[at]haukethimm.com</p>
-                    </div>
+                  <div class="pre-footer-col">
+                      <div class="pre-footer-item">
+                          <span class="gold-frame frame--md shape--round">
+                              <img src="assets/img/contact_email.png" alt="" />
+                          </span>
+                          <p class="pre-footer-text">mail@haukethimm.com</p>
+                      </div>
+                  </div>
 
-                    <!-- <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="assets/img/contact_businesscard.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text" data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">Business card (vcf)</p>
-                    </div> -->
-
-                    <a class="pre-footer-item pre-footer-link" href="/assets/files/hauke-thimm.vcf" download="Hauke_Thimm.vcf">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="assets/img/contact_businesscard.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text" data-en="Save contact" data-de="Kontakt speichern">Save contact</p>
-                    </a>
-
-                    <!-- <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="assets/img/contact_onepager.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text" data-en="One-pager" data-de="One-Pager">One-pager</p>
-                    </div> -->
-                </div>
+                  <div class="pre-footer-col">
+                      <a class="pre-footer-item pre-footer-link" href="/assets/files/hauke-thimm.vcf" download="Hauke_Thimm.vcf">
+                          <span class="gold-frame frame--md shape--round">
+                              <img src="assets/img/contact_businesscard.png" alt="" />
+                          </span>
+                          <p class="pre-footer-text" data-en="Save contact" data-de="Kontakt speichern">Save contact</p>
+                      </a>
+                  </div>
+              </div>
             </section>
 
             <!-- ==== FOOTER ==== -->

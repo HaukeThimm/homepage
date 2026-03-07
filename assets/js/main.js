@@ -3,7 +3,7 @@
 /* ==== LANGUAGE TOGGLE (data-en/data-de) ==== */
 /* - ersetzt nur textContent (sicher, keine HTML-Injection)
    - setzt HTML-lang Attribut
-   - .is-active steuert Opacity der Flag-Buttons */
+   - .is-active steuert Sichtbarkeit der Flag-Buttons */
 (function () {
     const buttons = document.querySelectorAll(".lang-btn");
     const translatable = document.querySelectorAll("[data-en][data-de]");
@@ -19,7 +19,7 @@
     }
 
     buttons.forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
-    setLang("en");
+    setLang("de");
 })();
 
 /* ==== SERVICES ACCORDION (INTERAKTION + A11Y) ==== */

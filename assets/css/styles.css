@@ -257,27 +257,50 @@ body {
 .nav-items a.nav-link:hover { text-decoration: underline; }
 
 /* ==== LANGUAGE TOGGLE ==== */
+/* ==== LANGUAGE TOGGLE ==== */
+/* Es wird immer nur die inaktive Sprache angezeigt.
+   Die Position bleibt fix, weil der Container feste Maße hat. */
 .lang-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    position: relative;
+    width: var(--lang-btn-size);
+    height: var(--lang-btn-size);
+    justify-self: center;
+    align-self: center;
 }
+
 .lang-btn {
+    position: absolute;
+    inset: 0;
+
     border: 0;
     background: transparent;
     padding: 0;
+    margin: 0;
+
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
-    opacity: 0.7;
 }
-.lang-btn.is-active { opacity: 1; }
+
+/* aktive Sprache ausblenden */
+.lang-btn.is-active {
+    display: none;
+}
+
+/* inaktive Sprache sichtbar */
+.lang-btn:not(.is-active) {
+    display: inline-flex;
+}
+
 .lang-btn .gold-frame {
     width: var(--lang-btn-size);
     height: var(--lang-btn-size);
 }
-.lang-btn .gold-frame > img { object-fit: cover; }
+
+.lang-btn .gold-frame > img {
+    object-fit: cover;
+}
 
 /* ==== HEADER IMAGE ==== */
 .header-image { width: 100%; margin: 0; padding: 0; }
