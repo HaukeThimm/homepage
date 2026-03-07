@@ -157,7 +157,7 @@
     --legal-gap: 40px;
 
     /* Qualifications-Logos: Höhe zentral steuerbar */
-    --qual-logo-h: 90px;
+    --qual-logo-h: 100px;
     --qual-logo-max-w: auto;
 }
 
@@ -825,7 +825,7 @@ section.anchor {
 
 .follow-icons .gold-frame.shape--round {
     width: auto;
-    height: 90px;
+    height: 75px;
     flex: 0 0 75px;
     aspect-ratio: 1 / 1;
 
