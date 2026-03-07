@@ -1,180 +1,453 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>haukethimm.com</title>
+    <head>
+        <!-- ==== META / GRUNDLAGEN (CHARSET, VIEWPORT, TITLE) ==== -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>haukethimm.com</title>
 
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700&display=swap"
-    rel="stylesheet"
-  />
+        <!-- ==== STYLES (EXTERN) ==== -->
+        <!-- Typografie, Abstände, Einrückungen, Komponenten (Accordion/Carousel/Footer) in styles.css -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+    </head>
 
-  <style>
-    :root {
-      --cream: #fdf7f2;
-      --blue: #003153;
+    <body>
+        <!-- ==== FIXED NAV (BANNER) ==== -->
+        <!-- Fixed am oberen Rand. Anchor-Scroll berücksichtigt Nav-Höhe über scroll-margin-top in CSS. -->
+        <div class="nav-shell">
+            <nav class="main-nav" aria-label="Primary">
+                <div class="nav-inner">
+                    <div class="nav-items">
+                        <a class="nav-link" href="#top" data-en="HOME" data-de="HOME">HOME</a>
+                        <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
+                        <a class="nav-link" href="#services" data-en="SERVICES" data-de="LEISTUNGEN">SERVICES</a>
+                        <!-- <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
+                        <a class="nav-link" href="#contact" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
 
-      --top-offset: 50px;
-      --banner-h: 60px;
-      --logo-h: 200px;
-      --side-pad: 150px;
-    }
+                        <!-- Language Toggle: ersetzt textContent aus data-en/data-de (JS) -->
+                        <div class="lang-toggle" aria-label="Language selector">
+                            <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
+                                <span class="gold-frame frame--sm shape--round">
+                                    <img src="assets/img/flag-uk.png" alt="EN" />
+                                </span>
+                            </button>
 
-    * {
-      box-sizing: border-box;
-    }
+                            <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
+                                <span class="gold-frame frame--sm shape--round">
+                                    <img src="assets/img/flag-de.png" alt="DE" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
 
-    html, body {
-      margin: 0;
-      height: 100%;
-    }
+        <!-- ==== HEADER-BILD (FULL WIDTH) ==== -->
+        <!-- Visuelle Bühne oberhalb des Inhalts. Kein Crop: object-fit:contain in CSS. -->
+        <section class="header-image anchor" id="top" aria-label="Header image">
+            <img src="assets/img/header.jpg" alt="" />
+        </section>
 
-    body {
-      background: var(--cream);
-      color: var(--blue);
-      font-family: "Cormorant Garamond", serif;
-      overflow: hidden; /* kein Scrollen */
-    }
+        <!-- ==== SEITENINHALT (CONTENT WRAPPER) ==== -->
+        <!-- Auf der Main Page ist page-offset = 0. Der Abstand vom Header zur ersten Typo
+             wird im Hero über --hero-offset (25px) definiert. -->
+        <div class="page-offset">
+            <main class="content" id="content">
+                <!-- ==== HERO ==== -->
+                <!-- Startabstand unter header.jpg: padding-top: var(--hero-offset) in CSS -->
+                <section class="hero anchor" id="hero">
+                    <div class="hero-grid">
+                        <div class="hero-textbox">
+                            <div class="hero-top">
+                                <!-- H1: gleiche Optik wie bisheriger Name-Block (Cormorant, 42px, 700) -->
+                                <h1 class="name" data-en="Hauke Thimm" data-de="Hauke Thimm">Hauke Thimm</h1>
 
-    /* ===== HEADER IMAGE ===== */
-    .header-image {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1;
-    }
+                                <div class="role" data-en="High-Level Events & Protocol Management" data-de="High-Level Events & Protocol Management">
+                                    High-Level Events &amp; Protocol Management
+                                </div>
 
-    .header-image img {
-      width: 100%;
-      height: auto; /* Original vollständig sichtbar */
-      display: block;
-    }
+                                <div
+                                    class="claim"
+                                    data-en="Trusted execution for governments, institutions and executive leadership."
+                                    data-de="Verlässliche Umsetzung für Regierungen, Institutionen und Executive Leadership."
+                                >
+                                    Trusted execution for governments, institutions and executive leadership.
+                                </div>
+                            </div>
 
-    /* ===== FIXED NAV ===== */
-    .nav-shell {
-      position: fixed;
-      top: var(--top-offset);
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      pointer-events: none;
-    }
+                            <p
+                                class="intro"
+                                data-en="I support organisations and leaders in the planning and execution of high-level corporate, governmental and institutional events and protocol-sensitive engagements. My work is defined by precision, discretion and calm authority in politically, culturally and operationally complex environments."
+                                data-de="Ich unterstütze Organisationen und Führungskräfte bei der Planung und Durchführung hochrangiger Corporate-, Regierungs- und Institutionenformate sowie protokollsensibler Anlässe. Meine Arbeit ist geprägt von Präzision, Diskretion und ruhiger Souveränität in politisch, kulturell und operativ komplexen Umfeldern."
+                            >
+                                I support organisations and leaders in the planning and execution of high-level corporate, governmental and institutional
+                                events and protocol-sensitive engagements. My work is defined by precision, discretion and calm authority in politically,
+                                culturally and operationally complex environments.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-    .main-nav {
-      height: var(--banner-h);
-      background: var(--blue);
-      position: relative;
-      pointer-events: auto;
-    }
+                <!-- ==== VALUES (BILD) ==== -->
+                <section class="values-band anchor" id="values">
+                    <img src="assets/img/values.png" alt="" />
+                </section>
 
-    .nav-logo {
-      position: absolute;
-      left: var(--side-pad);
-      top: calc(var(--banner-h) - (var(--logo-h) / 2));
-    }
+                <!-- ==== ABOUT (ALS .section) ==== -->
+                <!-- Einheitliches Section-Padding über .section (Tokens) -->
+                <section class="section about anchor" id="about">
+                    <h2 class="about-label" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</h2>
 
-    .nav-logo img {
-      height: var(--logo-h);
-      width: auto;
-      display: block;
-    }
+                    <p
+                        class="body-text"
+                        data-en="Born near the North Sea, I found my professional home in Hamburg — connected to the North, yet open to new places, perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
 
-    /* ===== TEXT AREA (unterhalb des Bildes) ===== */
-    .maintenance {
-      position: fixed;
-      left: 0;
-      width: 100%;
-      bottom: 0;                 /* untere Bildschirmhälfte */
-      height: 50vh;              /* exakt untere Hälfte */
-      z-index: 5;
+I have more than ten years of experience in event management, with a clear focus on (international) protocol management since 2022. My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security, discretion, and cultural precision.
 
-      display: flex;
-      align-items: center;       /* vertikal zentriert in der unteren Hälfte */
-      justify-content: center;
-      text-align: center;
-      padding: 0 var(--side-pad);
-      pointer-events: none;
-    }
+Several years spent working at sea, across nearly all major oceans, broadened my perspective. Operating in culturally diverse environments strengthened my openness, curiosity, and sensitivity to people and context — qualities that continue to shape my professional approach today.
 
-    .maintenance p {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 300;
-      line-height: 1.7;
-    }
+In demanding situations, I remain calm, structured, and decisive. Colleagues value my ability to provide stability under pressure and to keep focus on what truly matters.
 
-    .maintenance strong {
-      font-weight: 500;
-    }
+I work confidently in German and English at a professional level and am currently developing my French. In international settings, I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness."
+                        data-de="Nahe der Nordsee aufgewachsen, habe ich in Hamburg meine berufliche Heimat gefunden — verbunden mit dem Norden und zugleich offen für neue Orte, Perspektiven und Begegnungen. Ich schätze Klarheit, Verlässlichkeit und den reflektierten Austausch mit Menschen, die Verantwortung übernehmen und mit Haltung führen.
 
-    /* ===== MOBILE ===== */
-    @media (max-width: 768px) {
-      :root {
-        --top-offset: 0;
-        --banner-h: auto;
-        --logo-h: auto;
-        --side-pad: 18px;
-      }
+Mit mehr als zehn Jahren Erfahrung im Eventmanagement liegt seit 2022 mein klarer Schwerpunkt auf (internationalem) Protokollmanagement. Mein Weg führte mich von operativen Rollen bis zu hochrangigen Corporate- und Regierungsformaten — unter anderem bei Airbus, wo ich VIP-Besuche, Delegationsprogramme und protokollsensible Anlässe verantwortete: im Zusammenspiel von Marke, Sicherheit, Diskretion und kultureller Präzision.
 
-      .main-nav {
-        background: transparent;
-        height: auto;
-      }
+Mehrere Jahre beruflich auf See — auf nahezu allen großen Ozeanen — haben meinen Blick geweitet. Die Arbeit in kulturell diversen Umfeldern hat meine Offenheit, Neugier und mein Gespür für Menschen und Kontext geschärft — Qualitäten, die meinen professionellen Ansatz bis heute prägen.
 
-      .nav-logo {
-        position: static;
-        display: flex;
-        justify-content: center;
-        margin-top: 24px;
-      }
+In anspruchsvollen Situationen bleibe ich ruhig, strukturiert und entscheidungsfähig. Kolleg:innen schätzen meine Fähigkeit, unter Druck Stabilität zu geben und den Fokus auf das Wesentliche zu halten.
 
-      .nav-logo img {
-        width: 40vw;
-        height: auto;
-      }
+Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwickle derzeit mein Französisch weiter. In internationalen Settings sind mir sprachliches Bewusstsein und kulturelle Sensibilität wichtiger als formale Vollständigkeit."
+                    >
+                        Born near the North Sea, I found my professional home in Hamburg — connected to the North, yet open to new places, perspectives,
+                        and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
 
-      .maintenance {
-        height: 50vh;
-        padding: 0 18px;
-      }
+                        I have more than ten years of experience in event management, with a clear focus on (international) protocol management since 2022.
+                        My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was
+                        responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security,
+                        discretion, and cultural precision.
 
-      .maintenance p {
-        font-size: 18px;
-      }
-    }
-  </style>
-</head>
+                        Several years spent working at sea, across nearly all major oceans, broadened my perspective. Operating in culturally diverse
+                        environments strengthened my openness, curiosity, and sensitivity to people and context — qualities that continue to shape my
+                        professional approach today.
 
-<body>
+                        In demanding situations, I remain calm, structured, and decisive. Colleagues value my ability to provide stability under pressure
+                        and to keep focus on what truly matters.
 
-  <!-- Header image -->
-  <section class="header-image">
-    <img src="assets/img/header2.png" alt="" />
-  </section>
+                        I work confidently in German and English at a professional level and am currently developing my French. In international settings,
+                        I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness.
+                    </p>
+                </section>
 
-  <!-- Nav / Logo -->
-  <div class="nav-shell">
-    <nav class="main-nav">
-      <a class="nav-logo" href="#">
-        <img src="assets/img/logo.png" alt="Hauke Thimm" />
-      </a>
-    </nav>
-  </div>
+                <!-- ==== SERVICES (ACCORDION) ==== -->
+                <section class="section anchor" id="services">
+                    <h2 data-en="SERVICES" data-de="LEISTUNGEN">SERVICES</h2>
 
-  <!-- Text in lower half -->
-  <section class="maintenance">
-    <p>
-      <strong>Welcome.</strong><br />
-      This website is currently under construction.<br /><br />
-      Kind regards,<br />
-      Hauke Thimm
-    </p>
-  </section>
+                    <div class="services-list">
+                        <div class="service-item" data-service>
+                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
+                                <div class="service-bullet" aria-hidden="true"></div>
+                                <div class="service-title" data-en="High-Level Event Management" data-de="High-Level Event Management">
+                                    High-Level Event Management
+                                </div>
+                                <div class="service-arrow" aria-hidden="true"></div>
+                            </div>
+                            <div class="service-body">
+                                <div class="service-body-inner">
+                                    <p
+                                        class="body-text"
+                                        data-en="I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and seamless execution — including VIP programmes, stage and run-of-show control, supplier coordination and contingency planning under time pressure and public attention."
+                                        data-de="Ich plane und leite komplexe Corporate-, Regierungs- und Institutionenformate für Executive-Zielgruppen. Von der strategischen Vorbereitung und Stakeholder-Abstimmung bis zur Führung vor Ort sorge ich für klare Strukturen, verlässliche Abläufe und nahtlose Umsetzung — inklusive VIP-Programmen, Stage- und Run-of-Show-Steuerung, Dienstleisterkoordination sowie Contingency Planning unter Zeitdruck und öffentlicher Aufmerksamkeit."
+                                    >
+                                        I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic
+                                        preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and seamless
+                                        execution — including VIP programmes, stage and run-of-show control, supplier coordination and contingency planning
+                                        under time pressure and public attention.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-</body>
+                        <div class="service-item" data-service>
+                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
+                                <div class="service-bullet" aria-hidden="true"></div>
+                                <div class="service-title" data-en="Protocol Management" data-de="Protocol Management">Protocol Management</div>
+                                <div class="service-arrow" aria-hidden="true"></div>
+                            </div>
+                            <div class="service-body">
+                                <div class="service-body-inner">
+                                    <p
+                                        class="body-text"
+                                        data-en="I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating, flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional expectations and diplomatic context."
+                                        data-de="Ich liefere Protokoll-Expertise für formelle, bilaterale und multilaterale Settings. Dazu zählen Präzedenz, Sitzordnung, Flaggenprotokoll, zeremonielle Choreografie und kulturell angemessenes Hosting — stets im Einklang mit institutionellen Erwartungen und diplomatischem Kontext."
+                                    >
+                                        I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating,
+                                        flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional
+                                        expectations and diplomatic context.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-item" data-service>
+                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
+                                <div class="service-bullet" aria-hidden="true"></div>
+                                <div class="service-title" data-en="Executive & Delegation Support" data-de="Executive & Delegation Support">
+                                    Executive &amp; Delegation Support
+                                </div>
+                                <div class="service-arrow" aria-hidden="true"></div>
+                            </div>
+                            <div class="service-body">
+                                <div class="service-body-inner">
+                                    <p
+                                        class="body-text"
+                                        data-en="I support executives and delegations through preparation, accompaniment and coordination. My focus is on discretion, situational awareness and reliable guidance in sensitive environments where decisions, symbolism and timing matter."
+                                        data-de="Ich unterstütze Executives und Delegationen durch Vorbereitung, Begleitung und Koordination. Mein Fokus liegt auf Diskretion, Situational Awareness und verlässlicher Führung in sensiblen Umfeldern, in denen Entscheidungen, Symbolik und Timing zählen."
+                                    >
+                                        I support executives and delegations through preparation, accompaniment and coordination. My focus is on discretion,
+                                        situational awareness and reliable guidance in sensitive environments where decisions, symbolism and timing matter.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==== CREDENTIALS (TEXT + CAROUSEL) ==== -->
+                <!-- <section class="section anchor" id="credentials">
+                    <h2 data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</h2>
+
+                    <div class="subline" data-en="Track Record" data-de="Erfahrung &amp; Kontexte">Track Record</div>
+                    <p
+                        class="body-text"
+                        data-en="My experience spans international, political and corporate environments, including executive meetings, institutional ceremonies and high-stakes events. I regularly collaborate with organisations, agencies and leadership teams operating at the intersection of public visibility and strategic relevance."
+                        data-de="Meine Erfahrung umfasst internationale, politische und Corporate-Umfelder — darunter Executive Meetings, institutionelle Zeremonien und High-Stakes-Formate. Ich arbeite regelmäßig mit Organisationen, Agenturen und Führungsteams zusammen, die an der Schnittstelle von öffentlicher Sichtbarkeit und strategischer Relevanz agieren."
+                    >
+                        My experience spans international, political and corporate environments, including executive meetings, institutional ceremonies
+                        and high-stakes events. I regularly collaborate with organisations, agencies and leadership teams operating at the intersection of
+                        public visibility and strategic relevance.
+                    </p>
+
+                    <div class="subline" data-en="Endorsements" data-de="Empfehlungen">Endorsements</div>
+
+                    <div class="feedback-section" aria-label="Feedback carousel">
+                        <div class="carousel-shell">
+                            <button class="carousel-btn left" type="button" aria-label="Previous feedback" id="fbPrev">
+                                <img src="assets/img/slider_L.png" alt="" />
+                            </button>
+
+                            <div class="carousel-viewport">
+                                <div class="carousel-track" id="fbTrack">
+                                    <div class="feedback-card">
+                                        <div
+                                            class="feedback-text"
+                                            data-en="“Feedback placeholder text — concise, specific, and credible. It highlights reliability, discretion, and precision in execution.”"
+                                            data-de="„Feedback-Platzhalter — prägnant, konkret und glaubwürdig. Er betont Verlässlichkeit, Diskretion und Präzision in der Umsetzung.“"
+                                        >
+                                            “Feedback placeholder text — concise, specific, and credible. It highlights reliability, discretion, and precision in
+                                            execution.”
+                                        </div>
+
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                            Name Position Company
+                                        </div>
+                                    </div>
+
+                                    <div class="feedback-card">
+                                        <div
+                                            class="feedback-text"
+                                            data-en="“Clear structure, calm leadership on-site, and a strong sense for protocol and stakeholder expectations.”"
+                                            data-de="„Klare Struktur, ruhige Führung vor Ort und ein starkes Gespür für Protokoll und Stakeholder-Erwartungen.“"
+                                        >
+                                            “Clear structure, calm leadership on-site, and a strong sense for protocol and stakeholder expectations.”
+                                        </div>
+
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                            Name Position Company
+                                        </div>
+                                    </div>
+
+                                    <div class="feedback-card">
+                                        <div
+                                            class="feedback-text"
+                                            data-en="“Highly dependable under time pressure — precise communication, seamless coordination, no surprises.”"
+                                            data-de="„Hochverlässlich unter Zeitdruck — präzise Kommunikation, nahtlose Koordination, keine Überraschungen.“"
+                                        >
+                                            “Highly dependable under time pressure — precise communication, seamless coordination, no surprises.”
+                                        </div>
+
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                            Name Position Company
+                                        </div>
+                                    </div>
+
+                                    <div class="feedback-card">
+                                        <div
+                                            class="feedback-text"
+                                            data-en="“Strong cultural sensitivity and discretion in executive and institutional settings.”"
+                                            data-de="„Hohe kulturelle Sensibilität und Diskretion in Executive- und Institutionen-Settings.“"
+                                        >
+                                            “Strong cultural sensitivity and discretion in executive and institutional settings.”
+                                        </div>
+
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                            Name Position Company
+                                        </div>
+                                    </div>
+
+                                    <div class="feedback-card">
+                                        <div
+                                            class="feedback-text"
+                                            data-en="“The kind of operational precision you want when reputations and visibility are on the line.”"
+                                            data-de="„Die Art von operativer Präzision, die man braucht, wenn Reputation und Sichtbarkeit auf dem Spiel stehen.“"
+                                        >
+                                            “The kind of operational precision you want when reputations and visibility are on the line.”
+                                        </div>
+
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
+                                            Name Position Company
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="carousel-btn right" type="button" aria-label="Next feedback" id="fbNext">
+                                <img src="assets/img/slider_R.png" alt="" />
+                            </button>
+                        </div>
+                    </div>
+                </section> -->
+
+                <!-- ==== CONTACT ==== -->
+                <section class="section anchor" id="contact">
+                    <h2 data-en="CONTACT" data-de="KONTAKT">CONTACT</h2>
+
+                    <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
+                        Let’s discuss your project
+                    </div>
+
+                    <p
+                        class="body-text"
+                        data-en="If you are planning a high-level event or protocol-sensitive engagement, I am happy to discuss your requirements in confidence."
+                        data-de="Wenn Sie ein hochrangiges Event oder einen protokollsensiblen Anlass planen, bespreche ich Ihre Anforderungen gern vertraulich."
+                    >
+                        If you are planning a high-level event or protocol-sensitive engagement, I am happy to discuss your requirements in confidence.
+                    </p>
+
+                    <p class="body-text contact-cta">
+                        <a class="cta-btn" href="/cdn-cgi/l/email-protection#ef828e8683af878e9a848a9b87868282c18c8082" data-en="Get in Touch" data-de="Kontakt aufnehmen">
+                            Get in Touch
+                        </a>
+
+                        <span data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">
+                            Discreet handling of all inquiries.
+                        </span>
+                    </p>
+                </section>
+            </main>
+
+            <!-- ==== PRE-FOOTER ==== -->
+            <!-- Typografie: bewusst Body (Source Sans 18px, 300) -->
+            <section class="pre-footer" aria-label="Additional contact options">
+                <div class="pre-footer-inner">
+                    <div class="pre-footer-item">
+                        <span class="gold-frame frame--md shape--round">
+                            <img src="assets/img/contact_phone.png" alt="" />
+                        </span>
+                        <p class="pre-footer-text">+49 (0)160 95364569</p>
+                    </div>
+
+                    <div class="pre-footer-item">
+                        <span class="gold-frame frame--md shape--round">
+                            <img src="assets/img/contact_email.png" alt="" />
+                        </span>
+                        <p class="pre-footer-text">mail[at]haukethimm.com</p>
+                    </div>
+
+                    <!-- <div class="pre-footer-item">
+                        <span class="gold-frame frame--md shape--round">
+                            <img src="assets/img/contact_businesscard.png" alt="" />
+                        </span>
+                        <p class="pre-footer-text" data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">Business card (vcf)</p>
+                    </div> -->
+
+                    <a class="pre-footer-item pre-footer-link" href="/assets/files/hauke-thimm.vcf" download="Hauke_Thimm.vcf">
+                        <span class="gold-frame frame--md shape--round">
+                            <img src="assets/img/contact_businesscard.png" alt="" />
+                        </span>
+                        <p class="pre-footer-text" data-en="Save contact" data-de="Kontakt speichern">Save contact</p>
+                    </a>
+
+                    <!-- <div class="pre-footer-item">
+                        <span class="gold-frame frame--md shape--round">
+                            <img src="assets/img/contact_onepager.png" alt="" />
+                        </span>
+                        <p class="pre-footer-text" data-en="One-pager" data-de="One-Pager">One-pager</p>
+                    </div> -->
+                </div>
+            </section>
+
+            <!-- ==== FOOTER ==== -->
+            <!-- Footer: Body (Source Sans 18px, 300). Labels: 500. Legal-Links: 300. -->
+            <footer class="footer anchor" id="imprint">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <div class="qualifications">
+                            <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifications:</p>
+
+                            <div class="qualifications-logos">
+                                <a href="https://www.handelskammer-hamburg.de/" target="_blank" rel="noopener noreferrer" aria-label="Handelskammer Hamburg">
+                                    <span class="gold-frame frame--md shape--round">
+                                        <img src="assets/img/hkhamburg.png" alt="Handelskammer Hamburg" />
+                                    </span>
+                                </a>
+
+                                <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
+                                    <span class="gold-frame frame--md shape--round">
+                                        <img src="assets/img/protocolbureau.png" alt="Protocolbureau" />
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="backtop" href="#top" aria-label="Back to top">
+                        <img class="chevron-img" src="assets/img/chevron.png" alt="" />
+                        <span class="backtop-text" data-en="Back to top" data-de="zum Seitenanfang">Back to top</span>
+                    </a>
+
+                    <div class="follow">
+                        <p class="follow-label" data-en="Follow / Connect:" data-de="Folgen / Vernetzen:">Follow / Connect:</p>
+                        <div class="follow-icons">
+                            <a href="https://www.linkedin.com/in/haukethimm/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <span class="gold-frame frame--md shape--round">
+                                    <img src="assets/img/linkedin.png" alt="LinkedIn" />
+                                </span>
+                            </a>
+
+                            <a href="https://www.instagram.com/haukethimm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <span class="gold-frame frame--md shape--round">
+                                    <img src="assets/img/instagram.png" alt="Instagram" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="legal-text" aria-label="Legal links">
+                        <a class="legal-link" href="/imprint/" data-en="Imprint" data-de="Impressum">Imprint</a>
+                        <a class="legal-link" href="/privacy/" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- ==== OPTIONAL: CLOUDFLARE / BOOTSTRAP ==== -->
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+
+        <!-- ==== MAIN JS (EXTERN, DEFER) ==== -->
+        <script defer src="assets/js/main.js"></script>
+    </body>
 </html>
