@@ -1,3 +1,4 @@
+<!-- ===== FILE: imprint/index.html ===== -->
 <!DOCTYPE html>
 
 <html lang="de">
@@ -7,13 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Impressum | haukethimm.com</title>
 
-        <!-- ==== STYLES (ABSOLUTER PFAD, DAMIT /imprint/ FUNKTIONIERT) ==== -->
+        <!-- ==== STYLES (ABSOLUTER PFAD) ==== -->
         <link rel="stylesheet" href="/assets/css/styles.css" />
     </head>
 
     <body class="page--imprint">
-        <!-- ==== FIXED NAV (WIE MAIN PAGE, LINKS ZUR STARTSEITE) ==== -->
-        <!-- Unterseiten: Sprunglinks müssen /#section nutzen, nicht #section. -->
+        <div id="top"></div>
+
+        <!-- ==== FIXED NAV (WIE MAIN PAGE) ==== -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
@@ -25,30 +27,26 @@
                         <a class="nav-link" href="/#contact" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
 
                         <div class="lang-toggle" aria-label="Language selector">
-                            <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
-                              <span class="gold-frame frame--sm shape--round">
-                                  <img src="assets/img/flag-de.png" alt="DE" />
-                              </span>
-                          </button>
-                          
-                          <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
-                              <span class="gold-frame frame--sm shape--round">
-                                  <img src="assets/img/flag-uk.png" alt="EN" />
-                              </span>
-                          </button>
+                            <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+                                <span class="gold-frame frame--sm shape--round">
+                                    <img src="/assets/img/flag-uk.png" alt="EN" />
+                                </span>
+                            </button>
+
+                            <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
+                                <span class="gold-frame frame--sm shape--round">
+                                    <img src="/assets/img/flag-de.png" alt="DE" />
+                                </span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
 
-        <!-- ==== SEITENINHALT ==== -->
-        <!-- Imprint hat kein Headerbild. Der Startabstand unter der fixed Nav
-             wird in CSS über .page--imprint .page-offset gesetzt (banner-h + hero-offset).
-             Das Content-Padding wird zusätzlich über .page--imprint .content erzwungen. -->
-        <div class="page-offset">
+        <!-- ==== CONTENT ==== -->
+        <div class="page-offset" style="padding-top: calc(var(--banner-h) + var(--hero-offset));">
             <main class="content" id="content">
-                <!-- ==== IMPRESSUM (MAIN-PAGE-SECTION-STIL) ==== -->
                 <section class="section imprint anchor" id="imprint-page">
                     <h2 class="about-label" data-en="IMPRINT" data-de="IMPRESSUM">IMPRESSUM</h2>
 
@@ -66,7 +64,7 @@
                     <div class="subline" data-en="Contact" data-de="Kontakt">Kontakt</div>
                     <p class="body-text">
                         <span data-en="Phone:" data-de="Telefon:">Telefon:</span> +49 160 95364569<br />
-                        <span data-en="Email:" data-de="E-Mail:">E-Mail:</span> mail[at]haukethimm.com
+                        <span data-en="Email:" data-de="E-Mail:">E-Mail:</span> mail@haukethimm.com
                     </p>
 
                     <!-- <div class="subline" data-en="Tax information" data-de="Steuerliche Angaben">Steuerliche Angaben</div>
@@ -98,7 +96,6 @@
             </main>
         </div>
 
-        <!-- ==== JAVASCRIPT (ABSOLUTER PFAD) ==== -->
         <script defer src="/assets/js/main.js"></script>
     </body>
 </html>

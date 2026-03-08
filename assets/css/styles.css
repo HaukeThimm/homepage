@@ -89,18 +89,15 @@
 }
 
 /* ==== TOKENS (FARBEN / TYPO / ABSTÄNDE) ==== */
-/* Headline: Cormorant 30px
-   Subline:  Cormorant 24px
-   Body:     Source Sans 18px */
 :root {
     --cream: #fdf7f2;
     --blue: #003153;
 
-    /* Nav: fixed oben, Höhe steuert Offsets (Anchors/Unterseiten) */
+    /* Nav */
     --top-offset: 0px;
     --banner-h: 75px;
 
-    /* Content Raster: Seitenpadding + maximale Breite */
+    /* Content Raster */
     --side-pad: 150px;
     --max-width: 1400px;
 
@@ -124,13 +121,13 @@
     --lh-body: 1.5;
 
     /* Vertikale Rhythmik */
-    --section-pad-y: 60px;   /* Abstand ober/unter jeder .section */
-    --hero-offset: 25px;     /* Abstand vom Headerbild zur ersten Hero-Typo */
+    --section-pad-y: 60px;
+    --hero-offset: 25px;
 
-    --h-gap-bottom: 14px;    /* Abstand Headline -> nächstes Element */
-    --sub-gap-bottom: 12px;  /* Abstand Subline -> Body */
-    --p-gap: 14px;           /* Abstand Absatz -> Absatz */
-    --block-gap: 40px;       /* Abstand Body -> nächste Subline/Headline */
+    --h-gap-bottom: 14px;
+    --sub-gap-bottom: 12px;
+    --p-gap: 14px;
+    --block-gap: 40px;
 
     /* Goldrahmen */
     --frame-w-sm: 2px;
@@ -141,24 +138,25 @@
     --frame-r-md: 4px;
     --frame-r-lg: 6px;
 
-    /* UI-Größen */
+    /* Language Button Größe (SEPARAT STEUERBAR) */
     --lang-btn-size: 25px;
 
-    /* Carousel: Fade-Breite an den Fluchten */
+    /* Carousel */
     --carousel-fade: 40px;
+
+    /* Footer Icon Sizes (SEPARAT STEUERBAR) */
+    --follow-icon-size: 50px;
+    --follow-icon-pad: 0px;     /* "none" -> 0px */
+
+    --qual-logo-h: 50px;
+    --qual-logo-pad: 0px;       /* "none" -> 0px */
+    --qual-logo-max-w: 140px;
 
     /* Footer Align */
     --footer-col-top: 10px;
     --backtop-icon-h: 20px;
     --backtop-gap: 3px;
     --footer-align-to-backtop-text: calc(var(--footer-col-top) + var(--backtop-icon-h) + var(--backtop-gap));
-
-    /* Legal Links Abstand */
-    --legal-gap: 40px;
-
-    /* Qualifications-Logos: Höhe zentral steuerbar */
-    --qual-logo-h: 100px;
-    --qual-logo-max-w: auto;
 }
 
 /* ==== RESET / BASIS ==== */
@@ -177,23 +175,26 @@ body {
 }
 
 /* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
+/* - border-radius + overflow hidden sorgt für saubere Außen- und Innenkanten
+   - background-clip erzwingt, dass auch die innere Fläche die Rundungen übernimmt */
 .gold-frame {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    /* Default-Rahmenstärke: md (überschreibbar via frame--sm/md/lg) */
     border: var(--frame-w-md) solid transparent;
+    border-radius: var(--frame-r-md);
+    overflow: hidden;
 
-    /* 2-Layer: Innenfläche (padding-box) + Goldtextur (border-box) */
-    background: linear-gradient(transparent, transparent) padding-box,
-                url("../img/highlights_gold.png") border-box;
+    background:
+        linear-gradient(var(--cream), var(--cream)) padding-box,
+        url("../img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
 
-    overflow: hidden;
+    background-clip: padding-box, border-box;
 }
 
 .frame--sm { border-width: var(--frame-w-sm); }
@@ -211,9 +212,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    /* Innere Ecken übernehmen */
+    border-radius: inherit;
 }
 
-/* ==== NAV (FIXED) ==== */
+/* ==== FIXED NAV ==== */
 .nav-shell {
     position: fixed;
     top: var(--top-offset);
@@ -257,8 +261,7 @@ body {
 .nav-items a.nav-link:hover { text-decoration: underline; }
 
 /* ==== LANGUAGE TOGGLE ==== */
-/* Es wird immer nur die inaktive Sprache angezeigt.
-   Die Position bleibt fix, weil der Container feste Maße hat. */
+/* Es wird immer nur die inaktive Sprache angezeigt. */
 .lang-toggle {
     position: relative;
     width: var(--lang-btn-size);
@@ -278,23 +281,16 @@ body {
     cursor: pointer;
 }
 
-/* nur die inaktive Sprache sichtbar */
-.lang-btn.is-active {
-    display: none;
-}
-
-.lang-btn:not(.is-active) {
-    display: inline-flex;
-}
+/* aktive Sprache ausblenden */
+.lang-btn.is-active { display: none; }
+.lang-btn:not(.is-active) { display: inline-flex; }
 
 .lang-btn .gold-frame {
     width: var(--lang-btn-size);
     height: var(--lang-btn-size);
+    border-radius: 999px;
 }
-
-.lang-btn .gold-frame > img {
-    object-fit: cover;
-}
+.lang-btn .gold-frame > img { object-fit: cover; }
 
 /* ==== HEADER IMAGE ==== */
 .header-image { width: 100%; margin: 0; padding: 0; }
@@ -310,14 +306,12 @@ body {
 /* ==== LAYOUT WRAPPER ==== */
 .page-offset { padding-top: 0; margin-top: 0; }
 
-/* Content: gleiche Flucht links/rechts für alle Texte (side-pad) */
 .content {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--side-pad);
 }
 
-/* Anchor Offset gegen fixed Nav */
 section.anchor {
     scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + 20px);
 }
@@ -325,10 +319,36 @@ section.anchor {
 /* ==== SECTION RHYTHMUS ==== */
 .section { padding: var(--section-pad-y) 0; }
 
-/* Hero: Abstand unter Headerbild (25px) */
+/* ==== HERO ==== */
 .hero {
     padding-top: var(--hero-offset);
     padding-bottom: calc(var(--section-pad-y) / 2);
+}
+.hero-grid { display: grid; grid-template-columns: 1fr; }
+.hero-textbox { display: flex; flex-direction: column; gap: 14px; }
+
+.hero .name{
+    font-family: var(--font-head);
+    font-size: 42px;
+    font-weight: var(--fw-head);
+    line-height: var(--lh-head);
+    margin: 0 0 var(--h-gap-bottom) 0;
+}
+.hero .role,
+.hero .claim{
+    font-family: var(--font-head);
+    font-size: var(--fs-sub);
+    font-weight: var(--fw-sub);
+    line-height: var(--lh-sub);
+    margin: 0 0 var(--sub-gap-bottom) 0;
+}
+.hero .intro{
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
+    margin: 0;
+    white-space: pre-line;
 }
 
 /* ==== TYPO: HEADLINES ==== */
@@ -341,19 +361,7 @@ section.anchor {
     margin: 0 0 var(--h-gap-bottom) 0;
 }
 
-/* Hero Name: bewusst größer als Section Headline */
-.hero .name{
-    font-family: var(--font-head);
-    font-size: 42px;
-    font-weight: var(--fw-head);
-    line-height: var(--lh-head);
-    margin: 0 0 var(--h-gap-bottom) 0;
-}
-
-/* ==== TYPO: SUBLINES ==== */
 .subline,
-.hero .role,
-.hero .claim,
 .service-title{
     font-family: var(--font-head);
     font-size: var(--fs-sub);
@@ -362,36 +370,28 @@ section.anchor {
     margin: 0 0 var(--sub-gap-bottom) 0;
 }
 
-/* ==== TYPO: BODY ==== */
 .body-text,
-.hero .intro,
 .feedback-text,
 .feedback-signature,
-.approach-list li{
+.approach-text{
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
     line-height: var(--lh-body);
 }
+
 .body-text { margin: 0; }
 .body-text + .body-text { margin-top: var(--p-gap); }
 
-/* Einheitlicher Abstand: Body -> nächste Subline/Headline */
 .body-text + .subline,
 .body-text + h2{
     margin-top: var(--block-gap);
 }
 
-/* About Label: uppercase + leichtes Tracking */
 .about .about-label{
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
-
-/* ==== HERO LAYOUT ==== */
-.hero-grid { display: grid; grid-template-columns: 1fr; }
-.hero-textbox { display: flex; flex-direction: column; gap: 14px; }
-.hero .intro { margin: 0; white-space: pre-line; }
 
 /* ==== VALUES BAND ==== */
 .values-band { padding: var(--section-pad-y) 0; text-align: center; }
@@ -408,8 +408,10 @@ section.anchor {
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
+    background-clip: padding-box, border-box;
     padding: 18px;
 }
+
 .service-head{
     display: grid;
     grid-template-columns: 30px 1fr 22px;
@@ -418,8 +420,10 @@ section.anchor {
     cursor: pointer;
     user-select: none;
 }
+
 .service-bullet{ width: 22px; height: 22px; background: url("../img/bulletpoint.png") center / contain no-repeat; }
 .service-title{ margin: 0; }
+
 .service-arrow{
     width: 18px;
     height: 18px;
@@ -428,10 +432,16 @@ section.anchor {
     transform: translateY(1px);
     transition: transform 180ms ease;
 }
+
+/* geöffnet: anderes Icon */
+.service-item.open .service-arrow{
+    background-image: url("../img/button_L.png");
+    transform: rotate(90deg);
+}
+
 .service-body{ max-height: 0; overflow: hidden; transition: max-height 240ms ease; }
 .service-body-inner{ padding-top: 14px; }
 .service-item.open .service-body{ max-height: 600px; }
-.service-item.open .service-arrow{ transform: rotate(90deg); }
 
 /* ==== CTA BUTTON ==== */
 .contact-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
@@ -443,7 +453,6 @@ section.anchor {
     color: var(--cream);
     text-decoration: none;
 
-    /* CTA als "Headline-Rolle": Cormorant 30px */
     font-family: var(--font-head);
     font-size: var(--fs-head);
     font-weight: var(--fw-head);
@@ -457,32 +466,26 @@ section.anchor {
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
+    background-clip: padding-box, border-box;
 
     white-space: nowrap;
 }
 .cta-btn:hover { text-decoration: underline; }
 
 /* ==== CAROUSEL (CREDENTIALS) ==== */
-/* Ziel:
-   - 3 Karten sichtbar, die mittlere ist exakt zentriert (JS zentriert aktive Karte)
-   - Pfeile sitzen auf der Textflucht (side-pad)
-   - Edge-Fade beginnt genau in der Side-Padding-Zone */
+/* (Markup ist aktuell auskommentiert; Styles bleiben für später.) */
 #credentials .carousel-shell{
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-
-    /* Textflucht (identisch zum Content) */
     --carousel-text-pad: var(--side-pad);
 }
 
-/* Viewport: keine zusätzliche "Gutter"-Einengung, damit 3 Karten Platz haben */
 #credentials .carousel-viewport{
     padding-inline: var(--carousel-text-pad);
     overflow: hidden;
     box-sizing: border-box;
 
-    /* Ausfaden exakt an der Textflucht */
     -webkit-mask-image: linear-gradient(
         to right,
         transparent 0,
@@ -503,7 +506,44 @@ section.anchor {
     );
 }
 
-/* Pfeile: fest 40px, Position auf Textflucht */
+.carousel-shell { position: relative; margin-top: 18px; }
+
+.carousel-track{
+    display:flex;
+    gap:28px;
+    padding: 0 !important;
+    margin: 0;
+    transform: translate3d(0,0,0);
+    transition: transform 320ms ease;
+    will-change: transform;
+}
+
+.feedback-card{
+    flex:0 0 auto;
+    width:400px;
+    height:300px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    border: var(--frame-w-lg) solid transparent;
+    border-radius: var(--frame-r-lg);
+    background: linear-gradient(var(--cream), var(--cream)) padding-box,
+                url("../img/highlights_gold.png") border-box;
+    background-size:auto, cover;
+    background-repeat:no-repeat, no-repeat;
+    background-position:center, center;
+    background-clip: padding-box, border-box;
+
+    padding:26px;
+}
+
+.feedback-text { width:100%; white-space:pre-line; margin:0; }
+.feedback-signature { margin-top:22px; white-space:pre-line; }
+
 .carousel-btn{
     position: absolute;
     top: 50%;
@@ -523,12 +563,7 @@ section.anchor {
     align-items: center;
     justify-content: center;
 }
-
-.carousel-btn img{
-    width: 40px;
-    height: 40px;
-    display: block;
-}
+.carousel-btn img{ width: 40px; height: 40px; display:block; }
 
 #credentials .carousel-btn.left{ left: var(--carousel-text-pad); }
 #credentials .carousel-btn.right{ right: var(--carousel-text-pad); }
@@ -541,7 +576,7 @@ section.anchor {
     }
 }
 
-/* ==== APPROACH ==== */
+/* ==== APPROACH (KARTEN) ==== */
 .approach-list {
     display: flex;
     flex-direction: column;
@@ -556,6 +591,7 @@ section.anchor {
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
+    background-clip: padding-box, border-box;
     padding: 18px;
 }
 
@@ -573,21 +609,18 @@ section.anchor {
     transform: translateY(2px);
 }
 
-.approach-text {
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: var(--fw-body);
-    line-height: var(--lh-body);
-    margin: 0;
-}
+.approach-text { margin: 0; }
 
 /* ==== PRE-FOOTER ==== */
 .pre-footer {
     width: 100%;
     min-height: 150px;
+
     background: var(--blue);
     color: var(--cream);
+
     margin-bottom: 20px;
+
     display: flex;
     align-items: center;
 }
@@ -617,52 +650,31 @@ section.anchor {
     min-width: 0;
 }
 
-.pre-footer-link {
+.pre-footer-link{
     text-decoration: none;
     color: var(--cream);
 }
-
 .pre-footer-link:visited,
-.pre-footer-link:active {
-    color: var(--cream);
-}
+.pre-footer-link:active{ color: var(--cream); }
+.pre-footer-link:hover{ text-decoration: underline; }
 
-.pre-footer-link:hover .pre-footer-text {
-    text-decoration: underline;
-}
-
-/* Icon-Kreis 75px */
 .pre-footer-item .gold-frame {
     width: 75px;
     height: 75px;
     flex: 0 0 75px;
     aspect-ratio: 1 / 1;
-
     border-radius: 50%;
-    overflow: hidden;
-
-    border-width: var(--frame-w-sm);
-
-    background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
 }
 
-.pre-footer-item .gold-frame > img {
+.pre-footer-item .gold-frame > img{
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 0;
+    padding: 0; /* "none" -> 0 */
     display: block;
 }
 
-.pre-footer-text {
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: var(--fw-body);
-    line-height: var(--lh-body);
+.pre-footer-text{
     margin: 0;
     color: var(--cream);
     white-space: nowrap;
@@ -676,12 +688,12 @@ section.anchor {
     padding: 5px 0 30px;
     position: relative;
 
-    /* Footer insgesamt: Body */
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
     line-height: var(--lh-body);
 }
+
 .footer-inner {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -692,60 +704,55 @@ section.anchor {
     grid-template-rows: auto auto;
     column-gap: 24px;
     row-gap: 18px;
+
     align-items: start;
 }
+
 .footer-left {
     grid-column: 1;
     grid-row: 1;
+
     display: flex;
     align-items: flex-start;
     gap: 20px;
+
     padding-top: var(--footer-align-to-backtop-text);
 }
 
 /* Labels: 500 */
 .qualifications-label,
 .follow-label{
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
     font-weight: var(--fw-sub);
-    line-height: var(--lh-body);
     margin: 0 0 12px 0;
     color: var(--cream);
 }
 
-/* Qualifications Logos: Höhe über --qual-logo-h */
-.qualifications-logos { 
-    display: flex; 
-    gap: 24px; 
-    align-items: center; 
-    flex-wrap: wrap; 
+/* ==== QUALIFICATIONS (SIZE VIA TOKENS) ==== */
+.qualifications-logos{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.qualifications-logos .gold-frame { 
-    height: var(--qual-logo-h); 
-    width: auto; 
-    max-width: var(--qual-logo-max-w); 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden; 
-}
-.qualifications-logos .gold-frame > img { 
-    display:block; 
-    height:100%; 
-    width:auto; 
-    max-width:100%; 
-    object-fit:contain; 
+.qualifications-logos .gold-frame{
+    height: var(--qual-logo-h);
+    width: auto;
+    max-width: var(--qual-logo-max-w);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.qualifications-logos .gold-frame.shape--rect{
-    border-width: var(--frame-w-sm);
-    background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
-    background-size:auto, cover;
-    background-repeat:no-repeat, no-repeat;
-    background-position:center, center;
+.qualifications-logos .gold-frame > img{
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    padding: var(--qual-logo-pad);
 }
 
 .qualifications-logos .gold-frame.shape--round{
@@ -754,28 +761,17 @@ section.anchor {
     flex: 0 0 var(--qual-logo-h);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    overflow: hidden;
-
-    border-width: var(--frame-w-sm);
-    background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
-    background-size:auto, cover;
-    background-repeat:no-repeat, no-repeat;
-    background-position:center, center;
 }
 
-.qualifications-logos .gold-frame.shape--round > img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: none;
-    display:block;
+.qualifications-logos .gold-frame.shape--rect{
+    border-radius: 0;
 }
 
 /* Back to top */
 .backtop {
     grid-column: 2;
     grid-row: 1;
+
     justify-self: center;
     align-self: start;
 
@@ -801,48 +797,36 @@ section.anchor {
 .follow {
     grid-column: 3;
     grid-row: 1;
+
     justify-self: end;
     padding-top: var(--footer-align-to-backtop-text);
+    text-align: right;
+}
 
+.follow-icons{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    gap: 18px;
+    align-items: center;
 }
 
-.follow-icons {
-    display: flex; 
-    gap: 18px; 
-    align-items: center; 
-    flex-wrap: wrap; 
-}
-
-.follow-icons .gold-frame.shape--round {
-    width: 75px;
-    height: 75px;
-    flex: 0 0 75px;
+/* ==== FOLLOW ICONS (SIZE VIA TOKENS) ==== */
+.follow-icons .gold-frame.shape--round{
+    width: var(--follow-icon-size);
+    height: var(--follow-icon-size);
+    flex: 0 0 var(--follow-icon-size);
     aspect-ratio: 1 / 1;
-
     border-radius: 50%;
-    overflow: hidden;
-
-    border-width: var(--frame-w-sm);
-    background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
 }
 
-.follow-icons .gold-frame > img {
+.follow-icons .gold-frame > img{
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 0;
+    padding: var(--follow-icon-pad);
     display: block;
 }
 
-/* Legal Links: rechtsbündig, 40px Abstand, Body 300 */
+/* ==== FOOTER: LEGAL LINE (© | LINKS) ==== */
 .legal-text {
     position: absolute;
     right: var(--side-pad);
@@ -851,18 +835,29 @@ section.anchor {
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
-    gap: var(--legal-gap);
 
-    font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
-    line-height: var(--lh-body);
-
     color: var(--cream);
     white-space: nowrap;
 }
-.legal-link { color: var(--cream); text-decoration: none; font: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-.legal-link:hover { text-decoration: underline; }
+
+.legal-sep{
+    margin: 0 7px;
+    opacity: 0.9;
+}
+
+.legal-copy{
+    font: inherit;
+    color: inherit;
+}
+
+.legal-link{
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+}
+.legal-link:hover{ text-decoration: underline; }
 
 /* ==== RESPONSIVE (MOBILE) ==== */
 @media (max-width: 768px) {
@@ -876,185 +871,18 @@ section.anchor {
     .nav-items { grid-template-columns: repeat(3, 1fr); row-gap: 8px; }
     .nav-items a.nav-link { font-size: 12px; letter-spacing: 0.08em; }
 
-   .pre-footer {
-    height: auto;
-    padding: 24px 0;
-    }
-
-    .pre-footer-inner {
-        grid-template-columns: 1fr;
-        row-gap: 18px;
-    }
-
-    .pre-footer-col {
-        width: 100%;
-    }
+    .pre-footer { padding: 24px 0; }
+    .pre-footer-inner { grid-template-columns: 1fr; row-gap: 18px; }
 
     .footer-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
     .backtop { align-self: center; }
     .follow { align-self: flex-start; text-align: left; }
 
-    /* ==== FOOTER: LEGAL LINE (© | Links) ==== */
-    /* Abstand: 7px links & rechts um den | Separatoren */
     .legal-text{
-        display: inline-flex;
-        align-items: center;
-        justify-content: flex-end;
-        white-space: nowrap;
+        position: static;
+        margin-top: 8px;
+        align-self: flex-end;
+        white-space: normal;
+        flex-wrap: wrap;
     }
-
-    .legal-sep{
-        margin: 0 7px;          /* 7px links + 7px rechts */
-        opacity: 0.9;
-    }
-
-    .legal-copy{
-        font: inherit;          /* übernimmt Font/Size/Weight aus .legal-text */
-        color: inherit;
-    }
-
-    .legal-link{
-        color: inherit;
-        text-decoration: none;
-        font: inherit;
-    }
-
-    .legal-link:hover{
-        text-decoration: underline;
-    }
-
-    /* Pfeile bleiben 40px, sitzen auf der Mobile-Textflucht (side-pad=18px) */
-}
-
-/* ==== PAGE: IMPRINT (OFFSETS + PADDING) ==== */
-/* Auf /imprint/ gibt es kein Headerbild.
-   Startabstand unter der fixed Nav:
-   Start = banner-h + hero-offset (wie Main Page: Bühne + Abstand). */
-.page--imprint .page-offset{
-    padding-top: calc(var(--banner-h) + var(--hero-offset));
-}
-
-/* Robustes Content-Padding auf Unterseiten erzwingen (identische Textflucht) */
-.page--imprint .content{
-    padding-left: var(--side-pad);
-    padding-right: var(--side-pad);
-}
-
-/* ==== PAGE: CONTACT (OFFSETS + PADDING) ==== */
-/* Kontaktseite hat kein Headerbild -> Abstand unter fixed Nav wie Imprint */
-.page--contact .page-offset{
-    padding-top: calc(var(--banner-h) + var(--hero-offset));
-}
-
-/* Content-Padding robust wie Main Page */
-.page--contact .content{
-    padding-left: var(--side-pad);
-    padding-right: var(--side-pad);
-}
-
-/* ==== CONTACT FORM (BREITE / RHYTHMUS) ==== */
-/* Desktop: 25% Viewport-Breite, aber nicht zu schmal/zu breit */
-.contact-form{
-    width: clamp(360px, 25vw, 560px);
-    margin-top: var(--block-gap);
-}
-
-/* Mobile: 75% Viewport-Breite */
-@media (max-width: 768px){
-    .contact-form{
-        width: 75vw;
-        max-width: 560px;
-    }
-}
-
-/* Labels: Body, aber 500 für bessere Führung */
-.form-label{
-    display: block;
-    margin: 0 0 8px 0;
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: 500;
-    line-height: var(--lh-body);
-}
-
-/* Goldframe-Optik für Felder (wie deine Cards/Frames):
-   - transparenter Border
-   - Innenfläche cream
-   - Goldtextur im Border */
-.form-field{
-    width: 100%;
-    display: block;
-
-    padding: 12px 14px;
-    margin: 0 0 18px 0;
-
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: 400;
-    line-height: var(--lh-body);
-    color: var(--blue);
-
-    background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
-    border: var(--frame-w-sm) solid transparent;
-    border-radius: var(--frame-r-md);
-
-    outline: none;
-}
-
-/* Textarea: nur Höhe etwas angenehmer */
-.form-textarea{
-    resize: vertical;
-    min-height: 160px;
-}
-
-/* Focus: klar, aber dezent */
-.form-field:focus{
-    border-width: var(--frame-w-md);
-}
-
-/* 2 Spalten für Eventzeitraum (Desktop), 1 Spalte Mobile */
-.form-row-2{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-@media (max-width: 768px){
-    .form-row-2{
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Privacy-Text unter dem Formular */
-.form-privacy{
-    margin-top: 4px;
-    margin-bottom: 18px;
-}
-
-/* Link im Formular */
-.form-link{
-    color: var(--blue);
-    text-decoration: underline;
-    font: inherit;
-}
-
-/* Submit Button: passend zu deinem Stil (ohne Goldframe-Overkill) */
-.form-submit{
-    display: inline-block;
-    padding: 0.65em 1.2em;
-
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: 500;
-
-    color: var(--blue);
-    background: transparent;
-
-    border: var(--frame-w-sm) solid var(--blue);
-    border-radius: var(--frame-r-md);
-
-    cursor: pointer;
-}
-.form-submit:hover{
-    text-decoration: underline;
 }
