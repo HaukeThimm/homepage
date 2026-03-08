@@ -241,13 +241,17 @@ body {
     display: flex;
     align-items: center;
 }
-.nav-items {
+
+/* ==== NAV: GRID-ALIGNMENT ==== */
+/* 5 Links + Language Toggle (auto) -> Toggle immer rechtsbündig */
+.nav-items{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr) auto;
     align-items: center;
     white-space: nowrap;
 }
+
 .nav-items a.nav-link {
     display: flex;
     justify-content: center;
@@ -269,6 +273,8 @@ body {
     width: var(--lang-btn-size);
     height: var(--lang-btn-size);
     flex: 0 0 var(--lang-btn-size);
+
+    justify-self: end; /* immer rechts im Grid */
 }
 
 .lang-btn {
@@ -872,6 +878,8 @@ section.anchor {
 
     .nav-inner { padding: 0 var(--side-pad); }
     .nav-items { grid-template-columns: repeat(3, 1fr); row-gap: 8px; }
+    .nav-items .lang-toggle{ justify-self: end; }
+
     .nav-items a.nav-link { font-size: 12px; letter-spacing: 0.08em; }
 
     .pre-footer { padding: 24px 0; }
