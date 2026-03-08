@@ -97,6 +97,9 @@
     --top-offset: 0px;
     --banner-h: 75px;
 
+    /* Unterseiten: Abstand ab Unterkante Nav */
+    --page-top-gap: 40px;
+
     /* Content Raster */
     --side-pad: 150px;
     --max-width: 1400px;
@@ -176,7 +179,7 @@ body {
 
 /* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
 /* - border-radius + overflow hidden sorgt für saubere Außen- und Innenkanten
-   - background-clip erzwingt, dass auch die innere Fläche die Rundungen übernimmt */
+   - background-clip sorgt dafür, dass auch die innere Fläche die Rundungen übernimmt */
 .gold-frame {
     display: inline-flex;
     align-items: center;
@@ -193,7 +196,6 @@ body {
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
-
     background-clip: padding-box, border-box;
 }
 
@@ -316,6 +318,13 @@ section.anchor {
     scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + 20px);
 }
 
+/* ==== UNTERSEITEN: START 40px UNTER NAV ==== */
+.page--imprint .page-offset,
+.page--privacy .page-offset,
+.page--contact .page-offset{
+    padding-top: calc(var(--banner-h) + var(--page-top-gap));
+}
+
 /* ==== SECTION RHYTHMUS ==== */
 .section { padding: var(--section-pad-y) 0; }
 
@@ -351,7 +360,7 @@ section.anchor {
     white-space: pre-line;
 }
 
-/* ==== TYPO: HEADLINES ==== */
+/* ==== TYPO: HEADLINES / SUBLINES / BODY ==== */
 .section h2,
 .about .about-label{
     font-family: var(--font-head);
@@ -568,14 +577,6 @@ section.anchor {
 #credentials .carousel-btn.left{ left: var(--carousel-text-pad); }
 #credentials .carousel-btn.right{ right: var(--carousel-text-pad); }
 
-@media (max-width: 768px) {
-    .feedback-card {
-        width: 86vw;
-        height: 400px;
-        min-height: 300px;
-    }
-}
-
 /* ==== APPROACH (KARTEN) ==== */
 .approach-list {
     display: flex;
@@ -632,9 +633,10 @@ section.anchor {
     width: 100%;
 
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: center;
     column-gap: 30px;
+    row-gap: 18px;
 }
 
 .pre-footer-col {
@@ -865,6 +867,7 @@ section.anchor {
         --banner-h: 64px;
         --side-pad: 18px;
         --carousel-fade: 28px;
+        --lang-btn-size: 22px;
     }
 
     .nav-inner { padding: 0 var(--side-pad); }
@@ -872,7 +875,7 @@ section.anchor {
     .nav-items a.nav-link { font-size: 12px; letter-spacing: 0.08em; }
 
     .pre-footer { padding: 24px 0; }
-    .pre-footer-inner { grid-template-columns: 1fr; row-gap: 18px; }
+    .pre-footer-inner { grid-template-columns: 1fr; }
 
     .footer-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
     .backtop { align-self: center; }

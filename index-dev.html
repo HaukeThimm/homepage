@@ -1,39 +1,38 @@
+<!-- ===== FILE: index-dev.html ===== -->
 <!DOCTYPE html>
 
 <html lang="en">
     <head>
-        <!-- ==== META / GRUNDLAGEN (CHARSET, VIEWPORT, TITLE) ==== -->
+        <!-- ==== META / GRUNDLAGEN ==== -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>haukethimm.com</title>
 
-        <!-- ==== STYLES (EXTERN) ==== -->
-        <!-- Typografie, Abstände, Einrückungen, Komponenten (Accordion/Carousel/Footer) in styles.css -->
+        <!-- ==== STYLES ==== -->
         <link rel="stylesheet" href="assets/css/styles.css" />
     </head>
 
     <body>
-        <!-- ==== FIXED NAV (BANNER) ==== -->
-        <!-- Fixed am oberen Rand. Anchor-Scroll berücksichtigt Nav-Höhe über scroll-margin-top in CSS. -->
+        <!-- ==== FIXED NAV ==== -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
                     <div class="nav-items">
                         <a class="nav-link" href="#top" data-en="HOME" data-de="HOME">HOME</a>
                         <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
-                        <a class="nav-link" href="#services" data-en="SERVICES" data-de="LEISTUNGEN">SERVICES</a>
-                        <!-- <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
+                        <a class="nav-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
+                        <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a>
                         <a class="nav-link" href="#contact" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
 
-                        <!-- Language Toggle: ersetzt textContent aus data-en/data-de (JS) -->
+                        <!-- Language Toggle: es wird immer nur die "andere" Sprache angezeigt -->
                         <div class="lang-toggle" aria-label="Language selector">
-                            <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+                            <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
                                 <span class="gold-frame frame--sm shape--round">
                                     <img src="assets/img/flag-uk.png" alt="EN" />
                                 </span>
                             </button>
 
-                            <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
+                            <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
                                 <span class="gold-frame frame--sm shape--round">
                                     <img src="assets/img/flag-de.png" alt="DE" />
                                 </span>
@@ -44,24 +43,19 @@
             </nav>
         </div>
 
-        <!-- ==== HEADER-BILD (FULL WIDTH) ==== -->
-        <!-- Visuelle Bühne oberhalb des Inhalts. Kein Crop: object-fit:contain in CSS. -->
+        <!-- ==== HEADER-BILD ==== -->
         <section class="header-image anchor" id="top" aria-label="Header image">
-            <img src="assets/img/header.jpg" alt="" />
+            <img src="assets/img/header3.png" alt="" />
         </section>
 
-        <!-- ==== SEITENINHALT (CONTENT WRAPPER) ==== -->
-        <!-- Auf der Main Page ist page-offset = 0. Der Abstand vom Header zur ersten Typo
-             wird im Hero über --hero-offset (25px) definiert. -->
+        <!-- ==== SEITENINHALT ==== -->
         <div class="page-offset">
             <main class="content" id="content">
                 <!-- ==== HERO ==== -->
-                <!-- Startabstand unter header.jpg: padding-top: var(--hero-offset) in CSS -->
                 <section class="hero anchor" id="hero">
                     <div class="hero-grid">
                         <div class="hero-textbox">
                             <div class="hero-top">
-                                <!-- H1: gleiche Optik wie bisheriger Name-Block (Cormorant, 42px, 700) -->
                                 <h1 class="name" data-en="Hauke Thimm" data-de="Hauke Thimm">Hauke Thimm</h1>
 
                                 <div class="role" data-en="High-Level Events & Protocol Management" data-de="High-Level Events & Protocol Management">
@@ -90,13 +84,12 @@
                     </div>
                 </section>
 
-                <!-- ==== VALUES (BILD) ==== -->
+                <!-- ==== VALUES ==== -->
                 <section class="values-band anchor" id="values">
                     <img src="assets/img/values.png" alt="" />
                 </section>
 
                 <!-- ==== ABOUT (ALS .section) ==== -->
-                <!-- Einheitliches Section-Padding über .section (Tokens) -->
                 <section class="section about anchor" id="about">
                     <h2 class="about-label" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</h2>
 
@@ -141,9 +134,9 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                     </p>
                 </section>
 
-                <!-- ==== SERVICES (ACCORDION) ==== -->
+                <!-- ==== SERVICES ==== -->
                 <section class="section anchor" id="services">
-                    <h2 data-en="SERVICES" data-de="LEISTUNGEN">SERVICES</h2>
+                    <h2 data-en="Services" data-de="Services">Services</h2>
 
                     <div class="services-list">
                         <div class="service-item" data-service>
@@ -154,6 +147,7 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                                 </div>
                                 <div class="service-arrow" aria-hidden="true"></div>
                             </div>
+
                             <div class="service-body">
                                 <div class="service-body-inner">
                                     <p
@@ -176,6 +170,7 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                                 <div class="service-title" data-en="Protocol Management" data-de="Protocol Management">Protocol Management</div>
                                 <div class="service-arrow" aria-hidden="true"></div>
                             </div>
+
                             <div class="service-body">
                                 <div class="service-body-inner">
                                     <p
@@ -194,11 +189,36 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                         <div class="service-item" data-service>
                             <div class="service-head" role="button" tabindex="0" aria-expanded="false">
                                 <div class="service-bullet" aria-hidden="true"></div>
+                                <div class="service-title" data-en="Master of Ceremony & Moderation" data-de="Master of Ceremony & Moderation">
+                                    Master of Ceremony &amp; Moderation
+                                </div>
+                                <div class="service-arrow" aria-hidden="true"></div>
+                            </div>
+
+                            <div class="service-body">
+                                <div class="service-body-inner">
+                                    <p
+                                        class="body-text"
+                                        data-en="As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality and confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between speakers, guests and institutions — in close coordination with programme, protocol and technical teams."
+                                        data-de="Als Master of Ceremony und erfahrener Event Host unterstütze ich hochrangige Programme mit Klarheit, Neutralität und Souveränität. Meine Aufgabe ist es, Struktur, Timing und Ton zu halten und zugleich respektvolle Interaktion zwischen Speaker:innen, Gästen und Institutionen zu ermöglichen — in enger Abstimmung mit Programm-, Protokoll- und Technikteams."
+                                    >
+                                        As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality and
+                                        confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between
+                                        speakers, guests and institutions — in close coordination with programme, protocol and technical teams.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-item" data-service>
+                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
+                                <div class="service-bullet" aria-hidden="true"></div>
                                 <div class="service-title" data-en="Executive & Delegation Support" data-de="Executive & Delegation Support">
                                     Executive &amp; Delegation Support
                                 </div>
                                 <div class="service-arrow" aria-hidden="true"></div>
                             </div>
+
                             <div class="service-body">
                                 <div class="service-body-inner">
                                     <p
@@ -215,9 +235,9 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                     </div>
                 </section>
 
-                <!-- ==== CREDENTIALS (TEXT + CAROUSEL) ==== -->
-                <!-- <section class="section anchor" id="credentials">
-                    <h2 data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</h2>
+                <!-- ==== CREDENTIALS ==== -->
+                <section class="section anchor" id="credentials">
+                    <h2 data-en="Credentials" data-de="Expertise">Credentials</h2>
 
                     <div class="subline" data-en="Track Record" data-de="Erfahrung &amp; Kontexte">Track Record</div>
                     <p
@@ -232,6 +252,8 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
 
                     <div class="subline" data-en="Endorsements" data-de="Empfehlungen">Endorsements</div>
 
+                    <!--
+                    ==== FEEDBACK-CAROUSEL (DERZEIT AUSKOMMENTIERT – FEEDBACKS FOLGEN) ====
                     <div class="feedback-section" aria-label="Feedback carousel">
                         <div class="carousel-shell">
                             <button class="carousel-btn left" type="button" aria-label="Previous feedback" id="fbPrev">
@@ -241,74 +263,16 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                             <div class="carousel-viewport">
                                 <div class="carousel-track" id="fbTrack">
                                     <div class="feedback-card">
-                                        <div
-                                            class="feedback-text"
-                                            data-en="“Feedback placeholder text — concise, specific, and credible. It highlights reliability, discretion, and precision in execution.”"
-                                            data-de="„Feedback-Platzhalter — prägnant, konkret und glaubwürdig. Er betont Verlässlichkeit, Diskretion und Präzision in der Umsetzung.“"
-                                        >
-                                            “Feedback placeholder text — concise, specific, and credible. It highlights reliability, discretion, and precision in
-                                            execution.”
-                                        </div>
-
-                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                            Name Position Company
-                                        </div>
+                                        <div class="feedback-text" data-en="“Feedback placeholder…”" data-de="„Feedback-Platzhalter…“">“Feedback placeholder…”</div>
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">Name Position Company</div>
                                     </div>
-
                                     <div class="feedback-card">
-                                        <div
-                                            class="feedback-text"
-                                            data-en="“Clear structure, calm leadership on-site, and a strong sense for protocol and stakeholder expectations.”"
-                                            data-de="„Klare Struktur, ruhige Führung vor Ort und ein starkes Gespür für Protokoll und Stakeholder-Erwartungen.“"
-                                        >
-                                            “Clear structure, calm leadership on-site, and a strong sense for protocol and stakeholder expectations.”
-                                        </div>
-
-                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                            Name Position Company
-                                        </div>
+                                        <div class="feedback-text" data-en="“Feedback placeholder…”" data-de="„Feedback-Platzhalter…“">“Feedback placeholder…”</div>
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">Name Position Company</div>
                                     </div>
-
                                     <div class="feedback-card">
-                                        <div
-                                            class="feedback-text"
-                                            data-en="“Highly dependable under time pressure — precise communication, seamless coordination, no surprises.”"
-                                            data-de="„Hochverlässlich unter Zeitdruck — präzise Kommunikation, nahtlose Koordination, keine Überraschungen.“"
-                                        >
-                                            “Highly dependable under time pressure — precise communication, seamless coordination, no surprises.”
-                                        </div>
-
-                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                            Name Position Company
-                                        </div>
-                                    </div>
-
-                                    <div class="feedback-card">
-                                        <div
-                                            class="feedback-text"
-                                            data-en="“Strong cultural sensitivity and discretion in executive and institutional settings.”"
-                                            data-de="„Hohe kulturelle Sensibilität und Diskretion in Executive- und Institutionen-Settings.“"
-                                        >
-                                            “Strong cultural sensitivity and discretion in executive and institutional settings.”
-                                        </div>
-
-                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                            Name Position Company
-                                        </div>
-                                    </div>
-
-                                    <div class="feedback-card">
-                                        <div
-                                            class="feedback-text"
-                                            data-en="“The kind of operational precision you want when reputations and visibility are on the line.”"
-                                            data-de="„Die Art von operativer Präzision, die man braucht, wenn Reputation und Sichtbarkeit auf dem Spiel stehen.“"
-                                        >
-                                            “The kind of operational precision you want when reputations and visibility are on the line.”
-                                        </div>
-
-                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">
-                                            Name Position Company
-                                        </div>
+                                        <div class="feedback-text" data-en="“Feedback placeholder…”" data-de="„Feedback-Platzhalter…“">“Feedback placeholder…”</div>
+                                        <div class="feedback-signature" data-en="Name\nPosition\nCompany" data-de="Name\nPosition\nUnternehmen">Name Position Company</div>
                                     </div>
                                 </div>
                             </div>
@@ -318,11 +282,55 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                             </button>
                         </div>
                     </div>
-                </section> -->
+                    -->
+                </section>
+
+                <!-- ==== APPROACH ==== -->
+                <section class="section anchor" id="approach">
+                    <h2 data-en="Approach" data-de="Arbeitsweise">Approach</h2>
+
+                    <div class="approach-list">
+                        <div class="approach-item">
+                            <div class="approach-head">
+                                <div class="approach-bullet" aria-hidden="true"></div>
+                                <p class="approach-text" data-en="Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations." data-de="Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen.">
+                                    Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="approach-item">
+                            <div class="approach-head">
+                                <div class="approach-bullet" aria-hidden="true"></div>
+                                <p class="approach-text" data-en="Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically." data-de="Protokoll & Struktur — Gestaltung des passenden Rahmens — prozessual, kulturell und symbolisch.">
+                                    Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="approach-item">
+                            <div class="approach-head">
+                                <div class="approach-bullet" aria-hidden="true"></div>
+                                <p class="approach-text" data-en="Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination." data-de="Umsetzung & Führung vor Ort — Operatives Kommando, Entscheidungen in Echtzeit und ruhige Koordination.">
+                                    Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="approach-item">
+                            <div class="approach-head">
+                                <div class="approach-bullet" aria-hidden="true"></div>
+                                <p class="approach-text" data-en="Review & Continuity — Evaluation, documentation and preparation for future engagements." data-de="Review & Kontinuität — Auswertung, Dokumentation und Vorbereitung zukünftiger Einsätze.">
+                                    Review & Continuity — Evaluation, documentation and preparation for future engagements.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- ==== CONTACT ==== -->
                 <section class="section anchor" id="contact">
-                    <h2 data-en="CONTACT" data-de="KONTAKT">CONTACT</h2>
+                    <h2 data-en="Contact" data-de="Kontakt">Contact</h2>
 
                     <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
                         Let’s discuss your project
@@ -337,9 +345,7 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                     </p>
 
                     <p class="body-text contact-cta">
-                        <a class="cta-btn" href="/cdn-cgi/l/email-protection#ef828e8683af878e9a848a9b87868282c18c8082" data-en="Get in Touch" data-de="Kontakt aufnehmen">
-                            Get in Touch
-                        </a>
+                        <a class="cta-btn" href="mailto:mail@haukethimm.com" data-en="Get in Touch" data-de="Kontakt aufnehmen">Get in Touch</a>
 
                         <span data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">
                             Discreet handling of all inquiries.
@@ -349,44 +355,53 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
             </main>
 
             <!-- ==== PRE-FOOTER ==== -->
-            <!-- Typografie: bewusst Body (Source Sans 18px, 300) -->
             <section class="pre-footer" aria-label="Additional contact options">
-              <div class="pre-footer-inner">
-                  <div class="pre-footer-col">
-                      <div class="pre-footer-item">
-                          <span class="gold-frame frame--md shape--round">
-                              <img src="assets/img/contact_phone.png" alt="" />
-                          </span>
-                          <p class="pre-footer-text">+49 160 95364569</p>
-                      </div>
-                  </div>
-
-                  <div class="pre-footer-col">
-                    <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="assets/img/contact_email.png" alt="" />
-                        </span>
-
-                        <!-- Mailto-Link (gleiches Typography-Handling wie Text) -->
-                        <p class="pre-footer-text">
-                            <a class="pre-footer-link" href="mailto:mail@haukethimm.com">mail@haukethimm.com</a>
-                        </p>
+                <div class="pre-footer-inner">
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="assets/img/contact_phone.png" alt="" />
+                            </span>
+                            <p class="pre-footer-text">+49 (0)160 95364569</p>
+                        </div>
                     </div>
-                  </div>
 
-                  <div class="pre-footer-col">
-                      <a class="pre-footer-item pre-footer-link" href="/assets/files/hauke-thimm.vcf" download="Hauke_Thimm.vcf">
-                          <span class="gold-frame frame--md shape--round">
-                              <img src="assets/img/contact_businesscard.png" alt="" />
-                          </span>
-                          <p class="pre-footer-text" data-en="Save contact" data-de="Kontakt speichern">Save contact</p>
-                      </a>
-                  </div>
-              </div>
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="assets/img/contact_email.png" alt="" />
+                            </span>
+                            <a class="pre-footer-link" href="mailto:mail@haukethimm.com">
+                                <span class="pre-footer-text">mail@haukethimm.com</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="assets/img/contact_businesscard.png" alt="" />
+                            </span>
+                            <a class="pre-footer-link" href="assets/haukethimm.vcf" download data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">
+                                <span class="pre-footer-text">Business card (vcf)</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="assets/img/contact_onepager.png" alt="" />
+                            </span>
+                            <a class="pre-footer-link" href="assets/onepager.pdf" target="_blank" rel="noopener noreferrer" data-en="One-pager" data-de="One-Pager">
+                                <span class="pre-footer-text">One-pager</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- ==== FOOTER ==== -->
-            <!-- Footer: Body (Source Sans 18px, 300). Labels: 500. Legal-Links: 300. -->
             <footer class="footer anchor" id="imprint">
                 <div class="footer-inner">
                     <div class="footer-left">
@@ -395,14 +410,14 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
 
                             <div class="qualifications-logos">
                                 <a href="https://www.handelskammer-hamburg.de/" target="_blank" rel="noopener noreferrer" aria-label="Handelskammer Hamburg">
-                                    <span class="gold-frame frame--md shape--round">
-                                        <img src="assets/img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                                    <span class="gold-frame frame--md shape--rect">
+                                        <img src="assets/img/placeholder1.jpg" alt="Handelskammer Hamburg" />
                                     </span>
                                 </a>
 
                                 <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
                                     <span class="gold-frame frame--md shape--round">
-                                        <img src="assets/img/protocolbureau.jpg" alt="Protocolbureau" />
+                                        <img src="assets/img/placeholder2.png" alt="Protocolbureau" />
                                     </span>
                                 </a>
                             </div>
@@ -415,15 +430,10 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
                     </a>
 
                     <div class="follow">
-                        <p class="follow-label" data-en="Follow / Connect:" data-de="Folgen / Vernetzen:">Follow / Connect:</p>
-                        <div class="follow-icons">
-                            <a href="https://www.linkedin.com/in/haukethimm/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                <span class="gold-frame frame--md shape--round">
-                                    <img src="assets/img/linkedin.png" alt="LinkedIn" />
-                                </span>
-                            </a>
+                        <p class="follow-label" data-en="Follow me:" data-de="Folge mir:">Follow me:</p>
 
-                            <a href="https://www.instagram.com/haukethimm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <div class="follow-icons">
+                            <a href="https://www.instagram.com/haukethimm?igsh=bXVkc3o4MW1mcnVk&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <span class="gold-frame frame--md shape--round">
                                     <img src="assets/img/instagram.png" alt="Instagram" />
                                 </span>
@@ -444,11 +454,7 @@ Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwi
             </footer>
         </div>
 
-        <!-- ==== OPTIONAL: CLOUDFLARE / BOOTSTRAP ==== -->
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
-
-        <!-- ==== MAIN JS (EXTERN, DEFER) ==== -->
+        <!-- ==== SCRIPTS ==== -->
         <script defer src="assets/js/main.js"></script>
     </body>
 </html>
