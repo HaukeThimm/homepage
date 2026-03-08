@@ -894,7 +894,34 @@ section.anchor {
     .backtop { align-self: center; }
     .follow { align-self: flex-start; text-align: left; }
 
-    .legal-text { position: static; margin-top: 8px; align-self: flex-end; }
+    /* ==== FOOTER: LEGAL LINE (© | Links) ==== */
+    /* Abstand: 7px links & rechts um den | Separatoren */
+    .legal-text{
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        white-space: nowrap;
+    }
+
+    .legal-sep{
+        margin: 0 7px;          /* 7px links + 7px rechts */
+        opacity: 0.9;
+    }
+
+    .legal-copy{
+        font: inherit;          /* übernimmt Font/Size/Weight aus .legal-text */
+        color: inherit;
+    }
+
+    .legal-link{
+        color: inherit;
+        text-decoration: none;
+        font: inherit;
+    }
+
+    .legal-link:hover{
+        text-decoration: underline;
+    }
 
     /* Pfeile bleiben 40px, sitzen auf der Mobile-Textflucht (side-pad=18px) */
 }
@@ -911,4 +938,123 @@ section.anchor {
 .page--imprint .content{
     padding-left: var(--side-pad);
     padding-right: var(--side-pad);
+}
+
+/* ==== PAGE: CONTACT (OFFSETS + PADDING) ==== */
+/* Kontaktseite hat kein Headerbild -> Abstand unter fixed Nav wie Imprint */
+.page--contact .page-offset{
+    padding-top: calc(var(--banner-h) + var(--hero-offset));
+}
+
+/* Content-Padding robust wie Main Page */
+.page--contact .content{
+    padding-left: var(--side-pad);
+    padding-right: var(--side-pad);
+}
+
+/* ==== CONTACT FORM (BREITE / RHYTHMUS) ==== */
+/* Desktop: 25% Viewport-Breite, aber nicht zu schmal/zu breit */
+.contact-form{
+    width: clamp(360px, 25vw, 560px);
+    margin-top: var(--block-gap);
+}
+
+/* Mobile: 75% Viewport-Breite */
+@media (max-width: 768px){
+    .contact-form{
+        width: 75vw;
+        max-width: 560px;
+    }
+}
+
+/* Labels: Body, aber 500 für bessere Führung */
+.form-label{
+    display: block;
+    margin: 0 0 8px 0;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: 500;
+    line-height: var(--lh-body);
+}
+
+/* Goldframe-Optik für Felder (wie deine Cards/Frames):
+   - transparenter Border
+   - Innenfläche cream
+   - Goldtextur im Border */
+.form-field{
+    width: 100%;
+    display: block;
+
+    padding: 12px 14px;
+    margin: 0 0 18px 0;
+
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: 400;
+    line-height: var(--lh-body);
+    color: var(--blue);
+
+    background: linear-gradient(var(--cream), var(--cream)) padding-box,
+                url("../img/highlights_gold.png") border-box;
+    border: var(--frame-w-sm) solid transparent;
+    border-radius: var(--frame-r-md);
+
+    outline: none;
+}
+
+/* Textarea: nur Höhe etwas angenehmer */
+.form-textarea{
+    resize: vertical;
+    min-height: 160px;
+}
+
+/* Focus: klar, aber dezent */
+.form-field:focus{
+    border-width: var(--frame-w-md);
+}
+
+/* 2 Spalten für Eventzeitraum (Desktop), 1 Spalte Mobile */
+.form-row-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+@media (max-width: 768px){
+    .form-row-2{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Privacy-Text unter dem Formular */
+.form-privacy{
+    margin-top: 4px;
+    margin-bottom: 18px;
+}
+
+/* Link im Formular */
+.form-link{
+    color: var(--blue);
+    text-decoration: underline;
+    font: inherit;
+}
+
+/* Submit Button: passend zu deinem Stil (ohne Goldframe-Overkill) */
+.form-submit{
+    display: inline-block;
+    padding: 0.65em 1.2em;
+
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: 500;
+
+    color: var(--blue);
+    background: transparent;
+
+    border: var(--frame-w-sm) solid var(--blue);
+    border-radius: var(--frame-r-md);
+
+    cursor: pointer;
+}
+.form-submit:hover{
+    text-decoration: underline;
 }
