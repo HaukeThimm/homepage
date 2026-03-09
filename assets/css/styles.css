@@ -150,9 +150,9 @@
     --frame-w-md: 3px;
     --frame-w-lg: 5px;
 
-    --frame-r-sm: 2px;
-    --frame-r-md: 4px;
-    --frame-r-lg: 6px;
+    --frame-r-sm: 10px;
+    --frame-r-md: 15px;
+    --frame-r-lg: 20px;
 
     /* Language Button Größe */
     --lang-btn-size: 25px;
