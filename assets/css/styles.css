@@ -146,9 +146,9 @@
     --block-gap: 40px;
 
     /* Goldrahmen */
-    --frame-w-sm: 2px;
-    --frame-w-md: 4px;
-    --frame-w-lg: 6px;
+    --frame-w-sm: 1px;
+    --frame-w-md: 3px;
+    --frame-w-lg: 5px;
 
     --frame-r-sm: 2px;
     --frame-r-md: 4px;
@@ -1089,6 +1089,7 @@ section.anchor {
 }
 
 .backtop:hover {
+    font-weight: 700;
     text-decoration: underline;
 }
 
