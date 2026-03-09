@@ -1125,21 +1125,28 @@ section.anchor {
    - Frame bekommt nur feinen Goldrahmen
    - Bild wird "contain" angezeigt, also nicht gecroppt */
 
-.follow-icons .gold-frame {
+.follow-icons .follow-icon {
     height: var(--follow-h);
-    width: var(--follow-w);              /* auto oder z.B. clamp(...) */
-    border-width: var(--frame-w-sm);     /* feiner Rahmen */
-    border-radius: 0;                    /* Frame folgt NICHT einer künstlichen Form */
-    overflow: visible;                   /* wichtig: damit runde PNG-Ecken sichtbar bleiben */
-    background-clip: padding-box, border-box;
+    width: auto;                 /* Seitenverhältnis bleibt */
+    border-width: var(--frame-w-sm);
+    overflow: hidden;            /* Rahmen folgt der Rundung sauber */
 }
 
-.follow-icons .gold-frame > img {
-    width: auto;                         /* Form/Seitenverhältnis bleibt */
+/* Instagram: echter Kreis */
+.follow-icons .follow-icon--round {
+    width: var(--follow-h);
+    border-radius: 50%;
+}
+
+/* LinkedIn: abgerundetes Rechteck (Wert an Logo anpassen) */
+.follow-icons .follow-icon--soft {
+    border-radius: 15%;         /* <- hier feinjustieren (oder in px: z.B. 22–34px) */
+}
+
+.follow-icons .follow-icon > img {
+    width: auto;
     height: 100%;
-    object-fit: contain;
-    padding: var(--follow-pad);
-    border-radius: 0;                    /* Bild behält eigene Form (PNG/Alpha) */
+    object-fit: contain;         /* kein Cropping */
     display: block;
 }
 
