@@ -1,6 +1,5 @@
 /* ===== FILE: assets/css/styles.css ===== */
 
-
 /* ==== FONTS (LOKAL) ==== */
 /* Pfade relativ zu assets/css/ -> ../fonts/... */
 
@@ -819,6 +818,9 @@ section.anchor {
 
 
 /* ==== PRE-FOOTER ==== */
+/* Struktur: [padding] | A | B | C | [padding]
+   - A/B/C sind immer gleich breit (minmax(0,1fr))
+   - Icons/Text linksbündig, vertikal zentriert */
 
 .pre-footer {
     width: 100%;
@@ -837,17 +839,23 @@ section.anchor {
 .pre-footer-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--side-pad);
     width: 100%;
 
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 30px;
-    row-gap: 18px;
+    padding-left: var(--side-pad);
+    padding-right: var(--side-pad);
 
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 30px;
     align-items: center;
-    justify-items: start;   /* <- stabilisiert das Layout */
-    align-content: center;  /* <- verhindert “nach oben kleben” */
+}
+
+.pre-footer-col {
+    min-width: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
 }
 
 .pre-footer-item {
@@ -859,12 +867,13 @@ section.anchor {
 }
 
 .pre-footer-link {
-    display: inline-flex;  /* <- verhindert Text-Underline-Quirks */
+    display: inline-flex;
     align-items: center;
     gap: 18px;
 
     color: var(--cream);
     text-decoration: none;
+
     min-width: 0;
 }
 
@@ -877,7 +886,6 @@ section.anchor {
     height: var(--prefooter-icon);
     flex: 0 0 var(--prefooter-icon);
     aspect-ratio: 1 / 1;
-
     border-radius: 50%;
 }
 
@@ -894,6 +902,7 @@ section.anchor {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 
 /* ==== FOOTER ==== */
 /* Layout-Raster: 3 Spalten × 2 Zeilen, Inhalte werden in Cells gezwungen. */
@@ -916,6 +925,7 @@ section.anchor {
 .footer-inner {
     max-width: var(--max-width);
     margin: 0 auto;
+
     padding-left: var(--side-pad);
     padding-right: var(--side-pad);
 
@@ -923,11 +933,11 @@ section.anchor {
 
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: 1fr auto; /* <- Row 1 füllt, Row 2 sitzt unten */
+    grid-template-rows: 1fr auto;
     column-gap: var(--footer-gap-x);
     row-gap: var(--footer-gap-y);
 
-    min-height: var(--footer-min-h); /* <- sorgt für “unten bündig” */
+    min-height: var(--footer-min-h);
     align-items: start;
 }
 
@@ -1003,23 +1013,10 @@ section.anchor {
     text-align: left;
 }
 
-/* Alternative: C2 rechtsbündig */
-/*
+.footer-B2,
 .footer-C2 {
-    justify-self: end;
     align-self: end;
-    text-align: right;
 }
-*/
-
-/* Optionaler Abstand/Divider zwischen Row 1 und Row 2 */
-/*
-.footer-row-divider {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    height: var(--footer-row-divider-h);
-}
-*/
 
 /* Qualifications (A1) */
 .qualifications {
@@ -1030,9 +1027,12 @@ section.anchor {
     overflow: hidden;
 }
 
-.qualifications-label {
+/* Labels: gleiche Oberkante in Row 1 (3b) */
+.qualifications-label,
+.follow-label {
+    margin-top: 0;
+    margin-bottom: 12px;
     font-weight: var(--fw-sub);
-    margin: 0 0 12px 0;
     color: var(--cream);
 }
 
@@ -1045,15 +1045,6 @@ section.anchor {
     flex-wrap: nowrap;
     overflow: hidden;
 }
-
-/* Alternative: Logos nebeneinander */
-/*
-.qualifications-logos {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-}
-*/
 
 .qualifications-logos .gold-frame {
     height: var(--qual-h);
@@ -1083,37 +1074,21 @@ section.anchor {
 /* Back to top (B1) */
 .backtop {
     display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--backtop-gap);
+    align-items: flex-start;
+    justify-content: center;
 
-    padding-top: var(--footer-col-top);
+    padding-top: 0;
+    margin-top: 0;
 
     color: var(--cream);
     text-decoration: none;
 
-    font-size: 16px;
-    font-weight: 300;
-
-    overflow: hidden;
-}
-
-/* .backtop .chevron-img {
-    width: var(--backtop-icon-h);
-    height: auto;
-    display: block;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
 }
 
 .backtop:hover {
-    font-weight: 700;
-}
-
-.backtop:hover .backtop-text {
-    text-decoration: underline;
-} */
-
-.backtop:hover {
-    font-weight: 700;
     text-decoration: underline;
 }
 
@@ -1124,12 +1099,6 @@ section.anchor {
     align-items: flex-start;
     gap: 12px;
     overflow: hidden;
-}
-
-.follow-label {
-    font-weight: var(--fw-sub);
-    margin: 0 0 12px 0;
-    color: var(--cream);
 }
 
 .follow-icons {
@@ -1201,14 +1170,11 @@ section.anchor {
 
 @media (max-width: 768px) {
     :root {
-        /* Layout */
         --side-pad: 18px;
         --banner-h: 64px;
 
-        /* Pre-Footer */
         --prefooter-icon: 60px;
 
-        /* Footer Media Tokens */
         --follow-h: 34px;
         --follow-w: auto;
         --follow-pad: 0px;
@@ -1234,9 +1200,9 @@ section.anchor {
 
     .pre-footer-inner {
         grid-template-columns: 1fr;
+        row-gap: 18px;
     }
 
-    /* Footer Raster bleibt Grid, wird aber 1-spaltig gestapelt */
     .footer-inner {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto auto auto;
