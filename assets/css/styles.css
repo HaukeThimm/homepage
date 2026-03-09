@@ -44,43 +44,42 @@
     font-style: italic;
     font-display: swap;
 }
-
-@font-face{
+@font-face {
     font-family:"Source Sans 3";
     src:url("../fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
     font-weight:400;
     font-style:normal;
     font-display:swap;
 }
-@font-face{
+@font-face {
     font-family:"Source Sans 3";
     src:url("../fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
     font-weight:500;
     font-style:normal;
     font-display:swap;
 }
-@font-face{
+@font-face {
     font-family:"Source Sans 3";
     src:url("../fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
     font-weight:600;
     font-style:normal;
     font-display:swap;
 }
-@font-face{
+@font-face {
     font-family:"Source Sans 3";
     src:url("../fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
     font-weight:400;
     font-style:italic;
     font-display:swap;
 }
-@font-face{
+@font-face {
     font-family:"Source Sans 3";
     src:url("../fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
     font-weight:500;
     font-style:italic;
     font-display:swap;
 }
-@font-face{
+@font-face {
     font-family:"Source Sans 3";
     src:url("../fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
     font-weight:600;
@@ -113,7 +112,7 @@
     --fs-sub: 24px;
     --fs-body: 18px;
 
-    /* Schriftgewichte */
+    /* Schriftgewichte (Style) */
     --fw-head: 700;
     --fw-sub: 500;
     --fw-body: 300;
@@ -141,19 +140,23 @@
     --frame-r-md: 4px;
     --frame-r-lg: 6px;
 
-    /* Language Button Größe (SEPARAT STEUERBAR) */
+    /* Language Button Größe */
     --lang-btn-size: 25px;
 
     /* Carousel */
     --carousel-fade: 40px;
 
-    /* Footer Icon Sizes (SEPARAT STEUERBAR) */
-    --follow-icon-size: 50px;
-    --follow-icon-pad: 0px;     /* "none" -> 0px */
+    /* Pre-Footer Icon Größe */
+    --prefooter-icon: 75px;
 
-    --qual-logo-h: 50px;
-    --qual-logo-pad: 0px;       /* "none" -> 0px */
-    --qual-logo-max-w: 140px;
+    /* Footer: Tokens für Qualifications / Social Media */
+    --follow-h: 40px;
+    --follow-w: auto;
+    --follow-pad: 0px;
+
+    --qual-h: 50px;
+    --qual-w: auto;
+    --qual-pad: 0px;
 
     /* Footer Align */
     --footer-col-top: 10px;
@@ -178,8 +181,7 @@ body {
 }
 
 /* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
-/* - border-radius + overflow hidden sorgt für saubere Außen- und Innenkanten
-   - background-clip sorgt dafür, dass auch die innere Fläche die Rundungen übernimmt */
+/* Saubere Außen- UND Innenrundung via padding-box / border-box + overflow hidden */
 .gold-frame {
     display: inline-flex;
     align-items: center;
@@ -213,9 +215,6 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-
-    /* Innere Ecken übernehmen */
     border-radius: inherit;
 }
 
@@ -243,7 +242,6 @@ body {
 }
 
 /* ==== NAV: GRID-ALIGNMENT ==== */
-/* 5 Links + Language Toggle (auto) -> Toggle immer rechtsbündig */
 .nav-items{
     width: 100%;
     display: grid;
@@ -267,14 +265,12 @@ body {
 .nav-items a.nav-link:hover { text-decoration: underline; }
 
 /* ==== LANGUAGE TOGGLE ==== */
-/* Es wird immer nur die inaktive Sprache angezeigt. */
 .lang-toggle {
     position: relative;
     width: var(--lang-btn-size);
     height: var(--lang-btn-size);
     flex: 0 0 var(--lang-btn-size);
-
-    justify-self: end; /* immer rechts im Grid */
+    justify-self: end;
 }
 
 .lang-btn {
@@ -289,7 +285,6 @@ body {
     cursor: pointer;
 }
 
-/* aktive Sprache ausblenden */
 .lang-btn.is-active { display: none; }
 .lang-btn:not(.is-active) { display: inline-flex; }
 
@@ -448,7 +443,6 @@ section.anchor {
     transition: transform 180ms ease;
 }
 
-/* geöffnet: anderes Icon */
 .service-item.open .service-arrow{
     background-image: url("../img/button_L.png");
     transform: rotate(90deg);
@@ -488,7 +482,6 @@ section.anchor {
 .cta-btn:hover { text-decoration: underline; }
 
 /* ==== CAROUSEL (CREDENTIALS) ==== */
-/* (Markup ist aktuell auskommentiert; Styles bleiben für später.) */
 #credentials .carousel-shell{
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -667,19 +660,15 @@ section.anchor {
 .pre-footer-link:hover{ text-decoration: underline; }
 
 .pre-footer-item .gold-frame {
-    width: 75px;
-    height: 75px;
-    flex: 0 0 75px;
+    width: var(--prefooter-icon);
+    height: var(--prefooter-icon);
+    flex: 0 0 var(--prefooter-icon);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
 }
 
 .pre-footer-item .gold-frame > img{
-    width: 100%;
-    height: 100%;
     object-fit: contain;
-    padding: 0; /* "none" -> 0 */
-    display: block;
 }
 
 .pre-footer-text{
@@ -744,29 +733,22 @@ section.anchor {
 }
 
 .qualifications-logos .gold-frame{
-    height: var(--qual-logo-h);
-    width: auto;
-    max-width: var(--qual-logo-max-w);
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    height: var(--qual-h);
+    width: var(--qual-w);
 }
 
 .qualifications-logos .gold-frame > img{
-    display: block;
     height: 100%;
     width: auto;
     max-width: 100%;
     object-fit: contain;
-    padding: var(--qual-logo-pad);
+    padding: var(--qual-pad);
 }
 
 .qualifications-logos .gold-frame.shape--round{
-    width: var(--qual-logo-h);
-    height: var(--qual-logo-h);
-    flex: 0 0 var(--qual-logo-h);
+    width: var(--qual-h);
+    height: var(--qual-h);
+    flex: 0 0 var(--qual-h);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
 }
@@ -818,20 +800,24 @@ section.anchor {
 }
 
 /* ==== FOLLOW ICONS (SIZE VIA TOKENS) ==== */
-.follow-icons .gold-frame.shape--round{
-    width: var(--follow-icon-size);
-    height: var(--follow-icon-size);
-    flex: 0 0 var(--follow-icon-size);
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
+.follow-icons .gold-frame{
+    height: var(--follow-h);
+    width: var(--follow-w);
 }
 
 .follow-icons .gold-frame > img{
-    width: 100%;
     height: 100%;
+    width: auto;
     object-fit: contain;
-    padding: var(--follow-icon-pad);
-    display: block;
+    padding: var(--follow-pad);
+}
+
+.follow-icons .gold-frame.shape--round{
+    width: var(--follow-h);
+    height: var(--follow-h);
+    flex: 0 0 var(--follow-h);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
 }
 
 /* ==== FOOTER: LEGAL LINE (© | LINKS) ==== */
@@ -869,14 +855,24 @@ section.anchor {
 
 /* ==== RESPONSIVE (MOBILE) ==== */
 @media (max-width: 768px) {
-    :root {
-        --banner-h: 64px;
+    :root{
+        /* Layout */
         --side-pad: 18px;
-        --carousel-fade: 28px;
-        --lang-btn-size: 22px;
+        --banner-h: 64px;
+
+        /* Pre-Footer */
+        --prefooter-icon: 60px;
+
+        /* Footer Media Tokens */
+        --follow-h: 34px;
+        --follow-w: auto;
+        --follow-pad: 0px;
+
+        --qual-h: 44px;
+        --qual-w: auto;
+        --qual-pad: 0px;
     }
 
-    .nav-inner { padding: 0 var(--side-pad); }
     .nav-items { grid-template-columns: repeat(3, 1fr); row-gap: 8px; }
     .nav-items .lang-toggle{ justify-self: end; }
 
