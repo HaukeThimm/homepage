@@ -150,9 +150,9 @@
     --frame-w-md: 3px;
     --frame-w-lg: 5px;
 
-    --frame-r-sm: 10px;
-    --frame-r-md: 15px;
-    --frame-r-lg: 20px;
+    --frame-r-sm: 1px;
+    --frame-r-md: 3px;
+    --frame-r-lg: 5px;
 
     /* Language Button Größe */
     --lang-btn-size: 25px;
@@ -1102,6 +1102,14 @@ section.anchor {
     overflow: hidden;
 }
 
+/* Labels: gleiche Oberkante in Row 1 */
+.follow-label {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: var(--fw-sub);
+    color: var(--cream);
+}
+
 .follow-icons {
     display: flex;
     flex-direction: row;
@@ -1111,26 +1119,36 @@ section.anchor {
     overflow: hidden;
 }
 
+/* Follow Icons (Form der Datei beibehalten) */
+/* WICHTIG:
+   - KEIN shape--round erzwingen
+   - Frame bekommt nur feinen Goldrahmen
+   - Bild wird "contain" angezeigt, also nicht gecroppt */
+
 .follow-icons .gold-frame {
     height: var(--follow-h);
-    width: var(--follow-w);
-    overflow: hidden;
+    width: var(--follow-w);              /* auto oder z.B. clamp(...) */
+    border-width: var(--frame-w-sm);     /* feiner Rahmen */
+    border-radius: 0;                    /* Frame folgt NICHT einer künstlichen Form */
+    overflow: visible;                   /* wichtig: damit runde PNG-Ecken sichtbar bleiben */
+    background-clip: padding-box, border-box;
 }
 
 .follow-icons .gold-frame > img {
-    width: 100%;
+    width: auto;                         /* Form/Seitenverhältnis bleibt */
     height: 100%;
     object-fit: contain;
     padding: var(--follow-pad);
+    border-radius: 0;                    /* Bild behält eigene Form (PNG/Alpha) */
+    display: block;
 }
 
-.follow-icons .gold-frame.shape--round {
-    width: var(--follow-h);
-    height: var(--follow-h);
-    flex: 0 0 var(--follow-h);
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-}
+/* Optional: Wenn du dem LinkedIn-Rechteck trotzdem leicht runde Außenkanten geben willst:
+   (dann wäre es "Rahmenform", nicht Dateiform) */
+/* .follow-icons .gold-frame {
+    border-radius: var(--frame-r-md);
+    overflow: hidden;
+} */
 
 /* Copyright (B2) */
 .footer-copy {
