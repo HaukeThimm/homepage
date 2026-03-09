@@ -1,11 +1,11 @@
 /* ===== FILE: assets/css/styles.css ===== */
 
 /* ==== FONTS (LOKAL) ==== */
-/* Pfade relativ zu assets/css/ -> ../fonts/... */
+/* Pfade relativ zu assets/css/ -> assets/fonts/... */
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -29,7 +29,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
     font-weight: 300;
     font-style: italic;
     font-display: swap;
@@ -37,7 +37,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -45,7 +45,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -53,7 +53,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -61,7 +61,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -69,7 +69,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -77,7 +77,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -85,7 +85,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -93,7 +93,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
     font-weight: 600;
     font-style: italic;
     font-display: swap;
@@ -232,7 +232,7 @@ body {
     overflow: hidden;
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
+                url("assets/img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -555,7 +555,7 @@ section.anchor {
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
+                url("assets/img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -577,7 +577,7 @@ section.anchor {
 .service-bullet {
     width: 22px;
     height: 22px;
-    background: url("../img/bulletpoint.png") center / contain no-repeat;
+    background: url("assets/img/bulletpoint.png") center / contain no-repeat;
 }
 
 .service-title {
@@ -587,14 +587,14 @@ section.anchor {
 .service-arrow {
     width: 18px;
     height: 18px;
-    background: url("../img/button_R.png") center / contain no-repeat;
+    background: url("assets/img/button_R.png") center / contain no-repeat;
     opacity: 0.8;
     transform: translateY(1px);
     transition: transform 180ms ease;
 }
 
 .service-item.open .service-arrow {
-    background-image: url("../img/button_L.png");
+    background-image: url("assets/img/button_L.png");
     transform: rotate(90deg);
 }
 
@@ -638,7 +638,7 @@ section.anchor {
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--blue), var(--blue)) padding-box,
-                url("../img/highlights_gold.png") border-box;
+                url("assets/img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -788,7 +788,7 @@ section.anchor {
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
+                url("assets/img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -808,7 +808,7 @@ section.anchor {
 .approach-bullet {
     width: 22px;
     height: 22px;
-    background: url("../img/bulletpoint.png") center / contain no-repeat;
+    background: url("assets/img/bulletpoint.png") center / contain no-repeat;
     transform: translateY(2px);
 }
 
