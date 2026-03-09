@@ -1140,7 +1140,7 @@ section.anchor {
 
 /* LinkedIn: abgerundetes Rechteck (Wert an Logo anpassen) */
 .follow-icons .follow-icon--soft {
-    border-radius: 15%;         /* <- hier feinjustieren (oder in px: z.B. 22–34px) */
+    border-radius: 28px;         /* <- hier feinjustieren (z.B. 22–34px) */
 }
 
 .follow-icons .follow-icon > img {
