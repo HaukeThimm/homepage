@@ -2,11 +2,11 @@
 
 /* ==== FONTS (LOKAL) ==== */
 /* Profi-like: Pfade relativ zu /assets/css/styles.css
-   -> Root /fonts/ liegt zwei Ebenen höher: ../../fonts/ */
+   -> Root /fonts/ liegt zwei Ebenen höher: assets/fonts/ */
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -22,7 +22,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -30,7 +30,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
     font-weight: 300;
     font-style: italic;
     font-display: swap;
@@ -38,7 +38,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -46,7 +46,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
+    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -54,7 +54,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../../fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -62,7 +62,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../../fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -70,7 +70,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../../fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -78,7 +78,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../../fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -86,7 +86,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../../fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -94,7 +94,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../../fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
+    src: url("assets/fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
     font-weight: 600;
     font-style: italic;
     font-display: swap;
@@ -170,14 +170,14 @@
     --footer-legal-gap: 40px;
 
     /* ==== ASSET PATHS (ZENTRAL) ==== */
-    /* styles.css: /assets/css/  -> Root /img/: ../../img/ */
-    --img-gold: url("../../img/highlights_gold.png");
-    --img-bullet: url("../../img/bulletpoint.png");
-    --img-service-open: url("../../img/button_L.png");
-    --img-service-closed: url("../../img/button_R.png");
+    /* styles.css: /assets/css/  -> Root /img/: assets/img/ */
+    --img-gold: url("assets/img/highlights_gold.png");
+    --img-bullet: url("assets/img/bulletpoint.png");
+    --img-service-open: url("assets/img/button_L.png");
+    --img-service-closed: url("assets/img/button_R.png");
 
     /* Fallback: Rahmen ist sichtbar, auch wenn Textur fehlt */
-    --gold-solid: #c9a24a;
+    --gold-solid: #CDC3A4;
 }
 
 
