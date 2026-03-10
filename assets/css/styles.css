@@ -1,11 +1,12 @@
 /* ===== FILE: assets/css/styles.css ===== */
 
 /* ==== FONTS (LOKAL) ==== */
-/* Pfade relativ zu assets/css/ -> assets/fonts/... */
+/* Profi-like: Pfade IMMER relativ zu dieser Datei (assets/css/styles.css)
+   -> Fonts liegen in assets/fonts/  => ../fonts/... */
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
+    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -13,7 +14,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
+    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -21,7 +22,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
+    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -29,7 +30,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
+    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
     font-weight: 300;
     font-style: italic;
     font-display: swap;
@@ -37,7 +38,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
+    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -45,7 +46,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("assets/fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
+    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -53,7 +54,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("assets/fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
+    src: url("../fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -61,7 +62,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("assets/fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
+    src: url("../fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -69,7 +70,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("assets/fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
+    src: url("../fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -77,7 +78,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("assets/fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
+    src: url("../fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -85,7 +86,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("assets/fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
+    src: url("../fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -93,7 +94,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("assets/fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
+    src: url("../fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
     font-weight: 600;
     font-style: italic;
     font-display: swap;
@@ -126,7 +127,7 @@
     --fs-sub: 24px;
     --fs-body: 18px;
 
-    /* Schriftgewichte (Style) */
+    /* Schriftgewichte */
     --fw-head: 700;
     --fw-sub: 500;
     --fw-body: 300;
@@ -177,9 +178,8 @@
 
     /* Footer Align */
     --footer-col-top: 10px;
-    --backtop-icon-h: 20px;
     --backtop-gap: 3px;
-    --footer-align-to-backtop-text: calc(var(--footer-col-top) + var(--backtop-icon-h) + var(--backtop-gap));
+    --footer-align-to-backtop-text: calc(var(--footer-col-top) + 20px + var(--backtop-gap));
 
     /* Footer Grid System */
     --footer-pad-top: var(--footer-col-top);
@@ -220,7 +220,7 @@ body {
 
 
 /* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
-/* Saubere Außen- UND Innenrundung via padding-box / border-box + overflow hidden */
+/* Profi-like: Pfade relativ zu assets/css/ -> assets/img/... => ../img/... */
 
 .gold-frame {
     display: inline-flex;
@@ -232,7 +232,7 @@ body {
     overflow: hidden;
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("assets/img/highlights_gold.png") border-box;
+                url("../img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -555,7 +555,7 @@ section.anchor {
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("assets/img/highlights_gold.png") border-box;
+                url("../img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -577,7 +577,7 @@ section.anchor {
 .service-bullet {
     width: 22px;
     height: 22px;
-    background: url("assets/img/bulletpoint.png") center / contain no-repeat;
+    background: url("../img/bulletpoint.png") center / contain no-repeat;
 }
 
 .service-title {
@@ -587,14 +587,14 @@ section.anchor {
 .service-arrow {
     width: 18px;
     height: 18px;
-    background: url("assets/img/button_R.png") center / contain no-repeat;
+    background: url("../img/button_R.png") center / contain no-repeat;
     opacity: 0.8;
     transform: translateY(1px);
     transition: transform 180ms ease;
 }
 
 .service-item.open .service-arrow {
-    background-image: url("assets/img/button_L.png");
+    background-image: url("../img/button_L.png");
     transform: rotate(90deg);
 }
 
@@ -638,7 +638,7 @@ section.anchor {
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--blue), var(--blue)) padding-box,
-                url("assets/img/highlights_gold.png") border-box;
+                url("../img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -788,7 +788,7 @@ section.anchor {
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("assets/img/highlights_gold.png") border-box;
+                url("../img/highlights_gold.png") border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -808,7 +808,7 @@ section.anchor {
 .approach-bullet {
     width: 22px;
     height: 22px;
-    background: url("assets/img/bulletpoint.png") center / contain no-repeat;
+    background: url("../img/bulletpoint.png") center / contain no-repeat;
     transform: translateY(2px);
 }
 
@@ -818,9 +818,6 @@ section.anchor {
 
 
 /* ==== PRE-FOOTER ==== */
-/* Struktur: [padding] | A | B | C | [padding]
-   - A/B/C sind immer gleich breit (minmax(0,1fr))
-   - Icons/Text linksbündig, vertikal zentriert */
 
 .pre-footer {
     width: 100%;
@@ -905,7 +902,6 @@ section.anchor {
 
 
 /* ==== FOOTER ==== */
-/* Layout-Raster: 3 Spalten × 2 Zeilen, Inhalte werden in Cells gezwungen. */
 
 .footer {
     background-color: var(--blue);
@@ -952,70 +948,27 @@ section.anchor {
 }
 
 /* Grid Positionen */
-.footer-A1 {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.footer-B1 {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.footer-C1 {
-    grid-column: 3;
-    grid-row: 1;
-}
-
-.footer-A2 {
-    grid-column: 1;
-    grid-row: 2;
-}
-
-.footer-B2 {
-    grid-column: 2;
-    grid-row: 2;
-}
-
-.footer-C2 {
-    grid-column: 3;
-    grid-row: 2;
-}
+.footer-A1 { grid-column: 1; grid-row: 1; }
+.footer-B1 { grid-column: 2; grid-row: 1; }
+.footer-C1 { grid-column: 3; grid-row: 1; }
+.footer-A2 { grid-column: 1; grid-row: 2; }
+.footer-B2 { grid-column: 2; grid-row: 2; }
+.footer-C2 { grid-column: 3; grid-row: 2; }
 
 /* Ausrichtung */
-.footer-A1 {
-    justify-self: start;
-    align-self: start;
-    text-align: left;
-}
+.footer-A1 { justify-self: start; align-self: start; text-align: left; }
+.footer-B1 { justify-self: center; align-self: start; text-align: center; }
+.footer-C1 { justify-self: start; align-self: start; text-align: left; }
+.footer-B2 { justify-self: center; align-self: end; text-align: center; }
+.footer-C2 { justify-self: start; align-self: end; text-align: left; }
 
-.footer-B1 {
-    justify-self: center;
-    align-self: start;
-    text-align: center;
-}
-
-.footer-C1 {
-    justify-self: start;
-    align-self: start;
-    text-align: left;
-}
-
-.footer-B2 {
-    justify-self: center;
-    align-self: end;
-    text-align: center;
-}
-
-.footer-C2 {
-    justify-self: start;
-    align-self: end;
-    text-align: left;
-}
-
-.footer-B2,
-.footer-C2 {
-    align-self: end;
+/* Labels (einheitlich, Doppelungen entfernt) */
+.qualifications-label,
+.follow-label {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: var(--fw-sub);
+    color: var(--cream);
 }
 
 /* Qualifications (A1) */
@@ -1027,16 +980,7 @@ section.anchor {
     overflow: hidden;
 }
 
-/* Labels: gleiche Oberkante in Row 1 (3b) */
-.qualifications-label,
-.follow-label {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-weight: var(--fw-sub);
-    color: var(--cream);
-}
-
-/* Standard: Logos untereinander */
+/* Logos untereinander */
 .qualifications-logos {
     display: flex;
     flex-direction: column;
@@ -1049,7 +993,6 @@ section.anchor {
 .qualifications-logos .gold-frame {
     height: var(--qual-h);
     width: var(--qual-w);
-    overflow: hidden;
 }
 
 .qualifications-logos .gold-frame > img {
@@ -1102,14 +1045,6 @@ section.anchor {
     overflow: hidden;
 }
 
-/* Labels: gleiche Oberkante in Row 1 */
-.follow-label {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-weight: var(--fw-sub);
-    color: var(--cream);
-}
-
 .follow-icons {
     display: flex;
     flex-direction: row;
@@ -1119,43 +1054,29 @@ section.anchor {
     overflow: hidden;
 }
 
-/* Follow Icons (Form der Datei beibehalten) */
-/* WICHTIG:
-   - KEIN shape--round erzwingen
-   - Frame bekommt nur feinen Goldrahmen
-   - Bild wird "contain" angezeigt, also nicht gecroppt */
-
+/* Follow Icons: Rahmenform per Klasse im HTML (follow-icon--round / --soft) */
 .follow-icons .follow-icon {
     height: var(--follow-h);
-    width: auto;                 /* Seitenverhältnis bleibt */
+    width: auto;
     border-width: var(--frame-w-sm);
-    overflow: hidden;            /* Rahmen folgt der Rundung sauber */
+    overflow: hidden;
 }
 
-/* Instagram: echter Kreis */
 .follow-icons .follow-icon--round {
     width: var(--follow-h);
     border-radius: 50%;
 }
 
-/* LinkedIn: abgerundetes Rechteck (Wert an Logo anpassen) */
 .follow-icons .follow-icon--soft {
-    border-radius: 28px;         /* <- hier feinjustieren (z.B. 22–34px) */
+    border-radius: 28px;
 }
 
 .follow-icons .follow-icon > img {
     width: auto;
     height: 100%;
-    object-fit: contain;         /* kein Cropping */
+    object-fit: contain;
     display: block;
 }
-
-/* Optional: Wenn du dem LinkedIn-Rechteck trotzdem leicht runde Außenkanten geben willst:
-   (dann wäre es "Rahmenform", nicht Dateiform) */
-/* .follow-icons .gold-frame {
-    border-radius: var(--frame-r-md);
-    overflow: hidden;
-} */
 
 /* Copyright (B2) */
 .footer-copy {
