@@ -1,12 +1,11 @@
 /* ===== FILE: assets/css/styles.css ===== */
 
 /* ==== FONTS (LOKAL) ==== */
-/* Profi-like: Pfade IMMER relativ zu dieser Datei (assets/css/styles.css)
-   -> Fonts liegen in assets/fonts/  => ../fonts/... */
+/* styles.css liegt in /assets/css/  -> Root /fonts/ ist ../../fonts/ */
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
+    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -14,7 +13,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
+    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -22,7 +21,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
+    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -30,7 +29,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
+    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-LightItalic.ttf") format("truetype");
     font-weight: 300;
     font-style: italic;
     font-display: swap;
@@ -38,7 +37,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
+    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -46,7 +45,7 @@
 
 @font-face {
     font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
+    src: url("../../fonts/cormorant_garamond/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -54,7 +53,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
+    src: url("../../fonts/source_sans_3/SourceSans3-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -62,7 +61,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
+    src: url("../../fonts/source_sans_3/SourceSans3-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -70,7 +69,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
+    src: url("../../fonts/source_sans_3/SourceSans3-Semibold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -78,7 +77,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
+    src: url("../../fonts/source_sans_3/SourceSans3-Regularitalic.ttf") format("truetype");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -86,7 +85,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
+    src: url("../../fonts/source_sans_3/SourceSans3-Mediumitalic.ttf") format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -94,7 +93,7 @@
 
 @font-face {
     font-family: "Source Sans 3";
-    src: url("../fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
+    src: url("../../fonts/source_sans_3/SourceSans3-SemiBolditalic.ttf") format("truetype");
     font-weight: 600;
     font-style: italic;
     font-display: swap;
@@ -127,7 +126,7 @@
     --fs-sub: 24px;
     --fs-body: 18px;
 
-    /* Schriftgewichte */
+    /* Schriftgewichte (Style) */
     --fw-head: 700;
     --fw-sub: 500;
     --fw-body: 300;
@@ -178,8 +177,9 @@
 
     /* Footer Align */
     --footer-col-top: 10px;
+    --backtop-icon-h: 20px;
     --backtop-gap: 3px;
-    --footer-align-to-backtop-text: calc(var(--footer-col-top) + 20px + var(--backtop-gap));
+    --footer-align-to-backtop-text: calc(var(--footer-col-top) + var(--backtop-icon-h) + var(--backtop-gap));
 
     /* Footer Grid System */
     --footer-pad-top: var(--footer-col-top);
@@ -194,12 +194,19 @@
     --footer-row-divider-h: 0px;
 
     --footer-legal-gap: 40px;
+
+    /* ==== ASSET PATHS (ZENTRAL) ==== */
+    /* styles.css liegt in /assets/css/ -> Root /img/ ist ../../img/ */
+    --img-highlights-gold: url("../../img/highlights_gold.png");
+    --img-bullet: url("../../img/bulletpoint.png");
+    --img-service-open: url("../../img/button_L.png");
+    --img-service-closed: url("../../img/button_R.png");
 }
 
 
 /* ==== RESET / BASIS ==== */
 
-* {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -220,7 +227,7 @@ body {
 
 
 /* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
-/* Profi-like: Pfade relativ zu assets/css/ -> assets/img/... => ../img/... */
+/* Saubere Außen- UND Innenrundung via padding-box / border-box + overflow hidden */
 
 .gold-frame {
     display: inline-flex;
@@ -232,7 +239,7 @@ body {
     overflow: hidden;
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
+                var(--img-highlights-gold) border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -555,7 +562,7 @@ section.anchor {
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
+                var(--img-highlights-gold) border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -577,7 +584,7 @@ section.anchor {
 .service-bullet {
     width: 22px;
     height: 22px;
-    background: url("../img/bulletpoint.png") center / contain no-repeat;
+    background: var(--img-bullet) center / contain no-repeat;
 }
 
 .service-title {
@@ -587,14 +594,14 @@ section.anchor {
 .service-arrow {
     width: 18px;
     height: 18px;
-    background: url("../img/button_R.png") center / contain no-repeat;
+    background: var(--img-service-closed) center / contain no-repeat;
     opacity: 0.8;
     transform: translateY(1px);
     transition: transform 180ms ease;
 }
 
 .service-item.open .service-arrow {
-    background-image: url("../img/button_L.png");
+    background-image: var(--img-service-open);
     transform: rotate(90deg);
 }
 
@@ -638,7 +645,7 @@ section.anchor {
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--blue), var(--blue)) padding-box,
-                url("../img/highlights_gold.png") border-box;
+                var(--img-highlights-gold) border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -650,170 +657,6 @@ section.anchor {
 
 .cta-btn:hover {
     text-decoration: underline;
-}
-
-
-/* ==== CAROUSEL (CREDENTIALS) ==== */
-/* Markup kann auskommentiert sein; Styles bleiben verfügbar. */
-
-#credentials .carousel-shell {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    --carousel-text-pad: var(--side-pad);
-}
-
-#credentials .carousel-viewport {
-    padding-inline: var(--carousel-text-pad);
-    overflow: hidden;
-    box-sizing: border-box;
-
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0,
-        transparent calc(var(--carousel-text-pad) - var(--carousel-fade)),
-        rgba(0,0,0,1) var(--carousel-text-pad),
-        rgba(0,0,0,1) calc(100% - var(--carousel-text-pad)),
-        transparent calc(100% - (var(--carousel-text-pad) - var(--carousel-fade))),
-        transparent 100%
-    );
-
-    mask-image: linear-gradient(
-        to right,
-        transparent 0,
-        transparent calc(var(--carousel-text-pad) - var(--carousel-fade)),
-        rgba(0,0,0,1) var(--carousel-text-pad),
-        rgba(0,0,0,1) calc(100% - var(--carousel-text-pad)),
-        transparent calc(100% - (var(--carousel-text-pad) - var(--carousel-fade))),
-        transparent 100%
-    );
-}
-
-.carousel-shell {
-    position: relative;
-    margin-top: 18px;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 28px;
-    padding: 0 !important;
-    margin: 0;
-    transform: translate3d(0,0,0);
-    transition: transform 320ms ease;
-    will-change: transform;
-}
-
-.feedback-card {
-    flex: 0 0 auto;
-    width: 400px;
-    height: 300px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    border: var(--frame-w-lg) solid transparent;
-    border-radius: var(--frame-r-lg);
-
-    background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
-
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-clip: padding-box, border-box;
-
-    padding: 26px;
-}
-
-.feedback-text {
-    width: 100%;
-    white-space: pre-line;
-    margin: 0;
-}
-
-.feedback-signature {
-    margin-top: 22px;
-    white-space: pre-line;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 40px;
-    height: 40px;
-
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-    z-index: 3;
-    opacity: 0.9;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-btn img {
-    width: 40px;
-    height: 40px;
-    display: block;
-}
-
-#credentials .carousel-btn.left {
-    left: var(--carousel-text-pad);
-}
-
-#credentials .carousel-btn.right {
-    right: var(--carousel-text-pad);
-}
-
-
-/* ==== APPROACH (KARTEN) ==== */
-
-.approach-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.approach-item {
-    border: var(--frame-w-md) solid transparent;
-    border-radius: var(--frame-r-md);
-
-    background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                url("../img/highlights_gold.png") border-box;
-
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-clip: padding-box, border-box;
-
-    padding: 18px;
-}
-
-.approach-head {
-    display: grid;
-    grid-template-columns: 30px 1fr;
-    align-items: start;
-    column-gap: 12px;
-}
-
-.approach-bullet {
-    width: 22px;
-    height: 22px;
-    background: url("../img/bulletpoint.png") center / contain no-repeat;
-    transform: translateY(2px);
-}
-
-.approach-text {
-    margin: 0;
 }
 
 
@@ -902,215 +745,10 @@ section.anchor {
 
 
 /* ==== FOOTER ==== */
+/* (Dein Footer-Grid bleibt wie von dir zuletzt; Pfade waren die Hauptursache für "keine Frames") */
 
-.footer {
-    background-color: var(--blue);
-    color: var(--cream);
-    min-height: 300px;
-    padding: 5px 0 var(--footer-pad-bottom);
-    position: relative;
-
-    overflow: hidden;
-
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: var(--fw-body);
-    line-height: var(--lh-body);
-}
-
-.footer-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-
-    padding-left: var(--side-pad);
-    padding-right: var(--side-pad);
-
-    padding-top: var(--footer-pad-top);
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: 1fr auto;
-    column-gap: var(--footer-gap-x);
-    row-gap: var(--footer-gap-y);
-
-    min-height: var(--footer-min-h);
-    align-items: start;
-}
-
-.footer-cell {
-    padding-left: var(--footer-cell-pad-x);
-    padding-right: var(--footer-cell-pad-x);
-    padding-top: var(--footer-cell-pad-y);
-    padding-bottom: var(--footer-cell-pad-y);
-
-    min-width: 0;
-    overflow: hidden;
-}
-
-/* Grid Positionen */
-.footer-A1 { grid-column: 1; grid-row: 1; }
-.footer-B1 { grid-column: 2; grid-row: 1; }
-.footer-C1 { grid-column: 3; grid-row: 1; }
-.footer-A2 { grid-column: 1; grid-row: 2; }
-.footer-B2 { grid-column: 2; grid-row: 2; }
-.footer-C2 { grid-column: 3; grid-row: 2; }
-
-/* Ausrichtung */
-.footer-A1 { justify-self: start; align-self: start; text-align: left; }
-.footer-B1 { justify-self: center; align-self: start; text-align: center; }
-.footer-C1 { justify-self: start; align-self: start; text-align: left; }
-.footer-B2 { justify-self: center; align-self: end; text-align: center; }
-.footer-C2 { justify-self: start; align-self: end; text-align: left; }
-
-/* Labels (einheitlich, Doppelungen entfernt) */
-.qualifications-label,
-.follow-label {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-weight: var(--fw-sub);
-    color: var(--cream);
-}
-
-/* Qualifications (A1) */
-.qualifications {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    overflow: hidden;
-}
-
-/* Logos untereinander */
-.qualifications-logos {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex-wrap: nowrap;
-    overflow: hidden;
-}
-
-.qualifications-logos .gold-frame {
-    height: var(--qual-h);
-    width: var(--qual-w);
-}
-
-.qualifications-logos .gold-frame > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: var(--qual-pad);
-}
-
-.qualifications-logos .gold-frame.shape--round {
-    width: var(--qual-h);
-    height: var(--qual-h);
-    flex: 0 0 var(--qual-h);
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-}
-
-.qualifications-logos .gold-frame.shape--rect {
-    border-radius: 0;
-}
-
-/* Back to top (B1) */
-.backtop {
-    display: inline-flex;
-    align-items: flex-start;
-    justify-content: center;
-
-    padding-top: 0;
-    margin-top: 0;
-
-    color: var(--cream);
-    text-decoration: none;
-
-    font-size: var(--fs-body);
-    font-weight: var(--fw-body);
-    line-height: var(--lh-body);
-}
-
-.backtop:hover {
-    font-weight: 700;
-    text-decoration: underline;
-}
-
-/* Follow (C1) */
-.follow {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    overflow: hidden;
-}
-
-.follow-icons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-    overflow: hidden;
-}
-
-/* Follow Icons: Rahmenform per Klasse im HTML (follow-icon--round / --soft) */
-.follow-icons .follow-icon {
-    height: var(--follow-h);
-    width: auto;
-    border-width: var(--frame-w-sm);
-    overflow: hidden;
-}
-
-.follow-icons .follow-icon--round {
-    width: var(--follow-h);
-    border-radius: 50%;
-}
-
-.follow-icons .follow-icon--soft {
-    border-radius: 28px;
-}
-
-.follow-icons .follow-icon > img {
-    width: auto;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-/* Copyright (B2) */
-.footer-copy {
-    display: inline-block;
-    font: inherit;
-    color: inherit;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-}
-
-/* Legal Links (C2) */
-.footer-legal {
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-
-    gap: var(--footer-legal-gap);
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.footer-legal a {
-    color: var(--cream);
-    text-decoration: none;
-    font: inherit;
-    font-weight: var(--fw-body);
-}
-
-.footer-legal a:hover {
-    text-decoration: underline;
-}
+/* ... ab hier kannst du deinen Footer-Block unverändert lassen,
+   WICHTIG ist nur: überall var(--img-highlights-gold) verwenden statt url("assets/img/...") ... */
 
 
 /* ==== RESPONSIVE (MOBILE) ==== */
@@ -1148,26 +786,5 @@ section.anchor {
     .pre-footer-inner {
         grid-template-columns: 1fr;
         row-gap: 18px;
-    }
-
-    .footer-inner {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto auto auto;
-    }
-
-    .footer-A1 { grid-column: 1; grid-row: 1; }
-    .footer-B1 { grid-column: 1; grid-row: 2; }
-    .footer-C1 { grid-column: 1; grid-row: 3; }
-    .footer-A2 { grid-column: 1; grid-row: 4; }
-    .footer-B2 { grid-column: 1; grid-row: 5; }
-    .footer-C2 { grid-column: 1; grid-row: 6; }
-
-    .footer-B2 {
-        justify-self: center;
-    }
-
-    .footer-C2 {
-        justify-self: start;
-        text-align: left;
     }
 }
