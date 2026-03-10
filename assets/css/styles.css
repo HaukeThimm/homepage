@@ -1,7 +1,8 @@
 /* ===== FILE: assets/css/styles.css ===== */
 
 /* ==== FONTS (LOKAL) ==== */
-/* styles.css liegt in /assets/css/  -> Root /fonts/ ist ../../fonts/ */
+/* Profi-like: Pfade relativ zu /assets/css/styles.css
+   -> Root /fonts/ liegt zwei Ebenen höher: ../../fonts/ */
 
 @font-face {
     font-family: "Cormorant Garamond";
@@ -106,37 +107,29 @@
     --cream: #fdf7f2;
     --blue: #003153;
 
-    /* Nav */
     --top-offset: 0px;
     --banner-h: 75px;
 
-    /* Unterseiten: Abstand ab Unterkante Nav */
     --page-top-gap: 40px;
 
-    /* Content Raster */
     --side-pad: 150px;
     --max-width: 1400px;
 
-    /* Fonts */
     --font-head: "Cormorant Garamond", serif;
     --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-    /* Schriftgrößen */
     --fs-head: 30px;
     --fs-sub: 24px;
     --fs-body: 18px;
 
-    /* Schriftgewichte (Style) */
     --fw-head: 700;
     --fw-sub: 500;
     --fw-body: 300;
 
-    /* Zeilenhöhen */
     --lh-head: 1.25;
     --lh-sub: 1.25;
     --lh-body: 1.5;
 
-    /* Vertikale Rhythmik */
     --section-pad-y: 60px;
     --hero-offset: 25px;
 
@@ -145,7 +138,6 @@
     --p-gap: 14px;
     --block-gap: 40px;
 
-    /* Goldrahmen */
     --frame-w-sm: 1px;
     --frame-w-md: 3px;
     --frame-w-lg: 5px;
@@ -154,35 +146,19 @@
     --frame-r-md: 3px;
     --frame-r-lg: 5px;
 
-    /* Language Button Größe */
     --lang-btn-size: 25px;
 
-    /* Carousel */
     --carousel-fade: 40px;
 
-    /* Pre-Footer Icon Größe */
     --prefooter-icon: 75px;
 
-    /* Footer: Tokens für Qualifications / Social Media */
     --follow-h: 40px;
-    --follow-w: auto;
-    --follow-pad: 0px;
 
     --qual-h: 50px;
-    --qual-w: auto;
-    --qual-pad: 0px;
 
-    /* Footer Height */
     --footer-min-h: 300px;
 
-    /* Footer Align */
-    --footer-col-top: 10px;
-    --backtop-icon-h: 20px;
-    --backtop-gap: 3px;
-    --footer-align-to-backtop-text: calc(var(--footer-col-top) + var(--backtop-icon-h) + var(--backtop-gap));
-
-    /* Footer Grid System */
-    --footer-pad-top: var(--footer-col-top);
+    --footer-pad-top: 10px;
     --footer-pad-bottom: 30px;
 
     --footer-cell-pad-x: 5px;
@@ -191,16 +167,17 @@
     --footer-gap-x: 0px;
     --footer-gap-y: 0px;
 
-    --footer-row-divider-h: 0px;
-
     --footer-legal-gap: 40px;
 
     /* ==== ASSET PATHS (ZENTRAL) ==== */
-    /* styles.css liegt in /assets/css/ -> Root /img/ ist ../../img/ */
-    --img-highlights-gold: url("../../img/highlights_gold.png");
+    /* styles.css: /assets/css/  -> Root /img/: ../../img/ */
+    --img-gold: url("../../img/highlights_gold.png");
     --img-bullet: url("../../img/bulletpoint.png");
     --img-service-open: url("../../img/button_L.png");
     --img-service-closed: url("../../img/button_R.png");
+
+    /* Fallback: Rahmen ist sichtbar, auch wenn Textur fehlt */
+    --gold-solid: #c9a24a;
 }
 
 
@@ -227,7 +204,6 @@ body {
 
 
 /* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
-/* Saubere Außen- UND Innenrundung via padding-box / border-box + overflow hidden */
 
 .gold-frame {
     display: inline-flex;
@@ -235,11 +211,12 @@ body {
     justify-content: center;
 
     border: var(--frame-w-md) solid transparent;
+    border-color: var(--gold-solid);
     border-radius: var(--frame-r-md);
     overflow: hidden;
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                var(--img-highlights-gold) border-box;
+                var(--img-gold) border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -317,9 +294,6 @@ body {
     align-items: center;
 }
 
-
-/* ==== NAV: GRID-ALIGNMENT ==== */
-
 .nav-items {
     width: 100%;
     display: grid;
@@ -344,10 +318,6 @@ body {
 .nav-items a.nav-link:hover {
     text-decoration: underline;
 }
-
-
-/* ==== LANGUAGE TOGGLE ==== */
-/* Es wird immer nur die inaktive Sprache angezeigt. */
 
 .lang-toggle {
     position: relative;
@@ -377,13 +347,12 @@ body {
     display: inline-flex;
 }
 
-.lang-btn .gold-frame {
+.lang-icon {
     width: var(--lang-btn-size);
     height: var(--lang-btn-size);
-    border-radius: 999px;
 }
 
-.lang-btn .gold-frame > img {
+.lang-icon > img {
     object-fit: cover;
 }
 
@@ -422,9 +391,6 @@ body {
 section.anchor {
     scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + 20px);
 }
-
-
-/* ==== UNTERSEITEN: START UNTER NAV ==== */
 
 .page--imprint .page-offset,
 .page--privacy .page-offset,
@@ -485,7 +451,7 @@ section.anchor {
 }
 
 
-/* ==== TYPO: HEADLINES / SUBLINES / BODY ==== */
+/* ==== TYPO ==== */
 
 .section h2,
 .about .about-label {
@@ -559,10 +525,11 @@ section.anchor {
 
 .service-item {
     border: var(--frame-w-md) solid transparent;
+    border-color: var(--gold-solid);
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--cream), var(--cream)) padding-box,
-                var(--img-highlights-gold) border-box;
+                var(--img-gold) border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -620,7 +587,7 @@ section.anchor {
 }
 
 
-/* ==== CTA BUTTON ==== */
+/* ==== CTA ==== */
 
 .contact-cta {
     display: flex;
@@ -642,10 +609,11 @@ section.anchor {
     line-height: 1;
 
     border: var(--frame-w-md) solid transparent;
+    border-color: var(--gold-solid);
     border-radius: var(--frame-r-md);
 
     background: linear-gradient(var(--blue), var(--blue)) padding-box,
-                var(--img-highlights-gold) border-box;
+                var(--img-gold) border-box;
 
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
@@ -660,7 +628,7 @@ section.anchor {
 }
 
 
-/* ==== PRE-FOOTER ==== */
+/* ==== PRE-FOOTER (A | B | C) ==== */
 
 .pre-footer {
     width: 100%;
@@ -698,14 +666,6 @@ section.anchor {
     overflow: hidden;
 }
 
-.pre-footer-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 18px;
-    min-width: 0;
-    overflow: hidden;
-}
-
 .pre-footer-link {
     display: inline-flex;
     align-items: center;
@@ -721,18 +681,11 @@ section.anchor {
     text-decoration: underline;
 }
 
-.pre-footer-item .gold-frame {
+.prefooter-icon {
     width: var(--prefooter-icon);
     height: var(--prefooter-icon);
     flex: 0 0 var(--prefooter-icon);
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
-}
-
-.pre-footer-item .gold-frame > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
 
 .pre-footer-text {
@@ -744,11 +697,201 @@ section.anchor {
 }
 
 
-/* ==== FOOTER ==== */
-/* (Dein Footer-Grid bleibt wie von dir zuletzt; Pfade waren die Hauptursache für "keine Frames") */
+/* ==== FOOTER (3x2 GRID) ==== */
 
-/* ... ab hier kannst du deinen Footer-Block unverändert lassen,
-   WICHTIG ist nur: überall var(--img-highlights-gold) verwenden statt url("assets/img/...") ... */
+.footer {
+    background-color: var(--blue);
+    color: var(--cream);
+
+    min-height: var(--footer-min-h);
+    padding: 5px 0 var(--footer-pad-bottom);
+    position: relative;
+
+    overflow: hidden;
+
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
+}
+
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+
+    padding-left: var(--side-pad);
+    padding-right: var(--side-pad);
+    padding-top: var(--footer-pad-top);
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 1fr auto;
+    column-gap: var(--footer-gap-x);
+    row-gap: var(--footer-gap-y);
+
+    min-height: var(--footer-min-h);
+}
+
+.footer-cell {
+    padding-left: var(--footer-cell-pad-x);
+    padding-right: var(--footer-cell-pad-x);
+    padding-top: var(--footer-cell-pad-y);
+    padding-bottom: var(--footer-cell-pad-y);
+
+    min-width: 0;
+    overflow: hidden;
+}
+
+.footer-A1 {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+}
+
+.footer-B1 {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    justify-self: center;
+    text-align: center;
+}
+
+.footer-C1 {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: start;
+}
+
+.footer-B2 {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+    justify-self: center;
+    text-align: center;
+}
+
+.footer-C2 {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: end;
+    justify-self: start;
+    text-align: left;
+}
+
+.qualifications {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.qualifications-label,
+.follow-label {
+    margin: 0 0 12px 0;
+    font-weight: var(--fw-sub);
+    color: var(--cream);
+}
+
+.qualifications-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.qual-logo {
+    height: var(--qual-h);
+    width: auto;
+}
+
+.qual-logo > img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.backtop {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    color: var(--cream);
+    text-decoration: none;
+
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+}
+
+.backtop:hover {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.follow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.follow-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: nowrap;
+}
+
+.follow-icon {
+    height: var(--follow-h);
+    width: auto;
+    border-width: var(--frame-w-sm);
+}
+
+.follow-icon > img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.follow-icon--round {
+    width: var(--follow-h);
+    border-radius: 50%;
+}
+
+.follow-icon--soft {
+    border-radius: 28px;
+}
+
+.footer-copy {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.footer-legal {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--footer-legal-gap);
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.footer-legal a {
+    color: var(--cream);
+    text-decoration: none;
+    font: inherit;
+    font-weight: var(--fw-body);
+}
+
+.footer-legal a:hover {
+    text-decoration: underline;
+}
 
 
 /* ==== RESPONSIVE (MOBILE) ==== */
@@ -761,12 +904,8 @@ section.anchor {
         --prefooter-icon: 60px;
 
         --follow-h: 34px;
-        --follow-w: auto;
-        --follow-pad: 0px;
 
         --qual-h: 44px;
-        --qual-w: auto;
-        --qual-pad: 0px;
     }
 
     .nav-items {
@@ -786,5 +925,42 @@ section.anchor {
     .pre-footer-inner {
         grid-template-columns: 1fr;
         row-gap: 18px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        row-gap: 18px;
+    }
+
+    .footer-A1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .footer-B1 {
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: start;
+        text-align: left;
+    }
+
+    .footer-C1 {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .footer-B2 {
+        grid-column: 1;
+        grid-row: 4;
+        justify-self: start;
+        text-align: left;
+    }
+
+    .footer-C2 {
+        grid-column: 1;
+        grid-row: 5;
+        justify-self: start;
+        text-align: left;
     }
 }
