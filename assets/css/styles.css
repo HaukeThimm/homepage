@@ -185,21 +185,21 @@
     /* ==== SERVICES (ACCORDION) ==== */
     --services-gap: 18px;           /* Abstand zwischen Service-Items */
     --service-pad: 18px;            /* Innenpadding Service-Item */
-    --service-grid-col-1: 30px;
-    --service-grid-col-3: 22px;
-    --service-col-gap: 12px;
-    --service-bullet-size: 22px;
-    --service-arrow-size: 18px;
-    --service-body-pad-top: 14px;
-    --service-max-h: 600px;
+    --service-grid-col-1: 30px;     /* Abstand Bulletpoint zur linken Kante */
+    --service-grid-col-3: 22px;     /* Abstand Pfeil zur rechten Kante */
+    --service-col-gap: 12px;        /* Abstand zwischen Bulletpoint, Titel und Pfeil */
+    --service-bullet-size: 22px;    /* Größe des Bulletpoint-Icons (quadratisch) */
+    --service-arrow-size: 18px;     /* Größe des Pfeil-Icons (quadratisch) */
+    --service-body-pad-top: 14px;   /* Abstand zwischen Service-Head und Service-Body */
+    --service-max-h: 600px;         /* Maximalhöhe des Service-Bodys, wenn geöffnet (für Transition) */
 
     /* ==== CTA ==== */
-    --cta-gap: 14px;
-    --cta-pad-y: 0.45em;
-    --cta-pad-x: 0.9em;
+    --cta-gap: 14px;                /* Abstand zwischen den CTA-Buttons (wenn mehrere) */
+    --cta-pad-y: 0.45em;            /* Vertikales Padding der CTA-Buttons (horizontal ist mit --cta-pad-x separat definiert, damit man es ggf. anders einstellen kann) */
+    --cta-pad-x: 0.9em;             /* Horizontales Padding der CTA-Buttons */
 
     /* ==== PRE-FOOTER ==== */
-    --pre-footer-min-h: 150px;
+    --pre-footer-min-h: 120px;                  /* Mindesthöhe des Pre-Footers (abhängig von Anzahl der Items) */
     --pre-footer-pad-y: 0px;                    /* für oben/unten mehr Abstand */
     --pre-footer-col-gap: 30px;                 /* Abstand zwischen Spalten */
     --pre-footer-item-gap: 18px;                /* Abstand zwischen Icon und Text */
@@ -208,55 +208,55 @@
     --pre-footer-icon-size: 75px;               /* Größe der Icons */
     --pre-footer-icon-frame: var(--frame-w-sm); /* Rahmen um die Icons */
 
-    --pre-footer-text-font: var(--font-body);
-    --pre-footer-text-size: var(--fs-body);
-    --pre-footer-text-weight: var(--fw-body);
-    --pre-footer-text-lh: var(--lh-body);
-    --pre-footer-text-nowrap: nowrap;
+    --pre-footer-text-font: var(--font-body);   /* Schriftart der Pre-Footer Texte */
+    --pre-footer-text-size: var(--fs-body);     /* Schriftgröße der Pre-Footer Texte */
+    --pre-footer-text-weight: var(--fw-body);   /* Schriftgewicht der Pre-Footer Texte */
+    --pre-footer-text-lh: var(--lh-body);       /* Zeilenhöhe der Pre-Footer Texte */
+    --pre-footer-text-nowrap: nowrap;           /* Verhindert Zeilenumbruch der Pre-Footer Texte */
 
     /* ==== FOOTER ==== */
-    --footer-min-h: 300px;
-    --footer-pad-top: 10px;
-    --footer-pad-bottom: 30px;
+    --footer-min-h: 300px;                      /* Mindesthöhe des Footers (ohne Pre-Footer) */
+    --footer-pad-top: 10px;                     /* Abstand vom Pre-Footer zum eigentlichen Footer-Inhalt */
+    --footer-pad-bottom: 30px;                  /* Abstand des Footer-Inhalts zum unteren Rand */
 
-    --footer-row-gap: 18px;
-    --footer-col-gap: 24px;
-    --footer-row2-baseline-pad: 0px;
+    --footer-row-gap: 18px;                     /* Abstand zwischen den Zeilen im Footer */
+    --footer-col-gap: 24px;                     /* Abstand zwischen den Spalten im Footer */
+    --footer-row2-baseline-pad: 0px;            /* Vertikaler Abstand der zweiten Zeile (Qualifikationen) zur Grundlinie der ersten Zeile (Labels) */
 
     /* Footer Labels */
-    --footer-label-font: var(--font-body);
-    --footer-label-size: var(--fs-body);
-    --footer-label-weight: var(--fw-sub);
-    --footer-label-lh: var(--lh-body);
-    --footer-label-gap-bottom: 12px;
+    --footer-label-font: var(--font-body);      /* Schriftart der Footer Labels */
+    --footer-label-size: var(--fs-body);        /* Schriftgröße der Footer Labels */
+    --footer-label-weight: var(--fw-sub);       /* Schriftgewicht der Footer Labels */
+    --footer-label-lh: var(--lh-body);          /* Zeilenhöhe der Footer Labels */
+    --footer-label-gap-bottom: 12px;            /* Abstand der Footer Labels zum nächsten Element */
 
     /* Qualifications */
-    --qual-logo-h: 50px;
-    --qual-logo-pad: 0px;
-    --qual-logo-max-w: 140px;
-    --qual-logo-frame: var(--frame-w-sm);
-    --footer-qual-gap: 24px;
+    --qual-logo-h: 50px;                        /* Größe der Logos in der Qualifikationszeile */
+    --qual-logo-pad: 0px;                       /* Abstand der Logos zueinander */
+    --qual-logo-max-w: 140px;                   /* Maximale Breite der Logos (damit sie nicht zu breit werden) */
+    --qual-logo-frame: var(--frame-w-sm);       /* Rahmen um die Qualifikations-Logos */
+    --footer-qual-gap: 24px;                    /* Abstand der Qualifikationszeile zur nächsten Zeile (Follow Icons) */
 
     /* Follow Icons */
-    --follow-icon-size: 50px;
-    --follow-icon-pad: 0px;
-    --follow-icon-frame: var(--frame-w-sm);
-    --footer-follow-gap: 18px;
+    --follow-icon-size: 50px;                   /* Größe der Follow-Icons */
+    --follow-icon-pad: 0px;                     /* Abstand der Follow-Icons zueinander */
+    --follow-icon-frame: var(--frame-w-sm);     /* Rahmen um die Follow-Icons */
+    --footer-follow-gap: 18px;                  /* Abstand der Follow-Icons zur nächsten Zeile (Copyright) */
 
     /* Back-to-top */
-    --backtop-icon-h: 20px;
-    --backtop-gap: 3px;
+    --backtop-icon-h: 20px;                     /* Höhe des Pfeil-Icons im Back-to-top Link */
+    --backtop-gap: 3px;                         /* Abstand zwischen Pfeil-Icon und Text im Back-to-top Link */
 
     /* Legal */
-    --legal-font: var(--font-body);
-    --legal-size: var(--fs-body);
-    --legal-weight: var(--fw-body);
-    --legal-lh: var(--lh-body);
-    --legal-sep-gap: 7px;
-    --legal-wrap: nowrap;
+    --legal-font: var(--font-body);             /* Schriftart für rechtliche Texte (z.B. Impressum, Datenschutz) */
+    --legal-size: var(--fs-body);               /* Schriftgröße für rechtliche Texte */
+    --legal-weight: var(--fw-body);             /* Schriftgewicht für rechtliche Texte */
+    --legal-lh: var(--lh-body);                 /* Zeilenhöhe für rechtliche Texte */
+    --legal-sep-gap: 7px;                       /* Abstand zwischen den einzelnen rechtlichen Links (z.B. Impressum, Datenschutz) */
+    --legal-wrap: nowrap;                       /* Verhindert Zeilenumbruch der rechtlichen Links */
 
     /* ==== ANCHOR OFFSET (FIXED NAV) ==== */
-    --anchor-offset: 20px;
+    --anchor-offset: 20px;                      /* Abstand zwischen fixiertem Nav und Zielanker, damit die Inhalte nicht direkt an der Nav-Unterkante kleben */
 
 }
 
