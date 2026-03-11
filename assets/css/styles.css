@@ -166,22 +166,6 @@
     --nav-letter-spacing: 0.1em;
     --nav-text-transform: uppercase;
 
-    /* ==== CAROUSEL ==== */
-    --carousel-fade: 40px;          /* Breite des seitlichen Fade-Effekts */
-    --carousel-arrow-size: 40px;    /* Größe der Pfeil-Buttons (quadratisch) */
-    --carousel-gap: 28px;           /* Abstand zwischen Cards */
-    --carousel-card-w: 400px;       /* Card Breite */
-    --carousel-card-h: 300px;       /* Card Höhe */
-    --carousel-card-pad: 26px;      /* Card Innenpadding */
-    --carousel-sign-gap-top: 22px;  /* Abstand Signature zum Text */
-    --carousel-shell-top: 18px;     /* Abstand oberhalb Carousel-Shell */
-
-    /* ==== APPROACH (LISTE OHNE RAHMEN) ==== */
-    --approach-item-gap: 14px;      /* Abstand zwischen den Listenelementen */
-    --approach-num-left: 14px;      /* NUR Nummern weiter nach rechts */
-    --approach-num-top: 0px;        /* vertikale Position der Nummern */
-    --approach-text-indent: 46px;   /* Text bleibt stabil */
-
     /* ==== SERVICES (ACCORDION) ==== */
     --services-gap: 18px;           /* Abstand zwischen Service-Items */
     --service-pad: 18px;            /* Innenpadding Service-Item */
@@ -192,6 +176,22 @@
     --service-arrow-size: 18px;     /* Größe des Pfeil-Icons (quadratisch) */
     --service-body-pad-top: 14px;   /* Abstand zwischen Service-Head und Service-Body */
     --service-max-h: 600px;         /* Maximalhöhe des Service-Bodys, wenn geöffnet (für Transition) */
+    
+    /* ==== APPROACH (LISTE OHNE RAHMEN) ==== */
+    --approach-item-gap: 14px;      /* Abstand zwischen den Listenelementen */
+    --approach-num-left: 14px;      /* NUR Nummern weiter nach rechts */
+    --approach-num-top: 0px;        /* vertikale Position der Nummern */
+    --approach-text-indent: 46px;   /* Text bleibt stabil */
+
+    /* ==== CAROUSEL ==== */
+    --carousel-fade: 40px;          /* Breite des seitlichen Fade-Effekts */
+    --carousel-arrow-size: 40px;    /* Größe der Pfeil-Buttons (quadratisch) */
+    --carousel-gap: 28px;           /* Abstand zwischen Cards */
+    --carousel-card-w: 400px;       /* Card Breite */
+    --carousel-card-h: 300px;       /* Card Höhe */
+    --carousel-card-pad: 26px;      /* Card Innenpadding */
+    --carousel-sign-gap-top: 22px;  /* Abstand Signature zum Text */
+    --carousel-shell-top: 18px;     /* Abstand oberhalb Carousel-Shell */
 
     /* ==== CTA ==== */
     --cta-gap: 14px;                /* Abstand zwischen den CTA-Buttons (wenn mehrere) */
@@ -642,43 +642,40 @@ section.anchor {
     max-height: var(--service-max-h);
 }
 
-/* ==== CTA BUTTON ==== */
-.contact-cta {
+/* ==== APPROACH: Nummerierung (ohne Goldrahmen) ==== */
+.approach-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--cta-gap);
+    gap: var(--approach-item-gap);
 }
 
-.cta-btn {
-    display: inline-block;
-    padding: var(--cta-pad-y) var(--cta-pad-x);
+.approach-list li {
+    counter-increment: step;
 
-    color: var(--cream);
-    text-decoration: none;
+    position: relative;
+    margin: 0;
 
-    font-family: var(--font-head);
-    font-size: var(--fs-head);
-    font-weight: var(--fw-head);
-    line-height: 1;
+    padding-left: var(--approach-text-indent);
 
-    border: var(--frame-w-md) solid transparent;
-    border-radius: var(--frame-r-md);
-
-    background:
-        linear-gradient(var(--blue), var(--blue)) padding-box,
-        var(--goldframe-img) border-box;
-
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-clip: padding-box, border-box;
-
-    white-space: nowrap;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
 }
 
-.cta-btn:hover {
-    text-decoration: underline;
+.approach-list li::before {
+    content: counter(step) ".";
+    position: absolute;
+
+    left: var(--approach-num-left);
+    top: var(--approach-num-top);
+
+    font-weight: var(--fw-approach-num);
 }
 
 /* ==== CAROUSEL (CREDENTIALS) ==== */
@@ -811,40 +808,43 @@ section.anchor {
 
 }
 
-/* ==== APPROACH: Nummerierung (ohne Goldrahmen) ==== */
-.approach-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    counter-reset: step;
-
+/* ==== CTA BUTTON ==== */
+.contact-cta {
     display: flex;
     flex-direction: column;
-    gap: var(--approach-item-gap);
+    align-items: flex-start;
+    gap: var(--cta-gap);
 }
 
-.approach-list li {
-    counter-increment: step;
+.cta-btn {
+    display: inline-block;
+    padding: var(--cta-pad-y) var(--cta-pad-x);
 
-    position: relative;
-    margin: 0;
+    color: var(--cream);
+    text-decoration: none;
 
-    padding-left: var(--approach-text-indent);
+    font-family: var(--font-head);
+    font-size: var(--fs-head);
+    font-weight: var(--fw-head);
+    line-height: 1;
 
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: var(--fw-body);
-    line-height: var(--lh-body);
+    border: var(--frame-w-md) solid transparent;
+    border-radius: var(--frame-r-md);
+
+    background:
+        linear-gradient(var(--blue), var(--blue)) padding-box,
+        var(--goldframe-img) border-box;
+
+    background-size: auto, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-clip: padding-box, border-box;
+
+    white-space: nowrap;
 }
 
-.approach-list li::before {
-    content: counter(step) ".";
-    position: absolute;
-
-    left: var(--approach-num-left);
-    top: var(--approach-num-top);
-
-    font-weight: var(--fw-approach-num);
+.cta-btn:hover {
+    text-decoration: underline;
 }
 
 /* ==== PRE-FOOTER (TOKENISIERT) ==== */
@@ -951,8 +951,12 @@ section.anchor {
     padding: 0 var(--side-pad);
 
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr auto 1fr; */ /* Mittlere Spalte nimmt nur so viel Platz ein, wie sie braucht (für zentrierten Back-to-top Link), die äußeren Spalten teilen sich den restlichen Platz. */
+    
+    grid-template-rows: 85px 85px; /* Feste Zeilenhöhen, damit die Baselines der beiden Zeilen immer gleich bleiben, auch wenn z.B. die Qualifikations-Logos unterschiedlich hoch sind. */
+    /* grid-template-rows: minmax(80px, auto) minmax(80px, auto); */ /* Flexible Zeilenhöhen, damit die Baselines der beiden Zeilen immer gleich bleiben, auch wenn z.B. die Qualifikations-Logos unterschiedlich hoch sind. */
+    /* grid-template-rows: auto auto; */ /* Alternative mit automatischer Zeilenhöhe; dann könnte es bei unterschiedlichen Logo-Höhen zu leicht versetzten Baselines kommen. */
     grid-template-areas:
         "a1 b1 c1"
         "a2 b2 c2";
