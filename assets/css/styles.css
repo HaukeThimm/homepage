@@ -199,8 +199,8 @@
     --cta-pad-x: 0.9em;             /* Horizontales Padding CTA */
 
     /* ==== PRE-FOOTER ==== */
-    --pre-footer-min-h: 120px;                  /* Mindesthöhe Pre-Footer */
-    --pre-footer-pad-y: 0px;                    /* Padding oben/unten */
+    --pre-footer-min-h: 120px;                  /* Mindesthöhe des Pre-Footers */
+    --pre-footer-pad-y: 0px;                    /* für oben/unten mehr Abstand */
     --pre-footer-col-gap: 30px;                 /* Abstand zwischen Spalten */
     --pre-footer-item-gap: 18px;                /* Abstand zwischen Icon und Text */
     --pre-footer-margin-bottom: 20px;           /* Abstand zum Footer */
@@ -208,24 +208,20 @@
     --pre-footer-icon-size: 75px;               /* Größe der Icons */
     --pre-footer-icon-frame: var(--frame-w-sm); /* Rahmen um die Icons */
 
-    --pre-footer-text-font: var(--font-body);   /* Schriftart Pre-Footer Texte */
-    --pre-footer-text-size: var(--fs-body);     /* Schriftgröße Pre-Footer Texte */
-    --pre-footer-text-weight: var(--fw-body);   /* Schriftgewicht Pre-Footer Texte */
-    --pre-footer-text-lh: var(--lh-body);       /* Zeilenhöhe Pre-Footer Texte */
-    --pre-footer-text-nowrap: nowrap;           /* Kein Umbruch im Pre-Footer Text */
+    --pre-footer-text-font: var(--font-body);   /* Schriftart der Pre-Footer Texte */
+    --pre-footer-text-size: var(--fs-body);     /* Schriftgröße der Pre-Footer Texte */
+    --pre-footer-text-weight: var(--fw-body);   /* Schriftgewicht der Pre-Footer Texte */
+    --pre-footer-text-lh: var(--lh-body);       /* Zeilenhöhe der Pre-Footer Texte */
+    --pre-footer-text-nowrap: nowrap;           /* Verhindert Zeilenumbruch der Pre-Footer Texte */
 
     /* ==== FOOTER ==== */
-    --footer-min-h: 300px;                      /* Mindesthöhe Footer (darf wachsen) */
+    --footer-min-h: 300px;                      /* Mindesthöhe des Footers (darf wachsen) */
     --footer-pad-top: 20px;                     /* Innenabstand oben */
-    --footer-pad-bottom: 20px;                  /* Innenabstand unten -> 20px Abstand zum Seitenende */
+    --footer-pad-bottom: 20px;                  /* Innenabstand unten -> Abstand ©/Legal zur Footer-Unterkante */
 
-    --footer-row-gap: 18px;                     /* Abstand zwischen den Grid-Zeilen */
-    --footer-col-gap: 24px;                     /* Abstand zwischen den Grid-Spalten */
-    --footer-row2-baseline-pad: 0px;            /* Feintuning: B2/C2 Baseline */
-
-    /* Footer Grid: Zeile 2 wirklich am unteren Rand */
-    --footer-row1-fr: 1fr;                      /* Top-Zeile nimmt verbleibenden Raum */
-    --footer-row2-size: auto;                   /* Bottom-Zeile ist inhaltshoch */
+    --footer-row-gap: 18px;                     /* Abstand zwischen Zeile 1 und 2 */
+    --footer-col-gap: 24px;                     /* Abstand zwischen Spalten */
+    --footer-row2-baseline-pad: 0px;            /* Feintuning: © und Links exakt gleiche Höhe */
 
     /* Footer Labels */
     --footer-label-font: var(--font-body);
@@ -235,32 +231,32 @@
     --footer-label-gap-bottom: 12px;
 
     /* Qualifications */
-    --qual-logo-h: 50px;
-    --qual-logo-pad: 0px;
-    --qual-logo-max-w: 140px;
-    --qual-logo-frame: var(--frame-w-sm);
-    --footer-qual-gap: 24px;
+    --qual-logo-h: 50px;                        /* Höhe der Logos */
+    --qual-logo-pad: 0px;                       /* Innenpadding Logo (0 = none) */
+    --qual-logo-max-w: 140px;                   /* max Breite (rect) */
+    --qual-logo-frame: var(--frame-w-sm);       /* Rahmenstärke Logo */
+    --qual-logos-gap: 24px;                     /* Abstand zwischen den Logos */
 
     /* Follow Icons */
-    --follow-icon-size: 50px;
-    --follow-icon-pad: 0px;
-    --follow-icon-frame: var(--frame-w-sm);
-    --footer-follow-gap: 18px;
+    --follow-icon-size: 50px;                   /* Größe Follow-Icons */
+    --follow-icon-pad: 0px;                     /* Innenpadding Icon (0 = none) */
+    --follow-icon-frame: var(--frame-w-sm);     /* Rahmenstärke Icon */
+    --follow-icons-gap: 18px;                   /* Abstand zwischen den Follow-Icons */
 
     /* Back-to-top */
-    --backtop-icon-h: 20px;
-    --backtop-gap: 3px;
+    --backtop-icon-h: 20px;                     /* Chevron Icon-Größe (optisch) */
+    --backtop-gap: 3px;                         /* Abstand Chevron -> Text */
 
     /* Legal */
     --legal-font: var(--font-body);
     --legal-size: var(--fs-body);
     --legal-weight: var(--fw-body);
     --legal-lh: var(--lh-body);
-    --legal-sep-gap: 7px;
+    --legal-sep-gap: 7px;                       /* Abstand um | herum */
     --legal-wrap: nowrap;
 
     /* ==== ANCHOR OFFSET (FIXED NAV) ==== */
-    --anchor-offset: 20px;
+    --anchor-offset: 20px;                      /* Abstand zwischen fixiertem Nav und Zielanker */
 
 }
 
@@ -285,6 +281,10 @@ body {
 }
 
 /* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
+/* Ziel: Außen- UND Innenkanten sauber rund.
+   - border-radius + overflow hidden clippt alle Ebenen
+   - background-clip hält die Innenfläche innerhalb der Rundung
+   - img bekommt border-radius: inherit (innere Ecken) */
 .gold-frame {
     display: inline-flex;
     align-items: center;
@@ -341,6 +341,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
     border-radius: inherit;
 }
 
@@ -395,6 +396,7 @@ body {
 }
 
 /* ==== LANGUAGE TOGGLE ==== */
+/* Es wird immer nur die inaktive Sprache angezeigt. */
 .lang-toggle {
     position: relative;
     width: var(--lang-btn-size);
@@ -677,6 +679,7 @@ section.anchor {
 }
 
 /* ==== CAROUSEL (CREDENTIALS) ==== */
+/* Markup ist derzeit auskommentiert; Styles bleiben für später. */
 #credentials .carousel-shell {
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -933,13 +936,8 @@ section.anchor {
     background-color: var(--blue);
     color: var(--cream);
 
-    /* Mindesthöhe, darf wachsen */
     min-height: var(--footer-min-h);
-
-    /* 20px Abstand zum Seitenende -> padding-bottom = 20px */
     padding: var(--footer-pad-top) 0 var(--footer-pad-bottom);
-
-    position: relative;
 
     font-family: var(--font-body);
     font-size: var(--fs-body);
@@ -947,6 +945,12 @@ section.anchor {
     line-height: var(--lh-body);
 }
 
+/* NEURALGISCH:
+   Damit B2/C2 wirklich „am Seitenende“ landen:
+   - Zeile 1 = 1fr (nimmt verfügbaren Raum)
+   - Zeile 2 = auto (sitzt unten)
+   - Grid-Container bekommt min-height (damit es „unten“ überhaupt gibt)
+*/
 .footer-inner {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -954,9 +958,7 @@ section.anchor {
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
-    /* WICHTIG: Zeile 2 sitzt wirklich unten */
-    grid-template-rows: var(--footer-row1-fr) var(--footer-row2-size);
+    grid-template-rows: 1fr auto;
 
     grid-template-areas:
         "a1 b1 c1"
@@ -967,7 +969,6 @@ section.anchor {
 
     align-items: start;
 
-    /* WICHTIG: Grid braucht Höhe, sonst gibt es kein “unten” */
     min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom));
 }
 
@@ -1000,6 +1001,7 @@ section.anchor {
     grid-area: b2;
     align-self: end;
     justify-self: center;
+
     padding-bottom: var(--footer-row2-baseline-pad);
 }
 
@@ -1007,6 +1009,7 @@ section.anchor {
     grid-area: c2;
     align-self: end;
     justify-self: start;
+
     padding-bottom: var(--footer-row2-baseline-pad);
 }
 
@@ -1025,7 +1028,7 @@ section.anchor {
 /* ==== QUALIFICATIONS ==== */
 .qualifications-logos {
     display: flex;
-    gap: var(--footer-qual-gap);
+    gap: var(--qual-logos-gap);
     align-items: center;
     flex-wrap: wrap;
 }
@@ -1058,19 +1061,24 @@ section.anchor {
     height: var(--qual-logo-h);
     flex: 0 0 var(--qual-logo-h);
     aspect-ratio: 1 / 1;
+
     border-radius: 50%;
 }
 
-/* Rechteck-Logos: formangepasste Ecken (nicht hart) */
+/* Rechteck-Logos: nicht „hart“, sondern passend zum Frame-System */
 .qualifications-logos .gold-frame.shape--rect {
     border-radius: var(--frame-r-md);
 }
 
 /* ==== BACK TO TOP ==== */
+/* NEURALGISCH:
+   B1 soll oben zentriert sein -> Container ist .footer-b1 (justify-self:center),
+   Inhalt ist .backtop (align-items:center). */
 .backtop {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     gap: var(--backtop-gap);
 
     color: var(--cream);
@@ -1097,7 +1105,7 @@ section.anchor {
 /* ==== FOLLOW ==== */
 .follow-icons {
     display: flex;
-    gap: var(--footer-follow-gap);
+    gap: var(--follow-icons-gap);
     align-items: center;
     flex-wrap: wrap;
 }
@@ -1160,7 +1168,7 @@ section.anchor {
     opacity: 0.9;
 }
 
-/* ==== RESPONSIVE FOOTER ==== */
+/* ==== RESPONSIVE (MOBILE) ==== */
 @media (max-width: 768px) {
 
     :root {
@@ -1191,6 +1199,8 @@ section.anchor {
         row-gap: 18px;
     }
 
+    /* Mobile Footer: einspaltig, B2/C2 bleiben am Ende der Reihenfolge.
+       Hinweis: „am Seitenende“ wird hier durch footer-pad-bottom (20px) gehalten. */
     .footer-inner {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto auto;
@@ -1201,9 +1211,7 @@ section.anchor {
             "b2"
             "c2";
         row-gap: var(--footer-row-gap);
-
-        /* Auf Mobile ist “unten” durch Content-Flow ok, min-height bleibt aber erhalten */
-        min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom));
+        min-height: 0;
     }
 
     .footer-b1 {
