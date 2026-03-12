@@ -945,8 +945,7 @@ section.anchor {
     line-height: var(--lh-body);
 }
 
-/* NEURALGISCH:
-   Damit B2/C2 wirklich „am Seitenende“ landen:
+/* Damit A2/B2/C2 wirklich „am Seitenende“ landen:
    - Zeile 1 = 1fr (nimmt verfügbaren Raum)
    - Zeile 2 = auto (sitzt unten)
    - Grid-Container bekommt min-height (damit es „unten“ überhaupt gibt)
@@ -995,6 +994,8 @@ section.anchor {
     grid-area: a2;
     align-self: end;
     justify-self: start;
+
+    padding-bottom: var(--footer-row2-baseline-pad);
 }
 
 .footer-b2 {
@@ -1128,6 +1129,17 @@ section.anchor {
     display: block;
 }
 
+/* ==== FOTO CREDITS (A2) ==== */
+.legal-copy {
+    font-family: var(--legal-font);
+    font-size: var(--legal-size);
+    font-weight: var(--legal-weight);
+    line-height: var(--legal-lh);
+
+    color: inherit;
+    white-space: var(--legal-wrap);
+}
+
 /* ==== COPYRIGHT (B2) ==== */
 .legal-copy {
     font-family: var(--legal-font);
@@ -1208,6 +1220,7 @@ section.anchor {
             "a1"
             "b1"
             "c1"
+            "a2"
             "b2"
             "c2";
         row-gap: var(--footer-row-gap);
@@ -1219,7 +1232,9 @@ section.anchor {
     }
 
     .footer-a1,
+    .footer-b1,
     .footer-c1,
+    .footer-a2,
     .footer-b2,
     .footer-c2 {
         justify-self: start;
