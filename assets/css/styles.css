@@ -240,7 +240,7 @@
     /* Qualifications */
     --qual-logo-h: 50px;                        /* Höhe der Logos */
     --qual-logo-pad: 0px;                       /* Innenpadding Logo (0 = none) */
-    --qual-logo-max-w: 140px;                   /* max Breite (rect) */
+    --qual-logo-max-w: auto;                    /* max Breite (rect) */
     --qual-logo-frame: var(--frame-w-sm);       /* Rahmenstärke Logo */
     --qual-logos-gap: 24px;                     /* Abstand zwischen den Logos */
 
