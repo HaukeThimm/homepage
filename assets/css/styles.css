@@ -153,9 +153,9 @@
     --banner-h: 75px;
 
     /* Home Icon */
-    --nav-home-w: auto;             /* Breite des Home-Bildes */
-    --nav-home-h: 24px;             /* Höhe des Home-Bildes */
-    --nav-home-x: 0px;              /* horizontale Feinkorrektur */
+    --nav-home-w: 90px;             /* Breite des Home-Icons */
+    --nav-home-h: 24px;             /* Höhe des Home-Icons */
+    --nav-home-left: 150px;         /* linke Position relativ zum Viewport */
     --nav-home-y: 0px;              /* vertikale Feinkorrektur */
     --nav-home-fit: contain;        /* contain / cover */
 
@@ -413,9 +413,18 @@ body {
 }
 
 .nav-link--home {
+    position: fixed;
+    top: calc(var(--top-offset) + ((var(--banner-h) - var(--nav-home-h)) / 2) + var(--nav-home-y));
+    left: var(--nav-home-left);
+    z-index: 10001;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    width: var(--nav-home-w);
+    height: var(--nav-home-h);
+
     text-decoration: none;
 }
 
@@ -425,10 +434,9 @@ body {
 
 .nav-link--home img {
     display: block;
-    width: var(--nav-home-w);
-    height: var(--nav-home-h);
+    width: 100%;
+    height: 100%;
     object-fit: var(--nav-home-fit);
-    transform: translate(var(--nav-home-x), var(--nav-home-y));
 }
 
 /* ==== LANGUAGE TOGGLE ==== */
@@ -1332,9 +1340,9 @@ section.anchor {
         --contact-form-max-w: 75vw;
         --contact-form-min-w: 0px;
 
-        --nav-home-w: auto;
+        --nav-home-w: 70px;
         --nav-home-h: 20px;
-        --nav-home-x: 0px;
+        --nav-home-left: 18px;
         --nav-home-y: 0px;
     }
 
