@@ -155,7 +155,7 @@
     /* Home Icon */
     --nav-home-w: 90px;             /* Breite des Home-Icons */
     --nav-home-h: 24px;             /* Höhe des Home-Icons */
-    --nav-home-left: 150px;         /* linke Position relativ zum Viewport */
+    --nav-home-left: 225px;         /* linke Position relativ zum Viewport */
     --nav-home-y: 0px;              /* vertikale Feinkorrektur */
     --nav-home-fit: contain;        /* contain / cover */
 
@@ -240,7 +240,6 @@
     /* Qualifications */
     --qual-logo-h: 50px;                        /* Höhe der Logos */
     --qual-logo-pad: 0px;                       /* Innenpadding Logo (0 = none) */
-    --qual-logo-max-w: auto;                    /* max Breite (rect) */
     --qual-logo-frame: var(--frame-w-sm);       /* Rahmenstärke Logo */
     --qual-logos-gap: 24px;                     /* Abstand zwischen den Logos */
 
@@ -1186,10 +1185,6 @@ section.anchor {
 }
 
 .qualifications-logos .gold-frame {
-    height: var(--qual-logo-h);
-    width: auto;
-    max-width: var(--qual-logo-max-w);
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1198,11 +1193,17 @@ section.anchor {
     border-width: var(--qual-logo-frame);
 }
 
+.qualifications-logos .gold-frame.shape--rect {
+    height: var(--qual-logo-h);
+    width: fit-content;
+    border-radius: var(--frame-r-md);
+}
+
 .qualifications-logos .gold-frame > img {
     display: block;
     height: 100%;
     width: auto;
-    max-width: 100%;
+    max-width: none;
     object-fit: contain;
     padding: var(--qual-logo-pad);
 }
@@ -1215,11 +1216,6 @@ section.anchor {
     aspect-ratio: 1 / 1;
 
     border-radius: 50%;
-}
-
-/* Rechteck-Logos: nicht „hart“, sondern passend zum Frame-System */
-.qualifications-logos .gold-frame.shape--rect {
-    border-radius: var(--frame-r-md);
 }
 
 /* ==== BACK TO TOP ==== */
@@ -1342,7 +1338,7 @@ section.anchor {
 
         --nav-home-w: 70px;
         --nav-home-h: 20px;
-        --nav-home-left: 18px;
+        --nav-home-left: 93px;
         --nav-home-y: 0px;
     }
 
