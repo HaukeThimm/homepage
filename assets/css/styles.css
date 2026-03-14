@@ -104,17 +104,6 @@
     --cream: #fdf7f2;
     --blue: #003153;
 
-    /* ==== NAV ==== */
-    --top-offset: 0px;
-    --banner-h: 75px;
-
-    /* Unterseiten: Abstand unterhalb Nav-Unterkante */
-    --page-top-gap: 40px;
-
-    /* ==== LAYOUT / GRID ==== */
-    --side-pad: 150px;
-    --max-width: 1400px;
-
     /* ==== TYPO (GLOBAL) ==== */
     --font-head: "Cormorant Garamond", serif;
     --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
@@ -159,12 +148,26 @@
 
     --goldframe-img: url("../img/highlights_gold.png"); /* Goldtextur (liegt unter assets/img) */
 
-    /* ==== LANGUAGE TOGGLE (SEPARAT) ==== */
-    --lang-btn-size: 25px;          /* Größe der Sprach-Buttons (quadratisch) */
+    /* ==== NAV-BANNER ==== */
+    --top-offset: 0px;
+    --banner-h: 75px;
 
-    /* ==== NAV LINKS (SEPARAT) ==== */
+    /* Home Icon */
+    --nav-home-w: auto;             /* Breite des Home-Bildes */
+    --nav-home-h: 24px;             /* Höhe des Home-Bildes */
+    --nav-home-x: 0px;              /* horizontale Feinkorrektur */
+    --nav-home-y: 0px;              /* vertikale Feinkorrektur */
+    --nav-home-fit: contain;        /* contain / cover */
+
+    /* Nav Links */
     --nav-letter-spacing: 0.1em;
     --nav-text-transform: uppercase;
+
+    /* Language Toggle */
+    --lang-btn-size: 25px;          /* Größe der Sprach-Buttons (quadratisch) */
+
+    /* Unterseiten: Abstand unterhalb Nav-Unterkante */
+    --page-top-gap: 40px;
 
     /* ==== SERVICES (ACCORDION) ==== */
     --services-gap: 18px;           /* Abstand zwischen Service-Items */
@@ -214,6 +217,10 @@
     --pre-footer-text-lh: var(--lh-body);       /* Zeilenhöhe der Pre-Footer Texte */
     --pre-footer-text-nowrap: nowrap;           /* Verhindert Zeilenumbruch der Pre-Footer Texte */
 
+    /* ==== LAYOUT / GRID ==== */
+    --side-pad: 150px;
+    --max-width: 1400px;
+
     /* ==== FOOTER ==== */
     --footer-min-h: 300px;                      /* Mindesthöhe des Footers (darf wachsen) */
     --footer-pad-top: 20px;                     /* Innenabstand oben */
@@ -257,6 +264,16 @@
 
     /* ==== ANCHOR OFFSET (FIXED NAV) ==== */
     --anchor-offset: 20px;                      /* Abstand zwischen fixiertem Nav und Zielanker */
+
+    /* ==== CONTACT FORM ==== */
+    --contact-form-max-w: 25vw;
+    --contact-form-min-w: 320px;
+    --contact-form-gap: 14px;
+    --contact-form-field-pad-y: 12px;
+    --contact-form-field-pad-x: 14px;
+    --contact-form-radius: var(--frame-r-md);
+    --contact-form-submit-pad-y: 0.45em;
+    --contact-form-submit-pad-x: 0.9em;
 
 }
 
@@ -395,13 +412,35 @@ body {
     text-decoration: underline;
 }
 
+.nav-link--home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-link--home:hover {
+    text-decoration: none;
+}
+
+.nav-link--home img {
+    display: block;
+    width: var(--nav-home-w);
+    height: var(--nav-home-h);
+    object-fit: var(--nav-home-fit);
+    transform: translate(var(--nav-home-x), var(--nav-home-y));
+}
+
 /* ==== LANGUAGE TOGGLE ==== */
 /* Es wird immer nur die inaktive Sprache angezeigt. */
 .lang-toggle {
-    position: relative;
+    position: fixed;
+    top: calc(var(--top-offset) + ((var(--banner-h) - var(--lang-btn-size)) / 2));
+    right: var(--side-pad);
     width: var(--lang-btn-size);
     height: var(--lang-btn-size);
     flex: 0 0 var(--lang-btn-size);
+    z-index: 10001;
 }
 
 .lang-btn {
@@ -848,6 +887,110 @@ section.anchor {
     text-decoration: underline;
 }
 
+/* ==== CONTACT FORM ==== */
+.contact-form {
+    width: min(var(--contact-form-max-w), 100%);
+    min-width: var(--contact-form-min-w);
+    display: flex;
+    flex-direction: column;
+    gap: var(--contact-form-gap);
+    margin-top: var(--block-gap);
+}
+
+.form-label {
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-sub);
+    line-height: var(--lh-body);
+    margin: 0;
+}
+
+.form-field {
+    width: 100%;
+    padding: var(--contact-form-field-pad-y) var(--contact-form-field-pad-x);
+    color: var(--blue);
+    background: var(--cream);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
+
+    border: var(--frame-w-md) solid transparent;
+    border-radius: var(--contact-form-radius);
+
+    background:
+        linear-gradient(var(--cream), var(--cream)) padding-box,
+        var(--goldframe-img) border-box;
+
+    background-size: auto, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-clip: padding-box, border-box;
+}
+
+.form-field:focus {
+    outline: none;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 180px;
+}
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--contact-form-gap);
+}
+
+.form-row-2 > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--contact-form-gap);
+}
+
+.form-privacy {
+    white-space: normal;
+}
+
+.form-link {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.form-submit {
+    display: inline-block;
+    width: fit-content;
+    padding: var(--contact-form-submit-pad-y) var(--contact-form-submit-pad-x);
+
+    color: var(--cream);
+    text-decoration: none;
+
+    font-family: var(--font-head);
+    font-size: var(--fs-head);
+    font-weight: var(--fw-head);
+    line-height: 1;
+
+    border: var(--frame-w-md) solid transparent;
+    border-radius: var(--frame-r-md);
+
+    background:
+        linear-gradient(var(--blue), var(--blue)) padding-box,
+        var(--goldframe-img) border-box;
+
+    background-size: auto, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-clip: padding-box, border-box;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.form-submit:hover {
+    text-decoration: underline;
+}
+
 /* ==== PRE-FOOTER (TOKENISIERT) ==== */
 .pre-footer {
     width: 100%;
@@ -1186,6 +1329,13 @@ section.anchor {
     :root {
         --side-pad: 18px;
         --banner-h: 64px;
+        --contact-form-max-w: 75vw;
+        --contact-form-min-w: 0px;
+
+        --nav-home-w: auto;
+        --nav-home-h: 20px;
+        --nav-home-x: 0px;
+        --nav-home-y: 0px;
     }
 
     .nav-inner {
@@ -1202,20 +1352,49 @@ section.anchor {
         letter-spacing: 0.08em;
     }
 
+    .lang-toggle {
+        right: var(--side-pad);
+    }
+
     .pre-footer {
         padding: 24px 0;
     }
 
     .pre-footer-inner {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 12px;
+        row-gap: 0;
+        justify-items: center;
+    }
+
+    .pre-footer-col {
+        justify-content: center;
+    }
+
+    .pre-footer-item {
+        justify-content: center;
+        gap: 0;
+    }
+
+    .pre-footer-text {
+        display: none;
+    }
+
+    .pre-footer-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-row-2 {
         grid-template-columns: 1fr;
-        row-gap: 18px;
     }
 
     /* Mobile Footer: einspaltig, B2/C2 bleiben am Ende der Reihenfolge.
        Hinweis: „am Seitenende“ wird hier durch footer-pad-bottom (20px) gehalten. */
     .footer-inner {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto auto;
+        grid-template-rows: auto auto auto auto auto auto;
         grid-template-areas:
             "a1"
             "b1"

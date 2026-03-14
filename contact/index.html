@@ -1,6 +1,8 @@
+<!-- ===== FILE: contact/index.html ===== -->
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="de">
+
     <head>
         <!-- ==== META / GRUNDLAGEN ==== -->
         <meta charset="utf-8" />
@@ -12,25 +14,33 @@
     </head>
 
     <body class="page--contact">
+        <div id="top"></div>
+
         <!-- ==== FIXED NAV (WIE MAIN, LINKS ZUR STARTSEITE) ==== -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
                     <div class="nav-items">
-                        <a class="nav-link" href="/#top" data-en="HOME" data-de="HOME">HOME</a>
+                        <!-- <a class="nav-link" href="/#top" data-en="HOME" data-de="HOME">HOME</a> -->    <!-- /* Home-Link als "HOME" */ -->
+                        <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
+                            <img class="nav-home-icon" src="/assets/img/home.png" alt="Home" />
+                        </a>
                         <a class="nav-link" href="/#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
                         <a class="nav-link" href="/#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
-                        <a class="nav-link" href="/#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a>
+                        <!-- <a class="nav-link" href="/#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
                         <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        <!--
+                        <a class="nav-link" href="mailto:mail@haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        -->
 
                         <div class="lang-toggle" aria-label="Language selector">
-                            <button type="button" class="lang-btn is-active" data-lang="en" aria-label="English">
+                            <button type="button" class="lang-btn" data-lang="en" aria-label="English">
                                 <span class="gold-frame frame--sm shape--round">
                                     <img src="/assets/img/flag-uk.png" alt="EN" />
                                 </span>
                             </button>
 
-                            <button type="button" class="lang-btn" data-lang="de" aria-label="Deutsch">
+                            <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
                                 <span class="gold-frame frame--sm shape--round">
                                     <img src="/assets/img/flag-de.png" alt="DE" />
                                 </span>
@@ -59,7 +69,7 @@
                     </p>
 
                     <!-- ==== FORM WRAPPER (BREITE: DESKTOP 25vw / MOBILE 75vw) ==== -->
-                    <form class="contact-form" action="#" method="post" novalidate>
+                    <form class="contact-form" action="mailto:mail@haukethimm.com" method="post" enctype="text/plain">
                         <!-- Name -->
                         <label class="form-label" for="cf-name" data-en="Name *" data-de="Name *">Name *</label>
                         <input class="form-field" id="cf-name" name="name" type="text" autocomplete="name" required />
@@ -75,14 +85,14 @@
                         <!-- ==== EVENTZEITRAUM (2x DATE PICKER, OPTIONAL) ==== -->
                         <div class="form-row-2">
                             <div>
-                                <label class="form-label" for="cf-start" data-en="Event start" data-de="Eventbeginn">
+                                <label class="form-label" for="cf-start" data-en="Event start (optional)" data-de="Eventbeginn (optional)">
                                     Event start (optional)
                                 </label>
                                 <input class="form-field" id="cf-start" name="event_start" type="date" />
                             </div>
 
                             <div>
-                                <label class="form-label" for="cf-end" data-en="Event end" data-de="Eventende">
+                                <label class="form-label" for="cf-end" data-en="Event end (optional)" data-de="Eventende (optional)">
                                     Event end (optional)
                                 </label>
                                 <input class="form-field" id="cf-end" name="event_end" type="date" />
@@ -98,7 +108,7 @@
                            data-en="By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry. See Privacy policy."
                            data-de="Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zum Zweck der Bearbeitung Ihrer Anfrage zu. Siehe Datenschutz.">
                             By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry.
-                            <a class="form-link" href="/privacy/" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>.
+                            <a class="form-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>.
                         </p>
 
                         <button class="form-submit" type="submit" data-en="Send" data-de="Absenden">Send</button>
@@ -106,71 +116,76 @@
                 </section>
             </main>
 
-            <!-- ==== PRE-FOOTER (WIE MAIN PAGE) ==== -->
+            <!-- ==== PRE-FOOTER ==== -->
             <section class="pre-footer" aria-label="Additional contact options">
                 <div class="pre-footer-inner">
-                    <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="/assets/img/contact_phone.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text">+49 160 95364569</p>
-                    </div>
-
-                    <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="/assets/img/contact_email.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text">
-                            <a class="pre-footer-link" href="mailto:mail@haukethimm.com">mail@haukethimm.com</a>
-                        </p>
-                    </div>
-
-                    <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="/assets/img/contact_businesscard.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text" data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">Business card (vcf)</p>
-                    </div>
-
-                    <!-- <div class="pre-footer-item">
-                        <span class="gold-frame frame--md shape--round">
-                            <img src="/assets/img/contact_onepager.png" alt="" />
-                        </span>
-                        <p class="pre-footer-text" data-en="One-pager" data-de="One-Pager">One-pager</p>
-                    </div> -->
-                </div>
-            </section>
-
-            <!-- ==== FOOTER (WIE MAIN PAGE) ==== -->
-            <footer class="footer anchor" id="footer">
-                <div class="footer-inner">
-                    <div class="footer-left">
-                        <div class="qualifications">
-                            <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifications:</p>
-
-                            <div class="qualifications-logos">
-                                <a href="https://www.handelskammer-hamburg.de/" target="_blank" rel="noopener noreferrer" aria-label="Handelskammer Hamburg">
-                                    <span class="gold-frame frame--md shape--rect">
-                                        <img src="/assets/img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
-                                    </span>
-                                </a>
-
-                                <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
-                                    <span class="gold-frame frame--md shape--round">
-                                        <img src="/assets/img/protocolbureau.jpg" alt="Protocolbureau" />
-                                    </span>
-                                </a>
-                            </div>
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="/assets/img/contact_phone_.png" alt="" aria-hidden="true" />
+                            </span>
+                            <a class="pre-footer-link" href="tel:+4916095364569">
+                                <span class="pre-footer-text">+49 160 95364569</span>
+                            </a>
                         </div>
                     </div>
 
-                    <a class="backtop" href="#top" aria-label="Back to top">
-                        <img class="chevron-img" src="/assets/img/chevron.png" alt="" />
-                        <span class="backtop-text" data-en="Back to top" data-de="zum Seitenanfang">Back to top</span>
-                    </a>
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="/assets/img/contact_email_.png" alt="" aria-hidden="true" />
+                            </span>
+                            <a class="pre-footer-link" href="mailto:mail@haukethimm.com">
+                                <span class="pre-footer-text">mail@haukethimm.com</span>
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="follow">
-                        <p class="follow-label" data-en="Follow me:" data-de="Folge mir:">Follow me:</p>
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="/assets/img/contact_contactcard_.png" alt="" aria-hidden="true" />
+                            </span>
+
+                            <a class="pre-footer-link" href="/assets/files/hauke-thimm.vcf" download>
+                                <span class="pre-footer-text" data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">Visitenkarte (vcf)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==== FOOTER (A1/B1/C1 + A2/B2/C2) ==== -->
+            <footer class="footer anchor" id="footer">
+                <div class="footer-inner">
+                    <div class="footer-a1">
+                        <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifikationen:</p>
+
+                        <div class="qualifications-logos">
+                            <a href="https://www.handelskammer-hamburg.de/" target="_blank" rel="noopener noreferrer" aria-label="Handelskammer Hamburg">
+                                <span class="gold-frame frame--md shape--rect">
+                                    <img src="/assets/img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                                </span>
+                            </a>
+
+                            <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
+                                <span class="gold-frame frame--md shape--round">
+                                    <img src="/assets/img/protocolbureau.jpg" alt="Protocolbureau" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-b1">
+                        <a class="backtop" href="#top" aria-label="Back to top">
+                            <img class="chevron-img" src="/assets/img/chevron.png" alt="" />
+                            <span class="backtop-text" data-en="Back to top" data-de="zum Seitenanfang">zum Seitenanfang</span>
+                        </a>
+                    </div>
+
+                    <div class="footer-c1">
+                        <p class="follow-label" data-en="Follow me:" data-de="Folge mir:">Folge mir:</p>
+
                         <div class="follow-icons">
                             <a href="https://www.instagram.com/haukethimm?igsh=bXVkc3o4MW1mcnVk&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <span class="gold-frame frame--md shape--round">
@@ -180,9 +195,25 @@
                         </div>
                     </div>
 
-                    <div class="legal-text" aria-label="Legal links">
-                        <a class="legal-link" href="/imprint/" data-en="Imprint" data-de="Impressum">Imprint</a>
-                        <a class="legal-link" href="/privacy/" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>
+                    <div class="footer-a2">
+                        <a class="legal-link legal-copy" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Image Credits" data-de="Bildnachweise">Bildnachweise</a>
+                    </div>
+
+                    <div class="footer-b2">
+                        <span class="legal-copy" data-en="© Hauke Thimm" data-de="© Hauke Thimm">© Hauke Thimm</span>
+                    </div>
+
+                    <div class="footer-c2">
+                        <div class="legal-links" aria-label="Legal navigation">
+                            <a class="legal-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Imprint" data-de="Impressum">Impressum</a>
+                            <span class="legal-sep" aria-hidden="true">|</span>
+                            <a class="legal-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy" data-de="Datenschutz">Datenschutz</a>
+                            <span class="legal-sep" aria-hidden="true">|</span>
+                            <a class="legal-link" href="/contact/" data-en="Contact" data-de="Kontakt">Kontakt</a>
+                            <!--
+                            <a class="legal-link" href="mailto:mail@haukethimm.com" data-en="Contact" data-de="Kontakt">Kontakt</a>
+                            -->
+                        </div>
                     </div>
                 </div>
             </footer>
@@ -191,4 +222,5 @@
         <!-- ==== MAIN JS ==== -->
         <script defer src="/assets/js/main.js"></script>
     </body>
+
 </html>

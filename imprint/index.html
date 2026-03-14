@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 
 <html lang="de">
+
     <head>
         <!-- ==== META / GRUNDLAGEN ==== -->
         <meta charset="utf-8" />
@@ -20,11 +21,17 @@
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
                     <div class="nav-items">
-                        <a class="nav-link" href="/#top" data-en="HOME" data-de="HOME">HOME</a>
+                        <!-- <a class="nav-link" href="/#top" data-en="HOME" data-de="HOME">HOME</a> -->    <!-- /* Home-Link als "HOME" */ -->
+                        <a class="nav-link nav-link--home" href="/#top" aria-label="Home">                  <!-- /* Home-Link als Icon */ -->
+                            <img src="/assets/img/home.png" alt="Home" />
+                        </a>
                         <a class="nav-link" href="/#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
                         <a class="nav-link" href="/#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
-                        <a class="nav-link" href="/#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a>
-                        <a class="nav-link" href="/#contact" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        <!-- <a class="nav-link" href="/#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
+                        <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        <!--
+                        <a class="nav-link" href="mailto:mail@haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        -->
 
                         <div class="lang-toggle" aria-label="Language selector">
                             <button type="button" class="lang-btn" data-lang="en" aria-label="English">
@@ -94,8 +101,111 @@
                     </p>
                 </section>
             </main>
+
+            <!-- ==== PRE-FOOTER ==== -->
+            <section class="pre-footer" aria-label="Additional contact options">
+                <div class="pre-footer-inner">
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="/assets/img/contact_phone_.png" alt="" aria-hidden="true" />
+                            </span>
+                            <a class="pre-footer-link" href="tel:+4916095364569">
+                                <span class="pre-footer-text">+49 160 95364569</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="/assets/img/contact_email_.png" alt="" aria-hidden="true" />
+                            </span>
+                            <a class="pre-footer-link" href="mailto:mail@haukethimm.com">
+                                <span class="pre-footer-text">mail@haukethimm.com</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="pre-footer-col">
+                        <div class="pre-footer-item">
+                            <span class="gold-frame frame--md shape--round">
+                                <img src="/assets/img/contact_contactcard_.png" alt="" aria-hidden="true" />
+                            </span>
+
+                            <a class="pre-footer-link" href="/assets/files/hauke-thimm.vcf" download>
+                                <span class="pre-footer-text" data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">Visitenkarte (vcf)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==== FOOTER (A1/B1/C1 + A2/B2/C2) ==== -->
+            <footer class="footer anchor" id="footer">
+                <div class="footer-inner">
+                    <div class="footer-a1">
+                        <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifikationen:</p>
+
+                        <div class="qualifications-logos">
+                            <a href="https://www.handelskammer-hamburg.de/" target="_blank" rel="noopener noreferrer" aria-label="Handelskammer Hamburg">
+                                <span class="gold-frame frame--md shape--rect">
+                                    <img src="/assets/img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                                </span>
+                            </a>
+
+                            <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
+                                <span class="gold-frame frame--md shape--round">
+                                    <img src="/assets/img/protocolbureau.jpg" alt="Protocolbureau" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-b1">
+                        <a class="backtop" href="#top" aria-label="Back to top">
+                            <img class="chevron-img" src="/assets/img/chevron.png" alt="" />
+                            <span class="backtop-text" data-en="Back to top" data-de="zum Seitenanfang">zum Seitenanfang</span>
+                        </a>
+                    </div>
+
+                    <div class="footer-c1">
+                        <p class="follow-label" data-en="Follow me:" data-de="Folge mir:">Folge mir:</p>
+
+                        <div class="follow-icons">
+                            <a href="https://www.instagram.com/haukethimm?igsh=bXVkc3o4MW1mcnVk&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <span class="gold-frame frame--md shape--round">
+                                    <img src="/assets/img/instagram.png" alt="Instagram" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-a2">
+                        <a class="legal-link legal-copy" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Image Credits" data-de="Bildnachweise">Bildnachweise</a>
+                    </div>
+
+                    <div class="footer-b2">
+                        <span class="legal-copy" data-en="© Hauke Thimm" data-de="© Hauke Thimm">© Hauke Thimm</span>
+                    </div>
+
+                    <div class="footer-c2">
+                        <div class="legal-links" aria-label="Legal navigation">
+                            <a class="legal-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Imprint" data-de="Impressum">Impressum</a>
+                            <span class="legal-sep" aria-hidden="true">|</span>
+                            <a class="legal-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy" data-de="Datenschutz">Datenschutz</a>
+                            <span class="legal-sep" aria-hidden="true">|</span>
+                            <a class="legal-link" href="/contact/" data-en="Contact" data-de="Kontakt">Kontakt</a>
+                            <!--
+                            <a class="legal-link" href="mailto:mail@haukethimm.com" data-en="Contact" data-de="Kontakt">Kontakt</a>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
 
         <script defer src="/assets/js/main.js"></script>
     </body>
+
 </html>

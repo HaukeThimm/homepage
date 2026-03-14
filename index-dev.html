@@ -20,11 +20,17 @@
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
                     <div class="nav-items">
-                        <a class="nav-link" href="#top" data-en="HOME" data-de="HOME">HOME</a>
+                        <!-- <a class="nav-link" href="#top" data-en="HOME" data-de="HOME">HOME</a> -->     <!-- /* Home-Link als "HOME" */ -->
+                        <a class="nav-link nav-link--home" href="#top" aria-label="Home">                   <!-- /* Home-Link als Icon */ -->
+                            <img class="nav-home-icon" src="assets/img/home.png" alt="Home" />
+                        </a>
                         <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
                         <a class="nav-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
                         <!-- <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
-                        <a class="nav-link" href="#contact" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        <!--
+                        <a class="nav-link" href="mailto:mail@haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        -->
 
                         <!-- Language Toggle: es wird immer nur die "andere" Sprache angezeigt -->
                         <div class="lang-toggle" aria-label="Language selector">
@@ -320,7 +326,10 @@
                     </p>
 
                     <p class="body-text contact-cta">
+                        <a class="cta-btn" href="/contact/" data-en="Get in Touch" data-de="Kontakt aufnehmen">Kontakt aufnehmen</a>
+                        <!--
                         <a class="cta-btn" href="mailto:mail@haukethimm.com" data-en="Get in Touch" data-de="Kontakt aufnehmen">Kontakt aufnehmen</a>
+                        -->
 
                         <span data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">
                             Diskrete Behandlung aller Anfragen.
@@ -400,22 +409,12 @@
 
                     <!-- C1: Follow (links oben) -->
                     <div class="footer-c1">
-                        <p class="follow-label" data-en="Follow / Connect:" data-de="Folgen / Vernetzen:">Folgen / Vernetzen:</p>
+                        <p class="follow-label" data-en="Follow me:" data-de="Folge mir:">Folge mir:</p>
 
                         <div class="follow-icons">
-                            <!-- <a href="https://www.instagram.com/haukethimm?igsh=bXVkc3o4MW1mcnVk&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <a href="https://www.instagram.com/haukethimm?igsh=bXVkc3o4MW1mcnVk&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <span class="gold-frame frame--md shape--round">
                                     <img src="assets/img/instagram.png" alt="Instagram" />
-                                </span>
-                            </a> -->
-                            <a href="https://www.instagram.com/haukethimm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <span class="gold-frame frame--md shape--round">
-                                    <img src="assets/img/instagram.png" alt="Instagram" />
-                                </span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/haukethimm" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                <span class="gold-frame frame--md shape--round">
-                                    <img src="assets/img/linkedin.png" alt="LinkedIn" />
                                 </span>
                             </a>
                         </div>
@@ -423,7 +422,7 @@
 
                     <!-- A2: Bildnachweise -->
                     <div class="footer-a2">
-                        <span class="legal-copy" data-en="Image Credits" data-de="Bildnachweise">Bildnachweise</span>
+                        <a class="legal-link legal-copy" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Image Credits" data-de="Bildnachweise">Bildnachweise</a>
                     </div>
 
                     <!-- B2: © Hauke Thimm (zentriert unten) -->
@@ -434,11 +433,14 @@
                     <!-- C2: Links (links unten) — gleiche Höhe wie © -->
                     <div class="footer-c2">
                         <div class="legal-links" aria-label="Legal navigation">
-                            <a class="legal-link" href="/imprint/" data-en="Imprint" data-de="Impressum">Impressum</a>
+                            <a class="legal-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Imprint" data-de="Impressum">Impressum</a>
                             <span class="legal-sep" aria-hidden="true">|</span>
-                            <a class="legal-link" href="/privacy/" data-en="Privacy" data-de="Datenschutz">Datenschutz</a>
+                            <a class="legal-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy" data-de="Datenschutz">Datenschutz</a>
                             <span class="legal-sep" aria-hidden="true">|</span>
                             <a class="legal-link" href="/contact/" data-en="Contact" data-de="Kontakt">Kontakt</a>
+                            <!--
+                            <a class="legal-link" href="mailto:mail@haukethimm.com" data-en="Contact" data-de="Kontakt">Kontakt</a>
+                            -->
                         </div>
                     </div>
                 </div>
