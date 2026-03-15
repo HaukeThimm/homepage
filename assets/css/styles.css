@@ -1000,13 +1000,20 @@ section.anchor {
 .pre-footer-item {
     display: inline-flex;
     align-items: center;
-    gap: var(--pre-footer-item-gap);
     min-width: 0;
 }
 
 .pre-footer-link {
-    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pre-footer-item-gap);
     color: var(--cream);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
+    white-space: nowrap;
 }
 
 .pre-footer-link:visited,
@@ -1388,7 +1395,6 @@ section.anchor {
 
     .pre-footer-item {
         justify-content: center;
-        gap: 0;
     }
 
     .pre-footer-text {
@@ -1396,8 +1402,6 @@ section.anchor {
     }
 
     .pre-footer-link {
-        display: inline-flex;
-        align-items: center;
         justify-content: center;
     }
 
@@ -1551,4 +1555,5 @@ section.anchor {
         white-space: normal;
         flex-wrap: wrap;
     }
+
 }
