@@ -9,9 +9,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>haukethimm.com</title>
 
-        <!-- ==== STYLES ==== -->
-        <link rel="stylesheet" href="assets/css/styles.css" />
+        <!-- ==== FAVICON ==== -->
+        <link rel="icon" href="/assets/img/favicon.ico" sizes="any">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
+        <!-- ==== STYLES ==== -->
+        <link rel="stylesheet" href="/assets/css/styles.css" />
+
+        <!-- ==== MANIFEST ==== -->
+        <link rel="manifest" href="/site.webmanifest">
     </head>
 
     <body>
@@ -27,10 +35,8 @@
                         <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
                         <a class="nav-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
                         <!-- <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
-                        <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
-                        <!--
                         <a class="nav-link" href="mailto:mail@haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
-                        -->
+                        <!-- <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
 
                         <button type="button" class="nav-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobilePanel">
                             <img src="assets/img/nav_menu.png" alt="" />
@@ -56,10 +62,8 @@
                     <a class="nav-mobile-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
                     <a class="nav-mobile-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
                     <!-- <a class="nav-mobile-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
-                    <a class="nav-mobile-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
-                    <!--
-                    <a class="nav-mobile-link" href="mailto:mail@haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
-                    -->
+                    <a class="nav-mobile-link" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                    <!-- <a class="nav-mobile-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
                     <a class="nav-mobile-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="IMPRINT" data-de="IMPRESSUM">IMPRINT</a>
                     <a class="nav-mobile-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="PRIVACY" data-de="DATENSCHUTZ">PRIVACY</a>
                 </div>
@@ -299,33 +303,68 @@
             </main>
 
             <!-- ==== CONTACT ==== -->
-            <section class="section contact-section anchor" id="contact">
-                <div class="content">
-                    <h2 data-en="Contact" data-de="Kontakt">Kontakt</h2>
+            <section class="section contact-page anchor" id="contact-page">
+                <h2 class="about-label" data-en="CONTACT" data-de="KONTAKT">CONTACT</h2>
 
-                    <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
-                        Lassen Sie uns Ihr Projekt besprechen
+                <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
+                    Let’s discuss your project
+                </div>
+
+                <p class="body-text"
+                data-en="All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly."
+                data-de="Alle Anfragen werden diskret behandelt. Wenn Sie mit mir in Kontakt treten möchten, schreiben Sie mir bitte direkt per E-Mail.">
+                    All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly.
+                </p>
+
+                <!-- ==== KONTAKTFORMULAR (DERZEIT DEAKTIVIERT) ==== -->
+                <!--
+                <form class="contact-form" action="mailto:mail@haukethimm.com" method="post" enctype="text/plain">
+                    <label class="form-label" for="cf-name" data-en="Name *" data-de="Name *">Name *</label>
+                    <input class="form-field" id="cf-name" name="name" type="text" autocomplete="name" required />
+
+                    <label class="form-label" for="cf-email" data-en="Email *" data-de="E-Mail *">Email *</label>
+                    <input class="form-field" id="cf-email" name="email" type="email" autocomplete="email" required />
+
+                    <label class="form-label" for="cf-phone" data-en="Phone (optional)" data-de="Telefon (optional)">Phone (optional)</label>
+                    <input class="form-field" id="cf-phone" name="phone" type="tel" autocomplete="tel" />
+
+                    <div class="form-row-2">
+                        <div>
+                            <label class="form-label" for="cf-start" data-en="Event start (optional)" data-de="Eventbeginn (optional)">
+                                Event start (optional)
+                            </label>
+                            <input class="form-field" id="cf-start" name="event_start" type="date" />
+                        </div>
+
+                        <div>
+                            <label class="form-label" for="cf-end" data-en="Event end (optional)" data-de="Eventende (optional)">
+                                Event end (optional)
+                            </label>
+                            <input class="form-field" id="cf-end" name="event_end" type="date" />
+                        </div>
                     </div>
 
-                    <p
-                        class="body-text"
-                        data-en="If you are planning a high-level event or protocol-sensitive engagement, I am happy to discuss your requirements in confidence."
-                        data-de="Wenn Sie ein hochrangiges Event oder einen protokollsensiblen Anlass planen, bespreche ich Ihre Anforderungen gern vertraulich."
-                    >
-                        Wenn Sie ein hochrangiges Event oder einen protokollsensiblen Anlass planen, bespreche ich Ihre Anforderungen gern vertraulich.
+                    <label class="form-label" for="cf-message" data-en="Message *" data-de="Nachricht *">Message *</label>
+                    <textarea class="form-field form-textarea" id="cf-message" name="message" rows="7" required></textarea>
+
+                    <p class="form-privacy body-text"
+                    data-en="By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry. See Privacy policy."
+                    data-de="Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zum Zweck der Bearbeitung Ihrer Anfrage zu. Siehe Datenschutz.">
+                        By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry.
+                        <a class="form-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>.
                     </p>
 
-                    <p class="body-text contact-cta">
-                        <a class="cta-btn" href="/contact/" data-en="Get in Touch" data-de="Kontakt aufnehmen">Kontakt aufnehmen</a>
-                        <!--
-                        <a class="cta-btn" href="mailto:mail@haukethimm.com" data-en="Get in Touch" data-de="Kontakt aufnehmen">Kontakt aufnehmen</a>
-                        -->
+                    <button class="form-submit" type="submit" data-en="Send" data-de="Absenden">Send</button>
+                </form>
+                -->
 
-                        <span data-en="Discreet handling of all inquiries." data-de="Diskrete Behandlung aller Anfragen.">
-                            Diskrete Behandlung aller Anfragen.
-                        </span>
-                    </p>
-                </div>
+                <p class="body-text contact-cta">
+                    <a class="cta-btn" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="Send email" data-de="E-Mail senden">E-Mail senden</a>
+
+                    <span data-en="Your default email application will open with a pre-filled recipient and subject line." data-de="Ihr Standard-E-Mail-Programm öffnet sich mit vorausgefüllter Empfängeradresse und Betreffzeile.">
+                        Ihr Standard-E-Mail-Programm öffnet sich mit vorausgefüllter Empfängeradresse und Betreffzeile.
+                    </span>
+                </p>
             </section>
 
             <!-- ==== PRE-FOOTER ==== -->
@@ -384,7 +423,7 @@
                             </a>
 
                             <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
-                                <span class="gold-frame frame--md shape--round">
+                                <span class="gold-frame frame--md shape--rect">
                                     <picture>
                                         <source media="(max-width: 768px)" srcset="assets/img/protocolbureau.png" />
                                         <img src="assets/img/protocolbureau.jpg" alt="Protocolbureau" />
