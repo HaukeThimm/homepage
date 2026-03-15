@@ -1479,6 +1479,37 @@ section.anchor {
         flex-wrap: nowrap;
     }
 
+    .footer-b .qualifications-logos .gold-frame.shape--rect,
+    .footer-b .qualifications-logos .gold-frame.shape--round,
+    .footer-c .follow-icons .gold-frame.shape--round {
+        width: var(--qual-logo-h);
+        height: var(--qual-logo-h);
+        flex: 0 0 var(--qual-logo-h);
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+    }
+
+    .footer-b .qualifications-logos .gold-frame.shape--rect > img,
+    .footer-b .qualifications-logos .gold-frame.shape--rect > picture,
+    .footer-b .qualifications-logos .gold-frame.shape--round > img,
+    .footer-b .qualifications-logos .gold-frame.shape--round > picture,
+    .footer-c .follow-icons .gold-frame.shape--round > img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .footer-b .qualifications-logos .gold-frame.shape--rect > img,
+    .footer-b .qualifications-logos .gold-frame.shape--rect > picture > img,
+    .footer-b .qualifications-logos .gold-frame.shape--round > img,
+    .footer-b .qualifications-logos .gold-frame.shape--round > picture > img,
+    .footer-c .follow-icons .gold-frame.shape--round > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        padding: 0;
+        border-radius: inherit;
+    }
+
     .footer-d .legal-copy,
     .footer-e .legal-copy,
     .footer-f .legal-links {
