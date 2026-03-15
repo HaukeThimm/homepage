@@ -98,185 +98,169 @@
     font-display: swap;
 }
 
-/* ==== TOKENS (FARBEN / TYPO / ABSTÄNDE) ==== */
+/* ==== ROOT TOKENS (DESKTOP STANDARD) ==== */
 :root {
+    --cream: #fdf7f2; /* Grundfarbe Hintergrund / helle Flächen */
+    --blue: #003153; /* Primärfarbe für Navigation, Footer und CTA */
 
-    --cream: #fdf7f2;
-    --blue: #003153;
+    --font-head: "Cormorant Garamond", serif; /* Schriftfamilie Headlines */
+    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* Schriftfamilie Fließtext */
 
-    /* ==== TYPO (GLOBAL) ==== */
-    --font-head: "Cormorant Garamond", serif;
-    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    --fs-head: 30px; /* Schriftgröße Headlines */
+    --fs-sub: 24px; /* Schriftgröße Sublines */
+    --fs-body: 18px; /* Schriftgröße Body */
+    --fs-hero-name: 42px; /* Schriftgröße Hero-Name */
+    --fs-nav-link: 15px; /* Schriftgröße Navigation */
+    --fs-backtop: 16px; /* Schriftgröße Seitenanfang-Link */
 
-    --fs-head: 30px;                /* Schriftgröße Headline */
-    --fs-sub: 24px;                 /* Schriftgröße Subline */
-    --fs-body: 18px;                /* Schriftgröße Body */
-    --fs-hero-name: 42px;           /* Schriftgröße H1 (Hero Name) */
-    --fs-nav-link: 15px;            /* Schriftgröße Nav-Links */
-    --fs-backtop: 16px;             /* Schriftgröße Back-to-top */
+    --fw-head: 700; /* Schriftgewicht Headlines */
+    --fw-sub: 500; /* Schriftgewicht Sublines */
+    --fw-body: 300; /* Schriftgewicht Body */
+    --fw-nav-link: 500; /* Schriftgewicht Navigation */
+    --fw-backtop: 300; /* Schriftgewicht Seitenanfang */
+    --fw-backtop-hover: 700; /* Schriftgewicht Seitenanfang Hover */
+    --fw-approach-num: 500; /* Schriftgewicht Nummern Arbeitsweise */
 
-    --fw-head: 700;                 /* Schriftgewicht Headline */
-    --fw-sub: 500;                  /* Schriftgewicht Subline */
-    --fw-body: 300;                 /* Schriftgewicht Body */
-    --fw-nav-link: 500;             /* Schriftgewicht Nav-Links */
-    --fw-backtop: 300;              /* Schriftgewicht Back-to-top */
-    --fw-backtop-hover: 700;        /* Schriftgewicht Back-to-top Hover */
-    --fw-approach-num: 500;         /* Schriftgewicht Approach Nummern */
+    --lh-head: 1.25; /* Zeilenhöhe Headlines */
+    --lh-sub: 1.25; /* Zeilenhöhe Sublines */
+    --lh-body: 1.5; /* Zeilenhöhe Body */
 
-    --lh-head: 1.25;                /* Zeilenhöhe Headline */
-    --lh-sub: 1.25;                 /* Zeilenhöhe Subline */
-    --lh-body: 1.5;                 /* Zeilenhöhe Body */
+    --top-offset: 0px; /* globaler oberer Offset für fixed Elemente */
+    --banner-h: 75px; /* Höhe des Nav-Banners */
+    --page-top-gap: 40px; /* Abstand unter Navigation auf Unterseiten */
 
-    /* ==== VERTIKALE RHYTHMIK ==== */
-    --section-pad-y: 60px;          /* Abstand ober/unter jeder .section */
-    --hero-offset: 25px;            /* Abstand vom Headerbild zur ersten Hero-Typo */
-    --hero-pad-bottom: 30px;        /* Abstand unter Hero (unabhängig von section-pad-y) */
+    --side-pad: 150px; /* horizontaler Seiteninnenabstand */
+    --max-width: 1400px; /* maximale Inhaltsbreite */
 
-    --h-gap-bottom: 14px;           /* Headline -> nächstes Element */
-    --sub-gap-bottom: 12px;         /* Subline -> Body */
-    --p-gap: 14px;                  /* Absatz -> Absatz */
-    --block-gap: 40px;              /* Body -> nächste Subline/Headline */
+    --section-pad-y: 60px; /* vertikales Padding pro Section */
+    --hero-offset: 25px; /* Abstand Headerbild zu Hero */
+    --hero-pad-bottom: 30px; /* Abstand unter Hero */
 
-    /* ==== GOLD-FRAME SYSTEM ==== */
-    --frame-w-sm: 2px;              /* dünner Rahmen, z.B. für Icons */
-    --frame-w-md: 4px;              /* Standard-Rahmen */
-    --frame-w-lg: 6px;              /* dicker Rahmen */
+    --h-gap-bottom: 14px; /* Abstand nach Headlines */
+    --sub-gap-bottom: 12px; /* Abstand nach Sublines */
+    --p-gap: 14px; /* Abstand zwischen Absätzen */
+    --block-gap: 40px; /* Abstand zwischen Inhaltsblöcken */
 
-    --frame-r-sm: 2px;              /* leichte Abrundung */
-    --frame-r-md: 4px;              /* Standard-Abrundung */
-    --frame-r-lg: 6px;              /* stärkere Abrundung */
+    --frame-w-sm: 2px; /* Goldrahmen dünn */
+    --frame-w-md: 4px; /* Goldrahmen Standard */
+    --frame-w-lg: 6px; /* Goldrahmen dick */
 
-    --goldframe-img: url("../img/highlights_gold.png"); /* Goldtextur (liegt unter assets/img) */
+    --frame-r-sm: 2px; /* kleine Abrundung */
+    --frame-r-md: 4px; /* Standard-Abrundung */
+    --frame-r-lg: 6px; /* starke Abrundung */
 
-    /* ==== NAV-BANNER ==== */
-    --top-offset: 0px;
-    --banner-h: 75px;
+    --goldframe-img: url("../img/highlights_gold.png"); /* Bilddatei Goldtextur */
 
-    /* Home Icon */
-    --nav-home-w: 90px;             /* Breite des Home-Icons */
-    --nav-home-h: 24px;             /* Höhe des Home-Icons */
-    --nav-home-left: 225px;         /* linke Position relativ zum Viewport */
-    --nav-home-y: 0px;              /* vertikale Feinkorrektur */
-    --nav-home-fit: contain;        /* contain / cover */
+    --nav-home-w: 90px; /* Breite Home-Icon */
+    --nav-home-h: 24px; /* Höhe Home-Icon */
+    --nav-home-left: 225px; /* linke Position Home-Icon */
+    --nav-home-y: 0px; /* vertikale Feinkorrektur Home-Icon */
+    --nav-home-fit: contain; /* Objektverhalten Home-Icon */
 
-    /* Nav Links */
-    --nav-letter-spacing: 0.1em;
-    --nav-text-transform: uppercase;
+    --nav-letter-spacing: 0.1em; /* Laufweite Navigation */
+    --nav-text-transform: uppercase; /* Großschreibung Navigation */
 
-    /* Language Toggle */
-    --lang-btn-size: 25px;          /* Größe der Sprach-Buttons (quadratisch) */
+    --lang-btn-size: 25px; /* Größe Sprachbutton */
+    --nav-menu-btn-size: 28px; /* Größe Mobile-Menü-Button */
+    --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button */
+    --nav-menu-panel-top: 75px; /* Oberkante Mobile-Menü-Panel */
+    --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel */
+    --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel */
+    --nav-menu-panel-gap: 14px; /* Abstand Einträge im Mobile-Menü */
 
-    /* Unterseiten: Abstand unterhalb Nav-Unterkante */
-    --page-top-gap: 40px;
+    --service-pad: 18px; /* Innenpadding Service-Element */
+    --services-gap: 18px; /* Abstand zwischen Service-Elementen */
+    --service-grid-col-1: 30px; /* erste Spalte Service-Head */
+    --service-grid-col-3: 22px; /* dritte Spalte Service-Head */
+    --service-col-gap: 12px; /* Abstand Spalten Service-Head */
+    --service-bullet-size: 22px; /* Größe Service-Bullet */
+    --service-arrow-size: 18px; /* Größe Service-Pfeil */
+    --service-body-pad-top: 14px; /* Abstand Body innerhalb Service */
+    --service-max-h: 600px; /* Maximalhöhe geöffneter Service */
 
-    /* ==== SERVICES (ACCORDION) ==== */
-    --services-gap: 18px;           /* Abstand zwischen Service-Items */
-    --service-pad: 18px;            /* Innenpadding Service-Item */
-    --service-grid-col-1: 30px;     /* Abstand Bulletpoint zur linken Kante */
-    --service-grid-col-3: 22px;     /* Abstand Pfeil zur rechten Kante */
-    --service-col-gap: 12px;        /* Abstand zwischen Bulletpoint, Titel und Pfeil */
-    --service-bullet-size: 22px;    /* Größe des Bulletpoint-Icons (quadratisch) */
-    --service-arrow-size: 18px;     /* Größe des Pfeil-Icons (quadratisch) */
-    --service-body-pad-top: 14px;   /* Abstand zwischen Service-Head und Service-Body */
-    --service-max-h: 600px;         /* Maximalhöhe des Service-Bodys, wenn geöffnet (für Transition) */
+    --approach-item-gap: 14px; /* Abstand Listenpunkte Arbeitsweise */
+    --approach-num-left: 14px; /* linke Position Nummern Arbeitsweise */
+    --approach-num-top: 0px; /* obere Position Nummern Arbeitsweise */
+    --approach-text-indent: 46px; /* Texteinzug Arbeitsweise */
 
-    /* ==== APPROACH (LISTE OHNE RAHMEN) ==== */
-    --approach-item-gap: 14px;      /* Abstand zwischen den Listenelementen */
-    --approach-num-left: 14px;      /* NUR Nummern weiter nach rechts */
-    --approach-num-top: 0px;        /* vertikale Position der Nummern */
-    --approach-text-indent: 46px;   /* Text bleibt stabil */
+    --carousel-fade: 40px; /* seitlicher Fade Carousel */
+    --carousel-arrow-size: 40px; /* Größe Carousel-Pfeile */
+    --carousel-gap: 28px; /* Abstand Carousel-Karten */
+    --carousel-card-w: 400px; /* Breite Carousel-Karte */
+    --carousel-card-h: 300px; /* Höhe Carousel-Karte */
+    --carousel-card-pad: 26px; /* Innenpadding Carousel-Karte */
+    --carousel-sign-gap-top: 22px; /* Abstand Signatur im Carousel */
+    --carousel-shell-top: 18px; /* Abstand oberhalb Carousel */
 
-    /* ==== CAROUSEL ==== */
-    --carousel-fade: 40px;          /* Breite des seitlichen Fade-Effekts */
-    --carousel-arrow-size: 40px;    /* Größe der Pfeil-Buttons (quadratisch) */
-    --carousel-gap: 28px;           /* Abstand zwischen Cards */
-    --carousel-card-w: 400px;       /* Card Breite */
-    --carousel-card-h: 300px;       /* Card Höhe */
-    --carousel-card-pad: 26px;      /* Card Innenpadding */
-    --carousel-sign-gap-top: 22px;  /* Abstand Signature zum Text */
-    --carousel-shell-top: 18px;     /* Abstand oberhalb Carousel-Shell */
+    --cta-gap: 14px; /* Abstand CTA-Elemente */
+    --cta-pad-y: 0.45em; /* vertikales Padding CTA */
+    --cta-pad-x: 0.9em; /* horizontales Padding CTA */
 
-    /* ==== CTA ==== */
-    --cta-gap: 14px;                /* Abstand zwischen CTA-Elementen */
-    --cta-pad-y: 0.45em;            /* Vertikales Padding CTA */
-    --cta-pad-x: 0.9em;             /* Horizontales Padding CTA */
+    --contact-form-max-w: 25vw; /* maximale Breite Kontaktformular */
+    --contact-form-min-w: 320px; /* minimale Breite Kontaktformular */
+    --contact-form-gap: 14px; /* Abstand Felder Kontaktformular */
+    --contact-form-field-pad-y: 12px; /* vertikales Padding Formularfeld */
+    --contact-form-field-pad-x: 14px; /* horizontales Padding Formularfeld */
+    --contact-form-radius: var(--frame-r-md); /* Radius Formularfelder */
+    --contact-form-submit-pad-y: 0.45em; /* vertikales Padding Submit */
+    --contact-form-submit-pad-x: 0.9em; /* horizontales Padding Submit */
 
-    /* ==== PRE-FOOTER ==== */
-    --pre-footer-min-h: 120px;                  /* Mindesthöhe des Pre-Footers */
-    --pre-footer-pad-y: 0px;                    /* für oben/unten mehr Abstand */
-    --pre-footer-col-gap: 30px;                 /* Abstand zwischen Spalten */
-    --pre-footer-item-gap: 18px;                /* Abstand zwischen Icon und Text */
-    --pre-footer-margin-bottom: 20px;           /* Abstand zum Footer */
+    --pre-footer-min-h: 120px; /* Mindesthöhe Pre-Footer */
+    --pre-footer-pad-y: 0px; /* vertikales Padding Pre-Footer */
+    --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
+    --pre-footer-item-gap: 18px; /* Abstand Icon zu Text Pre-Footer */
+    --pre-footer-margin-bottom: 20px; /* Abstand Pre-Footer zu Footer */
+    --pre-footer-icon-size: 75px; /* Größe Pre-Footer-Icons */
+    --pre-footer-icon-frame: var(--frame-w-sm); /* Rahmenstärke Pre-Footer-Icons */
+    --pre-footer-text-font: var(--font-body); /* Schrift Pre-Footer */
+    --pre-footer-text-size: var(--fs-body); /* Schriftgröße Pre-Footer */
+    --pre-footer-text-weight: var(--fw-body); /* Schriftgewicht Pre-Footer */
+    --pre-footer-text-lh: var(--lh-body); /* Zeilenhöhe Pre-Footer */
+    --pre-footer-text-nowrap: nowrap; /* Zeilenumbruch Pre-Footer verhindern */
 
-    --pre-footer-icon-size: 75px;               /* Größe der Icons */
-    --pre-footer-icon-frame: var(--frame-w-sm); /* Rahmen um die Icons */
+    --footer-min-h: 300px; /* Mindesthöhe Footer */
+    --footer-pad-top: 20px; /* oberes Padding Footer */
+    --footer-pad-bottom: 20px; /* unteres Padding Footer */
+    --footer-row-gap: 18px; /* Zeilenabstand Footer */
+    --footer-col-gap: 24px; /* Spaltenabstand Footer */
+    --footer-row2-baseline-pad: 0px; /* Feinkorrektur Footer Zeile 2 */
 
-    --pre-footer-text-font: var(--font-body);   /* Schriftart der Pre-Footer Texte */
-    --pre-footer-text-size: var(--fs-body);     /* Schriftgröße der Pre-Footer Texte */
-    --pre-footer-text-weight: var(--fw-body);   /* Schriftgewicht der Pre-Footer Texte */
-    --pre-footer-text-lh: var(--lh-body);       /* Zeilenhöhe der Pre-Footer Texte */
-    --pre-footer-text-nowrap: nowrap;           /* Verhindert Zeilenumbruch der Pre-Footer Texte */
+    --footer-label-font: var(--font-body); /* Schrift Footer-Labels */
+    --footer-label-size: var(--fs-body); /* Schriftgröße Footer-Labels */
+    --footer-label-weight: var(--fw-sub); /* Schriftgewicht Footer-Labels */
+    --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
+    --footer-label-gap-bottom: 12px; /* Abstand unter Footer-Labels */
 
-    /* ==== LAYOUT / GRID ==== */
-    --side-pad: 150px;
-    --max-width: 1400px;
+    --qual-logo-h: 50px; /* Höhe Qualification-Logos */
+    --qual-logo-pad: 0px; /* Innenpadding Qualification-Logos */
+    --qual-logo-frame: var(--frame-w-sm); /* Rahmenstärke Qualification-Logos */
+    --qual-logos-gap: 24px; /* Abstand Qualification-Logos */
 
-    /* ==== FOOTER ==== */
-    --footer-min-h: 300px;                      /* Mindesthöhe des Footers (darf wachsen) */
-    --footer-pad-top: 20px;                     /* Innenabstand oben */
-    --footer-pad-bottom: 20px;                  /* Innenabstand unten -> Abstand ©/Legal zur Footer-Unterkante */
+    --follow-icon-size: 50px; /* Größe Follow-Icons */
+    --follow-icon-pad: 0px; /* Innenpadding Follow-Icons */
+    --follow-icon-frame: var(--frame-w-sm); /* Rahmenstärke Follow-Icons */
+    --follow-icons-gap: 18px; /* Abstand Follow-Icons */
 
-    --footer-row-gap: 18px;                     /* Abstand zwischen Zeile 1 und 2 */
-    --footer-col-gap: 24px;                     /* Abstand zwischen Spalten */
-    --footer-row2-baseline-pad: 0px;            /* Feintuning: © und Links exakt gleiche Höhe */
+    --backtop-icon-h: 20px; /* Höhe Chevron Seitenanfang */
+    --backtop-gap: 3px; /* Abstand Chevron zu Text */
 
-    /* Footer Labels */
-    --footer-label-font: var(--font-body);
-    --footer-label-size: var(--fs-body);
-    --footer-label-weight: var(--fw-sub);
-    --footer-label-lh: var(--lh-body);
-    --footer-label-gap-bottom: 12px;
+    --legal-font: var(--font-body); /* Schrift Legal-Bereich */
+    --legal-size: var(--fs-body); /* Schriftgröße Legal-Bereich */
+    --legal-weight: var(--fw-body); /* Schriftgewicht Legal-Bereich */
+    --legal-lh: var(--lh-body); /* Zeilenhöhe Legal-Bereich */
+    --legal-sep-gap: 7px; /* Abstand Separatoren Legal */
+    --legal-wrap: nowrap; /* Umbruchverhalten Legal */
 
-    /* Qualifications */
-    --qual-logo-h: 50px;                        /* Höhe der Logos */
-    --qual-logo-pad: 0px;                       /* Innenpadding Logo (0 = none) */
-    --qual-logo-frame: var(--frame-w-sm);       /* Rahmenstärke Logo */
-    --qual-logos-gap: 24px;                     /* Abstand zwischen den Logos */
+    --anchor-offset: 20px; /* Scroll-Offset Ankerziele */
 
-    /* Follow Icons */
-    --follow-icon-size: 50px;                   /* Größe Follow-Icons */
-    --follow-icon-pad: 0px;                     /* Innenpadding Icon (0 = none) */
-    --follow-icon-frame: var(--frame-w-sm);     /* Rahmenstärke Icon */
-    --follow-icons-gap: 18px;                   /* Abstand zwischen den Follow-Icons */
-
-    /* Back-to-top */
-    --backtop-icon-h: 20px;                     /* Chevron Icon-Größe (optisch) */
-    --backtop-gap: 3px;                         /* Abstand Chevron -> Text */
-
-    /* Legal */
-    --legal-font: var(--font-body);
-    --legal-size: var(--fs-body);
-    --legal-weight: var(--fw-body);
-    --legal-lh: var(--lh-body);
-    --legal-sep-gap: 7px;                       /* Abstand um | herum */
-    --legal-wrap: nowrap;
-
-    /* ==== ANCHOR OFFSET (FIXED NAV) ==== */
-    --anchor-offset: 20px;                      /* Abstand zwischen fixiertem Nav und Zielanker */
-
-    /* ==== CONTACT FORM ==== */
-    --contact-form-max-w: 25vw;
-    --contact-form-min-w: 320px;
-    --contact-form-gap: 14px;
-    --contact-form-field-pad-y: 12px;
-    --contact-form-field-pad-x: 14px;
-    --contact-form-radius: var(--frame-r-md);
-    --contact-form-submit-pad-y: 0.45em;
-    --contact-form-submit-pad-x: 0.9em;
-
+    --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
+    --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
+    --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding mobile Footer-Zeile F */
+    --footer-mobile-b-gap: 18px; /* Abstand Inhalte mobile Footer-Zeile B */
+    --footer-mobile-c-gap: 18px; /* Abstand Inhalte mobile Footer-Zeile C */
 }
 
-/* ==== RESET / BASIS ==== */
+/* ==== ALLGEMEINE EINSTELLUNGEN ==== */
 * {
     box-sizing: border-box;
 }
@@ -289,31 +273,23 @@ body {
     margin: 0;
     color: var(--blue);
     background-color: var(--cream);
-
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
     line-height: var(--lh-body);
 }
 
-/* ==== GOLD-FRAME (TEXTUR-RAHMEN) ==== */
-/* Ziel: Außen- UND Innenkanten sauber rund.
-   - border-radius + overflow hidden clippt alle Ebenen
-   - background-clip hält die Innenfläche innerhalb der Rundung
-   - img bekommt border-radius: inherit (innere Ecken) */
+/* ==== GOLD-FRAME SYSTEM ==== */
 .gold-frame {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     border: var(--frame-w-md) solid transparent;
     border-radius: var(--frame-r-md);
     overflow: hidden;
-
     background:
         linear-gradient(var(--cream), var(--cream)) padding-box,
         var(--goldframe-img) border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
@@ -352,16 +328,38 @@ body {
     border-radius: 999px;
 }
 
-.gold-frame > img {
+.gold-frame > img,
+.gold-frame > picture {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+}
 
+.gold-frame > img,
+.gold-frame > picture > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: inherit;
 }
 
-/* ==== FIXED NAV ==== */
+/* ==== HEADER ==== */
+.header-image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header-image img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    object-fit: contain;
+    object-position: center top;
+}
+
+/* ==== NAV-BANNER ==== */
 .nav-shell {
     position: fixed;
     top: var(--top-offset);
@@ -398,7 +396,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: var(--cream);
     text-decoration: none;
     font-size: var(--fs-nav-link);
@@ -416,14 +413,11 @@ body {
     top: calc(var(--top-offset) + ((var(--banner-h) - var(--nav-home-h)) / 2) + var(--nav-home-y));
     left: var(--nav-home-left);
     z-index: 10001;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: var(--nav-home-w);
     height: var(--nav-home-h);
-
     text-decoration: none;
 }
 
@@ -438,8 +432,6 @@ body {
     object-fit: var(--nav-home-fit);
 }
 
-/* ==== LANGUAGE TOGGLE ==== */
-/* Es wird immer nur die inaktive Sprache angezeigt. */
 .lang-toggle {
     position: fixed;
     top: calc(var(--top-offset) + ((var(--banner-h) - var(--lang-btn-size)) / 2));
@@ -479,23 +471,38 @@ body {
     object-fit: cover;
 }
 
-/* ==== HEADER IMAGE ==== */
-.header-image {
-    width: 100%;
-    margin: 0;
+.nav-menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
     padding: 0;
+    margin: 0;
+    cursor: pointer;
 }
 
-.header-image img {
+.nav-menu-toggle img {
     display: block;
-    width: 100%;
-    max-width: none;
-    height: auto;
+    width: var(--nav-menu-btn-size);
+    height: var(--nav-menu-btn-size);
     object-fit: contain;
-    object-position: center top;
 }
 
-/* ==== LAYOUT WRAPPER ==== */
+.nav-mobile-panel {
+    display: none;
+}
+
+.nav-mobile-link {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-sub);
+    line-height: var(--lh-body);
+    letter-spacing: var(--nav-letter-spacing);
+    text-transform: var(--nav-text-transform);
+}
+
+/* ==== LAYOUT / WRAPPER ==== */
 .page-offset {
     padding-top: 0;
     margin-top: 0;
@@ -511,7 +518,6 @@ section.anchor {
     scroll-margin-top: calc(var(--top-offset) + var(--banner-h) + var(--anchor-offset));
 }
 
-/* ==== SECTION RHYTHMUS ==== */
 .section {
     padding: var(--section-pad-y) 0;
 }
@@ -559,7 +565,7 @@ section.anchor {
     white-space: pre-line;
 }
 
-/* ==== TYPO: HEADLINES ==== */
+/* ==== TYPOGRAFIE / ALLGEMEINE INHALTSBLÖCKE ==== */
 .section h2,
 .about .about-label {
     font-family: var(--font-head);
@@ -605,7 +611,7 @@ section.anchor {
     letter-spacing: 0.04em;
 }
 
-/* ==== VALUES BAND ==== */
+/* ==== VALUES ==== */
 .values-band {
     padding: var(--section-pad-y) 0;
     text-align: center;
@@ -618,7 +624,7 @@ section.anchor {
     height: auto;
 }
 
-/* ==== SERVICES (ACCORDION) ==== */
+/* ==== SERVICES ==== */
 .services-list {
     display: flex;
     flex-direction: column;
@@ -628,16 +634,13 @@ section.anchor {
 .service-item {
     border: var(--frame-w-md) solid transparent;
     border-radius: var(--frame-r-md);
-
     background:
         linear-gradient(var(--cream), var(--cream)) padding-box,
         var(--goldframe-img) border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
     background-clip: padding-box, border-box;
-
     padding: var(--service-pad);
 }
 
@@ -688,13 +691,12 @@ section.anchor {
     max-height: var(--service-max-h);
 }
 
-/* ==== APPROACH: Nummerierung (ohne Goldrahmen) ==== */
+/* ==== APPROACH ==== */
 .approach-list {
     margin: 0;
     padding: 0;
     list-style: none;
     counter-reset: step;
-
     display: flex;
     flex-direction: column;
     gap: var(--approach-item-gap);
@@ -702,12 +704,9 @@ section.anchor {
 
 .approach-list li {
     counter-increment: step;
-
     position: relative;
     margin: 0;
-
     padding-left: var(--approach-text-indent);
-
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
@@ -717,15 +716,12 @@ section.anchor {
 .approach-list li::before {
     content: counter(step) ".";
     position: absolute;
-
     left: var(--approach-num-left);
     top: var(--approach-num-top);
-
     font-weight: var(--fw-approach-num);
 }
 
 /* ==== CAROUSEL (CREDENTIALS) ==== */
-/* Markup ist derzeit auskommentiert; Styles bleiben für später. */
 #credentials .carousel-shell {
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -737,7 +733,6 @@ section.anchor {
     padding-inline: var(--carousel-text-pad);
     overflow: hidden;
     box-sizing: border-box;
-
     -webkit-mask-image: linear-gradient(
         to right,
         transparent 0,
@@ -747,7 +742,6 @@ section.anchor {
         transparent calc(100% - (var(--carousel-text-pad) - var(--carousel-fade))),
         transparent 100%
     );
-
     mask-image: linear-gradient(
         to right,
         transparent 0,
@@ -778,25 +772,20 @@ section.anchor {
     flex: 0 0 auto;
     width: var(--carousel-card-w);
     height: var(--carousel-card-h);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-
     border: var(--frame-w-lg) solid transparent;
     border-radius: var(--frame-r-lg);
-
     background:
         linear-gradient(var(--cream), var(--cream)) padding-box,
         var(--goldframe-img) border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
     background-clip: padding-box, border-box;
-
     padding: var(--carousel-card-pad);
 }
 
@@ -815,17 +804,14 @@ section.anchor {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-
     width: var(--carousel-arrow-size);
     height: var(--carousel-arrow-size);
-
     border: 0;
     background: transparent;
     cursor: pointer;
     padding: 0;
     z-index: 3;
     opacity: 0.9;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -845,17 +831,7 @@ section.anchor {
     right: var(--carousel-text-pad);
 }
 
-@media (max-width: 768px) {
-
-    .feedback-card {
-        width: 86vw;
-        height: 400px;
-        min-height: 300px;
-    }
-
-}
-
-/* ==== CTA BUTTON ==== */
+/* ==== CTA ==== */
 .contact-cta {
     display: flex;
     flex-direction: column;
@@ -866,27 +842,21 @@ section.anchor {
 .cta-btn {
     display: inline-block;
     padding: var(--cta-pad-y) var(--cta-pad-x);
-
     color: var(--cream);
     text-decoration: none;
-
     font-family: var(--font-head);
     font-size: var(--fs-head);
     font-weight: var(--fw-head);
     line-height: 1;
-
     border: var(--frame-w-md) solid transparent;
     border-radius: var(--frame-r-md);
-
     background:
         linear-gradient(var(--blue), var(--blue)) padding-box,
         var(--goldframe-img) border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
     background-clip: padding-box, border-box;
-
     white-space: nowrap;
 }
 
@@ -921,14 +891,11 @@ section.anchor {
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
     line-height: var(--lh-body);
-
     border: var(--frame-w-md) solid transparent;
     border-radius: var(--contact-form-radius);
-
     background:
         linear-gradient(var(--cream), var(--cream)) padding-box,
         var(--goldframe-img) border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
@@ -969,27 +936,21 @@ section.anchor {
     display: inline-block;
     width: fit-content;
     padding: var(--contact-form-submit-pad-y) var(--contact-form-submit-pad-x);
-
     color: var(--cream);
     text-decoration: none;
-
     font-family: var(--font-head);
     font-size: var(--fs-head);
     font-weight: var(--fw-head);
     line-height: 1;
-
     border: var(--frame-w-md) solid transparent;
     border-radius: var(--frame-r-md);
-
     background:
         linear-gradient(var(--blue), var(--blue)) padding-box,
         var(--goldframe-img) border-box;
-
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
     background-clip: padding-box, border-box;
-
     cursor: pointer;
     white-space: nowrap;
 }
@@ -998,17 +959,14 @@ section.anchor {
     text-decoration: underline;
 }
 
-/* ==== PRE-FOOTER (TOKENISIERT) ==== */
+/* ==== PRE-FOOTER ==== */
 .pre-footer {
     width: 100%;
     min-height: var(--pre-footer-min-h);
     padding: var(--pre-footer-pad-y) 0;
-
     background: var(--blue);
     color: var(--cream);
-
     margin-bottom: var(--pre-footer-margin-bottom);
-
     display: flex;
     align-items: center;
 }
@@ -1018,7 +976,6 @@ section.anchor {
     margin: 0 auto;
     padding: 0 var(--side-pad);
     width: 100%;
-
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
@@ -1057,7 +1014,6 @@ section.anchor {
     height: var(--pre-footer-icon-size);
     flex: 0 0 var(--pre-footer-icon-size);
     aspect-ratio: 1 / 1;
-
     border-width: var(--pre-footer-icon-frame);
     border-radius: 50%;
 }
@@ -1075,53 +1031,39 @@ section.anchor {
     font-size: var(--pre-footer-text-size);
     font-weight: var(--pre-footer-text-weight);
     line-height: var(--pre-footer-text-lh);
-
     margin: 0;
     color: var(--cream);
     white-space: var(--pre-footer-text-nowrap);
 }
 
-/* ==== FOOTER (GRID A1/B1/C1 + A2/B2/C2) ==== */
+/* ==== FOOTER ==== */
 .footer {
     background-color: var(--blue);
     color: var(--cream);
-
     min-height: var(--footer-min-h);
     padding: var(--footer-pad-top) 0 var(--footer-pad-bottom);
-
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
     line-height: var(--lh-body);
 }
 
-/* Damit A2/B2/C2 wirklich „am Seitenende“ landen:
-   - Zeile 1 = 1fr (nimmt verfügbaren Raum)
-   - Zeile 2 = auto (sitzt unten)
-   - Grid-Container bekommt min-height (damit es „unten“ überhaupt gibt)
-*/
 .footer-inner {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--side-pad);
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr auto;
-
     grid-template-areas:
         "a1 b1 c1"
         "a2 b2 c2";
-
     column-gap: var(--footer-col-gap);
     row-gap: var(--footer-row-gap);
-
     align-items: start;
-
     min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom));
 }
 
-/* ==== FOOTER SLOTS ==== */
 .footer-a1 {
     grid-area: a1;
     align-self: start;
@@ -1144,7 +1086,6 @@ section.anchor {
     grid-area: a2;
     align-self: end;
     justify-self: start;
-
     padding-bottom: var(--footer-row2-baseline-pad);
 }
 
@@ -1152,7 +1093,6 @@ section.anchor {
     grid-area: b2;
     align-self: end;
     justify-self: center;
-
     padding-bottom: var(--footer-row2-baseline-pad);
 }
 
@@ -1160,23 +1100,19 @@ section.anchor {
     grid-area: c2;
     align-self: end;
     justify-self: start;
-
     padding-bottom: var(--footer-row2-baseline-pad);
 }
 
-/* ==== FOOTER LABELS ==== */
 .qualifications-label,
 .follow-label {
     font-family: var(--footer-label-font);
     font-size: var(--footer-label-size);
     font-weight: var(--footer-label-weight);
     line-height: var(--footer-label-lh);
-
     margin: 0 0 var(--footer-label-gap-bottom) 0;
     color: var(--cream);
 }
 
-/* ==== QUALIFICATIONS ==== */
 .qualifications-logos {
     display: flex;
     gap: var(--qual-logos-gap);
@@ -1188,7 +1124,6 @@ section.anchor {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
     border-width: var(--qual-logo-frame);
 }
@@ -1199,7 +1134,15 @@ section.anchor {
     border-radius: var(--frame-r-md);
 }
 
-.qualifications-logos .gold-frame > img {
+.qualifications-logos .gold-frame > img,
+.qualifications-logos .gold-frame > picture {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+.qualifications-logos .gold-frame > img,
+.qualifications-logos .gold-frame > picture > img {
     display: block;
     height: 100%;
     width: auto;
@@ -1208,30 +1151,22 @@ section.anchor {
     padding: var(--qual-logo-pad);
 }
 
-/* Runde Logos: echter Kreis (Quadrat + 50%) */
 .qualifications-logos .gold-frame.shape--round {
     width: var(--qual-logo-h);
     height: var(--qual-logo-h);
     flex: 0 0 var(--qual-logo-h);
     aspect-ratio: 1 / 1;
-
     border-radius: 50%;
 }
 
-/* ==== BACK TO TOP ==== */
-/* NEURALGISCH:
-   B1 soll oben zentriert sein -> Container ist .footer-b1 (justify-self:center),
-   Inhalt ist .backtop (align-items:center). */
 .backtop {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: var(--backtop-gap);
-
     color: var(--cream);
     text-decoration: none;
-
     font-size: var(--fs-backtop);
     font-weight: var(--fw-backtop);
 }
@@ -1250,7 +1185,6 @@ section.anchor {
     text-decoration: underline;
 }
 
-/* ==== FOLLOW ==== */
 .follow-icons {
     display: flex;
     gap: var(--follow-icons-gap);
@@ -1263,7 +1197,6 @@ section.anchor {
     height: var(--follow-icon-size);
     flex: 0 0 var(--follow-icon-size);
     aspect-ratio: 1 / 1;
-
     border-radius: 50%;
     border-width: var(--follow-icon-frame);
 }
@@ -1276,39 +1209,23 @@ section.anchor {
     display: block;
 }
 
-/* ==== FOTO CREDITS (A2) ==== */
 .legal-copy {
     font-family: var(--legal-font);
     font-size: var(--legal-size);
     font-weight: var(--legal-weight);
     line-height: var(--legal-lh);
-
     color: inherit;
     white-space: var(--legal-wrap);
 }
 
-/* ==== COPYRIGHT (B2) ==== */
-.legal-copy {
-    font-family: var(--legal-font);
-    font-size: var(--legal-size);
-    font-weight: var(--legal-weight);
-    line-height: var(--legal-lh);
-
-    color: inherit;
-    white-space: var(--legal-wrap);
-}
-
-/* ==== LEGAL LINKS (C2) ==== */
 .legal-links {
     display: inline-flex;
     align-items: baseline;
     justify-content: flex-start;
-
     font-family: var(--legal-font);
     font-size: var(--legal-size);
     font-weight: var(--legal-weight);
     line-height: var(--legal-lh);
-
     white-space: var(--legal-wrap);
 }
 
@@ -1327,19 +1244,38 @@ section.anchor {
     opacity: 0.9;
 }
 
-/* ==== RESPONSIVE (MOBILE) ==== */
+/* ==== MOBILE ANPASSUNGEN ==== */
 @media (max-width: 768px) {
 
     :root {
-        --side-pad: 18px;
-        --banner-h: 64px;
-        --contact-form-max-w: 75vw;
-        --contact-form-min-w: 0px;
+        --side-pad: 18px; /* horizontaler Seiteninnenabstand mobil */
+        --banner-h: 64px; /* Höhe Nav-Banner mobil */
+        --contact-form-max-w: 75vw; /* maximale Breite Formular mobil */
+        --contact-form-min-w: 0px; /* minimale Breite Formular mobil */
 
-        --nav-home-w: 70px;
-        --nav-home-h: 20px;
-        --nav-home-left: 93px;
-        --nav-home-y: 0px;
+        --nav-home-w: 70px; /* Breite Home-Icon mobil */
+        --nav-home-h: 20px; /* Höhe Home-Icon mobil */
+        --nav-home-left: 18px; /* linke Position Home-Icon mobil */
+        --nav-home-y: 0px; /* vertikale Feinkorrektur Home-Icon mobil */
+
+        --nav-menu-btn-size: 28px; /* Größe Mobile-Menü-Button mobil */
+        --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button mobil */
+        --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü-Panel mobil */
+        --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel mobil */
+        --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel mobil */
+        --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü mobil */
+
+        --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
+        --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
+        --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding Zeile F mobil */
+        --footer-mobile-b-gap: 18px; /* Abstand Inhalte Zeile B mobil */
+        --footer-mobile-c-gap: 18px; /* Abstand Inhalte Zeile C mobil */
+    }
+
+    #credentials .feedback-card {
+        width: 86vw;
+        height: 400px;
+        min-height: 300px;
     }
 
     .nav-inner {
@@ -1347,17 +1283,66 @@ section.anchor {
     }
 
     .nav-items {
-        grid-template-columns: repeat(3, 1fr);
-        row-gap: 8px;
+        grid-template-columns: 1fr;
+        row-gap: 0;
     }
 
-    .nav-items a.nav-link {
-        font-size: 12px;
-        letter-spacing: 0.08em;
+    .nav-items a.nav-link:not(.nav-link--home) {
+        display: none;
+    }
+
+    .nav-link--home {
+        left: var(--nav-home-left);
+    }
+
+    .nav-menu-toggle {
+        position: fixed;
+        top: calc(var(--top-offset) + ((var(--banner-h) - var(--nav-menu-btn-size)) / 2) + var(--nav-menu-btn-top-adjust));
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10001;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .lang-toggle {
         right: var(--side-pad);
+    }
+
+    .nav-mobile-panel {
+        position: fixed;
+        top: var(--nav-menu-panel-top);
+        left: 0;
+        width: 100%;
+        z-index: 10000;
+        padding: var(--nav-menu-panel-pad-y) var(--nav-menu-panel-pad-x);
+        background: var(--blue);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--nav-menu-panel-gap);
+    }
+
+    .nav-mobile-panel.is-open {
+        display: flex;
+    }
+
+    .header-image picture,
+    .values-band picture {
+        display: block;
+        width: 100%;
+    }
+
+    .header-image picture img,
+    .values-band picture img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .form-row-2 {
+        grid-template-columns: 1fr;
     }
 
     .pre-footer {
@@ -1390,28 +1375,80 @@ section.anchor {
         justify-content: center;
     }
 
-    .form-row-2 {
-        grid-template-columns: 1fr;
-    }
-
-    /* Mobile Footer: einspaltig, B2/C2 bleiben am Ende der Reihenfolge.
-       Hinweis: „am Seitenende“ wird hier durch footer-pad-bottom (20px) gehalten. */
     .footer-inner {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto auto auto;
         grid-template-areas:
-            "a1"
-            "b1"
-            "c1"
-            "a2"
-            "b2"
-            "c2";
-        row-gap: var(--footer-row-gap);
+            "a"
+            "b"
+            "c"
+            "d"
+            "e"
+            "f";
+        row-gap: 0;
         min-height: 0;
+        padding: 0 var(--side-pad);
     }
 
-    .footer-b1 {
-        justify-self: center;
+    .footer-a {
+        grid-area: a;
+    }
+
+    .footer-b {
+        grid-area: b;
+    }
+
+    .footer-c {
+        grid-area: c;
+    }
+
+    .footer-d {
+        grid-area: d;
+    }
+
+    .footer-e {
+        grid-area: e;
+    }
+
+    .footer-f {
+        grid-area: f;
+    }
+
+    .footer-a,
+    .footer-b,
+    .footer-c,
+    .footer-d,
+    .footer-e,
+    .footer-f {
+        justify-self: stretch;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-a,
+    .footer-d,
+    .footer-e,
+    .footer-f {
+        padding-top: var(--footer-mobile-row-pad-top);
+        padding-bottom: var(--footer-mobile-row-pad-bottom);
+    }
+
+    .footer-f {
+        padding-bottom: var(--footer-mobile-row-pad-bottom-f);
+    }
+
+    .footer-b {
+        padding-top: var(--footer-mobile-row-pad-top);
+        gap: var(--footer-mobile-b-gap);
+    }
+
+    .footer-c {
+        padding-top: var(--footer-mobile-row-pad-top);
+        gap: var(--footer-mobile-c-gap);
     }
 
     .footer-a1,
@@ -1420,12 +1457,37 @@ section.anchor {
     .footer-a2,
     .footer-b2,
     .footer-c2 {
-        justify-self: start;
+        justify-self: stretch;
+    }
+
+    .footer-a .backtop {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-b .qualifications-label,
+    .footer-c .follow-label {
+        margin-bottom: 0;
+    }
+
+    .footer-b .qualifications-logos,
+    .footer-c .follow-icons {
+        justify-content: center;
+    }
+
+    .footer-c .follow-icons {
+        flex-wrap: nowrap;
+    }
+
+    .footer-d .legal-copy,
+    .footer-e .legal-copy,
+    .footer-f .legal-links {
+        text-align: center;
+        justify-content: center;
     }
 
     .legal-links {
         white-space: normal;
         flex-wrap: wrap;
     }
-
 }

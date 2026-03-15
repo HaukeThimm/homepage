@@ -73,3 +73,43 @@
         });
     });
 })();
+
+/* ==== MOBILE NAV DROPDOWN ==== */
+(function () {
+    const toggle = document.querySelector(".nav-menu-toggle");
+    const panel = document.querySelector(".nav-mobile-panel");
+    if (!toggle || !panel) return;
+
+    function closePanel() {
+        panel.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+    }
+
+    function openPanel() {
+        panel.classList.add("is-open");
+        toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", () => {
+        const isOpen = panel.classList.contains("is-open");
+        if (isOpen) {
+            closePanel();
+        } else {
+            openPanel();
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+            closePanel();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closePanel();
+    });
+
+    panel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closePanel);
+    });
+})();
