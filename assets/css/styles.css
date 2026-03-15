@@ -160,8 +160,8 @@
     --nav-letter-spacing: 0.1em; /* Laufweite Navigation */
     --nav-text-transform: uppercase; /* Großschreibung Navigation */
 
-    --lang-btn-size: 25px; /* Größe Sprachbutton */
-    --nav-menu-btn-size: 28px; /* Größe Mobile-Menü-Button */
+    --lang-btn-h: 25px; /* Höhe Sprachbutton */
+    --nav-menu-btn-h: 28px; /* Höhe Mobile-Menü-Button */
     --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button */
     --nav-menu-panel-top: 75px; /* Oberkante Mobile-Menü-Panel */
     --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel */
@@ -173,8 +173,8 @@
     --service-grid-col-1: 30px; /* erste Spalte Service-Head */
     --service-grid-col-3: 22px; /* dritte Spalte Service-Head */
     --service-col-gap: 12px; /* Abstand Spalten Service-Head */
-    --service-bullet-size: 22px; /* Größe Service-Bullet */
-    --service-arrow-size: 18px; /* Größe Service-Pfeil */
+    --service-bullet-h: 22px; /* Höhe Service-Bullet */
+    --service-arrow-h: 18px; /* Höhe Service-Pfeil */
     --service-body-pad-top: 14px; /* Abstand Body innerhalb Service */
     --service-max-h: 600px; /* Maximalhöhe geöffneter Service */
 
@@ -184,7 +184,7 @@
     --approach-text-indent: 46px; /* Texteinzug Arbeitsweise */
 
     --carousel-fade: 40px; /* seitlicher Fade Carousel */
-    --carousel-arrow-size: 40px; /* Größe Carousel-Pfeile */
+    --carousel-arrow-h: 40px; /* Höhe Carousel-Pfeile */
     --carousel-gap: 28px; /* Abstand Carousel-Karten */
     --carousel-card-w: 400px; /* Breite Carousel-Karte */
     --carousel-card-h: 300px; /* Höhe Carousel-Karte */
@@ -210,8 +210,12 @@
     --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
     --pre-footer-item-gap: 18px; /* Abstand Icon zu Text Pre-Footer */
     --pre-footer-margin-bottom: 20px; /* Abstand Pre-Footer zu Footer */
-    --pre-footer-icon-size: 75px; /* Größe Pre-Footer-Icons */
+    --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons */
     --pre-footer-icon-frame: var(--frame-w-sm); /* Rahmenstärke Pre-Footer-Icons */
+    --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons */
+    --pre-footer-icon-pos-x: 50%; /* horizontale PNG/JPG-Position Pre-Footer */
+    --pre-footer-icon-pos-y: 50%; /* vertikale PNG/JPG-Position Pre-Footer */
+    --pre-footer-icon-radius: 50%; /* Form Pre-Footer-Icons */
     --pre-footer-text-font: var(--font-body); /* Schrift Pre-Footer */
     --pre-footer-text-size: var(--fs-body); /* Schriftgröße Pre-Footer */
     --pre-footer-text-weight: var(--fw-body); /* Schriftgewicht Pre-Footer */
@@ -231,15 +235,28 @@
     --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
     --footer-label-gap-bottom: 12px; /* Abstand unter Footer-Labels */
 
-    --qual-logo-h: 50px; /* Höhe Qualification-Logos */
-    --qual-logo-pad: 0px; /* Innenpadding Qualification-Logos */
-    --qual-logo-frame: var(--frame-w-sm); /* Rahmenstärke Qualification-Logos */
-    --qual-logos-gap: 24px; /* Abstand Qualification-Logos */
+    --qual-logo-rect-h: 50px; /* Höhe rechteckige Qualification-Logos Desktop */
+    --qual-logo-round-h: 50px; /* Höhe runde Qualification-Logos Desktop */
+    --qual-logo-frame: var(--frame-w-sm); /* Rahmenstärke Qualification-Logos Desktop */
+    --qual-logo-gap: 24px; /* Abstand Qualification-Logos Desktop */
+    --qual-logo-rect-radius: var(--frame-r-md); /* Form rechteckiges Qualification-Logo Desktop */
+    --qual-logo-round-radius: 50%; /* Form rundes Qualification-Logo Desktop */
+    --qual-logo-rect-fit: contain; /* Objektverhalten rechteckiges Qualification-Logo Desktop */
+    --qual-logo-round-fit: contain; /* Objektverhalten rundes Qualification-Logo Desktop */
+    --qual-logo-rect-pos-x: 50%; /* horizontale PNG/JPG-Position rechteckiges Qualification-Logo Desktop */
+    --qual-logo-rect-pos-y: 50%; /* vertikale PNG/JPG-Position rechteckiges Qualification-Logo Desktop */
+    --qual-logo-round-pos-x: 50%; /* horizontale PNG/JPG-Position rundes Qualification-Logo Desktop */
+    --qual-logo-round-pos-y: 50%; /* vertikale PNG/JPG-Position rundes Qualification-Logo Desktop */
+    --qual-logo-pad: 0px; /* Innenpadding Qualification-Logos Desktop */
 
-    --follow-icon-size: 50px; /* Größe Follow-Icons */
-    --follow-icon-pad: 0px; /* Innenpadding Follow-Icons */
-    --follow-icon-frame: var(--frame-w-sm); /* Rahmenstärke Follow-Icons */
-    --follow-icons-gap: 18px; /* Abstand Follow-Icons */
+    --follow-icon-h: 50px; /* Höhe Follow-Icons Desktop */
+    --follow-icon-frame: var(--frame-w-sm); /* Rahmenstärke Follow-Icons Desktop */
+    --follow-icon-gap: 18px; /* Abstand Follow-Icons Desktop */
+    --follow-icon-radius: 50%; /* Form Follow-Icons Desktop */
+    --follow-icon-fit: contain; /* Objektverhalten Follow-Icons Desktop */
+    --follow-icon-pos-x: 50%; /* horizontale PNG/JPG-Position Follow-Icons Desktop */
+    --follow-icon-pos-y: 50%; /* vertikale PNG/JPG-Position Follow-Icons Desktop */
+    --follow-icon-pad: 0px; /* Innenpadding Follow-Icons Desktop */
 
     --backtop-icon-h: 20px; /* Höhe Chevron Seitenanfang */
     --backtop-gap: 3px; /* Abstand Chevron zu Text */
@@ -347,6 +364,24 @@ body {
     border-radius: inherit;
 }
 
+/* ==== GOLD-FRAME NUR IN NAV / PRE-FOOTER / FOOTER DEAKTIVIEREN ==== */
+.main-nav .gold-frame,
+.pre-footer .gold-frame,
+.footer .gold-frame {
+    border-color: transparent;
+    background: none;
+    background-image: none;
+}
+
+.main-nav .gold-frame > img,
+.main-nav .gold-frame > picture > img,
+.pre-footer .gold-frame > img,
+.pre-footer .gold-frame > picture > img,
+.footer .gold-frame > img,
+.footer .gold-frame > picture > img {
+    border-radius: inherit;
+}
+
 /* ==== HEADER ==== */
 .header-image {
     width: 100%;
@@ -443,11 +478,11 @@ body {
 
 .lang-toggle {
     position: fixed;
-    top: calc(var(--top-offset) + ((var(--banner-h) - var(--lang-btn-size)) / 2));
+    top: calc(var(--top-offset) + ((var(--banner-h) - var(--lang-btn-h)) / 2));
     right: var(--side-pad);
-    width: var(--lang-btn-size);
-    height: var(--lang-btn-size);
-    flex: 0 0 var(--lang-btn-size);
+    width: var(--lang-btn-h);
+    height: var(--lang-btn-h);
+    flex: 0 0 var(--lang-btn-h);
     z-index: 10001;
 }
 
@@ -472,8 +507,8 @@ body {
 }
 
 .lang-btn .gold-frame {
-    width: var(--lang-btn-size);
-    height: var(--lang-btn-size);
+    width: var(--lang-btn-h);
+    height: var(--lang-btn-h);
 }
 
 .lang-btn .gold-frame > img {
@@ -491,8 +526,8 @@ body {
 
 .nav-menu-toggle img {
     display: block;
-    width: var(--nav-menu-btn-size);
-    height: var(--nav-menu-btn-size);
+    width: var(--nav-menu-btn-h);
+    height: var(--nav-menu-btn-h);
     object-fit: contain;
 }
 
@@ -663,8 +698,8 @@ section.anchor {
 }
 
 .service-bullet {
-    width: var(--service-bullet-size);
-    height: var(--service-bullet-size);
+    width: var(--service-bullet-h);
+    height: var(--service-bullet-h);
     background: url("../img/bulletpoint.png") center / contain no-repeat;
 }
 
@@ -673,8 +708,8 @@ section.anchor {
 }
 
 .service-arrow {
-    width: var(--service-arrow-size);
-    height: var(--service-arrow-size);
+    width: var(--service-arrow-h);
+    height: var(--service-arrow-h);
     background: url("../img/button_R.png") center / contain no-repeat;
     opacity: 0.8;
     transform: translateY(1px);
@@ -813,8 +848,8 @@ section.anchor {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: var(--carousel-arrow-size);
-    height: var(--carousel-arrow-size);
+    width: var(--carousel-arrow-h);
+    height: var(--carousel-arrow-h);
     border: 0;
     background: transparent;
     cursor: pointer;
@@ -827,8 +862,8 @@ section.anchor {
 }
 
 .carousel-btn img {
-    width: var(--carousel-arrow-size);
-    height: var(--carousel-arrow-size);
+    width: var(--carousel-arrow-h);
+    height: var(--carousel-arrow-h);
     display: block;
 }
 
@@ -1026,19 +1061,20 @@ section.anchor {
 }
 
 .pre-footer-item .gold-frame {
-    width: var(--pre-footer-icon-size);
-    height: var(--pre-footer-icon-size);
-    flex: 0 0 var(--pre-footer-icon-size);
+    width: var(--pre-footer-icon-h);
+    height: var(--pre-footer-icon-h);
+    flex: 0 0 var(--pre-footer-icon-h);
     aspect-ratio: 1 / 1;
     border-width: var(--pre-footer-icon-frame);
-    border-radius: 50%;
+    border-radius: var(--pre-footer-icon-radius);
 }
 
 .pre-footer-item .gold-frame > img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    padding: 0px;
+    object-fit: var(--pre-footer-icon-fit);
+    object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos-y);
+    padding: 0;
     display: block;
 }
 
@@ -1129,9 +1165,10 @@ section.anchor {
     color: var(--cream);
 }
 
+/* ==== FOOTER QUALIFICATIONS (DESKTOP) ==== */
 .qualifications-logos {
     display: flex;
-    gap: var(--qual-logos-gap);
+    gap: var(--qual-logo-gap);
     align-items: center;
     flex-wrap: wrap;
 }
@@ -1145,9 +1182,17 @@ section.anchor {
 }
 
 .qualifications-logos .gold-frame.shape--rect {
-    height: var(--qual-logo-h);
+    height: var(--qual-logo-rect-h);
     width: fit-content;
-    border-radius: var(--frame-r-md);
+    border-radius: var(--qual-logo-rect-radius);
+}
+
+.qualifications-logos .gold-frame.shape--round {
+    width: var(--qual-logo-round-h);
+    height: var(--qual-logo-round-h);
+    flex: 0 0 var(--qual-logo-round-h);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--qual-logo-round-radius);
 }
 
 .qualifications-logos .gold-frame > img,
@@ -1163,18 +1208,24 @@ section.anchor {
     height: 100%;
     width: auto;
     max-width: none;
-    object-fit: contain;
     padding: var(--qual-logo-pad);
 }
 
-.qualifications-logos .gold-frame.shape--round {
-    width: var(--qual-logo-h);
-    height: var(--qual-logo-h);
-    flex: 0 0 var(--qual-logo-h);
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
+.qualifications-logos .gold-frame.shape--rect > img,
+.qualifications-logos .gold-frame.shape--rect > picture > img {
+    object-fit: var(--qual-logo-rect-fit);
+    object-position: var(--qual-logo-rect-pos-x) var(--qual-logo-rect-pos-y);
 }
 
+.qualifications-logos .gold-frame.shape--round > img,
+.qualifications-logos .gold-frame.shape--round > picture > img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--qual-logo-round-fit);
+    object-position: var(--qual-logo-round-pos-x) var(--qual-logo-round-pos-y);
+}
+
+/* ==== BACK TO TOP ==== */
 .backtop {
     display: inline-flex;
     flex-direction: column;
@@ -1201,30 +1252,41 @@ section.anchor {
     text-decoration: underline;
 }
 
+/* ==== FOOTER FOLLOW (DESKTOP) ==== */
 .follow-icons {
     display: flex;
-    gap: var(--follow-icons-gap);
+    gap: var(--follow-icon-gap);
     align-items: center;
     flex-wrap: wrap;
 }
 
 .follow-icons .gold-frame.shape--round {
-    width: var(--follow-icon-size);
-    height: var(--follow-icon-size);
-    flex: 0 0 var(--follow-icon-size);
+    width: var(--follow-icon-h);
+    height: var(--follow-icon-h);
+    flex: 0 0 var(--follow-icon-h);
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
+    border-radius: var(--follow-icon-radius);
     border-width: var(--follow-icon-frame);
 }
 
-.follow-icons .gold-frame > img {
+.follow-icons .gold-frame > img,
+.follow-icons .gold-frame > picture {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+}
+
+.follow-icons .gold-frame > img,
+.follow-icons .gold-frame > picture > img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--follow-icon-fit);
+    object-position: var(--follow-icon-pos-x) var(--follow-icon-pos-y);
     padding: var(--follow-icon-pad);
     display: block;
 }
 
+/* ==== FOOTER LEGAL ==== */
 .legal-copy {
     font-family: var(--legal-font);
     font-size: var(--legal-size);
@@ -1270,19 +1332,51 @@ section.anchor {
         --nav-home-left: 18px; /* linke Position Home-Icon mobil */
         --nav-home-y: 0px; /* vertikale Feinkorrektur Home-Icon mobil */
 
-        --nav-menu-btn-size: 28px; /* Größe Mobile-Menü-Button mobil */
+        --nav-menu-btn-h: 28px; /* Höhe Mobile-Menü-Button mobil */
         --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button mobil */
         --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü-Panel mobil */
         --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel mobil */
         --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel mobil */
         --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü mobil */
 
+        --lang-btn-h: 25px; /* Höhe Sprachbutton mobil */
+
+        --pre-footer-item-gap: 12px; /* Abstand Icon zu Text Pre-Footer mobil */
+        --pre-footer-col-gap: 12px; /* Spaltenabstand Pre-Footer mobil */
+        --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons mobil */
+        --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons mobil */
+        --pre-footer-icon-pos-x: 50%; /* horizontale PNG/JPG-Position Pre-Footer mobil */
+        --pre-footer-icon-pos-y: 50%; /* vertikale PNG/JPG-Position Pre-Footer mobil */
+        --pre-footer-icon-radius: 50%; /* Form Pre-Footer-Icons mobil */
+
+        --qual-logo-rect-h-mobile: 50px; /* Höhe rechteckige Qualification-Logos mobil */
+        --qual-logo-round-h-mobile: 50px; /* Höhe runde Qualification-Logos mobil */
+        --qual-logo-gap-mobile: 18px; /* Abstand Qualification-Logos mobil */
+        --qual-logo-frame-mobile: var(--frame-w-sm); /* Rahmenstärke Qualification-Logos mobil */
+        --qual-logo-rect-radius-mobile: 50%; /* Form rechteckige Qualification-Logos mobil */
+        --qual-logo-round-radius-mobile: 50%; /* Form runde Qualification-Logos mobil */
+        --qual-logo-rect-fit-mobile: cover; /* Objektverhalten rechteckige Qualification-Logos mobil */
+        --qual-logo-round-fit-mobile: cover; /* Objektverhalten runde Qualification-Logos mobil */
+        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position rechteckige Qualification-Logos mobil */
+        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position rechteckige Qualification-Logos mobil */
+        --qual-logo-round-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position runde Qualification-Logos mobil */
+        --qual-logo-round-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position runde Qualification-Logos mobil */
+
+        --follow-icon-h-mobile: 50px; /* Höhe Follow-Icons mobil */
+        --follow-icon-gap-mobile: 18px; /* Abstand Follow-Icons mobil */
+        --follow-icon-frame-mobile: var(--frame-w-sm); /* Rahmenstärke Follow-Icons mobil */
+        --follow-icon-radius-mobile: 50%; /* Form Follow-Icons mobil */
+        --follow-icon-fit-mobile: cover; /* Objektverhalten Follow-Icons mobil */
+        --follow-icon-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position Follow-Icons mobil */
+        --follow-icon-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position Follow-Icons mobil */
+        --follow-icon-pad-mobile: 0px; /* Innenpadding Follow-Icons mobil */
+
         --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
         --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
         --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding Zeile F mobil */
         --footer-mobile-b-gap: 18px; /* Abstand Inhalte Zeile B mobil */
         --footer-mobile-c-gap: 18px; /* Abstand Inhalte Zeile C mobil */
-        --legal-links-gap: 15px; /* Abstand zwischen Impressum und Datenschutz auf Mobil */
+        --legal-links-gap: 15px; /* Abstand zwischen Impressum und Datenschutz mobil */
     }
 
     #credentials .feedback-card {
@@ -1320,7 +1414,7 @@ section.anchor {
 
     .nav-menu-toggle {
         position: fixed;
-        top: calc(var(--top-offset) + ((var(--banner-h) - var(--nav-menu-btn-size)) / 2) + var(--nav-menu-btn-top-adjust));
+        top: calc(var(--top-offset) + ((var(--banner-h) - var(--nav-menu-btn-h)) / 2) + var(--nav-menu-btn-top-adjust));
         left: 50%;
         transform: translateX(-50%);
         z-index: 10001;
@@ -1384,7 +1478,7 @@ section.anchor {
         max-width: 100%;
         box-sizing: border-box;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        column-gap: 12px;
+        column-gap: var(--pre-footer-col-gap);
         row-gap: 0;
         justify-items: center;
     }
@@ -1403,6 +1497,18 @@ section.anchor {
 
     .pre-footer-link {
         justify-content: center;
+    }
+
+    .pre-footer-item .gold-frame {
+        width: var(--pre-footer-icon-h);
+        height: var(--pre-footer-icon-h);
+        flex: 0 0 var(--pre-footer-icon-h);
+        border-radius: var(--pre-footer-icon-radius);
+    }
+
+    .pre-footer-item .gold-frame > img {
+        object-fit: var(--pre-footer-icon-fit);
+        object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos-y);
     }
 
     .footer {
@@ -1510,37 +1616,82 @@ section.anchor {
         justify-content: center;
     }
 
+    .footer-b .qualifications-logos {
+        gap: var(--qual-logo-gap-mobile);
+    }
+
     .footer-c .follow-icons {
+        gap: var(--follow-icon-gap-mobile);
         flex-wrap: nowrap;
     }
 
-    .footer .qualifications-logos .gold-frame,
-    .footer .follow-icons .gold-frame {
-        width: var(--qual-logo-h);
-        height: var(--qual-logo-h);
-        flex: 0 0 var(--qual-logo-h);
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
+    .footer .qualifications-logos .gold-frame {
+        border-width: var(--qual-logo-frame-mobile);
     }
 
-    .footer .qualifications-logos .gold-frame > img,
-    .footer .qualifications-logos .gold-frame > picture,
-    .footer .follow-icons .gold-frame > img,
-    .footer .follow-icons .gold-frame > picture {
-        display: block;
+    .footer .qualifications-logos .gold-frame.shape--rect {
+        width: var(--qual-logo-rect-h-mobile);
+        height: var(--qual-logo-rect-h-mobile);
+        flex: 0 0 var(--qual-logo-rect-h-mobile);
+        aspect-ratio: 1 / 1;
+        border-radius: var(--qual-logo-rect-radius-mobile);
+    }
+
+    .footer .qualifications-logos .gold-frame.shape--round {
+        width: var(--qual-logo-round-h-mobile);
+        height: var(--qual-logo-round-h-mobile);
+        flex: 0 0 var(--qual-logo-round-h-mobile);
+        aspect-ratio: 1 / 1;
+        border-radius: var(--qual-logo-round-radius-mobile);
+    }
+
+    .footer .qualifications-logos .gold-frame.shape--rect > img,
+    .footer .qualifications-logos .gold-frame.shape--rect > picture,
+    .footer .qualifications-logos .gold-frame.shape--rect > picture > img,
+    .footer .qualifications-logos .gold-frame.shape--round > img,
+    .footer .qualifications-logos .gold-frame.shape--round > picture,
+    .footer .qualifications-logos .gold-frame.shape--round > picture > img {
         width: 100%;
         height: 100%;
     }
 
-    .footer .qualifications-logos .gold-frame > img,
-    .footer .qualifications-logos .gold-frame > picture > img,
+    .footer .qualifications-logos .gold-frame.shape--rect > img,
+    .footer .qualifications-logos .gold-frame.shape--rect > picture > img {
+        object-fit: var(--qual-logo-rect-fit-mobile);
+        object-position: var(--qual-logo-rect-pos-x-mobile) var(--qual-logo-rect-pos-y-mobile);
+        padding: 0;
+        border-radius: inherit;
+    }
+
+    .footer .qualifications-logos .gold-frame.shape--round > img,
+    .footer .qualifications-logos .gold-frame.shape--round > picture > img {
+        object-fit: var(--qual-logo-round-fit-mobile);
+        object-position: var(--qual-logo-round-pos-x-mobile) var(--qual-logo-round-pos-y-mobile);
+        padding: 0;
+        border-radius: inherit;
+    }
+
+    .footer .follow-icons .gold-frame {
+        width: var(--follow-icon-h-mobile);
+        height: var(--follow-icon-h-mobile);
+        flex: 0 0 var(--follow-icon-h-mobile);
+        aspect-ratio: 1 / 1;
+        border-radius: var(--follow-icon-radius-mobile);
+        border-width: var(--follow-icon-frame-mobile);
+    }
+
+    .footer .follow-icons .gold-frame > img,
+    .footer .follow-icons .gold-frame > picture,
+    .footer .follow-icons .gold-frame > picture > img {
+        width: 100%;
+        height: 100%;
+    }
+
     .footer .follow-icons .gold-frame > img,
     .footer .follow-icons .gold-frame > picture > img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        padding: 0;
+        object-fit: var(--follow-icon-fit-mobile);
+        object-position: var(--follow-icon-pos-x-mobile) var(--follow-icon-pos-y-mobile);
+        padding: var(--follow-icon-pad-mobile);
         border-radius: inherit;
     }
 
