@@ -9,7 +9,6 @@
         const tag = el.tagName;
         const hasElementChildren = el.children && el.children.length > 0;
 
-        /* A/BUTTON nur übersetzen, wenn sie keine weiteren Elemente kapseln (sonst wird Markup zerstört) */
         if ((tag === "A" || tag === "BUTTON") && hasElementChildren) return false;
 
         return true;
@@ -34,7 +33,6 @@
         });
     });
 
-    /* Default Sprache: DE */
     setLang("de");
 })();
 

@@ -16,7 +16,7 @@
     <body class="page--contact">
         <div id="top"></div>
 
-        <!-- ==== FIXED NAV (WIE MAIN, LINKS ZUR STARTSEITE) ==== -->
+        <!-- ==== FIXED NAV ==== -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
@@ -70,7 +70,6 @@
         <!-- ==== CONTENT ==== -->
         <div class="page-offset">
             <main class="content" id="content">
-                <!-- ==== CONTACT (ALS .section IM MAIN-STYLE) ==== -->
                 <section class="section contact-page anchor" id="contact-page">
                     <h2 class="about-label" data-en="CONTACT" data-de="KONTAKT">CONTACT</h2>
 
@@ -84,21 +83,16 @@
                         All enquiries are handled discreetly. If you prefer, you may also email me directly.
                     </p>
 
-                    <!-- ==== FORM WRAPPER (BREITE: DESKTOP 25vw / MOBILE 75vw) ==== -->
                     <form class="contact-form" action="mailto:mail@haukethimm.com" method="post" enctype="text/plain">
-                        <!-- Name -->
                         <label class="form-label" for="cf-name" data-en="Name *" data-de="Name *">Name *</label>
                         <input class="form-field" id="cf-name" name="name" type="text" autocomplete="name" required />
 
-                        <!-- Email -->
                         <label class="form-label" for="cf-email" data-en="Email *" data-de="E-Mail *">Email *</label>
                         <input class="form-field" id="cf-email" name="email" type="email" autocomplete="email" required />
 
-                        <!-- Phone (optional) -->
                         <label class="form-label" for="cf-phone" data-en="Phone (optional)" data-de="Telefon (optional)">Phone (optional)</label>
                         <input class="form-field" id="cf-phone" name="phone" type="tel" autocomplete="tel" />
 
-                        <!-- ==== EVENTZEITRAUM (2x DATE PICKER, OPTIONAL) ==== -->
                         <div class="form-row-2">
                             <div>
                                 <label class="form-label" for="cf-start" data-en="Event start (optional)" data-de="Eventbeginn (optional)">
@@ -115,11 +109,9 @@
                             </div>
                         </div>
 
-                        <!-- Message -->
                         <label class="form-label" for="cf-message" data-en="Message *" data-de="Nachricht *">Message *</label>
                         <textarea class="form-field form-textarea" id="cf-message" name="message" rows="7" required></textarea>
 
-                        <!-- DSGVO/Privacy Hinweis (ohne externen Dienst = datenschutzfreundlich) -->
                         <p class="form-privacy body-text"
                            data-en="By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry. See Privacy policy."
                            data-de="Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zum Zweck der Bearbeitung Ihrer Anfrage zu. Siehe Datenschutz.">
@@ -162,7 +154,6 @@
                             <span class="gold-frame frame--md shape--round">
                                 <img src="/assets/img/contact_contactcard_.png" alt="" aria-hidden="true" />
                             </span>
-
                             <a class="pre-footer-link" href="/assets/files/hauke-thimm.vcf" download>
                                 <span class="pre-footer-text" data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">Visitenkarte (vcf)</span>
                             </a>
@@ -171,7 +162,7 @@
                 </div>
             </section>
 
-            <!-- ==== FOOTER (A1/B1/C1 + A2/B2/C2) ==== -->
+            <!-- ==== FOOTER ==== -->
             <footer class="footer anchor" id="footer">
                 <div class="footer-inner">
                     <div class="footer-a1 footer-b">
@@ -234,19 +225,13 @@
                     <div class="footer-c2 footer-f">
                         <div class="legal-links" aria-label="Legal navigation">
                             <a class="legal-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Imprint" data-de="Impressum">Impressum</a>
-                            <span class="legal-sep" aria-hidden="true">|</span>
                             <a class="legal-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy" data-de="Datenschutz">Datenschutz</a>
-                            <span class="legal-sep" aria-hidden="true">|</span>
-                            <a class="legal-link" href="/contact/" data-en="Contact" data-de="Kontakt">Kontakt</a>
-                            <!-- <a class="legal-link" href="mailto:mail@haukethimm.com" data-en="Contact" data-de="Kontakt">Kontakt</a> -->
-                           
                         </div>
                     </div>
                 </div>
             </footer>
         </div>
 
-        <!-- ==== MAIN JS ==== -->
         <script defer src="/assets/js/main.js"></script>
     </body>
 
