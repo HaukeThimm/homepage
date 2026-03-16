@@ -1392,56 +1392,55 @@ section.anchor {
 @media (max-width: 768px) {
 
     :root {
-        --side-pad: 24px; /* horizontaler Seiteninnenabstand mobil */
-        --banner-h: 75px; /* Höhe Nav-Banner mobil */
+        --side-pad: 32px; /* horizontaler Seiteninnenabstand mobil */
+        --banner-h: 64px; /* Höhe Nav-Banner mobil */
         --contact-form-max-w: 75vw; /* maximale Breite Formular mobil */
         --contact-form-min-w: 0px; /* minimale Breite Formular mobil */
 
-        --nav-home-h: 50px; /* Höhe Home-Icon mobil */
-        --nav-home-fit: cover; /* Objektverhalten Home-Icon mobil */
-        --nav-home-pos-x: 50%; /* horizontale Bildposition Home-Icon mobil */
-        --nav-home-pos-y: 50%; /* vertikale Bildposition Home-Icon mobil */
-        --nav-home-offset-x: 0px; /* kein zusätzlicher Home-Offset mobil */
+        --nav-home-h: 60px; /* Höhe Home-Icon mobil */
+        --nav-home-left: calc(var(--side-pad) + 75px); /* Home-Icon 75px eingerückt vom linken Padding mobil */
+        --nav-home-y: 0px; /* vertikale Feinkorrektur Home-Icon mobil */
 
-        --nav-menu-btn-h: 50px; /* Höhe Mobile-Menü-Button mobil */
+        --nav-menu-btn-h: 60px; /* Höhe Mobile-Menü-Button mobil */
         --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button mobil */
         --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü-Panel mobil */
-        --nav-menu-panel-pad-x: 50px; /* horizontales Padding Mobile-Menü-Panel mobil */
-        --nav-menu-panel-pad-y: 7px; /* vertikales Padding Mobile-Menü-Panel mobil */
+        --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel mobil */
+        --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel mobil */
         --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü mobil */
-        --nav-menu-btn-fit: cover; /* Objektverhalten Mobile-Menü-Button mobil */
-        --nav-menu-btn-pos-x: 50%; /* horizontale Bildposition Mobile-Menü-Button mobil */
-        --nav-menu-btn-pos-y: 50%; /* vertikale Bildposition Mobile-Menü-Button mobil */
 
-        --lang-btn-h: 50px; /* Höhe Sprachbutton mobil */
-        --lang-btn-fit: cover; /* Objektverhalten Sprachbutton mobil */
-        --lang-btn-pos-x: 50%; /* horizontale Bildposition Sprachbutton mobil */
-        --lang-btn-pos-y: 50%; /* vertikale Bildposition Sprachbutton mobil */
-        --nav-lang-offset-x: 0px; /* kein zusätzlicher Language-Offset mobil */
+        --lang-btn-h: 60px; /* Höhe Sprachbutton mobil */
 
         --pre-footer-item-gap: 12px; /* Abstand Icon zu Text Pre-Footer mobil */
         --pre-footer-col-gap: 12px; /* Spaltenabstand Pre-Footer mobil */
-        --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons mobil */
+        --pre-footer-icon-h: 100px; /* Höhe Pre-Footer-Icons mobil */
         --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons mobil */
-        --pre-footer-icon-pos-x: 50%; /* horizontale Bildposition Pre-Footer-Icons mobil */
-        --pre-footer-icon-pos-y: 50%; /* vertikale Bildposition Pre-Footer-Icons mobil */
+        --pre-footer-icon-pos-x: 50%; /* horizontale PNG/JPG-Position Pre-Footer mobil */
+        --pre-footer-icon-pos-y: 50%; /* vertikale PNG/JPG-Position Pre-Footer mobil */
+        --pre-footer-icon-radius: 50%; /* Form Pre-Footer-Icons mobil */
 
-        --qual-logo-rect-h-mobile: 46px; /* Höhe Logos in footer-b mobil */
-        --qual-logo-round-h-mobile: 46px; /* Höhe runde Logos in footer-b mobil */
-        --qual-logo-gap-mobile: 18px; /* Abstand Logos in footer-b mobil */
-        --qual-logo-rect-fit-mobile: contain; /* Objektverhalten rechteckige Logos in footer-b mobil */
-        --qual-logo-round-fit-mobile: cover; /* Objektverhalten runde Logos in footer-b mobil */
-        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale Bildposition rechteckige Logos in footer-b mobil */
-        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale Bildposition rechteckige Logos in footer-b mobil */
-        --qual-logo-round-pos-x-mobile: 50%; /* horizontale Bildposition runde Logos in footer-b mobil */
-        --qual-logo-round-pos-y-mobile: 50%; /* vertikale Bildposition runde Logos in footer-b mobil */
+        --qual-logo-rect-h-mobile: 100px; /* Höhe rechteckige Qualification-Logos mobil */
+        --qual-logo-round-h-mobile: 50px; /* Höhe runde Qualification-Logos mobil */
+        --qual-logo-gap-mobile: 30px; /* Abstand Qualification-Logos mobil */
+        --qual-logo-frame-mobile: var(--frame-w-sm); /* Rahmenstärke Qualification-Logos mobil */
+        --qual-logo-rect-radius-mobile: 50%; /* Form rechteckige Qualification-Logos mobil */
+        --qual-logo-round-radius-mobile: 50%; /* Form runde Qualification-Logos mobil */
+        --qual-logo-rect-fit-mobile: cover; /* Objektverhalten rechteckige Qualification-Logos mobil */
+        --qual-logo-round-fit-mobile: cover; /* Objektverhalten runde Qualification-Logos mobil */
+        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position rechteckige Qualification-Logos mobil */
+        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position rechteckige Qualification-Logos mobil */
+        --qual-logo-round-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position runde Qualification-Logos mobil */
+        --qual-logo-round-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position runde Qualification-Logos mobil */
 
-        --follow-icon-h-mobile: 46px; /* Höhe Icons in footer-c mobil */
-        --follow-icon-gap-mobile: 18px; /* Abstand Icons in footer-c mobil */
-        --follow-icon-fit-mobile: cover; /* Objektverhalten Icons in footer-c mobil */
-        --follow-icon-pos-x-mobile: 50%; /* horizontale Bildposition Icons in footer-c mobil */
-        --follow-icon-pos-y-mobile: 50%; /* vertikale Bildposition Icons in footer-c mobil */
-        --follow-icon-pad-mobile: 0px; /* Innenpadding Icons in footer-c mobil */
+        --follow-icon-h-mobile: 100px; /* Höhe Follow-Icons mobil */
+        --follow-icon-gap-mobile: 30px; /* Abstand Follow-Icons mobil */
+        --follow-icon-frame-mobile: var(--frame-w-sm); /* Rahmenstärke Follow-Icons mobil */
+        --follow-icon-radius-mobile: 50%; /* Form Follow-Icons mobil */
+        --follow-icon-fit-mobile: cover; /* Objektverhalten Follow-Icons mobil */
+        --follow-icon-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position Follow-Icons mobil */
+        --follow-icon-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position Follow-Icons mobil */
+        --follow-icon-pad-mobile: 0px; /* Innenpadding Follow-Icons mobil */
+
+        --backtop-icon-h-mobile: 5px; /* Höhe Chevron mobil */
 
         --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
         --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
@@ -1469,11 +1468,14 @@ section.anchor {
         width: 100%;
         max-width: 100%;
         padding: 0 var(--side-pad);
-        grid-template-columns: auto 1fr auto;
     }
 
     .nav-items {
-        display: contents;
+        width: 100%;
+        min-height: var(--banner-h);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
     }
 
     .nav-items a.nav-link:not(.nav-link--home) {
@@ -1481,37 +1483,55 @@ section.anchor {
     }
 
     .nav-link--home {
-        grid-column: 1;
+        left: auto;
+        position: relative;
+        top: auto;
         justify-self: start;
         align-self: center;
-        width: var(--nav-home-h);
+        width: auto;
+        height: calc(var(--nav-home-h) * 1.25);
+        min-width: calc(var(--nav-home-h) * 1.25);
+        min-height: calc(var(--nav-home-h) * 1.25);
+        padding: calc(var(--nav-home-h) * 0.125);
+    }
+
+    .nav-link--home img {
         height: var(--nav-home-h);
-        margin-left: 0;
+        width: auto;
+        object-fit: var(--nav-home-fit);
     }
 
     .nav-menu-toggle {
-        grid-column: 2;
-        justify-self: center;
-        align-self: center;
         position: relative;
         top: auto;
         left: auto;
         transform: none;
+        justify-self: center;
+        align-self: center;
         z-index: 10001;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: var(--nav-menu-btn-h);
-        height: var(--nav-menu-btn-h);
+        width: calc(var(--nav-menu-btn-h) * 1.25);
+        height: calc(var(--nav-menu-btn-h) * 1.25);
+        min-width: calc(var(--nav-menu-btn-h) * 1.25);
+        min-height: calc(var(--nav-menu-btn-h) * 1.25);
+        padding: calc(var(--nav-menu-btn-h) * 0.125);
     }
 
     .lang-toggle {
-        grid-column: 3;
+        position: relative;
+        top: auto;
+        right: auto;
         justify-self: end;
         align-self: center;
-        margin-right: 0;
-        right: auto;
-        top: auto;
+        width: calc(var(--lang-btn-h) * 1.25);
+        height: calc(var(--lang-btn-h) * 1.25);
+        min-width: calc(var(--lang-btn-h) * 1.25);
+        min-height: calc(var(--lang-btn-h) * 1.25);
+    }
+
+    .lang-btn .gold-frame {
         width: var(--lang-btn-h);
         height: var(--lang-btn-h);
     }
@@ -1537,6 +1557,8 @@ section.anchor {
     .nav-mobile-link {
         display: block;
         text-align: center;
+        min-height: calc(var(--fs-body) * 1.25);
+        padding: calc(var(--fs-body) * 0.125) 0;
     }
 
     .header-image picture,
@@ -1554,6 +1576,11 @@ section.anchor {
 
     .form-row-2 {
         grid-template-columns: 1fr;
+    }
+
+    .contact-cta {
+        align-items: center;
+        text-align: center;
     }
 
     .pre-footer {
@@ -1586,24 +1613,21 @@ section.anchor {
 
     .pre-footer-link {
         justify-content: center;
-        gap: 0;
+        min-width: calc(var(--pre-footer-icon-h) * 1.25);
+        min-height: calc(var(--pre-footer-icon-h) * 1.25);
+        padding: calc(var(--pre-footer-icon-h) * 0.125);
     }
 
     .pre-footer-item .gold-frame {
         width: auto;
         height: var(--pre-footer-icon-h);
         flex: 0 0 auto;
+        border-radius: var(--pre-footer-icon-radius);
     }
 
-    .pre-footer-item .gold-frame > img,
-    .pre-footer-item .gold-frame > picture,
-    .pre-footer-item .gold-frame > picture > img {
+    .pre-footer-item .gold-frame > img {
         width: auto;
         height: 100%;
-    }
-
-    .pre-footer-item .gold-frame > img,
-    .pre-footer-item .gold-frame > picture > img {
         object-fit: var(--pre-footer-icon-fit);
         object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos-y);
     }
@@ -1701,6 +1725,14 @@ section.anchor {
     .footer-a .backtop {
         align-items: center;
         justify-content: center;
+        min-width: calc(var(--backtop-icon-h-mobile) * 1.25);
+        min-height: calc(var(--backtop-icon-h-mobile) * 1.25);
+        padding: calc(var(--backtop-icon-h-mobile) * 0.125);
+    }
+
+    .footer-a .backtop .chevron-img {
+        height: var(--backtop-icon-h-mobile);
+        width: auto;
     }
 
     .footer-b .qualifications-label,
@@ -1722,20 +1754,23 @@ section.anchor {
         flex-wrap: nowrap;
     }
 
+    .footer .qualifications-logos .gold-frame {
+        border-width: var(--qual-logo-frame-mobile);
+    }
+
     .footer .qualifications-logos .gold-frame.shape--rect {
-        height: var(--qual-logo-rect-h-mobile);
         width: auto;
+        height: var(--qual-logo-rect-h-mobile);
         flex: 0 0 auto;
-        overflow: visible;
-        border-radius: 0;
+        border-radius: var(--qual-logo-rect-radius-mobile);
     }
 
     .footer .qualifications-logos .gold-frame.shape--round {
-        width: var(--qual-logo-round-h-mobile);
+        width: auto;
         height: var(--qual-logo-round-h-mobile);
-        flex: 0 0 var(--qual-logo-round-h-mobile);
-        border-radius: 50%;
-        overflow: hidden;
+        flex: 0 0 auto;
+        aspect-ratio: 1 / 1;
+        border-radius: var(--qual-logo-round-radius-mobile);
     }
 
     .footer .qualifications-logos .gold-frame.shape--rect > img,
@@ -1745,18 +1780,19 @@ section.anchor {
         height: 100%;
     }
 
-    .footer .qualifications-logos .gold-frame.shape--rect > img,
-    .footer .qualifications-logos .gold-frame.shape--rect > picture > img {
-        object-fit: var(--qual-logo-rect-fit-mobile);
-        object-position: var(--qual-logo-rect-pos-x-mobile) var(--qual-logo-rect-pos-y-mobile);
-        padding: 0;
-    }
-
     .footer .qualifications-logos .gold-frame.shape--round > img,
     .footer .qualifications-logos .gold-frame.shape--round > picture,
     .footer .qualifications-logos .gold-frame.shape--round > picture > img {
         width: 100%;
         height: 100%;
+    }
+
+    .footer .qualifications-logos .gold-frame.shape--rect > img,
+    .footer .qualifications-logos .gold-frame.shape--rect > picture > img {
+        object-fit: var(--qual-logo-rect-fit-mobile);
+        object-position: var(--qual-logo-rect-pos-x-mobile) var(--qual-logo-rect-pos-y-mobile);
+        padding: 0;
+        border-radius: inherit;
     }
 
     .footer .qualifications-logos .gold-frame.shape--round > img,
@@ -1768,11 +1804,12 @@ section.anchor {
     }
 
     .footer .follow-icons .gold-frame {
-        width: var(--follow-icon-h-mobile);
+        width: auto;
         height: var(--follow-icon-h-mobile);
-        flex: 0 0 var(--follow-icon-h-mobile);
-        border-radius: 50%;
-        overflow: hidden;
+        flex: 0 0 auto;
+        aspect-ratio: 1 / 1;
+        border-radius: var(--follow-icon-radius-mobile);
+        border-width: var(--follow-icon-frame-mobile);
     }
 
     .footer .follow-icons .gold-frame > img,
