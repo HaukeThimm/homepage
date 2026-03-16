@@ -453,33 +453,39 @@ body {
 }
 
 .nav-inner {
-    height: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--side-pad);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 75px;
+}
+
+.nav-links-desktop {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, auto));
+    justify-content: center;
+    align-items: center;
+    column-gap: 120px;
+}
+
+.nav-items {
+    width: 100%;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
 }
 
-.nav-items {
-    display: contents;
-}
-
 .nav-link--home {
-    grid-column: 1;
-    justify-self: start;
-    align-self: center;
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--nav-home-h);
     height: var(--nav-home-h);
-    margin-left: var(--nav-home-offset-x);
+    width: auto;
+    min-width: calc(var(--nav-home-h) * 1.25);
     text-decoration: none;
-    border-radius: 50%;
-    overflow: hidden;
-    z-index: 10001;
 }
 
 .nav-link--home:hover {
@@ -488,11 +494,9 @@ body {
 
 .nav-link--home img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: var(--nav-home-fit);
-    object-position: var(--nav-home-pos-x) var(--nav-home-pos-y);
-    border-radius: 50%;
+    height: var(--nav-home-h);
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-items a.nav-link:not(.nav-link--home) {
@@ -1417,7 +1421,7 @@ section.anchor {
 
         --pre-footer-item-gap: 12px; /* Abstand Icon zu Text Pre-Footer mobil */
         --pre-footer-col-gap: 12px; /* Spaltenabstand Pre-Footer mobil */
-        --pre-footer-icon-h: 60px; /* Höhe Pre-Footer-Icons mobil */
+        --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons mobil */
         --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons mobil */
         --pre-footer-icon-pos-x: 50%; /* horizontale Bildposition Pre-Footer-Icons mobil */
         --pre-footer-icon-pos-y: 50%; /* vertikale Bildposition Pre-Footer-Icons mobil */
@@ -1465,7 +1469,7 @@ section.anchor {
         width: 100%;
         max-width: 100%;
         padding: 0 var(--side-pad);
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: auto 1fr auto;
     }
 
     .nav-items {
