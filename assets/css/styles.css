@@ -1388,28 +1388,28 @@ section.anchor {
 @media (max-width: 768px) {
 
     :root {
-        --side-pad: 18px; /* horizontaler Seiteninnenabstand mobil */
-        --banner-h: 64px; /* Höhe Nav-Banner mobil */
+        --side-pad: 24px; /* horizontaler Seiteninnenabstand mobil */
+        --banner-h: 75px; /* Höhe Nav-Banner mobil */
         --contact-form-max-w: 75vw; /* maximale Breite Formular mobil */
         --contact-form-min-w: 0px; /* minimale Breite Formular mobil */
 
-        --nav-home-h: 28px; /* Höhe Home-Icon mobil */
+        --nav-home-h: 50px; /* Höhe Home-Icon mobil */
         --nav-home-fit: cover; /* Objektverhalten Home-Icon mobil */
         --nav-home-pos-x: 50%; /* horizontale Bildposition Home-Icon mobil */
         --nav-home-pos-y: 50%; /* vertikale Bildposition Home-Icon mobil */
         --nav-home-offset-x: 0px; /* kein zusätzlicher Home-Offset mobil */
 
-        --nav-menu-btn-h: 28px; /* Höhe Mobile-Menü-Button mobil */
+        --nav-menu-btn-h: 50px; /* Höhe Mobile-Menü-Button mobil */
         --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button mobil */
         --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü-Panel mobil */
-        --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel mobil */
-        --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel mobil */
+        --nav-menu-panel-pad-x: 50px; /* horizontales Padding Mobile-Menü-Panel mobil */
+        --nav-menu-panel-pad-y: 7px; /* vertikales Padding Mobile-Menü-Panel mobil */
         --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü mobil */
         --nav-menu-btn-fit: cover; /* Objektverhalten Mobile-Menü-Button mobil */
         --nav-menu-btn-pos-x: 50%; /* horizontale Bildposition Mobile-Menü-Button mobil */
         --nav-menu-btn-pos-y: 50%; /* vertikale Bildposition Mobile-Menü-Button mobil */
 
-        --lang-btn-h: 28px; /* Höhe Sprachbutton mobil */
+        --lang-btn-h: 50px; /* Höhe Sprachbutton mobil */
         --lang-btn-fit: cover; /* Objektverhalten Sprachbutton mobil */
         --lang-btn-pos-x: 50%; /* horizontale Bildposition Sprachbutton mobil */
         --lang-btn-pos-y: 50%; /* vertikale Bildposition Sprachbutton mobil */
