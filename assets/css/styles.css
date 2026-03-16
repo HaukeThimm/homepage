@@ -151,8 +151,8 @@
 
     --goldframe-img: url("../img/highlights_gold.png"); /* Bilddatei Goldtextur */
 
-    --nav-home-w: 90px; /* Breite Home-Icon */
-    --nav-home-h: 24px; /* Höhe Home-Icon */
+    --nav-home-w: auto; /* Breite Home-Icon */
+    --nav-home-h: 50px; /* Höhe Home-Icon */
     --nav-home-left: 225px; /* linke Position Home-Icon */
     --nav-home-y: 0px; /* vertikale Feinkorrektur Home-Icon */
     --nav-home-fit: contain; /* Objektverhalten Home-Icon */
@@ -160,8 +160,8 @@
     --nav-letter-spacing: 0.1em; /* Laufweite Navigation */
     --nav-text-transform: uppercase; /* Großschreibung Navigation */
 
-    --lang-btn-h: 25px; /* Höhe Sprachbutton */
-    --nav-menu-btn-h: 28px; /* Höhe Mobile-Menü-Button */
+    --lang-btn-h: 50px; /* Höhe Sprachbutton */
+    --nav-menu-btn-h: 50px; /* Höhe Mobile-Menü-Button */
     --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button */
     --nav-menu-panel-top: 75px; /* Oberkante Mobile-Menü-Panel */
     --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel */
@@ -424,45 +424,29 @@ body {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--side-pad);
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+    column-gap: 0;
+    position: relative;
 }
 
 .nav-items {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    align-items: center;
-    white-space: nowrap;
-}
-
-.nav-items a.nav-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--cream);
-    text-decoration: none;
-    font-size: var(--fs-nav-link);
-    letter-spacing: var(--nav-letter-spacing);
-    font-weight: var(--fw-nav-link);
-    text-transform: var(--nav-text-transform);
-}
-
-.nav-items a.nav-link:hover {
-    text-decoration: underline;
+    display: contents;
 }
 
 .nav-link--home {
-    position: fixed;
-    top: calc(var(--top-offset) + ((var(--banner-h) - var(--nav-home-h)) / 2) + var(--nav-home-y));
-    left: var(--nav-home-left);
-    z-index: 10001;
+    grid-column: 1;
+    justify-self: start;
+    align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
     width: var(--nav-home-w);
     height: var(--nav-home-h);
+    margin-left: 75px;
     text-decoration: none;
+    z-index: 10001;
 }
 
 .nav-link--home:hover {
@@ -476,13 +460,49 @@ body {
     object-fit: var(--nav-home-fit);
 }
 
+.nav-items a.nav-link:not(.nav-link--home) {
+    grid-column: 2;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cream);
+    text-decoration: none;
+    font-size: var(--fs-nav-link);
+    letter-spacing: var(--nav-letter-spacing);
+    font-weight: var(--fw-nav-link);
+    text-transform: var(--nav-text-transform);
+    white-space: nowrap;
+}
+
+/* .nav-items a.nav-link[href*="#about"] {
+    justify-self: center;
+    margin-left: -18vw;
+}
+
+.nav-items a.nav-link[href*="#services"] {
+    justify-self: center;
+    margin-left: -6vw;
+}
+
+.nav-items a.nav-link[href*="mailto:mail@haukethimm.com"],
+.nav-items a.nav-link[href*="/contact/"] {
+    justify-self: center;
+    margin-left: 6vw;
+} */
+
+.nav-items a.nav-link:hover {
+    text-decoration: underline;
+}
+
 .lang-toggle {
-    position: fixed;
-    top: calc(var(--top-offset) + ((var(--banner-h) - var(--lang-btn-h)) / 2));
-    right: var(--side-pad);
+    grid-column: 3;
+    justify-self: end;
+    align-self: center;
+    position: relative;
     width: var(--lang-btn-h);
     height: var(--lang-btn-h);
     flex: 0 0 var(--lang-btn-h);
+    margin-right: 75px;
     z-index: 10001;
 }
 
@@ -1323,67 +1343,60 @@ section.anchor {
 @media (max-width: 768px) {
 
     :root {
-        --side-pad: 24px; /* horizontaler Seiteninnenabstand mobil */
-        --banner-h: 64px; /* Höhe Nav-Banner mobil */
-        --contact-form-max-w: 75vw; /* maximale Breite Formular mobil */
-        --contact-form-min-w: 0px; /* minimale Breite Formular mobil */
+        --side-pad: 18px;
+        --banner-h: 64px;
+        --contact-form-max-w: 75vw;
+        --contact-form-min-w: 0px;
 
-        --nav-home-w: auto; /* Breite Home-Icon mobil */
-        --nav-home-h: 25px; /* Höhe Home-Icon mobil */
-        --nav-home-left: 18px; /* linke Position Home-Icon mobil */
-        --nav-home-y: 0px; /* vertikale Feinkorrektur Home-Icon mobil */
+        --nav-home-w: 70px;
+        --nav-home-h: 20px;
+        --nav-home-fit: contain;
 
-        --nav-menu-btn-h: 28px; /* Höhe Mobile-Menü-Button mobil */
-        --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button mobil */
-        --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü-Panel mobil */
-        --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel mobil */
-        --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel mobil */
-        --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü mobil */
+        --nav-menu-btn-h: 28px;
+        --nav-menu-btn-top-adjust: 0px;
+        --nav-menu-panel-top: 64px;
+        --nav-menu-panel-pad-x: 24px;
+        --nav-menu-panel-pad-y: 18px;
+        --nav-menu-panel-gap: 14px;
 
-        --lang-btn-h: 25px; /* Höhe Sprachbutton mobil */
+        --lang-btn-h: 25px;
 
-        --pre-footer-item-gap: 12px; /* Abstand Icon zu Text Pre-Footer mobil */
-        --pre-footer-col-gap: 20px; /* Spaltenabstand Pre-Footer mobil */
-        --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons mobil */
-        --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons mobil */
-        --pre-footer-icon-pos-x: 50%; /* horizontale PNG/JPG-Position Pre-Footer mobil */
-        --pre-footer-icon-pos-y: 50%; /* vertikale PNG/JPG-Position Pre-Footer mobil */
-        --pre-footer-icon-radius: 50%; /* Form Pre-Footer-Icons mobil */
+        --pre-footer-item-gap: 12px;
+        --pre-footer-col-gap: 12px;
+        --pre-footer-icon-h: 75px;
+        --pre-footer-icon-fit: contain;
+        --pre-footer-icon-pos-x: 50%;
+        --pre-footer-icon-pos-y: 50%;
+        --pre-footer-icon-radius: 50%;
 
-        --qual-logo-rect-h-mobile: 50px; /* Höhe rechteckige Qualification-Logos mobil */
-        --qual-logo-round-h-mobile: 75px; /* Höhe runde Qualification-Logos mobil */
-        --qual-logo-gap-mobile: 20px; /* Abstand Qualification-Logos mobil */
-        --qual-logo-frame-mobile: var(--frame-w-sm); /* Rahmenstärke Qualification-Logos mobil */
-        --qual-logo-rect-radius-mobile: 50%; /* Form rechteckige Qualification-Logos mobil */
-        --qual-logo-round-radius-mobile: 50%; /* Form runde Qualification-Logos mobil */
-        --qual-logo-rect-fit-mobile: cover; /* Objektverhalten rechteckige Qualification-Logos mobil */
-        --qual-logo-round-fit-mobile: cover; /* Objektverhalten runde Qualification-Logos mobil */
-        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position rechteckige Qualification-Logos mobil */
-        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position rechteckige Qualification-Logos mobil */
-        --qual-logo-round-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position runde Qualification-Logos mobil */
-        --qual-logo-round-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position runde Qualification-Logos mobil */
+        --qual-logo-rect-h-mobile: 50px;
+        --qual-logo-round-h-mobile: 50px;
+        --qual-logo-gap-mobile: 18px;
+        --qual-logo-frame-mobile: var(--frame-w-sm);
+        --qual-logo-rect-radius-mobile: 50%;
+        --qual-logo-round-radius-mobile: 50%;
+        --qual-logo-rect-fit-mobile: cover;
+        --qual-logo-round-fit-mobile: cover;
+        --qual-logo-rect-pos-x-mobile: 50%;
+        --qual-logo-rect-pos-y-mobile: 50%;
+        --qual-logo-round-pos-x-mobile: 50%;
+        --qual-logo-round-pos-y-mobile: 50%;
 
-        --follow-icon-h-mobile: 75px; /* Höhe Follow-Icons mobil */
-        --follow-icon-gap-mobile: 20px; /* Abstand Follow-Icons mobil */
-        --follow-icon-frame-mobile: var(--frame-w-sm); /* Rahmenstärke Follow-Icons mobil */
-        --follow-icon-radius-mobile: 50%; /* Form Follow-Icons mobil */
-        --follow-icon-fit-mobile: cover; /* Objektverhalten Follow-Icons mobil */
-        --follow-icon-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position Follow-Icons mobil */
-        --follow-icon-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position Follow-Icons mobil */
-        --follow-icon-pad-mobile: 0px; /* Innenpadding Follow-Icons mobil */
+        --follow-icon-h-mobile: 50px;
+        --follow-icon-gap-mobile: 18px;
+        --follow-icon-frame-mobile: var(--frame-w-sm);
+        --follow-icon-radius-mobile: 50%;
+        --follow-icon-fit-mobile: cover;
+        --follow-icon-pos-x-mobile: 50%;
+        --follow-icon-pos-y-mobile: 50%;
+        --follow-icon-pad-mobile: 0px;
 
-        --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
-        --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
-        --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding Zeile F mobil */
-        --footer-mobile-b-gap: 18px; /* Abstand Inhalte Zeile B mobil */
-        --footer-mobile-c-gap: 18px; /* Abstand Inhalte Zeile C mobil */
-        --legal-links-gap: 15px; /* Abstand zwischen Impressum und Datenschutz mobil */
-    }
-
-    #credentials .feedback-card {
-        width: 86vw;
-        height: 400px;
-        min-height: 300px;
+        --footer-mobile-row-pad-top: 22px;
+        --footer-mobile-row-pad-bottom: 0px;
+        --footer-mobile-row-pad-bottom-f: 22px;
+        --footer-mobile-b-gap: 18px;
+        --footer-mobile-c-gap: 18px;
+        --legal-links-gap: 15px;
     }
 
     .nav-shell,
@@ -1398,11 +1411,13 @@ section.anchor {
         width: 100%;
         max-width: 100%;
         padding: 0 var(--side-pad);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
     }
 
     .nav-items {
-        width: 100%;
-        display: block;
+        display: contents;
     }
 
     .nav-items a.nav-link:not(.nav-link--home) {
@@ -1410,14 +1425,20 @@ section.anchor {
     }
 
     .nav-link--home {
-        left: var(--nav-home-left);
+        grid-column: 1;
+        justify-self: start;
+        align-self: center;
+        margin-left: 0;
     }
 
     .nav-menu-toggle {
-        position: fixed;
-        top: calc(var(--top-offset) + ((var(--banner-h) - var(--nav-menu-btn-h)) / 2) + var(--nav-menu-btn-top-adjust));
-        left: 50%;
-        transform: translateX(-50%);
+        grid-column: 2;
+        justify-self: center;
+        align-self: center;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
         z-index: 10001;
         display: inline-flex;
         align-items: center;
@@ -1425,7 +1446,12 @@ section.anchor {
     }
 
     .lang-toggle {
-        right: var(--side-pad);
+        grid-column: 3;
+        justify-self: end;
+        align-self: center;
+        margin-right: 0;
+        right: auto;
+        top: auto;
     }
 
     .nav-mobile-panel {
@@ -1707,5 +1733,4 @@ section.anchor {
         white-space: normal;
         flex-wrap: wrap;
     }
-
 }
