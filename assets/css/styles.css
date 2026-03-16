@@ -151,17 +151,28 @@
 
     --goldframe-img: url("../img/highlights_gold.png"); /* Bilddatei Goldtextur */
 
-    --nav-home-w: auto; /* Breite Home-Icon */
-    --nav-home-h: 50px; /* Höhe Home-Icon */
-    --nav-home-left: 225px; /* linke Position Home-Icon */
-    --nav-home-y: 0px; /* vertikale Feinkorrektur Home-Icon */
-    --nav-home-fit: contain; /* Objektverhalten Home-Icon */
+    --nav-home-h: 34px; /* Höhe Home-Icon Desktop */
+    --nav-home-fit: cover; /* Objektverhalten Home-Icon Desktop */
+    --nav-home-pos-x: 50%; /* horizontale Bildposition Home-Icon Desktop */
+    --nav-home-pos-y: 50%; /* vertikale Bildposition Home-Icon Desktop */
+
+    --lang-btn-h: 34px; /* Höhe Sprachbutton Desktop */
+    --lang-btn-fit: cover; /* Objektverhalten Sprachbutton Desktop */
+    --lang-btn-pos-x: 50%; /* horizontale Bildposition Sprachbutton Desktop */
+    --lang-btn-pos-y: 50%; /* vertikale Bildposition Sprachbutton Desktop */
+
+    --nav-menu-btn-h: 34px; /* Höhe Mobile-Menü-Button Desktop/Mittelwert */
+    --nav-menu-btn-fit: cover; /* Objektverhalten Mobile-Menü-Button */
+    --nav-menu-btn-pos-x: 50%; /* horizontale Bildposition Mobile-Menü-Button */
+    --nav-menu-btn-pos-y: 50%; /* vertikale Bildposition Mobile-Menü-Button */
+
+    --nav-home-offset-x: 75px; /* Home-Icon Abstand vom linken Seitenpadding */
+    --nav-lang-offset-x: 75px; /* Language-Icon Abstand vom rechten Seitenpadding */
 
     --nav-letter-spacing: 0.1em; /* Laufweite Navigation */
     --nav-text-transform: uppercase; /* Großschreibung Navigation */
+    --nav-links-gap: 48px; /* Abstand zwischen Desktop-Nav-Links */
 
-    --lang-btn-h: 50px; /* Höhe Sprachbutton */
-    --nav-menu-btn-h: 50px; /* Höhe Mobile-Menü-Button */
     --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button */
     --nav-menu-panel-top: 75px; /* Oberkante Mobile-Menü-Panel */
     --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel */
@@ -210,12 +221,10 @@
     --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
     --pre-footer-item-gap: 18px; /* Abstand Icon zu Text Pre-Footer */
     --pre-footer-margin-bottom: 20px; /* Abstand Pre-Footer zu Footer */
-    --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons */
-    --pre-footer-icon-frame: var(--frame-w-sm); /* Rahmenstärke Pre-Footer-Icons */
-    --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons */
-    --pre-footer-icon-pos-x: 50%; /* horizontale PNG/JPG-Position Pre-Footer */
-    --pre-footer-icon-pos-y: 50%; /* vertikale PNG/JPG-Position Pre-Footer */
-    --pre-footer-icon-radius: 50%; /* Form Pre-Footer-Icons */
+    --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons Desktop */
+    --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons Desktop */
+    --pre-footer-icon-pos-x: 50%; /* horizontale Bildposition Pre-Footer-Icons Desktop */
+    --pre-footer-icon-pos-y: 50%; /* vertikale Bildposition Pre-Footer-Icons Desktop */
     --pre-footer-text-font: var(--font-body); /* Schrift Pre-Footer */
     --pre-footer-text-size: var(--fs-body); /* Schriftgröße Pre-Footer */
     --pre-footer-text-weight: var(--fw-body); /* Schriftgewicht Pre-Footer */
@@ -237,25 +246,20 @@
 
     --qual-logo-rect-h: 50px; /* Höhe rechteckige Qualification-Logos Desktop */
     --qual-logo-round-h: 50px; /* Höhe runde Qualification-Logos Desktop */
-    --qual-logo-frame: var(--frame-w-sm); /* Rahmenstärke Qualification-Logos Desktop */
     --qual-logo-gap: 24px; /* Abstand Qualification-Logos Desktop */
-    --qual-logo-rect-radius: var(--frame-r-md); /* Form rechteckiges Qualification-Logo Desktop */
-    --qual-logo-round-radius: 50%; /* Form rundes Qualification-Logo Desktop */
-    --qual-logo-rect-fit: contain; /* Objektverhalten rechteckiges Qualification-Logo Desktop */
-    --qual-logo-round-fit: contain; /* Objektverhalten rundes Qualification-Logo Desktop */
-    --qual-logo-rect-pos-x: 50%; /* horizontale PNG/JPG-Position rechteckiges Qualification-Logo Desktop */
-    --qual-logo-rect-pos-y: 50%; /* vertikale PNG/JPG-Position rechteckiges Qualification-Logo Desktop */
-    --qual-logo-round-pos-x: 50%; /* horizontale PNG/JPG-Position rundes Qualification-Logo Desktop */
-    --qual-logo-round-pos-y: 50%; /* vertikale PNG/JPG-Position rundes Qualification-Logo Desktop */
+    --qual-logo-rect-fit: contain; /* Objektverhalten rechteckige Qualification-Logos Desktop */
+    --qual-logo-round-fit: contain; /* Objektverhalten runde Qualification-Logos Desktop */
+    --qual-logo-rect-pos-x: 50%; /* horizontale Bildposition rechteckige Qualification-Logos Desktop */
+    --qual-logo-rect-pos-y: 50%; /* vertikale Bildposition rechteckige Qualification-Logos Desktop */
+    --qual-logo-round-pos-x: 50%; /* horizontale Bildposition runde Qualification-Logos Desktop */
+    --qual-logo-round-pos-y: 50%; /* vertikale Bildposition runde Qualification-Logos Desktop */
     --qual-logo-pad: 0px; /* Innenpadding Qualification-Logos Desktop */
 
     --follow-icon-h: 50px; /* Höhe Follow-Icons Desktop */
-    --follow-icon-frame: var(--frame-w-sm); /* Rahmenstärke Follow-Icons Desktop */
     --follow-icon-gap: 18px; /* Abstand Follow-Icons Desktop */
-    --follow-icon-radius: 50%; /* Form Follow-Icons Desktop */
     --follow-icon-fit: contain; /* Objektverhalten Follow-Icons Desktop */
-    --follow-icon-pos-x: 50%; /* horizontale PNG/JPG-Position Follow-Icons Desktop */
-    --follow-icon-pos-y: 50%; /* vertikale PNG/JPG-Position Follow-Icons Desktop */
+    --follow-icon-pos-x: 50%; /* horizontale Bildposition Follow-Icons Desktop */
+    --follow-icon-pos-y: 50%; /* vertikale Bildposition Follow-Icons Desktop */
     --follow-icon-pad: 0px; /* Innenpadding Follow-Icons Desktop */
 
     --backtop-icon-h: 20px; /* Höhe Chevron Seitenanfang */
@@ -269,6 +273,9 @@
     --legal-wrap: nowrap; /* Umbruchverhalten Legal */
 
     --anchor-offset: 20px; /* Scroll-Offset Ankerziele */
+
+    --touch-grow: 12.5%; /* 25% größerer Touch-Target gesamt */
+    --touch-grow-px: 8px; /* Mindestvergrößerung Touch-Target in px */
 
     --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
     --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
@@ -373,13 +380,39 @@ body {
     background-image: none;
 }
 
-.main-nav .gold-frame > img,
-.main-nav .gold-frame > picture > img,
-.pre-footer .gold-frame > img,
-.pre-footer .gold-frame > picture > img,
-.footer .gold-frame > img,
-.footer .gold-frame > picture > img {
-    border-radius: inherit;
+/* ==== KLICKBEREICHE / TOUCH TARGETS ==== */
+.nav-link,
+.nav-link--home,
+.lang-btn,
+.nav-menu-toggle,
+.nav-mobile-link,
+.pre-footer-link,
+.backtop,
+.follow-icons a,
+.qualifications-logos a,
+.legal-link,
+.cta-btn,
+.form-submit,
+.form-link {
+    position: relative;
+}
+
+.nav-link::after,
+.nav-link--home::after,
+.lang-btn::after,
+.nav-menu-toggle::after,
+.nav-mobile-link::after,
+.pre-footer-link::after,
+.backtop::after,
+.follow-icons a::after,
+.qualifications-logos a::after,
+.legal-link::after,
+.cta-btn::after,
+.form-submit::after,
+.form-link::after {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * max(var(--touch-grow-px), var(--touch-grow)));
 }
 
 /* ==== HEADER ==== */
@@ -427,8 +460,6 @@ body {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    column-gap: 0;
-    position: relative;
 }
 
 .nav-items {
@@ -439,13 +470,15 @@ body {
     grid-column: 1;
     justify-self: start;
     align-self: center;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--nav-home-w);
+    width: var(--nav-home-h);
     height: var(--nav-home-h);
-    margin-left: 75px;
+    margin-left: var(--nav-home-offset-x);
     text-decoration: none;
+    border-radius: 50%;
+    overflow: hidden;
     z-index: 10001;
 }
 
@@ -458,40 +491,41 @@ body {
     width: 100%;
     height: 100%;
     object-fit: var(--nav-home-fit);
+    object-position: var(--nav-home-pos-x) var(--nav-home-pos-y);
+    border-radius: 50%;
 }
 
 .nav-items a.nav-link:not(.nav-link--home) {
-    grid-column: 2;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     color: var(--cream);
     text-decoration: none;
     font-size: var(--fs-nav-link);
     letter-spacing: var(--nav-letter-spacing);
     font-weight: var(--fw-nav-link);
     text-transform: var(--nav-text-transform);
-    white-space: nowrap;
 }
 
-/* .nav-items a.nav-link[href*="#about"] {
-    justify-self: center;
-    margin-left: -18vw;
+.nav-items a.nav-link:not(.nav-link--home):hover {
+    text-decoration: underline;
 }
 
-.nav-items a.nav-link[href*="#services"] {
+.nav-items a.nav-link[href*="#about"],
+.nav-items a.nav-link[href*="/#about"] {
+    grid-column: 2;
     justify-self: center;
-    margin-left: -6vw;
+    margin-right: calc(var(--nav-links-gap) * 1.5);
+}
+
+.nav-items a.nav-link[href*="#services"],
+.nav-items a.nav-link[href*="/#services"] {
+    grid-column: 2;
+    justify-self: center;
 }
 
 .nav-items a.nav-link[href*="mailto:mail@haukethimm.com"],
 .nav-items a.nav-link[href*="/contact/"] {
+    grid-column: 2;
     justify-self: center;
-    margin-left: 6vw;
-} */
-
-.nav-items a.nav-link:hover {
-    text-decoration: underline;
+    margin-left: calc(var(--nav-links-gap) * 1.5);
 }
 
 .lang-toggle {
@@ -501,8 +535,7 @@ body {
     position: relative;
     width: var(--lang-btn-h);
     height: var(--lang-btn-h);
-    flex: 0 0 var(--lang-btn-h);
-    margin-right: 75px;
+    margin-right: var(--nav-lang-offset-x);
     z-index: 10001;
 }
 
@@ -513,9 +546,12 @@ body {
     background: transparent;
     padding: 0;
     margin: 0;
+    display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .lang-btn.is-active {
@@ -529,10 +565,14 @@ body {
 .lang-btn .gold-frame {
     width: var(--lang-btn-h);
     height: var(--lang-btn-h);
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .lang-btn .gold-frame > img {
-    object-fit: cover;
+    object-fit: var(--lang-btn-fit);
+    object-position: var(--lang-btn-pos-x) var(--lang-btn-pos-y);
+    border-radius: 50%;
 }
 
 .nav-menu-toggle {
@@ -542,13 +582,17 @@ body {
     padding: 0;
     margin: 0;
     cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .nav-menu-toggle img {
     display: block;
     width: var(--nav-menu-btn-h);
     height: var(--nav-menu-btn-h);
-    object-fit: contain;
+    object-fit: var(--nav-menu-btn-fit);
+    object-position: var(--nav-menu-btn-pos-x) var(--nav-menu-btn-pos-y);
+    border-radius: 50%;
 }
 
 .nav-mobile-panel {
@@ -901,7 +945,6 @@ section.anchor {
     flex-direction: column;
     align-items: center;
     gap: var(--cta-gap);
-    text-align: center;
 }
 
 .cta-btn {
@@ -1082,21 +1125,26 @@ section.anchor {
 }
 
 .pre-footer-item .gold-frame {
-    width: var(--pre-footer-icon-h);
+    width: auto;
     height: var(--pre-footer-icon-h);
-    flex: 0 0 var(--pre-footer-icon-h);
-    aspect-ratio: 1 / 1;
-    border-width: var(--pre-footer-icon-frame);
-    border-radius: var(--pre-footer-icon-radius);
+    flex: 0 0 auto;
+    border-radius: 0;
+    overflow: visible;
 }
 
-.pre-footer-item .gold-frame > img {
-    width: 100%;
+.pre-footer-item .gold-frame > img,
+.pre-footer-item .gold-frame > picture,
+.pre-footer-item .gold-frame > picture > img {
+    display: block;
+    width: auto;
     height: 100%;
+}
+
+.pre-footer-item .gold-frame > img,
+.pre-footer-item .gold-frame > picture > img {
     object-fit: var(--pre-footer-icon-fit);
     object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos-y);
     padding: 0;
-    display: block;
 }
 
 .pre-footer-text {
@@ -1198,36 +1246,34 @@ section.anchor {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    border-width: var(--qual-logo-frame);
+    overflow: visible;
+    width: auto;
+    flex: 0 0 auto;
 }
 
 .qualifications-logos .gold-frame.shape--rect {
     height: var(--qual-logo-rect-h);
-    width: fit-content;
-    border-radius: var(--qual-logo-rect-radius);
 }
 
 .qualifications-logos .gold-frame.shape--round {
     width: var(--qual-logo-round-h);
     height: var(--qual-logo-round-h);
-    flex: 0 0 var(--qual-logo-round-h);
-    aspect-ratio: 1 / 1;
-    border-radius: var(--qual-logo-round-radius);
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .qualifications-logos .gold-frame > img,
 .qualifications-logos .gold-frame > picture {
     display: block;
-    height: 100%;
     width: auto;
+    height: 100%;
 }
 
 .qualifications-logos .gold-frame > img,
 .qualifications-logos .gold-frame > picture > img {
     display: block;
-    height: 100%;
     width: auto;
+    height: 100%;
     max-width: none;
     padding: var(--qual-logo-pad);
 }
@@ -1260,8 +1306,8 @@ section.anchor {
 }
 
 .backtop .chevron-img {
-    width: var(--backtop-icon-h);
-    height: auto;
+    width: auto;
+    height: var(--backtop-icon-h);
     display: block;
 }
 
@@ -1285,9 +1331,8 @@ section.anchor {
     width: var(--follow-icon-h);
     height: var(--follow-icon-h);
     flex: 0 0 var(--follow-icon-h);
-    aspect-ratio: 1 / 1;
-    border-radius: var(--follow-icon-radius);
-    border-width: var(--follow-icon-frame);
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .follow-icons .gold-frame > img,
@@ -1343,60 +1388,69 @@ section.anchor {
 @media (max-width: 768px) {
 
     :root {
-        --side-pad: 18px;
-        --banner-h: 64px;
-        --contact-form-max-w: 75vw;
-        --contact-form-min-w: 0px;
+        --side-pad: 18px; /* horizontaler Seiteninnenabstand mobil */
+        --banner-h: 64px; /* Höhe Nav-Banner mobil */
+        --contact-form-max-w: 75vw; /* maximale Breite Formular mobil */
+        --contact-form-min-w: 0px; /* minimale Breite Formular mobil */
 
-        --nav-home-w: 70px;
-        --nav-home-h: 20px;
-        --nav-home-fit: contain;
+        --nav-home-h: 28px; /* Höhe Home-Icon mobil */
+        --nav-home-fit: cover; /* Objektverhalten Home-Icon mobil */
+        --nav-home-pos-x: 50%; /* horizontale Bildposition Home-Icon mobil */
+        --nav-home-pos-y: 50%; /* vertikale Bildposition Home-Icon mobil */
+        --nav-home-offset-x: 0px; /* kein zusätzlicher Home-Offset mobil */
 
-        --nav-menu-btn-h: 28px;
-        --nav-menu-btn-top-adjust: 0px;
-        --nav-menu-panel-top: 64px;
-        --nav-menu-panel-pad-x: 24px;
-        --nav-menu-panel-pad-y: 18px;
-        --nav-menu-panel-gap: 14px;
+        --nav-menu-btn-h: 28px; /* Höhe Mobile-Menü-Button mobil */
+        --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button mobil */
+        --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü-Panel mobil */
+        --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel mobil */
+        --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel mobil */
+        --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü mobil */
+        --nav-menu-btn-fit: cover; /* Objektverhalten Mobile-Menü-Button mobil */
+        --nav-menu-btn-pos-x: 50%; /* horizontale Bildposition Mobile-Menü-Button mobil */
+        --nav-menu-btn-pos-y: 50%; /* vertikale Bildposition Mobile-Menü-Button mobil */
 
-        --lang-btn-h: 25px;
+        --lang-btn-h: 28px; /* Höhe Sprachbutton mobil */
+        --lang-btn-fit: cover; /* Objektverhalten Sprachbutton mobil */
+        --lang-btn-pos-x: 50%; /* horizontale Bildposition Sprachbutton mobil */
+        --lang-btn-pos-y: 50%; /* vertikale Bildposition Sprachbutton mobil */
+        --nav-lang-offset-x: 0px; /* kein zusätzlicher Language-Offset mobil */
 
-        --pre-footer-item-gap: 12px;
-        --pre-footer-col-gap: 12px;
-        --pre-footer-icon-h: 75px;
-        --pre-footer-icon-fit: contain;
-        --pre-footer-icon-pos-x: 50%;
-        --pre-footer-icon-pos-y: 50%;
-        --pre-footer-icon-radius: 50%;
+        --pre-footer-item-gap: 12px; /* Abstand Icon zu Text Pre-Footer mobil */
+        --pre-footer-col-gap: 12px; /* Spaltenabstand Pre-Footer mobil */
+        --pre-footer-icon-h: 60px; /* Höhe Pre-Footer-Icons mobil */
+        --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons mobil */
+        --pre-footer-icon-pos-x: 50%; /* horizontale Bildposition Pre-Footer-Icons mobil */
+        --pre-footer-icon-pos-y: 50%; /* vertikale Bildposition Pre-Footer-Icons mobil */
 
-        --qual-logo-rect-h-mobile: 50px;
-        --qual-logo-round-h-mobile: 50px;
-        --qual-logo-gap-mobile: 18px;
-        --qual-logo-frame-mobile: var(--frame-w-sm);
-        --qual-logo-rect-radius-mobile: 50%;
-        --qual-logo-round-radius-mobile: 50%;
-        --qual-logo-rect-fit-mobile: cover;
-        --qual-logo-round-fit-mobile: cover;
-        --qual-logo-rect-pos-x-mobile: 50%;
-        --qual-logo-rect-pos-y-mobile: 50%;
-        --qual-logo-round-pos-x-mobile: 50%;
-        --qual-logo-round-pos-y-mobile: 50%;
+        --qual-logo-rect-h-mobile: 46px; /* Höhe Logos in footer-b mobil */
+        --qual-logo-round-h-mobile: 46px; /* Höhe runde Logos in footer-b mobil */
+        --qual-logo-gap-mobile: 18px; /* Abstand Logos in footer-b mobil */
+        --qual-logo-rect-fit-mobile: contain; /* Objektverhalten rechteckige Logos in footer-b mobil */
+        --qual-logo-round-fit-mobile: cover; /* Objektverhalten runde Logos in footer-b mobil */
+        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale Bildposition rechteckige Logos in footer-b mobil */
+        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale Bildposition rechteckige Logos in footer-b mobil */
+        --qual-logo-round-pos-x-mobile: 50%; /* horizontale Bildposition runde Logos in footer-b mobil */
+        --qual-logo-round-pos-y-mobile: 50%; /* vertikale Bildposition runde Logos in footer-b mobil */
 
-        --follow-icon-h-mobile: 50px;
-        --follow-icon-gap-mobile: 18px;
-        --follow-icon-frame-mobile: var(--frame-w-sm);
-        --follow-icon-radius-mobile: 50%;
-        --follow-icon-fit-mobile: cover;
-        --follow-icon-pos-x-mobile: 50%;
-        --follow-icon-pos-y-mobile: 50%;
-        --follow-icon-pad-mobile: 0px;
+        --follow-icon-h-mobile: 46px; /* Höhe Icons in footer-c mobil */
+        --follow-icon-gap-mobile: 18px; /* Abstand Icons in footer-c mobil */
+        --follow-icon-fit-mobile: cover; /* Objektverhalten Icons in footer-c mobil */
+        --follow-icon-pos-x-mobile: 50%; /* horizontale Bildposition Icons in footer-c mobil */
+        --follow-icon-pos-y-mobile: 50%; /* vertikale Bildposition Icons in footer-c mobil */
+        --follow-icon-pad-mobile: 0px; /* Innenpadding Icons in footer-c mobil */
 
-        --footer-mobile-row-pad-top: 22px;
-        --footer-mobile-row-pad-bottom: 0px;
-        --footer-mobile-row-pad-bottom-f: 22px;
-        --footer-mobile-b-gap: 18px;
-        --footer-mobile-c-gap: 18px;
-        --legal-links-gap: 15px;
+        --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
+        --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
+        --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding Zeile F mobil */
+        --footer-mobile-b-gap: 18px; /* Abstand Inhalte Zeile B mobil */
+        --footer-mobile-c-gap: 18px; /* Abstand Inhalte Zeile C mobil */
+        --legal-links-gap: 15px; /* Abstand zwischen Impressum und Datenschutz mobil */
+    }
+
+    #credentials .feedback-card {
+        width: 86vw;
+        height: 400px;
+        min-height: 300px;
     }
 
     .nav-shell,
@@ -1411,9 +1465,7 @@ section.anchor {
         width: 100%;
         max-width: 100%;
         padding: 0 var(--side-pad);
-        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
     }
 
     .nav-items {
@@ -1428,6 +1480,8 @@ section.anchor {
         grid-column: 1;
         justify-self: start;
         align-self: center;
+        width: var(--nav-home-h);
+        height: var(--nav-home-h);
         margin-left: 0;
     }
 
@@ -1443,6 +1497,8 @@ section.anchor {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        width: var(--nav-menu-btn-h);
+        height: var(--nav-menu-btn-h);
     }
 
     .lang-toggle {
@@ -1452,6 +1508,8 @@ section.anchor {
         margin-right: 0;
         right: auto;
         top: auto;
+        width: var(--lang-btn-h);
+        height: var(--lang-btn-h);
     }
 
     .nav-mobile-panel {
@@ -1524,16 +1582,24 @@ section.anchor {
 
     .pre-footer-link {
         justify-content: center;
+        gap: 0;
     }
 
     .pre-footer-item .gold-frame {
-        width: var(--pre-footer-icon-h);
+        width: auto;
         height: var(--pre-footer-icon-h);
-        flex: 0 0 var(--pre-footer-icon-h);
-        border-radius: var(--pre-footer-icon-radius);
+        flex: 0 0 auto;
     }
 
-    .pre-footer-item .gold-frame > img {
+    .pre-footer-item .gold-frame > img,
+    .pre-footer-item .gold-frame > picture,
+    .pre-footer-item .gold-frame > picture > img {
+        width: auto;
+        height: 100%;
+    }
+
+    .pre-footer-item .gold-frame > img,
+    .pre-footer-item .gold-frame > picture > img {
         object-fit: var(--pre-footer-icon-fit);
         object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos-y);
     }
@@ -1652,33 +1718,26 @@ section.anchor {
         flex-wrap: nowrap;
     }
 
-    .footer .qualifications-logos .gold-frame {
-        border-width: var(--qual-logo-frame-mobile);
-    }
-
     .footer .qualifications-logos .gold-frame.shape--rect {
-        width: var(--qual-logo-rect-h-mobile);
         height: var(--qual-logo-rect-h-mobile);
-        flex: 0 0 var(--qual-logo-rect-h-mobile);
-        aspect-ratio: 1 / 1;
-        border-radius: var(--qual-logo-rect-radius-mobile);
+        width: auto;
+        flex: 0 0 auto;
+        overflow: visible;
+        border-radius: 0;
     }
 
     .footer .qualifications-logos .gold-frame.shape--round {
         width: var(--qual-logo-round-h-mobile);
         height: var(--qual-logo-round-h-mobile);
         flex: 0 0 var(--qual-logo-round-h-mobile);
-        aspect-ratio: 1 / 1;
-        border-radius: var(--qual-logo-round-radius-mobile);
+        border-radius: 50%;
+        overflow: hidden;
     }
 
     .footer .qualifications-logos .gold-frame.shape--rect > img,
     .footer .qualifications-logos .gold-frame.shape--rect > picture,
-    .footer .qualifications-logos .gold-frame.shape--rect > picture > img,
-    .footer .qualifications-logos .gold-frame.shape--round > img,
-    .footer .qualifications-logos .gold-frame.shape--round > picture,
-    .footer .qualifications-logos .gold-frame.shape--round > picture > img {
-        width: 100%;
+    .footer .qualifications-logos .gold-frame.shape--rect > picture > img {
+        width: auto;
         height: 100%;
     }
 
@@ -1687,7 +1746,13 @@ section.anchor {
         object-fit: var(--qual-logo-rect-fit-mobile);
         object-position: var(--qual-logo-rect-pos-x-mobile) var(--qual-logo-rect-pos-y-mobile);
         padding: 0;
-        border-radius: inherit;
+    }
+
+    .footer .qualifications-logos .gold-frame.shape--round > img,
+    .footer .qualifications-logos .gold-frame.shape--round > picture,
+    .footer .qualifications-logos .gold-frame.shape--round > picture > img {
+        width: 100%;
+        height: 100%;
     }
 
     .footer .qualifications-logos .gold-frame.shape--round > img,
@@ -1702,9 +1767,8 @@ section.anchor {
         width: var(--follow-icon-h-mobile);
         height: var(--follow-icon-h-mobile);
         flex: 0 0 var(--follow-icon-h-mobile);
-        aspect-ratio: 1 / 1;
-        border-radius: var(--follow-icon-radius-mobile);
-        border-width: var(--follow-icon-frame-mobile);
+        border-radius: 50%;
+        overflow: hidden;
     }
 
     .footer .follow-icons .gold-frame > img,
