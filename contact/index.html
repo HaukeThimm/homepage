@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
     <head>
         <!-- ==== META / GRUNDLAGEN ==== -->
         <meta charset="utf-8" />
@@ -20,13 +19,12 @@
         <link rel="manifest" href="/site.webmanifest" />
     </head>
 
-    <body class="page--contact">
-        <div id="top"></div>
-
+    <body>
         <!-- ==== FIXED NAV ==== -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
+                    <!-- ==== NAV GRID DESKTOP ==== -->
                     <div class="grid-nav-desktop">
                         <div class="grid-nav-desktop_A">
                             <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
@@ -51,7 +49,7 @@
                         </div>
 
                         <div class="grid-nav-desktop_F">
-                            <a class="nav-link" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                            <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
                         </div>
 
                         <div class="grid-nav-desktop_G">
@@ -71,6 +69,7 @@
                         </div>
                     </div>
 
+                    <!-- ==== NAV GRID MOBILE ==== -->
                     <div class="grid-nav-mobile">
                         <div class="grid-nav-mobile_A">
                             <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
@@ -80,7 +79,7 @@
 
                         <div class="grid-nav-mobile_B">
                             <button type="button" class="nav-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobilePanel">
-                                <img src="/assets/img/nav_menu.png" alt="" />
+                                <img src="/assets/img/nav-menu.png" alt="" />
                             </button>
                         </div>
 
@@ -107,33 +106,139 @@
                     <a class="nav-mobile-link" href="/#services" data-en="SERVICES" data-de="LEISTUNGEN">SERVICES</a>
                     <a class="nav-mobile-link" href="/#approach" data-en="APPROACH" data-de="ARBEITSWEISE">APPROACH</a>
                     <!-- <a class="nav-mobile-link" href="/#credentials" data-en="EXPERTISE" data-de="EXPERTISE">EXPERTISE</a> -->
-                    <a class="nav-mobile-link" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                    <a class="nav-mobile-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
                 </div>
             </nav>
         </div>
 
-        <div class="page-offset">
+        <!-- ==== SEITENINHALT ==== -->
+        <div class="page-offset contact-page-shell">
             <main class="content" id="content">
-                <section class="section contact-page anchor" id="contact-page">
-                    <h2 class="about-label" data-en="CONTACT" data-de="KONTAKT">CONTACT</h2>
+                <section class="section contact-form-page anchor" id="contact-form-page">
+                    <h1 class="about-label" data-en="Contact" data-de="Kontakt">Kontakt</h1>
 
-                    <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
-                        Let’s discuss your project
+                    <div class="subline" data-en="Let us discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
+                        Lassen Sie uns Ihr Projekt besprechen
                     </div>
 
-                    <p class="body-text"
-                       data-en="All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly."
-                       data-de="Alle Anfragen werden diskret behandelt. Wenn Sie mit mir in Kontakt treten möchten, schreiben Sie mir bitte direkt per E-Mail.">
-                        All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly.
+                    <p class="body-text contact-form-intro"
+                    data-en="All enquiries are handled discreetly. Please complete the contact form below."
+                    data-de="Alle Anfragen werden diskret behandelt. Bitte füllen Sie das folgende Kontaktformular aus.">
+                        Alle Anfragen werden diskret behandelt. Bitte füllen Sie das folgende Kontaktformular aus.
                     </p>
 
-                    <p class="body-text contact-cta">
-                        <a class="cta-btn" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="Send email" data-de="E-Mail senden">E-Mail senden</a>
+                    <form class="contact-form contact-form--standalone"
+                        action="#"
+                        method="post"
+                        autocomplete="on"
+                        novalidate>
+                        <!-- Beispiel später:
+                        <form class="contact-form contact-form--standalone"
+                            action="https://formspree.io/f/DEINE-ID"
+                            method="post"
+                            autocomplete="on">
+                        -->
 
-                        <span data-en="Your default email application will open with a pre-filled recipient and subject line." data-de="Ihr Standard-E-Mail-Programm öffnet sich mit vorausgefüllter Empfängeradresse und Betreffzeile.">
-                            Ihr Standard-E-Mail-Programm öffnet sich mit vorausgefüllter Empfängeradresse und Betreffzeile.
-                        </span>
-                    </p>
+                        <div class="visually-hidden">
+                            <label for="name" data-en="Name *" data-de="Name *">Name *</label>
+                        </div>
+                        <input
+                            class="form-field form-field--contact"
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            aria-required="true"
+                            placeholder="Name *"
+                            data-placeholder-en="Name *"
+                            data-placeholder-de="Name *"
+                        />
+
+                        <div class="visually-hidden">
+                            <label for="email" data-en="Email *" data-de="Email *">Email *</label>
+                        </div>
+                        <input
+                            class="form-field form-field--contact"
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            aria-required="true"
+                            placeholder="Email *"
+                            data-placeholder-en="Email *"
+                            data-placeholder-de="Email *"
+                        />
+
+                        <div class="visually-hidden">
+                            <label for="company" data-en="Company *" data-de="Firma *">Firma *</label>
+                        </div>
+                        <input
+                            class="form-field form-field--contact"
+                            type="text"
+                            id="company"
+                            name="company"
+                            required
+                            aria-required="true"
+                            placeholder="Firma *"
+                            data-placeholder-en="Company *"
+                            data-placeholder-de="Firma *"
+                        />
+
+                        <div class="form-row-2 form-row-2--contact">
+                            <div>
+                                <div class="visually-hidden">
+                                    <label for="start-date" data-en="Start date" data-de="Start-Datum">Start-Datum</label>
+                                </div>
+                                <input
+                                    class="form-field form-field--contact"
+                                    type="text"
+                                    id="start-date"
+                                    name="start_date"
+                                    placeholder="Start-Datum"
+                                    data-placeholder-en="Start date"
+                                    data-placeholder-de="Start-Datum"
+                                />
+                            </div>
+
+                            <div>
+                                <div class="visually-hidden">
+                                    <label for="end-date" data-en="End date" data-de="End-Datum">End-Datum</label>
+                                </div>
+                                <input
+                                    class="form-field form-field--contact"
+                                    type="text"
+                                    id="end-date"
+                                    name="end_date"
+                                    placeholder="End-Datum"
+                                    data-placeholder-en="End date"
+                                    data-placeholder-de="End-Datum"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="visually-hidden">
+                            <label for="message" data-en="Place your enquiry here *" data-de="Platzieren Sie Ihre Anfrage hier *">
+                                Platzieren Sie Ihre Anfrage hier *
+                            </label>
+                        </div>
+                        <textarea
+                            class="form-field form-field--contact form-textarea form-textarea--contact"
+                            id="message"
+                            name="message"
+                            required
+                            aria-required="true"
+                            placeholder="Platzieren Sie Ihre Anfrage hier *"
+                            data-placeholder-en="Place your enquiry here *"
+                            data-placeholder-de="Platzieren Sie Ihre Anfrage hier *"
+                        ></textarea>
+
+                        <button class="form-submit form-submit--contact"
+                                type="submit"
+                                data-en="SEND"
+                                data-de="SENDEN">
+                            SENDEN
+                        </button>
+                    </form>
                 </section>
             </main>
 
@@ -249,7 +354,7 @@
             </footer>
         </div>
 
+        <!-- ==== SCRIPTS ==== -->
         <script defer src="/assets/js/main.js"></script>
     </body>
-
 </html>
