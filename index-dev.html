@@ -5,7 +5,7 @@
         <!-- ==== META / GRUNDLAGEN ==== -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>haukethimm.com</title>
+        <title>Kontakt | haukethimm.com</title>
 
         <!-- ==== FAVICON ==== -->
         <link rel="icon" href="/assets/img/favicon.ico" sizes="any" />
@@ -20,47 +20,53 @@
         <link rel="manifest" href="/site.webmanifest" />
     </head>
 
-    <body>
+    <body class="page--contact">
+        <div id="top"></div>
+
         <!-- ==== FIXED NAV ==== -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
                     <!-- ==== NAV GRID DESKTOP ==== -->
-                    <div class="nav-grid-desktop">
-                        <div class="nav-a_desktop">
-                            <a class="nav-link nav-link--home" href="#top" aria-label="Home">
-                                <img src="assets/img/home.png" alt="Home" />
+                    <div class="grid-nav-desktop">
+                        <div class="grid-nav-desktop_A">
+                            <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
+                                <img src="/assets/img/home.png" alt="Home" />
                             </a>
                         </div>
 
-                        <div class="nav-b_desktop">
-                            <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
+                        <div class="grid-nav-desktop_B">
+                            <a class="nav-link" href="/#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
                         </div>
 
-                        <div class="nav-c_desktop">
-                            <a class="nav-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
+                        <div class="grid-nav-desktop_C">
+                            <a class="nav-link" href="/#services" data-en="SERVICES" data-de="LEISTUNGEN">SERVICES</a>
                         </div>
 
-                        <!-- <div class="nav-d_desktop">
-                            <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a>
-                        </div> -->
+                        <div class="grid-nav-desktop_D">
+                            <a class="nav-link" href="/#approach" data-en="APPROACH" data-de="ARBEITSWEISE">APPROACH</a>
+                        </div>
 
-                        <div class="nav-e_desktop">
+                        <div class="grid-nav-desktop_E">
+                            <!-- <a class="nav-link" href="/#credentials" data-en="EXPERTISE" data-de="EXPERTISE">EXPERTISE</a> -->
+                        </div>
+
+                        <div class="grid-nav-desktop_F">
                             <a class="nav-link" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
                             <!-- <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
                         </div>
 
-                        <div class="nav-f_desktop">
+                        <div class="grid-nav-desktop_G">
                             <div class="lang-toggle" aria-label="Language selector">
                                 <button type="button" class="lang-btn" data-lang="en" aria-label="English">
                                     <span class="gold-frame frame--sm shape--round">
-                                        <img src="assets/img/flag-uk.png" alt="EN" />
+                                        <img src="/assets/img/flag-uk.png" alt="EN" />
                                     </span>
                                 </button>
 
                                 <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
                                     <span class="gold-frame frame--sm shape--round">
-                                        <img src="assets/img/flag-de.png" alt="DE" />
+                                        <img src="/assets/img/flag-de.png" alt="DE" />
                                     </span>
                                 </button>
                             </div>
@@ -68,30 +74,30 @@
                     </div>
 
                     <!-- ==== NAV GRID MOBILE ==== -->
-                    <div class="nav-grid-mobile">
-                        <div class="nav-a_mobile">
-                            <a class="nav-link nav-link--home" href="#top" aria-label="Home">
-                                <img src="assets/img/home.png" alt="Home" />
+                    <div class="grid-nav-mobile">
+                        <div class="grid-nav-mobile_A">
+                            <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
+                                <img src="/assets/img/home.png" alt="Home" />
                             </a>
                         </div>
 
-                        <div class="nav-b_mobile">
+                        <div class="grid-nav-mobile_B">
                             <button type="button" class="nav-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobilePanel">
-                                <img src="assets/img/nav_menu.png" alt="" />
+                                <img src="/assets/img/nav_menu.png" alt="" />
                             </button>
                         </div>
 
-                        <div class="nav-c_mobile">
+                        <div class="grid-nav-mobile_C">
                             <div class="lang-toggle" aria-label="Language selector">
                                 <button type="button" class="lang-btn" data-lang="en" aria-label="English">
                                     <span class="gold-frame frame--sm shape--round">
-                                        <img src="assets/img/flag-uk.png" alt="EN" />
+                                        <img src="/assets/img/flag-uk.png" alt="EN" />
                                     </span>
                                 </button>
 
                                 <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
                                     <span class="gold-frame frame--sm shape--round">
-                                        <img src="assets/img/flag-de.png" alt="DE" />
+                                        <img src="/assets/img/flag-de.png" alt="DE" />
                                     </span>
                                 </button>
                             </div>
@@ -100,231 +106,19 @@
                 </div>
 
                 <div class="nav-mobile-panel" id="navMobilePanel" aria-label="Mobile navigation">
-                    <a class="nav-mobile-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
-                    <a class="nav-mobile-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
-                    <!-- <a class="nav-mobile-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
+                    <a class="nav-mobile-link" href="/#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
+                    <a class="nav-mobile-link" href="/#services" data-en="SERVICES" data-de="LEISTUNGEN">SERVICES</a>
+                    <a class="nav-mobile-link" href="/#approach" data-en="APPROACH" data-de="ARBEITSWEISE">APPROACH</a>
+                    <!-- <a class="nav-mobile-link" href="/#credentials" data-en="EXPERTISE" data-de="EXPERTISE">EXPERTISE</a> -->
                     <a class="nav-mobile-link" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
-                    <!-- <a class="nav-mobile-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
-                    <a class="nav-mobile-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="IMPRINT" data-de="IMPRESSUM">IMPRINT</a>
-                    <a class="nav-mobile-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="PRIVACY" data-de="DATENSCHUTZ">PRIVACY</a>
                 </div>
             </nav>
         </div>
 
-        <!-- ==== HEADER-BILD ==== -->
-        <section class="header-image anchor" id="top" aria-label="Header image">
-            <picture>
-                <source media="(max-width: 768px)" srcset="assets/img/header_mobile.jpg" />
-                <img src="assets/img/header3.png" alt="" />
-            </picture>
-        </section>
-
-        <!-- ==== SEITENINHALT ==== -->
+        <!-- ==== CONTENT ==== -->
         <div class="page-offset">
             <main class="content" id="content">
-                <!-- ==== HERO ==== -->
-                <section class="hero anchor" id="hero">
-                    <div class="hero-grid">
-                        <div class="hero-textbox">
-                            <div class="hero-top">
-                                <h1 class="name" data-en="Hauke Thimm" data-de="Hauke Thimm">Hauke Thimm</h1>
-
-                                <div class="role" data-en="High-Level Events & Protocol Management" data-de="High-Level Events & Protocol Management">
-                                    High-Level Events &amp; Protocol Management
-                                </div>
-
-                                <div
-                                    class="claim"
-                                    data-en="Trusted execution for governments, institutions and executive leadership."
-                                    data-de="Verlässliche Umsetzung für Regierungen, Institutionen und Executive Leadership."
-                                >
-                                    Trusted execution for governments, institutions and executive leadership.
-                                </div>
-                            </div>
-
-                            <p
-                                class="intro"
-                                data-en="I support organisations and leaders in the planning and execution of high-level corporate, governmental and institutional events and protocol-sensitive engagements. My work is defined by precision, discretion and calm authority in politically, culturally and operationally complex environments."
-                                data-de="Ich unterstütze Organisationen und Führungskräfte bei der Planung und Durchführung hochrangiger Corporate-, Regierungs- und Institutionenformate sowie protokollsensibler Anlässe. Meine Arbeit ist geprägt von Präzision, Diskretion und ruhiger Souveränität in politisch, kulturell und operativ komplexen Umfeldern."
-                            >
-                                Ich unterstütze Organisationen und Führungskräfte bei der Planung und Durchführung hochrangiger Corporate-, Regierungs- und Institutionenformate sowie protokollsensibler Anlässe. Meine Arbeit ist geprägt von Präzision, Diskretion und ruhiger Souveränität in politisch, kulturell und operativ komplexen Umfeldern.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ==== VALUES ==== -->
-                <section class="values-band anchor" id="values">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="assets/img/values_mobile.png" />
-                        <img src="assets/img/values.png" alt="" />
-                    </picture>
-                </section>
-
-                <!-- ==== ABOUT ==== -->
-                <section class="section about anchor" id="about">
-                    <h2 class="about-label" data-en="ABOUT ME" data-de="ÜBER MICH">ÜBER MICH</h2>
-
-                    <p
-                        class="body-text"
-                        data-en="Born near the North Sea, I found my professional home in Hamburg — connected to the North, yet open to new places, perspectives, and encounters. I value clarity, reliability, and thoughtful exchange with people who take responsibility and lead with conviction.
-
-                        I have more than ten years of experience in event management, with a clear focus on (international) protocol management since 2022. My career has taken me from operational roles to high-level corporate and governmental formats, including at Airbus, where I was responsible for VIP visits, delegation programmes, and protocol-sensitive engagements at the intersection of brand, security, discretion, and cultural precision.
-
-                        Several years spent working at sea, across nearly all major oceans, broadened my perspective. Operating in culturally diverse environments strengthened my openness, curiosity, and sensitivity to people and context — qualities that continue to shape my professional approach today.
-
-                        In demanding situations, I remain calm, structured, and decisive. Colleagues value my ability to provide stability under pressure and to keep focus on what truly matters.
-
-                        I work confidently in German and English at a professional level and am currently developing my French. In international settings, I place greater importance on linguistic awareness and cultural sensitivity than on formal completeness."
-                        data-de="Nahe der Nordsee aufgewachsen, habe ich in Hamburg meine berufliche Heimat gefunden — verbunden mit dem Norden und zugleich offen für neue Orte, Perspektiven und Begegnungen. Ich schätze Klarheit, Verlässlichkeit und den reflektierten Austausch mit Menschen, die Verantwortung übernehmen und mit Haltung führen.
-
-                        Mit mehr als zehn Jahren Erfahrung im Eventmanagement liegt seit 2022 mein klarer Schwerpunkt auf (internationalem) Protokollmanagement. Mein Weg führte mich von operativen Rollen bis zu hochrangigen Corporate- und Regierungsformaten — unter anderem bei Airbus, wo ich VIP-Besuche, Delegationsprogramme und protokollsensible Anlässe verantwortete: im Zusammenspiel von Marke, Sicherheit, Diskretion und kultureller Präzision.
-
-                        Mehrere Jahre beruflich auf See — auf nahezu allen großen Ozeanen — haben meinen Blick geweitet. Die Arbeit in kulturell diversen Umfeldern hat meine Offenheit, Neugier und mein Gespür für Menschen und Kontext geschärft — Qualitäten, die meinen professionellen Ansatz bis heute prägen.
-
-                        In anspruchsvollen Situationen bleibe ich ruhig, strukturiert und entscheidungsfähig. Kolleg:innen schätzen meine Fähigkeit, unter Druck Stabilität zu geben und den Fokus auf das Wesentliche zu halten.
-
-                        Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwickle derzeit mein Französisch weiter. In internationalen Settings sind mir sprachliches Bewusstsein und kulturelle Sensibilität wichtiger als formale Vollständigkeit."
-                    >
-                        Nahe der Nordsee aufgewachsen, habe ich in Hamburg meine berufliche Heimat gefunden — verbunden mit dem Norden und zugleich offen für neue Orte, Perspektiven und Begegnungen. Ich schätze Klarheit, Verlässlichkeit und den reflektierten Austausch mit Menschen, die Verantwortung übernehmen und mit Haltung führen.
-
-                        Mit mehr als zehn Jahren Erfahrung im Eventmanagement liegt seit 2022 mein klarer Schwerpunkt auf (internationalem) Protokollmanagement. Mein Weg führte mich von operativen Rollen bis zu hochrangigen Corporate- und Regierungsformaten — unter anderem bei Airbus, wo ich VIP-Besuche, Delegationsprogramme und protokollsensible Anlässe verantwortete: im Zusammenspiel von Marke, Sicherheit, Diskretion und kultureller Präzision.
-
-                        Mehrere Jahre beruflich auf See — auf nahezu allen großen Ozeanen — haben meinen Blick geweitet. Die Arbeit in kulturell diversen Umfeldern hat meine Offenheit, Neugier und mein Gespür für Menschen und Kontext geschärft — Qualitäten, die meinen professionellen Ansatz bis heute prägen.
-
-                        In anspruchsvollen Situationen bleibe ich ruhig, strukturiert und entscheidungsfähig. Kolleg:innen schätzen meine Fähigkeit, unter Druck Stabilität zu geben und den Fokus auf das Wesentliche zu halten.
-
-                        Ich arbeite sicher auf Deutsch und Englisch auf professionellem Niveau und entwickle derzeit mein Französisch weiter. In internationalen Settings sind mir sprachliches Bewusstsein und kulturelle Sensibilität wichtiger als formale Vollständigkeit.
-                    </p>
-                </section>
-
-                <!-- ==== SERVICES ==== -->
-                <section class="section anchor" id="services">
-                    <h2 data-en="Services" data-de="Services">Services</h2>
-
-                    <div class="services-list">
-                        <div class="service-item" data-service>
-                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
-                                <div class="service-bullet" aria-hidden="true"></div>
-                                <div class="service-title" data-en="High-Level Event Management" data-de="High-Level Event Management">
-                                    High-Level Event Management
-                                </div>
-                                <div class="service-arrow" aria-hidden="true"></div>
-                            </div>
-
-                            <div class="service-body">
-                                <div class="service-body-inner">
-                                    <p
-                                        class="body-text"
-                                        data-en="I plan and lead complex corporate, governmental and institutional events for executive audiences. From strategic preparation and stakeholder alignment to on-site command, I ensure clear structures, reliable processes and seamless execution — including VIP programmes, stage and run-of-show control, supplier coordination and contingency planning under time pressure and public attention."
-                                        data-de="Ich plane und leite komplexe Corporate-, Regierungs- und Institutionenformate für Executive-Zielgruppen. Von der strategischen Vorbereitung und Stakeholder-Abstimmung bis zur Führung vor Ort sorge ich für klare Strukturen, verlässliche Abläufe und nahtlose Umsetzung — inklusive VIP-Programmen, Stage- und Run-of-Show-Steuerung, Dienstleisterkoordination sowie Contingency Planning unter Zeitdruck und öffentlicher Aufmerksamkeit."
-                                    >
-                                        Ich plane und leite komplexe Corporate-, Regierungs- und Institutionenformate für Executive-Zielgruppen. Von der strategischen Vorbereitung und Stakeholder-Abstimmung bis zur Führung vor Ort sorge ich für klare Strukturen, verlässliche Abläufe und nahtlose Umsetzung — inklusive VIP-Programmen, Stage- und Run-of-Show-Steuerung, Dienstleisterkoordination sowie Contingency Planning unter Zeitdruck und öffentlicher Aufmerksamkeit.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="service-item" data-service>
-                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
-                                <div class="service-bullet" aria-hidden="true"></div>
-                                <div class="service-title" data-en="Protocol Management" data-de="Protocol Management">Protocol Management</div>
-                                <div class="service-arrow" aria-hidden="true"></div>
-                            </div>
-
-                            <div class="service-body">
-                                <div class="service-body-inner">
-                                    <p
-                                        class="body-text"
-                                        data-en="I provide protocol expertise for formal, bilateral and multilateral settings. This includes precedence, seating, flag protocol, ceremonial choreography and culturally appropriate hosting — always aligned with institutional expectations and diplomatic context."
-                                        data-de="Ich liefere Protokoll-Expertise für formelle, bilaterale und multilaterale Settings. Dazu zählen Präzedenz, Sitzordnung, Flaggenprotokoll, zeremonielle Choreografie und kulturell angemessenes Hosting — stets im Einklang mit institutionellen Erwartungen und diplomatischem Kontext."
-                                    >
-                                        Ich liefere Protokoll-Expertise für formelle, bilaterale und multilaterale Settings. Dazu zählen Präzedenz, Sitzordnung, Flaggenprotokoll, zeremonielle Choreografie und kulturell angemessenes Hosting — stets im Einklang mit institutionellen Erwartungen und diplomatischem Kontext.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="service-item" data-service>
-                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
-                                <div class="service-bullet" aria-hidden="true"></div>
-                                <div class="service-title" data-en="Master of Ceremony & Moderation" data-de="Master of Ceremony & Moderation">
-                                    Master of Ceremony &amp; Moderation
-                                </div>
-                                <div class="service-arrow" aria-hidden="true"></div>
-                            </div>
-
-                            <div class="service-body">
-                                <div class="service-body-inner">
-                                    <p
-                                        class="body-text"
-                                        data-en="As a Master of Ceremony and experienced event host, I support high-profile programmes with clarity, neutrality and confidence. My role is to maintain structure, timing and tone, while enabling respectful interaction between speakers, guests and institutions — in close coordination with programme, protocol and technical teams."
-                                        data-de="Als Master of Ceremony und erfahrener Event Host unterstütze ich hochrangige Programme mit Klarheit, Neutralität und Souveränität. Meine Aufgabe ist es, Struktur, Timing und Ton zu halten und zugleich respektvolle Interaktion zwischen Speaker:innen, Gästen und Institutionen zu ermöglichen — in enger Abstimmung mit Programm-, Protokoll- und Technikteams."
-                                    >
-                                        Als Master of Ceremony und erfahrener Event Host unterstütze ich hochrangige Programme mit Klarheit, Neutralität und Souveränität. Meine Aufgabe ist es, Struktur, Timing und Ton zu halten und zugleich respektvolle Interaktion zwischen Speaker:innen, Gästen und Institutionen zu ermöglichen — in enger Abstimmung mit Programm-, Protokoll- und Technikteams.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="service-item" data-service>
-                            <div class="service-head" role="button" tabindex="0" aria-expanded="false">
-                                <div class="service-bullet" aria-hidden="true"></div>
-                                <div class="service-title" data-en="Executive & Delegation Support" data-de="Executive & Delegation Support">
-                                    Executive &amp; Delegation Support
-                                </div>
-                                <div class="service-arrow" aria-hidden="true"></div>
-                            </div>
-
-                            <div class="service-body">
-                                <div class="service-body-inner">
-                                    <p
-                                        class="body-text"
-                                        data-en="I support executives and delegations through preparation, accompaniment and coordination. My focus is on discretion, situational awareness and reliable guidance in sensitive environments where decisions, symbolism and timing matter."
-                                        data-de="Ich unterstütze Executives und Delegationen durch Vorbereitung, Begleitung und Koordination. Mein Fokus liegt auf Diskretion, Situational Awareness und verlässlicher Führung in sensiblen Umfeldern, in denen Entscheidungen, Symbolik und Timing zählen."
-                                    >
-                                        Ich unterstütze Executives und Delegationen durch Vorbereitung, Begleitung und Koordination. Mein Fokus liegt auf Diskretion, Situational Awareness und verlässlicher Führung in sensiblen Umfeldern, in denen Entscheidungen, Symbolik und Timing zählen.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ==== APPROACH ==== -->
-                <section class="section anchor" id="approach">
-                    <h2 data-en="Approach" data-de="Arbeitsweise">Arbeitsweise</h2>
-
-                    <ol class="approach-list">
-                        <li data-en="Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations." data-de="Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen.">
-                            Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen.
-                        </li>
-
-                        <li data-en="Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically." data-de="Protokoll & Struktur — Gestaltung des passenden Rahmens — prozessual, kulturell und symbolisch.">
-                            Protokoll & Struktur — Gestaltung des passenden Rahmens — prozessual, kulturell und symbolisch.
-                        </li>
-
-                        <li data-en="Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination." data-de="Umsetzung & Führung vor Ort — Operatives Kommando, Entscheidungen in Echtzeit und ruhige Koordination.">
-                            Umsetzung & Führung vor Ort — Operatives Kommando, Entscheidungen in Echtzeit und ruhige Koordination.
-                        </li>
-
-                        <li data-en="Review & Continuity — Evaluation, documentation and preparation for future engagements." data-de="Review & Kontinuität — Auswertung, Dokumentation und Vorbereitung zukünftiger Einsätze.">
-                            Review & Kontinuität — Auswertung, Dokumentation und Vorbereitung zukünftiger Einsätze.
-                        </li>
-                    </ol>
-                </section>
-
-                <!-- ==== CREDENTIALS ==== -->
-                <!--
-                <section class="section anchor" id="credentials">
-                    <h2 data-en="Credentials" data-de="Expertise">Credentials</h2>
-                </section>
-                -->
-            </main>
-
-            <!-- ==== CONTACT ==== -->
-            <section class="section contact-page anchor" id="contact-page">
-                <div class="content">
+                <section class="section contact-page anchor" id="contact-page">
                     <h2 class="about-label" data-en="CONTACT" data-de="KONTAKT">CONTACT</h2>
 
                     <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
@@ -337,6 +131,48 @@
                         All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly.
                     </p>
 
+                    <!-- ==== KONTAKTFORMULAR (DERZEIT DEAKTIVIERT) ==== -->
+                    <!--
+                    <form class="contact-form" action="mailto:mail@haukethimm.com" method="post" enctype="text/plain">
+                        <label class="form-label" for="cf-name" data-en="Name *" data-de="Name *">Name *</label>
+                        <input class="form-field" id="cf-name" name="name" type="text" autocomplete="name" required />
+
+                        <label class="form-label" for="cf-email" data-en="Email *" data-de="E-Mail *">Email *</label>
+                        <input class="form-field" id="cf-email" name="email" type="email" autocomplete="email" required />
+
+                        <label class="form-label" for="cf-phone" data-en="Phone (optional)" data-de="Telefon (optional)">Phone (optional)</label>
+                        <input class="form-field" id="cf-phone" name="phone" type="tel" autocomplete="tel" />
+
+                        <div class="form-row-2">
+                            <div>
+                                <label class="form-label" for="cf-start" data-en="Event start (optional)" data-de="Eventbeginn (optional)">
+                                    Event start (optional)
+                                </label>
+                                <input class="form-field" id="cf-start" name="event_start" type="date" />
+                            </div>
+
+                            <div>
+                                <label class="form-label" for="cf-end" data-en="Event end (optional)" data-de="Eventende (optional)">
+                                    Event end (optional)
+                                </label>
+                                <input class="form-field" id="cf-end" name="event_end" type="date" />
+                            </div>
+                        </div>
+
+                        <label class="form-label" for="cf-message" data-en="Message *" data-de="Nachricht *">Message *</label>
+                        <textarea class="form-field form-textarea" id="cf-message" name="message" rows="7" required></textarea>
+
+                        <p class="form-privacy body-text"
+                           data-en="By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry. See Privacy policy."
+                           data-de="Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zum Zweck der Bearbeitung Ihrer Anfrage zu. Siehe Datenschutz.">
+                            By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry.
+                            <a class="form-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>.
+                        </p>
+
+                        <button class="form-submit" type="submit" data-en="Send" data-de="Absenden">Send</button>
+                    </form>
+                    -->
+
                     <p class="body-text contact-cta">
                         <a class="cta-btn" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="Send email" data-de="E-Mail senden">E-Mail senden</a>
 
@@ -344,39 +180,39 @@
                             Ihr Standard-E-Mail-Programm öffnet sich mit vorausgefüllter Empfängeradresse und Betreffzeile.
                         </span>
                     </p>
-                </div>
-            </section>
+                </section>
+            </main>
 
             <!-- ==== PRE-FOOTER ==== -->
             <section class="pre-footer" aria-label="Additional contact options">
                 <div class="pre-footer-inner">
-                    <div class="pre-footer-col">
+                    <div class="grid-pre-footer-desktop_A grid-pre-footer-mobile_A pre-footer-col">
                         <div class="pre-footer-item">
                             <a class="pre-footer-link" href="tel:+4916095364569">
                                 <span class="gold-frame frame--md shape--round">
-                                    <img src="assets/img/contact_phone_.png" alt="" aria-hidden="true" />
+                                    <img src="/assets/img/contact_phone_.png" alt="" aria-hidden="true" />
                                 </span>
                                 <span class="pre-footer-text">+49 160 95364569</span>
                             </a>
                         </div>
                     </div>
 
-                    <div class="pre-footer-col">
+                    <div class="grid-pre-footer-desktop_B grid-pre-footer-mobile_B pre-footer-col">
                         <div class="pre-footer-item">
                             <a class="pre-footer-link" href="mailto:mail@haukethimm.com">
                                 <span class="gold-frame frame--md shape--round">
-                                    <img src="assets/img/contact_email_.png" alt="" aria-hidden="true" />
+                                    <img src="/assets/img/contact_email_.png" alt="" aria-hidden="true" />
                                 </span>
                                 <span class="pre-footer-text">mail@haukethimm.com</span>
                             </a>
                         </div>
                     </div>
 
-                    <div class="pre-footer-col">
+                    <div class="grid-pre-footer-desktop_C grid-pre-footer-mobile_C pre-footer-col">
                         <div class="pre-footer-item">
-                            <a class="pre-footer-link" href="assets/files/hauke-thimm.vcf" download>
+                            <a class="pre-footer-link" href="/assets/files/hauke-thimm.vcf" download>
                                 <span class="gold-frame frame--md shape--round">
-                                    <img src="assets/img/contact_contactcard_.png" alt="" aria-hidden="true" />
+                                    <img src="/assets/img/contact_contactcard_.png" alt="" aria-hidden="true" />
                                 </span>
                                 <span class="pre-footer-text" data-en="Business card (vcf)" data-de="Visitenkarte (vcf)">Visitenkarte (vcf)</span>
                             </a>
@@ -388,16 +224,15 @@
             <!-- ==== FOOTER ==== -->
             <footer class="footer anchor" id="footer">
                 <div class="footer-inner">
-                    <!-- ==== FOOTER DESKTOP ==== -->
-                    <div class="footer-a_desktop footer-b_mobile">
+                    <div class="grid-footer-desktop_A1 grid-footer-mobile_B">
                         <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifikationen:</p>
 
                         <div class="qualifications-logos">
                             <a href="https://www.handelskammer-hamburg.de/" target="_blank" rel="noopener noreferrer" aria-label="Handelskammer Hamburg">
                                 <span class="gold-frame frame--md shape--rect">
                                     <picture>
-                                        <source media="(max-width: 768px)" srcset="assets/img/hkhamburg.png" />
-                                        <img src="assets/img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
+                                        <source media="(max-width: 768px)" srcset="/assets/img/hkhamburg.png" />
+                                        <img src="/assets/img/hkhamburg.jpg" alt="Handelskammer Hamburg" />
                                     </picture>
                                 </span>
                             </a>
@@ -405,48 +240,48 @@
                             <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
                                 <span class="gold-frame frame--md shape--round">
                                     <picture>
-                                        <source media="(max-width: 768px)" srcset="assets/img/protocolbureau.png" />
-                                        <img src="assets/img/protocolbureau.jpg" alt="Protocolbureau" />
+                                        <source media="(max-width: 768px)" srcset="/assets/img/protocolbureau.png" />
+                                        <img src="/assets/img/protocolbureau.jpg" alt="Protocolbureau" />
                                     </picture>
                                 </span>
                             </a>
                         </div>
                     </div>
 
-                    <div class="footer-b_desktop footer-a_mobile">
+                    <div class="grid-footer-desktop_B1 grid-footer-mobile_A">
                         <a class="backtop" href="#top" aria-label="Back to top">
-                            <img class="chevron-img" src="assets/img/chevron.png" alt="" />
-                            <span class="backtop-text" data-en="Back to top" data-de="Seitenanfang">Seitenanfang</span>
+                            <img class="chevron-img" src="/assets/img/chevron.png" alt="" />
+                            <span class="backtop-text" data-en="Back to top" data-de="zum Seitenanfang">zum Seitenanfang</span>
                         </a>
                     </div>
 
-                    <div class="footer-c_desktop footer-c_mobile">
+                    <div class="grid-footer-desktop_C1 grid-footer-mobile_C">
                         <p class="follow-label" data-en="Follow / Connect:" data-de="Folgen / Vernetzen:">Folgen / Vernetzen:</p>
 
                         <div class="follow-icons">
                             <a href="https://www.instagram.com/haukethimm?igsh=bXVkc3o4MW1mcnVk&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <span class="gold-frame frame--md shape--round">
-                                    <img src="assets/img/instagram.png" alt="Instagram" />
+                                    <img src="/assets/img/instagram.png" alt="Instagram" />
                                 </span>
                             </a>
 
                             <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                 <span class="gold-frame frame--md shape--round">
-                                    <img src="assets/img/linkedin.png" alt="LinkedIn" />
+                                    <img src="/assets/img/linkedin.png" alt="LinkedIn" />
                                 </span>
                             </a>
                         </div>
                     </div>
 
-                    <div class="footer-d_desktop footer-d_mobile">
-                        <!-- <div></div> -->
+                    <div class="grid-footer-desktop_A2 grid-footer-mobile_D">
+                        <a class="legal-link legal-copy" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Image credits" data-de="Bildnachweise">Bildnachweise</a>
                     </div>
 
-                    <div class="footer-e_desktop footer-e_mobile">
+                    <div class="grid-footer-desktop_B2 grid-footer-mobile_E">
                         <span class="legal-copy" data-en="© Hauke Thimm" data-de="© Hauke Thimm">© Hauke Thimm</span>
                     </div>
 
-                    <div class="footer-f_desktop footer-f_mobile">
+                    <div class="grid-footer-desktop_C2 grid-footer-mobile_F">
                         <div class="legal-links" aria-label="Legal navigation">
                             <a class="legal-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Imprint" data-de="Impressum">Impressum</a>
                             <a class="legal-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy" data-de="Datenschutz">Datenschutz</a>
@@ -456,8 +291,7 @@
             </footer>
         </div>
 
-        <!-- ==== SCRIPTS ==== -->
-        <script defer src="assets/js/main.js"></script>
+        <script defer src="/assets/js/main.js"></script>
     </body>
 
 </html>
