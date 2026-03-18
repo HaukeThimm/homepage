@@ -109,7 +109,7 @@
     --fs-body: 18px; /* Schriftgröße Body */
     --fs-hero-name: 42px; /* Schriftgröße Hero-Name */
     --fs-nav-link: 15px; /* Schriftgröße Navigation Desktop */
-    --fs-backtop: 16px; /* Schriftgröße Seitenanfang-Link */
+    --fs-backtop: 18px; /* Schriftgröße Seitenanfang-Link */
 
     --fw-head: 700; /* Schriftgewicht Headlines */
     --fw-sub: 500; /* Schriftgewicht Sublines */
@@ -202,7 +202,7 @@
     --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
     --pre-footer-item-gap: 18px; /* Abstand Icon zu Text */
     --pre-footer-margin-bottom: 20px; /* Abstand zu Footer */
-    --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons Desktop */
+    --pre-footer-icon-h: 80px; /* Höhe Pre-Footer-Icons Desktop */
     --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons */
     --pre-footer-icon-pos-x: 50%; /* horizontale Position Bild */
     --pre-footer-icon-pos-y: 50%; /* vertikale Position Bild */
@@ -227,8 +227,8 @@
     --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
     --footer-label-gap-bottom: 12px; /* Abstand unter Labels */
 
-    --qual-logo-rect-h: 50px; /* Höhe rechteckige Logos Desktop */
-    --qual-logo-round-h: 50px; /* Höhe runde Logos Desktop */
+    --qual-logo-rect-h: 80px; /* Höhe rechteckige Logos Desktop */
+    --qual-logo-round-h: 80px; /* Höhe runde Logos Desktop */
     --qual-logo-gap: 24px; /* Abstand Logos Desktop */
     --qual-logo-rect-radius: 4px; /* Form rechteckige Logos Desktop */
     --qual-logo-round-radius: 50%; /* Form runde Logos Desktop */
@@ -241,7 +241,7 @@
     --qual-logo-pad: 0px; /* Innenpadding Logos Desktop */
     --qual-logo-touch-scale: 1.25; /* Touch-Target Logos Desktop */
 
-    --follow-icon-h: 50px; /* Höhe Follow-Icons Desktop */
+    --follow-icon-h: 80px; /* Höhe Follow-Icons Desktop */
     --follow-icon-gap: 18px; /* Abstand Follow-Icons Desktop */
     --follow-icon-radius: 50%; /* Form Follow-Icons Desktop */
     --follow-icon-fit: contain; /* Objektverhalten Follow-Icons Desktop */
@@ -250,7 +250,7 @@
     --follow-icon-pad: 0px; /* Innenpadding Follow-Icons Desktop */
     --follow-icon-touch-scale: 1.25; /* Touch-Target Follow Desktop */
 
-    --backtop-icon-h: 20px; /* Höhe Chevron Desktop */
+    --backtop-icon-h: 4px; /* Höhe Chevron Desktop */
     --backtop-gap: 3px; /* Abstand Chevron zu Text */
 
     --legal-font: var(--font-body); /* Schrift Legal */
@@ -262,7 +262,7 @@
 
     --anchor-offset: 20px; /* Scroll-Offset Ankerziele */
 
-    --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
+    --footer-mobile-row-pad-top: 10px; /* oberes Padding mobile Footer-Zeilen */
     --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
     --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding Zeile F mobil */
     --footer-mobile-b-gap: 18px; /* Abstand Inhalte Zeile B mobil */
