@@ -1,58 +1,36 @@
-/* ===== FILE: assets/js/main.js ===== */
-
 /* ==== LANGUAGE TOGGLE (data-en/data-de) ==== */
 (function () {
     const buttons = Array.from(document.querySelectorAll(".lang-btn"));
     if (!buttons.length) return;
 
     const translatable = Array.from(document.querySelectorAll("[data-en][data-de]")).filter((el) => {
-        return el.children.length === 0;
-    });
-
-    function applyTranslation(el, lang) {
-        const value = el.getAttribute(lang === "de" ? "data-de" : "data-en");
-        if (value == null) return;
-
         const tag = el.tagName;
+        const hasElementChildren = el.children && el.children.length > 0;
 
-        if (tag === "INPUT" || tag === "TEXTAREA") {
-            if (el.hasAttribute("placeholder")) {
-                el.setAttribute("placeholder", value);
-            } else if (tag === "INPUT" && (el.type === "submit" || el.type === "button")) {
-                el.value = value;
-            } else {
-                el.textContent = value;
-            }
+        if ((tag === "A" || tag === "BUTTON") && hasElementChildren) return false;
 
-            return;
-        }
-
-        el.textContent = value;
-    }
+        return true;
+    });
 
     function setLang(lang) {
         const isDe = lang === "de";
 
         translatable.forEach((el) => {
-            applyTranslation(el, lang);
+            const val = el.getAttribute(isDe ? "data-de" : "data-en");
+            if (val != null) el.textContent = val;
         });
 
-        buttons.forEach((button) => {
-            button.classList.toggle("is-active", button.dataset.lang === lang);
-        });
-
+        buttons.forEach((b) => b.classList.toggle("is-active", b.dataset.lang === lang));
         document.documentElement.lang = isDe ? "de" : "en";
     }
 
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const lang = button.dataset.lang;
-            if (!lang) return;
-            setLang(lang);
+    buttons.forEach((b) => {
+        b.addEventListener("click", () => {
+            const lang = b.dataset.lang;
+            if (lang) setLang(lang);
         });
     });
 
-    /* Default Sprache: DE */
     setLang("de");
 })();
 
@@ -63,18 +41,13 @@
 
     function setExpanded(item, open) {
         item.classList.toggle("open", open);
-
         const head = item.querySelector(".service-head");
-        if (head) {
-            head.setAttribute("aria-expanded", open ? "true" : "false");
-        }
+        if (head) head.setAttribute("aria-expanded", open ? "true" : "false");
     }
 
     function closeAllExcept(exceptItem) {
-        items.forEach((item) => {
-            if (item !== exceptItem) {
-                setExpanded(item, false);
-            }
+        items.forEach((it) => {
+            if (it !== exceptItem) setExpanded(it, false);
         });
     }
 
@@ -84,19 +57,14 @@
 
         function toggle() {
             const willOpen = !item.classList.contains("open");
-
-            if (willOpen) {
-                closeAllExcept(item);
-            }
-
+            if (willOpen) closeAllExcept(item);
             setExpanded(item, willOpen);
         }
 
         head.addEventListener("click", toggle);
-
-        head.addEventListener("keydown", (event) => {
-            if (event.key !== "Enter" && event.key !== " ") return;
-            event.preventDefault();
+        head.addEventListener("keydown", (e) => {
+            if (e.key !== "Enter" && e.key !== " ") return;
+            e.preventDefault();
             toggle();
         });
     });
@@ -118,7 +86,8 @@
         toggle.setAttribute("aria-expanded", "true");
     }
 
-    toggle.addEventListener("click", () => {
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
         const isOpen = panel.classList.contains("is-open");
 
         if (isOpen) {
@@ -128,25 +97,17 @@
         }
     });
 
-    document.addEventListener("click", (event) => {
-        if (!panel.contains(event.target) && !toggle.contains(event.target)) {
+    document.addEventListener("click", (e) => {
+        if (!panel.contains(e.target) && !toggle.contains(e.target)) {
             closePanel();
         }
     });
 
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            closePanel();
-        }
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closePanel();
     });
 
     panel.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", closePanel);
-    });
-
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-            closePanel();
-        }
     });
 })();

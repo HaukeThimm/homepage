@@ -1,25 +1,23 @@
-<!-- ===== FILE: privacy/index.html ===== -->
 <!DOCTYPE html>
-
 <html lang="de">
 
     <head>
         <!-- ==== META / GRUNDLAGEN ==== -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>haukethimm.com</title>
+        <title>Datenschutz | haukethimm.com</title>
 
         <!-- ==== FAVICON ==== -->
-        <link rel="icon" href="/assets/img/favicon.ico" sizes="any">
-        <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" sizes="16x16">
-        <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+        <link rel="icon" href="/assets/img/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
 
         <!-- ==== STYLES ==== -->
         <link rel="stylesheet" href="/assets/css/styles.css" />
 
         <!-- ==== MANIFEST ==== -->
-        <link rel="manifest" href="/site.webmanifest">
+        <link rel="manifest" href="/site.webmanifest" />
     </head>
 
     <body class="page--privacy">
@@ -29,33 +27,74 @@
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
-                    <div class="nav-items">
-                        <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
-                            <img src="/assets/img/home.png" alt="Home" />
-                        </a>
+                    <div class="nav-grid-desktop">
+                        <div class="nav-a_desktop">
+                            <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
+                                <img src="/assets/img/home.png" alt="Home" />
+                            </a>
+                        </div>
 
-                        <a class="nav-link" href="/#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
-                        <a class="nav-link" href="/#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
-                        <!-- <a class="nav-link" href="/#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
-                        <!-- <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
-                        <a class="nav-link" href="mailto:mail@haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                        <div class="nav-b_desktop">
+                            <a class="nav-link" href="/#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
+                        </div>
 
-                        <button type="button" class="nav-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobilePanel">
-                            <img src="/assets/img/nav-menu.png" alt="" />
-                        </button>
+                        <div class="nav-c_desktop">
+                            <a class="nav-link" href="/#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
+                        </div>
 
-                        <div class="lang-toggle" aria-label="Language selector">
-                            <button type="button" class="lang-btn" data-lang="en" aria-label="English">
-                                <span class="gold-frame frame--sm shape--round">
-                                    <img src="/assets/img/flag-uk.png" alt="EN" />
-                                </span>
+                        <div class="nav-d_desktop">
+                            <!-- <a class="nav-link" href="/#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
+                        </div>
+
+                        <div class="nav-e_desktop">
+                            <a class="nav-link" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                            <!-- <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
+                        </div>
+
+                        <div class="nav-f_desktop">
+                            <div class="lang-toggle" aria-label="Language selector">
+                                <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+                                    <span class="gold-frame frame--sm shape--round">
+                                        <img src="/assets/img/flag-uk.png" alt="EN" />
+                                    </span>
+                                </button>
+
+                                <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
+                                    <span class="gold-frame frame--sm shape--round">
+                                        <img src="/assets/img/flag-de.png" alt="DE" />
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-grid-mobile">
+                        <div class="nav-a_mobile">
+                            <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
+                                <img src="/assets/img/home.png" alt="Home" />
+                            </a>
+                        </div>
+
+                        <div class="nav-b_mobile">
+                            <button type="button" class="nav-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobilePanel">
+                                <img src="/assets/img/nav_menu.png" alt="" />
                             </button>
+                        </div>
 
-                            <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
-                                <span class="gold-frame frame--sm shape--round">
-                                    <img src="/assets/img/flag-de.png" alt="DE" />
-                                </span>
-                            </button>
+                        <div class="nav-c_mobile">
+                            <div class="lang-toggle" aria-label="Language selector">
+                                <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+                                    <span class="gold-frame frame--sm shape--round">
+                                        <img src="/assets/img/flag-uk.png" alt="EN" />
+                                    </span>
+                                </button>
+
+                                <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
+                                    <span class="gold-frame frame--sm shape--round">
+                                        <img src="/assets/img/flag-de.png" alt="DE" />
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,100 +103,79 @@
                     <a class="nav-mobile-link" href="/#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
                     <a class="nav-mobile-link" href="/#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
                     <!-- <a class="nav-mobile-link" href="/#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
-                    <a class="nav-mobile-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
-                    <!--
-                    <a class="nav-mobile-link" href="mailto:mail@haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
-                    -->
+                    <a class="nav-mobile-link" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                    <!-- <a class="nav-mobile-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
                     <a class="nav-mobile-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="IMPRINT" data-de="IMPRESSUM">IMPRINT</a>
                     <a class="nav-mobile-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="PRIVACY" data-de="DATENSCHUTZ">PRIVACY</a>
                 </div>
             </nav>
         </div>
 
-        <!-- ==== CONTENT ==== -->
         <div class="page-offset">
             <main class="content" id="content">
                 <section class="section privacy anchor" id="privacy-page">
                     <h2 class="about-label" data-en="PRIVACY POLICY" data-de="DATENSCHUTZ">DATENSCHUTZ</h2>
 
                     <div class="subline" data-en="Controller" data-de="Verantwortlicher">Verantwortlicher</div>
-                    <p
-                        class="body-text"
-                        data-en="Hauke Thimm, Marienthaler Str. 124B, 20535 Hamburg, Germany. Email: mail[at]haukethimm.com. Phone: +49 160 95364569."
-                        data-de="Hauke Thimm, Marienthaler Str. 124B, 20535 Hamburg, Deutschland. E-Mail: mail[at]haukethimm.com. Telefon: +49 160 95364569."
-                    >
+                    <p class="body-text"
+                       data-en="Hauke Thimm, Marienthaler Str. 124B, 20535 Hamburg, Germany. Email: mail[at]haukethimm.com. Phone: +49 160 95364569."
+                       data-de="Hauke Thimm, Marienthaler Str. 124B, 20535 Hamburg, Deutschland. E-Mail: mail[at]haukethimm.com. Telefon: +49 160 95364569.">
                         Hauke Thimm, Marienthaler Str. 124B, 20535 Hamburg, Deutschland. E-Mail: mail[at]haukethimm.com. Telefon: +49 160 95364569.
                     </p>
 
                     <div class="subline" data-en="Processing of personal data" data-de="Verarbeitung personenbezogener Daten">Verarbeitung personenbezogener Daten</div>
-                    <p
-                        class="body-text"
-                        data-en="I process personal data only to the extent necessary to provide this website, respond to enquiries, and ensure its technical security."
-                        data-de="Ich verarbeite personenbezogene Daten nur, soweit dies zur Bereitstellung dieser Website, zur Bearbeitung von Anfragen und zur technischen Sicherheit erforderlich ist."
-                    >
+                    <p class="body-text"
+                       data-en="I process personal data only to the extent necessary to provide this website, respond to enquiries, and ensure its technical security."
+                       data-de="Ich verarbeite personenbezogene Daten nur, soweit dies zur Bereitstellung dieser Website, zur Bearbeitung von Anfragen und zur technischen Sicherheit erforderlich ist.">
                         Ich verarbeite personenbezogene Daten nur, soweit dies zur Bereitstellung dieser Website, zur Bearbeitung von Anfragen und zur technischen Sicherheit erforderlich ist.
                     </p>
 
                     <div class="subline" data-en="Website access data / server logs" data-de="Zugriffsdaten / Server-Logs">Zugriffsdaten / Server-Logs</div>
-                    <p
-                        class="body-text"
-                        data-en="When you visit this website, technical access data may be processed (e.g., IP address, date and time, requested page, browser information). This processing is carried out to ensure the secure operation of the website."
-                        data-de="Beim Besuch dieser Website können technisch erforderliche Zugriffsdaten verarbeitet werden (z. B. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser-Informationen). Die Verarbeitung erfolgt zur Gewährleistung des sicheren Betriebs der Website."
-                    >
+                    <p class="body-text"
+                       data-en="When you visit this website, technical access data may be processed (e.g., IP address, date and time, requested page, browser information). This processing is carried out to ensure the secure operation of the website."
+                       data-de="Beim Besuch dieser Website können technisch erforderliche Zugriffsdaten verarbeitet werden (z. B. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser-Informationen). Die Verarbeitung erfolgt zur Gewährleistung des sicheren Betriebs der Website.">
                         Beim Besuch dieser Website können technisch erforderliche Zugriffsdaten verarbeitet werden (z. B. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser-Informationen). Die Verarbeitung erfolgt zur Gewährleistung des sicheren Betriebs der Website.
                     </p>
 
                     <div class="subline" data-en="Contact by email" data-de="Kontaktaufnahme per E-Mail">Kontaktaufnahme per E-Mail</div>
-                    <p
-                        class="body-text"
-                        data-en="If you contact me by email, the data you provide (e.g., name, email address, message content) will be processed to handle your enquiry."
-                        data-de="Wenn Sie mich per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten (z. B. Name, E-Mail-Adresse, Inhalt der Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet."
-                    >
+                    <p class="body-text"
+                       data-en="If you contact me by email, the data you provide (e.g., name, email address, message content) will be processed to handle your enquiry."
+                       data-de="Wenn Sie mich per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten (z. B. Name, E-Mail-Adresse, Inhalt der Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet.">
                         Wenn Sie mich per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten (z. B. Name, E-Mail-Adresse, Inhalt der Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet.
                     </p>
 
                     <div class="subline" data-en="Cookies and tracking" data-de="Cookies und Tracking">Cookies und Tracking</div>
-                    <p
-                        class="body-text"
-                        data-en="This website does not use tracking cookies or analytics tools. If technically necessary cookies are used, they are limited to what is required to operate the website."
-                        data-de="Diese Website verwendet keine Tracking-Cookies und keine Analyse-Tools. Sofern technisch notwendige Cookies eingesetzt werden, beschränken sie sich auf das für den Betrieb der Website Erforderliche."
-                    >
+                    <p class="body-text"
+                       data-en="This website does not use tracking cookies or analytics tools. If technically necessary cookies are used, they are limited to what is required to operate the website."
+                       data-de="Diese Website verwendet keine Tracking-Cookies und keine Analyse-Tools. Sofern technisch notwendige Cookies eingesetzt werden, beschränken sie sich auf das für den Betrieb der Website Erforderliche.">
                         Diese Website verwendet keine Tracking-Cookies und keine Analyse-Tools. Sofern technisch notwendige Cookies eingesetzt werden, beschränken sie sich auf das für den Betrieb der Website Erforderliche.
                     </p>
 
                     <div class="subline" data-en="Recipients" data-de="Empfänger">Empfänger</div>
-                    <p
-                        class="body-text"
-                        data-en="Personal data may be processed by service providers involved in hosting/technical operation of the website, insofar as this is necessary for operation and security."
-                        data-de="Personenbezogene Daten können durch Dienstleister im Rahmen des Hostings/technischen Betriebs verarbeitet werden, soweit dies für Betrieb und Sicherheit erforderlich ist."
-                    >
+                    <p class="body-text"
+                       data-en="Personal data may be processed by service providers involved in hosting/technical operation of the website, insofar as this is necessary for operation and security."
+                       data-de="Personenbezogene Daten können durch Dienstleister im Rahmen des Hostings/technischen Betriebs verarbeitet werden, soweit dies für Betrieb und Sicherheit erforderlich ist.">
                         Personenbezogene Daten können durch Dienstleister im Rahmen des Hostings/technischen Betriebs verarbeitet werden, soweit dies für Betrieb und Sicherheit erforderlich ist.
                     </p>
 
                     <div class="subline" data-en="Storage period" data-de="Speicherdauer">Speicherdauer</div>
-                    <p
-                        class="body-text"
-                        data-en="I store personal data only as long as necessary for the stated purposes or as required by law. Enquiries are typically deleted once they have been conclusively processed, unless retention obligations apply."
-                        data-de="Ich speichere personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Pflichten bestehen. Anfragen werden in der Regel nach abschließender Bearbeitung gelöscht, sofern keine Aufbewahrungspflichten entgegenstehen."
-                    >
+                    <p class="body-text"
+                       data-en="I store personal data only as long as necessary for the stated purposes or as required by law. Enquiries are typically deleted once they have been conclusively processed, unless retention obligations apply."
+                       data-de="Ich speichere personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Pflichten bestehen. Anfragen werden in der Regel nach abschließender Bearbeitung gelöscht, sofern keine Aufbewahrungspflichten entgegenstehen.">
                         Ich speichere personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Pflichten bestehen. Anfragen werden in der Regel nach abschließender Bearbeitung gelöscht, sofern keine Aufbewahrungspflichten entgegenstehen.
                     </p>
 
                     <div class="subline" data-en="Your rights" data-de="Ihre Rechte">Ihre Rechte</div>
-                    <p
-                        class="body-text"
-                        data-en="You have the right to access, rectification, erasure, restriction of processing, data portability, and to object to processing. You also have the right to lodge a complaint with a supervisory authority."
-                        data-de="Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung. Zudem besteht ein Beschwerderecht bei einer Aufsichtsbehörde."
-                    >
+                    <p class="body-text"
+                       data-en="You have the right to access, rectification, erasure, restriction of processing, data portability, and to object to processing. You also have the right to lodge a complaint with a supervisory authority."
+                       data-de="Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung. Zudem besteht ein Beschwerderecht bei einer Aufsichtsbehörde.">
                         Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung. Zudem besteht ein Beschwerderecht bei einer Aufsichtsbehörde.
                     </p>
 
                     <div class="subline" data-en="Contact" data-de="Kontakt">Kontakt</div>
-                    <p
-                        class="body-text"
-                        data-en="For data protection enquiries, please contact: mail[at]haukethimm.com."
-                        data-de="Für datenschutzbezogene Anfragen kontaktieren Sie bitte: mail[at]haukethimm.com."
-                    >
+                    <p class="body-text"
+                       data-en="For data protection enquiries, please contact: mail[at]haukethimm.com."
+                       data-de="Für datenschutzbezogene Anfragen kontaktieren Sie bitte: mail[at]haukethimm.com.">
                         Für datenschutzbezogene Anfragen kontaktieren Sie bitte: mail[at]haukethimm.com.
                     </p>
                 </section>

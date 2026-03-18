@@ -1,5 +1,3 @@
-/* ===== FILE: assets/css/styles.css ===== */
-
 /* ==== FONTS (LOKAL) ==== */
 /* Pfade relativ zu assets/css/ -> ../fonts/... */
 @font-face {
@@ -110,7 +108,7 @@
     --fs-sub: 24px; /* Schriftgröße Sublines */
     --fs-body: 18px; /* Schriftgröße Body */
     --fs-hero-name: 42px; /* Schriftgröße Hero-Name */
-    --fs-nav-link: 15px; /* Schriftgröße Navigation */
+    --fs-nav-link: 15px; /* Schriftgröße Navigation Desktop */
     --fs-backtop: 16px; /* Schriftgröße Seitenanfang-Link */
 
     --fw-head: 700; /* Schriftgewicht Headlines */
@@ -125,10 +123,9 @@
     --lh-sub: 1.25; /* Zeilenhöhe Sublines */
     --lh-body: 1.5; /* Zeilenhöhe Body */
 
-    --top-offset: 0px; /* globaler oberer Offset für fixed Elemente */
-    --banner-h: 75px; /* Höhe des Nav-Banners */
-    --page-top-gap: 40px; /* Abstand unter Navigation auf Unterseiten */
-
+    --top-offset: 0px; /* globaler oberer Offset */
+    --banner-h: 75px; /* Höhe Nav-Banner */
+    --page-top-gap: 40px; /* Abstand auf Unterseiten */
     --side-pad: 150px; /* horizontaler Seiteninnenabstand */
     --max-width: 1400px; /* maximale Inhaltsbreite */
 
@@ -151,57 +148,41 @@
 
     --goldframe-img: url("../img/highlights_gold.png"); /* Bilddatei Goldtextur */
 
-    --nav-home-h: 34px; /* Höhe Home-Icon Desktop */
-    --nav-home-fit: cover; /* Objektverhalten Home-Icon Desktop */
-    --nav-home-pos-x: 50%; /* horizontale Bildposition Home-Icon Desktop */
-    --nav-home-pos-y: 50%; /* vertikale Bildposition Home-Icon Desktop */
-
-    --lang-btn-h: 34px; /* Höhe Sprachbutton Desktop */
-    --lang-btn-fit: cover; /* Objektverhalten Sprachbutton Desktop */
-    --lang-btn-pos-x: 50%; /* horizontale Bildposition Sprachbutton Desktop */
-    --lang-btn-pos-y: 50%; /* vertikale Bildposition Sprachbutton Desktop */
-
-    --nav-menu-btn-h: 34px; /* Höhe Mobile-Menü-Button Desktop/Mittelwert */
-    --nav-menu-btn-fit: cover; /* Objektverhalten Mobile-Menü-Button */
-    --nav-menu-btn-pos-x: 50%; /* horizontale Bildposition Mobile-Menü-Button */
-    --nav-menu-btn-pos-y: 50%; /* vertikale Bildposition Mobile-Menü-Button */
-
-    --nav-home-offset-x: 75px; /* Home-Icon Abstand vom linken Seitenpadding */
-    --nav-lang-offset-x: 75px; /* Language-Icon Abstand vom rechten Seitenpadding */
-
+    --nav-home-h: 36px; /* Höhe Home-Icon Desktop */
+    --nav-home-fit: contain; /* Objektverhalten Home-Icon */
+    --nav-menu-btn-h: 32px; /* Höhe Mobile-Menü-Icon */
+    --lang-btn-h: 36px; /* Höhe Language-Icon */
+    --nav-icon-touch-scale: 1.25; /* Touch-Target-Vergrößerung Nav */
     --nav-letter-spacing: 0.1em; /* Laufweite Navigation */
     --nav-text-transform: uppercase; /* Großschreibung Navigation */
-    --nav-links-gap: 48px; /* Abstand zwischen Desktop-Nav-Links */
-
-    --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button */
     --nav-menu-panel-top: 75px; /* Oberkante Mobile-Menü-Panel */
-    --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel */
-    --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel */
-    --nav-menu-panel-gap: 14px; /* Abstand Einträge im Mobile-Menü */
+    --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü */
+    --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü */
+    --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü */
 
-    --service-pad: 18px; /* Innenpadding Service-Element */
-    --services-gap: 18px; /* Abstand zwischen Service-Elementen */
-    --service-grid-col-1: 30px; /* erste Spalte Service-Head */
-    --service-grid-col-3: 22px; /* dritte Spalte Service-Head */
-    --service-col-gap: 12px; /* Abstand Spalten Service-Head */
+    --service-pad: 18px; /* Innenpadding Service */
+    --services-gap: 18px; /* Abstand Service-Elemente */
+    --service-grid-col-1: 30px; /* erste Spalte Service */
+    --service-grid-col-3: 22px; /* dritte Spalte Service */
+    --service-col-gap: 12px; /* Abstand Service-Spalten */
     --service-bullet-h: 22px; /* Höhe Service-Bullet */
     --service-arrow-h: 18px; /* Höhe Service-Pfeil */
-    --service-body-pad-top: 14px; /* Abstand Body innerhalb Service */
-    --service-max-h: 600px; /* Maximalhöhe geöffneter Service */
+    --service-body-pad-top: 14px; /* Abstand Service-Body */
+    --service-max-h: 600px; /* Maximalhöhe Service-Body */
 
-    --approach-item-gap: 14px; /* Abstand Listenpunkte Arbeitsweise */
-    --approach-num-left: 14px; /* linke Position Nummern Arbeitsweise */
-    --approach-num-top: 0px; /* obere Position Nummern Arbeitsweise */
-    --approach-text-indent: 46px; /* Texteinzug Arbeitsweise */
+    --approach-item-gap: 14px; /* Abstand Listenpunkte */
+    --approach-num-left: 14px; /* linke Position Nummer */
+    --approach-num-top: 0px; /* obere Position Nummer */
+    --approach-text-indent: 46px; /* Texteinzug */
 
-    --carousel-fade: 40px; /* seitlicher Fade Carousel */
+    --carousel-fade: 40px; /* seitlicher Fade */
     --carousel-arrow-h: 40px; /* Höhe Carousel-Pfeile */
     --carousel-gap: 28px; /* Abstand Carousel-Karten */
-    --carousel-card-w: 400px; /* Breite Carousel-Karte */
-    --carousel-card-h: 300px; /* Höhe Carousel-Karte */
-    --carousel-card-pad: 26px; /* Innenpadding Carousel-Karte */
-    --carousel-sign-gap-top: 22px; /* Abstand Signatur im Carousel */
-    --carousel-shell-top: 18px; /* Abstand oberhalb Carousel */
+    --carousel-card-w: 400px; /* Breite Karte */
+    --carousel-card-h: 300px; /* Höhe Karte */
+    --carousel-card-pad: 26px; /* Innenpadding Karte */
+    --carousel-sign-gap-top: 22px; /* Abstand Signatur */
+    --carousel-shell-top: 18px; /* Abstand Carousel oben */
 
     --cta-gap: 14px; /* Abstand CTA-Elemente */
     --cta-pad-y: 0.45em; /* vertikales Padding CTA */
@@ -209,73 +190,77 @@
 
     --contact-form-max-w: 25vw; /* maximale Breite Kontaktformular */
     --contact-form-min-w: 320px; /* minimale Breite Kontaktformular */
-    --contact-form-gap: 14px; /* Abstand Felder Kontaktformular */
-    --contact-form-field-pad-y: 12px; /* vertikales Padding Formularfeld */
-    --contact-form-field-pad-x: 14px; /* horizontales Padding Formularfeld */
-    --contact-form-radius: var(--frame-r-md); /* Radius Formularfelder */
+    --contact-form-gap: 14px; /* Abstand Felder */
+    --contact-form-field-pad-y: 12px; /* vertikales Padding Feld */
+    --contact-form-field-pad-x: 14px; /* horizontales Padding Feld */
+    --contact-form-radius: var(--frame-r-md); /* Radius Formular */
     --contact-form-submit-pad-y: 0.45em; /* vertikales Padding Submit */
     --contact-form-submit-pad-x: 0.9em; /* horizontales Padding Submit */
 
     --pre-footer-min-h: 120px; /* Mindesthöhe Pre-Footer */
     --pre-footer-pad-y: 0px; /* vertikales Padding Pre-Footer */
     --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
-    --pre-footer-item-gap: 18px; /* Abstand Icon zu Text Pre-Footer */
-    --pre-footer-margin-bottom: 20px; /* Abstand Pre-Footer zu Footer */
-    --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons Desktop */
-    --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons Desktop */
-    --pre-footer-icon-pos-x: 50%; /* horizontale Bildposition Pre-Footer-Icons Desktop */
-    --pre-footer-icon-pos-y: 50%; /* vertikale Bildposition Pre-Footer-Icons Desktop */
+    --pre-footer-item-gap: 18px; /* Abstand Icon zu Text */
+    --pre-footer-margin-bottom: 20px; /* Abstand zu Footer */
+    --pre-footer-icon-h: 75px; /* Höhe Pre-Footer-Icons */
+    --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons */
+    --pre-footer-icon-pos-x: 50%; /* horizontale Position Bild */
+    --pre-footer-icon-pos-y: 50%; /* vertikale Position Bild */
+    --pre-footer-icon-radius: 50%; /* Form Pre-Footer-Icons */
+    --pre-footer-touch-scale: 1.25; /* Touch-Target Pre-Footer */
     --pre-footer-text-font: var(--font-body); /* Schrift Pre-Footer */
     --pre-footer-text-size: var(--fs-body); /* Schriftgröße Pre-Footer */
     --pre-footer-text-weight: var(--fw-body); /* Schriftgewicht Pre-Footer */
     --pre-footer-text-lh: var(--lh-body); /* Zeilenhöhe Pre-Footer */
-    --pre-footer-text-nowrap: nowrap; /* Zeilenumbruch Pre-Footer verhindern */
+    --pre-footer-text-nowrap: nowrap; /* Zeilenumbruch verhindern */
 
     --footer-min-h: 300px; /* Mindesthöhe Footer */
     --footer-pad-top: 20px; /* oberes Padding Footer */
     --footer-pad-bottom: 20px; /* unteres Padding Footer */
     --footer-row-gap: 18px; /* Zeilenabstand Footer */
     --footer-col-gap: 24px; /* Spaltenabstand Footer */
-    --footer-row2-baseline-pad: 0px; /* Feinkorrektur Footer Zeile 2 */
+    --footer-row2-baseline-pad: 0px; /* Feinkorrektur Footer */
 
     --footer-label-font: var(--font-body); /* Schrift Footer-Labels */
     --footer-label-size: var(--fs-body); /* Schriftgröße Footer-Labels */
     --footer-label-weight: var(--fw-sub); /* Schriftgewicht Footer-Labels */
     --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
-    --footer-label-gap-bottom: 12px; /* Abstand unter Footer-Labels */
+    --footer-label-gap-bottom: 12px; /* Abstand unter Labels */
 
-    --qual-logo-rect-h: 50px; /* Höhe rechteckige Qualification-Logos Desktop */
-    --qual-logo-round-h: 50px; /* Höhe runde Qualification-Logos Desktop */
-    --qual-logo-gap: 24px; /* Abstand Qualification-Logos Desktop */
-    --qual-logo-rect-fit: contain; /* Objektverhalten rechteckige Qualification-Logos Desktop */
-    --qual-logo-round-fit: contain; /* Objektverhalten runde Qualification-Logos Desktop */
-    --qual-logo-rect-pos-x: 50%; /* horizontale Bildposition rechteckige Qualification-Logos Desktop */
-    --qual-logo-rect-pos-y: 50%; /* vertikale Bildposition rechteckige Qualification-Logos Desktop */
-    --qual-logo-round-pos-x: 50%; /* horizontale Bildposition runde Qualification-Logos Desktop */
-    --qual-logo-round-pos-y: 50%; /* vertikale Bildposition runde Qualification-Logos Desktop */
-    --qual-logo-pad: 0px; /* Innenpadding Qualification-Logos Desktop */
+    --qual-logo-rect-h: 50px; /* Höhe rechteckige Logos Desktop */
+    --qual-logo-round-h: 50px; /* Höhe runde Logos Desktop */
+    --qual-logo-gap: 24px; /* Abstand Logos Desktop */
+    --qual-logo-rect-radius: 4px; /* Form rechteckige Logos Desktop */
+    --qual-logo-round-radius: 50%; /* Form runde Logos Desktop */
+    --qual-logo-rect-fit: contain; /* Objektverhalten rechteckige Logos Desktop */
+    --qual-logo-round-fit: contain; /* Objektverhalten runde Logos Desktop */
+    --qual-logo-rect-pos-x: 50%; /* horizontale Position rechteckiges Logo Desktop */
+    --qual-logo-rect-pos-y: 50%; /* vertikale Position rechteckiges Logo Desktop */
+    --qual-logo-round-pos-x: 50%; /* horizontale Position rundes Logo Desktop */
+    --qual-logo-round-pos-y: 50%; /* vertikale Position rundes Logo Desktop */
+    --qual-logo-pad: 0px; /* Innenpadding Logos Desktop */
+    --qual-logo-touch-scale: 1.25; /* Touch-Target Logos Desktop */
 
     --follow-icon-h: 50px; /* Höhe Follow-Icons Desktop */
     --follow-icon-gap: 18px; /* Abstand Follow-Icons Desktop */
+    --follow-icon-radius: 50%; /* Form Follow-Icons Desktop */
     --follow-icon-fit: contain; /* Objektverhalten Follow-Icons Desktop */
-    --follow-icon-pos-x: 50%; /* horizontale Bildposition Follow-Icons Desktop */
-    --follow-icon-pos-y: 50%; /* vertikale Bildposition Follow-Icons Desktop */
+    --follow-icon-pos-x: 50%; /* horizontale Position Follow-Icons Desktop */
+    --follow-icon-pos-y: 50%; /* vertikale Position Follow-Icons Desktop */
     --follow-icon-pad: 0px; /* Innenpadding Follow-Icons Desktop */
+    --follow-icon-touch-scale: 1.25; /* Touch-Target Follow Desktop */
 
-    --backtop-icon-h: 20px; /* Höhe Chevron Seitenanfang */
+    --backtop-icon-h: 20px; /* Höhe Chevron Desktop */
     --backtop-gap: 3px; /* Abstand Chevron zu Text */
 
-    --legal-font: var(--font-body); /* Schrift Legal-Bereich */
-    --legal-size: var(--fs-body); /* Schriftgröße Legal-Bereich */
-    --legal-weight: var(--fw-body); /* Schriftgewicht Legal-Bereich */
-    --legal-lh: var(--lh-body); /* Zeilenhöhe Legal-Bereich */
-    --legal-links-gap: 10px; /* Abstand zwischen Impressum und Datenschutz auf Desktop */
+    --legal-font: var(--font-body); /* Schrift Legal */
+    --legal-size: var(--fs-body); /* Schriftgröße Legal */
+    --legal-weight: var(--fw-body); /* Schriftgewicht Legal */
+    --legal-lh: var(--lh-body); /* Zeilenhöhe Legal */
+    --legal-links-gap: 10px; /* Abstand Impressum / Datenschutz Desktop */
     --legal-wrap: nowrap; /* Umbruchverhalten Legal */
 
     --anchor-offset: 20px; /* Scroll-Offset Ankerziele */
-
-    --touch-grow: 12.5%; /* 25% größerer Touch-Target gesamt */
-    --touch-grow-px: 8px; /* Mindestvergrößerung Touch-Target in px */
 
     --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
     --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
@@ -380,39 +365,13 @@ body {
     background-image: none;
 }
 
-/* ==== KLICKBEREICHE / TOUCH TARGETS ==== */
-.nav-link,
-.nav-link--home,
-.lang-btn,
-.nav-menu-toggle,
-.nav-mobile-link,
-.pre-footer-link,
-.backtop,
-.follow-icons a,
-.qualifications-logos a,
-.legal-link,
-.cta-btn,
-.form-submit,
-.form-link {
-    position: relative;
-}
-
-.nav-link::after,
-.nav-link--home::after,
-.lang-btn::after,
-.nav-menu-toggle::after,
-.nav-mobile-link::after,
-.pre-footer-link::after,
-.backtop::after,
-.follow-icons a::after,
-.qualifications-logos a::after,
-.legal-link::after,
-.cta-btn::after,
-.form-submit::after,
-.form-link::after {
-    content: "";
-    position: absolute;
-    inset: calc(-1 * max(var(--touch-grow-px), var(--touch-grow)));
+.main-nav .gold-frame > img,
+.main-nav .gold-frame > picture > img,
+.pre-footer .gold-frame > img,
+.pre-footer .gold-frame > picture > img,
+.footer .gold-frame > img,
+.footer .gold-frame > picture > img {
+    border-radius: inherit;
 }
 
 /* ==== HEADER ==== */
@@ -453,42 +412,77 @@ body {
 }
 
 .nav-inner {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    column-gap: 75px;
+    height: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--side-pad);
 }
 
-.nav-links-desktop {
+.nav-grid-desktop {
+    height: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, auto));
-    justify-content: center;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-areas: "a_desktop b_desktop c_desktop d_desktop e_desktop f_desktop";
     align-items: center;
-    column-gap: 120px;
 }
 
-.nav-items {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
+.nav-a_desktop {
+    grid-area: a_desktop;
+    justify-self: start;
+}
+
+.nav-b_desktop {
+    grid-area: b_desktop;
+    justify-self: center;
+}
+
+.nav-c_desktop {
+    grid-area: c_desktop;
+    justify-self: center;
+}
+
+.nav-d_desktop {
+    grid-area: d_desktop;
+    justify-self: center;
+}
+
+.nav-e_desktop {
+    grid-area: e_desktop;
+    justify-self: center;
+}
+
+.nav-f_desktop {
+    grid-area: f_desktop;
+    justify-self: end;
+}
+
+.nav-grid-mobile {
+    display: none;
+}
+
+.nav-link {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: var(--fs-nav-link);
+    letter-spacing: var(--nav-letter-spacing);
+    font-weight: var(--fw-nav-link);
+    text-transform: var(--nav-text-transform);
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
 }
 
 .nav-link--home {
-    position: relative;
-    top: auto;
-    left: auto;
-    z-index: auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: var(--nav-home-h);
-    width: auto;
-    min-width: calc(var(--nav-home-h) * 1.25);
-    text-decoration: none;
-}
-
-.nav-link--home:hover {
+    width: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+    height: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+    min-width: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+    min-height: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+    padding: calc((var(--nav-home-h) * var(--nav-icon-touch-scale) - var(--nav-home-h)) / 2);
     text-decoration: none;
 }
 
@@ -496,51 +490,15 @@ body {
     display: block;
     height: var(--nav-home-h);
     width: auto;
-    object-fit: contain;
-}
-
-.nav-items a.nav-link:not(.nav-link--home) {
-    color: var(--cream);
-    text-decoration: none;
-    font-size: var(--fs-nav-link);
-    letter-spacing: var(--nav-letter-spacing);
-    font-weight: var(--fw-nav-link);
-    text-transform: var(--nav-text-transform);
-}
-
-.nav-items a.nav-link:not(.nav-link--home):hover {
-    text-decoration: underline;
-}
-
-.nav-items a.nav-link[href*="#about"],
-.nav-items a.nav-link[href*="/#about"] {
-    grid-column: 2;
-    justify-self: center;
-    margin-right: calc(var(--nav-links-gap) * 1.5);
-}
-
-.nav-items a.nav-link[href*="#services"],
-.nav-items a.nav-link[href*="/#services"] {
-    grid-column: 2;
-    justify-self: center;
-}
-
-.nav-items a.nav-link[href*="mailto:mail@haukethimm.com"],
-.nav-items a.nav-link[href*="/contact/"] {
-    grid-column: 2;
-    justify-self: center;
-    margin-left: calc(var(--nav-links-gap) * 1.5);
+    object-fit: var(--nav-home-fit);
 }
 
 .lang-toggle {
-    grid-column: 3;
-    justify-self: end;
-    align-self: center;
     position: relative;
-    width: var(--lang-btn-h);
-    height: var(--lang-btn-h);
-    margin-right: var(--nav-lang-offset-x);
-    z-index: 10001;
+    width: calc(var(--lang-btn-h) * var(--nav-icon-touch-scale));
+    height: calc(var(--lang-btn-h) * var(--nav-icon-touch-scale));
+    min-width: calc(var(--lang-btn-h) * var(--nav-icon-touch-scale));
+    min-height: calc(var(--lang-btn-h) * var(--nav-icon-touch-scale));
 }
 
 .lang-btn {
@@ -550,12 +508,9 @@ body {
     background: transparent;
     padding: 0;
     margin: 0;
-    display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 50%;
-    overflow: hidden;
 }
 
 .lang-btn.is-active {
@@ -570,33 +525,34 @@ body {
     width: var(--lang-btn-h);
     height: var(--lang-btn-h);
     border-radius: 50%;
-    overflow: hidden;
 }
 
 .lang-btn .gold-frame > img {
-    object-fit: var(--lang-btn-fit);
-    object-position: var(--lang-btn-pos-x) var(--lang-btn-pos-y);
-    border-radius: 50%;
+    width: auto;
+    height: 100%;
+    object-fit: cover;
 }
 
 .nav-menu-toggle {
     display: none;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--nav-menu-btn-h) * var(--nav-icon-touch-scale));
+    height: calc(var(--nav-menu-btn-h) * var(--nav-icon-touch-scale));
+    min-width: calc(var(--nav-menu-btn-h) * var(--nav-icon-touch-scale));
+    min-height: calc(var(--nav-menu-btn-h) * var(--nav-icon-touch-scale));
+    padding: calc((var(--nav-menu-btn-h) * var(--nav-icon-touch-scale) - var(--nav-menu-btn-h)) / 2);
+    margin: 0;
     border: 0;
     background: transparent;
-    padding: 0;
-    margin: 0;
     cursor: pointer;
-    border-radius: 50%;
-    overflow: hidden;
 }
 
 .nav-menu-toggle img {
     display: block;
-    width: var(--nav-menu-btn-h);
     height: var(--nav-menu-btn-h);
-    object-fit: var(--nav-menu-btn-fit);
-    object-position: var(--nav-menu-btn-pos-x) var(--nav-menu-btn-pos-y);
-    border-radius: 50%;
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-mobile-panel {
@@ -949,6 +905,7 @@ section.anchor {
     flex-direction: column;
     align-items: center;
     gap: var(--cta-gap);
+    text-align: center;
 }
 
 .cta-btn {
@@ -1117,6 +1074,8 @@ section.anchor {
     font-weight: var(--fw-body);
     line-height: var(--lh-body);
     white-space: nowrap;
+    min-height: calc(var(--pre-footer-icon-h) * var(--pre-footer-touch-scale));
+    padding: calc((var(--pre-footer-icon-h) * var(--pre-footer-touch-scale) - var(--pre-footer-icon-h)) / 2);
 }
 
 .pre-footer-link:visited,
@@ -1129,26 +1088,20 @@ section.anchor {
 }
 
 .pre-footer-item .gold-frame {
-    width: auto;
+    width: var(--pre-footer-icon-h);
     height: var(--pre-footer-icon-h);
-    flex: 0 0 auto;
-    border-radius: 0;
-    overflow: visible;
+    flex: 0 0 var(--pre-footer-icon-h);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--pre-footer-icon-radius);
 }
 
-.pre-footer-item .gold-frame > img,
-.pre-footer-item .gold-frame > picture,
-.pre-footer-item .gold-frame > picture > img {
-    display: block;
-    width: auto;
+.pre-footer-item .gold-frame > img {
+    width: 100%;
     height: 100%;
-}
-
-.pre-footer-item .gold-frame > img,
-.pre-footer-item .gold-frame > picture > img {
     object-fit: var(--pre-footer-icon-fit);
     object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos-y);
     padding: 0;
+    display: block;
 }
 
 .pre-footer-text {
@@ -1178,54 +1131,41 @@ section.anchor {
     margin: 0 auto;
     padding: 0 var(--side-pad);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "a1 b1 c1"
-        "a2 b2 c2";
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-areas: "a_desktop b_desktop c_desktop d_desktop e_desktop f_desktop";
     column-gap: var(--footer-col-gap);
-    row-gap: var(--footer-row-gap);
-    align-items: start;
+    align-items: end;
     min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom));
 }
 
-.footer-a1 {
-    grid-area: a1;
-    align-self: start;
+.footer-a_desktop {
+    grid-area: a_desktop;
     justify-self: start;
 }
 
-.footer-b1 {
-    grid-area: b1;
-    align-self: start;
+.footer-b_desktop {
+    grid-area: b_desktop;
     justify-self: center;
 }
 
-.footer-c1 {
-    grid-area: c1;
-    align-self: start;
-    justify-self: start;
-}
-
-.footer-a2 {
-    grid-area: a2;
-    align-self: end;
-    justify-self: start;
-    padding-bottom: var(--footer-row2-baseline-pad);
-}
-
-.footer-b2 {
-    grid-area: b2;
-    align-self: end;
+.footer-c_desktop {
+    grid-area: c_desktop;
     justify-self: center;
-    padding-bottom: var(--footer-row2-baseline-pad);
 }
 
-.footer-c2 {
-    grid-area: c2;
-    align-self: end;
-    justify-self: start;
-    padding-bottom: var(--footer-row2-baseline-pad);
+.footer-d_desktop {
+    grid-area: d_desktop;
+    justify-self: center;
+}
+
+.footer-e_desktop {
+    grid-area: e_desktop;
+    justify-self: center;
+}
+
+.footer-f_desktop {
+    grid-area: f_desktop;
+    justify-self: end;
 }
 
 .qualifications-label,
@@ -1246,38 +1186,47 @@ section.anchor {
     flex-wrap: wrap;
 }
 
+.qualifications-logos a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(var(--qual-logo-round-h) * var(--qual-logo-touch-scale));
+    padding: calc((var(--qual-logo-round-h) * var(--qual-logo-touch-scale) - var(--qual-logo-round-h)) / 2);
+}
+
 .qualifications-logos .gold-frame {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
-    width: auto;
-    flex: 0 0 auto;
+    overflow: hidden;
 }
 
 .qualifications-logos .gold-frame.shape--rect {
     height: var(--qual-logo-rect-h);
+    width: auto;
+    border-radius: var(--qual-logo-rect-radius);
 }
 
 .qualifications-logos .gold-frame.shape--round {
     width: var(--qual-logo-round-h);
     height: var(--qual-logo-round-h);
-    border-radius: 50%;
-    overflow: hidden;
+    flex: 0 0 var(--qual-logo-round-h);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--qual-logo-round-radius);
 }
 
 .qualifications-logos .gold-frame > img,
 .qualifications-logos .gold-frame > picture {
     display: block;
-    width: auto;
     height: 100%;
+    width: auto;
 }
 
 .qualifications-logos .gold-frame > img,
 .qualifications-logos .gold-frame > picture > img {
     display: block;
-    width: auto;
     height: 100%;
+    width: auto;
     max-width: none;
     padding: var(--qual-logo-pad);
 }
@@ -1307,11 +1256,13 @@ section.anchor {
     text-decoration: none;
     font-size: var(--fs-backtop);
     font-weight: var(--fw-backtop);
+    min-height: calc(var(--backtop-icon-h) * 2);
+    padding: 8px;
 }
 
 .backtop .chevron-img {
-    width: auto;
     height: var(--backtop-icon-h);
+    width: auto;
     display: block;
 }
 
@@ -1331,12 +1282,20 @@ section.anchor {
     flex-wrap: wrap;
 }
 
+.follow-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(var(--follow-icon-h) * var(--follow-icon-touch-scale));
+    padding: calc((var(--follow-icon-h) * var(--follow-icon-touch-scale) - var(--follow-icon-h)) / 2);
+}
+
 .follow-icons .gold-frame.shape--round {
     width: var(--follow-icon-h);
     height: var(--follow-icon-h);
     flex: 0 0 var(--follow-icon-h);
-    border-radius: 50%;
-    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--follow-icon-radius);
 }
 
 .follow-icons .gold-frame > img,
@@ -1392,62 +1351,49 @@ section.anchor {
 @media (max-width: 768px) {
 
     :root {
-        --side-pad: 32px; /* horizontaler Seiteninnenabstand mobil */
+        --side-pad: 18px; /* horizontaler Seiteninnenabstand mobil */
         --banner-h: 64px; /* Höhe Nav-Banner mobil */
+
+        --nav-home-h: 32px; /* Höhe Home-Icon mobil */
+        --nav-menu-btn-h: 32px; /* Höhe Menü-Icon mobil */
+        --lang-btn-h: 32px; /* Höhe Sprachbutton mobil */
+        --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü mobil */
+
         --contact-form-max-w: 75vw; /* maximale Breite Formular mobil */
         --contact-form-min-w: 0px; /* minimale Breite Formular mobil */
 
-        --nav-home-h: 60px; /* Höhe Home-Icon mobil */
-        --nav-home-left: calc(var(--side-pad) + 75px); /* Home-Icon 75px eingerückt vom linken Padding mobil */
-        --nav-home-y: 0px; /* vertikale Feinkorrektur Home-Icon mobil */
-
-        --nav-menu-btn-h: 60px; /* Höhe Mobile-Menü-Button mobil */
-        --nav-menu-btn-top-adjust: 0px; /* vertikale Feinkorrektur Mobile-Menü-Button mobil */
-        --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü-Panel mobil */
-        --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü-Panel mobil */
-        --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü-Panel mobil */
-        --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü mobil */
-
-        --lang-btn-h: 60px; /* Höhe Sprachbutton mobil */
-
         --pre-footer-item-gap: 12px; /* Abstand Icon zu Text Pre-Footer mobil */
         --pre-footer-col-gap: 12px; /* Spaltenabstand Pre-Footer mobil */
-        --pre-footer-icon-h: 100px; /* Höhe Pre-Footer-Icons mobil */
-        --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons mobil */
-        --pre-footer-icon-pos-x: 50%; /* horizontale PNG/JPG-Position Pre-Footer mobil */
-        --pre-footer-icon-pos-y: 50%; /* vertikale PNG/JPG-Position Pre-Footer mobil */
-        --pre-footer-icon-radius: 50%; /* Form Pre-Footer-Icons mobil */
+        --pre-footer-icon-h: 64px; /* Höhe Pre-Footer-Icons mobil */
 
-        --qual-logo-rect-h-mobile: 100px; /* Höhe rechteckige Qualification-Logos mobil */
-        --qual-logo-round-h-mobile: 50px; /* Höhe runde Qualification-Logos mobil */
-        --qual-logo-gap-mobile: 30px; /* Abstand Qualification-Logos mobil */
-        --qual-logo-frame-mobile: var(--frame-w-sm); /* Rahmenstärke Qualification-Logos mobil */
+        --qual-logo-rect-h-mobile: 48px; /* Höhe rechteckige Qualification-Logos mobil */
+        --qual-logo-round-h-mobile: 48px; /* Höhe runde Qualification-Logos mobil */
+        --qual-logo-gap-mobile: 18px; /* Abstand Qualification-Logos mobil */
         --qual-logo-rect-radius-mobile: 50%; /* Form rechteckige Qualification-Logos mobil */
         --qual-logo-round-radius-mobile: 50%; /* Form runde Qualification-Logos mobil */
         --qual-logo-rect-fit-mobile: cover; /* Objektverhalten rechteckige Qualification-Logos mobil */
         --qual-logo-round-fit-mobile: cover; /* Objektverhalten runde Qualification-Logos mobil */
-        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position rechteckige Qualification-Logos mobil */
-        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position rechteckige Qualification-Logos mobil */
-        --qual-logo-round-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position runde Qualification-Logos mobil */
-        --qual-logo-round-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position runde Qualification-Logos mobil */
+        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale Position rechteckige Qualification-Logos mobil */
+        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale Position rechteckige Qualification-Logos mobil */
+        --qual-logo-round-pos-x-mobile: 50%; /* horizontale Position runde Qualification-Logos mobil */
+        --qual-logo-round-pos-y-mobile: 50%; /* vertikale Position runde Qualification-Logos mobil */
 
-        --follow-icon-h-mobile: 100px; /* Höhe Follow-Icons mobil */
-        --follow-icon-gap-mobile: 30px; /* Abstand Follow-Icons mobil */
-        --follow-icon-frame-mobile: var(--frame-w-sm); /* Rahmenstärke Follow-Icons mobil */
+        --follow-icon-h-mobile: 48px; /* Höhe Follow-Icons mobil */
+        --follow-icon-gap-mobile: 18px; /* Abstand Follow-Icons mobil */
         --follow-icon-radius-mobile: 50%; /* Form Follow-Icons mobil */
         --follow-icon-fit-mobile: cover; /* Objektverhalten Follow-Icons mobil */
-        --follow-icon-pos-x-mobile: 50%; /* horizontale PNG/JPG-Position Follow-Icons mobil */
-        --follow-icon-pos-y-mobile: 50%; /* vertikale PNG/JPG-Position Follow-Icons mobil */
+        --follow-icon-pos-x-mobile: 50%; /* horizontale Position Follow-Icons mobil */
+        --follow-icon-pos-y-mobile: 50%; /* vertikale Position Follow-Icons mobil */
         --follow-icon-pad-mobile: 0px; /* Innenpadding Follow-Icons mobil */
 
-        --backtop-icon-h-mobile: 5px; /* Höhe Chevron mobil */
+        --backtop-icon-h-mobile: 18px; /* Höhe Chevron mobil */
 
         --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
         --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
         --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding Zeile F mobil */
         --footer-mobile-b-gap: 18px; /* Abstand Inhalte Zeile B mobil */
         --footer-mobile-c-gap: 18px; /* Abstand Inhalte Zeile C mobil */
-        --legal-links-gap: 15px; /* Abstand zwischen Impressum und Datenschutz mobil */
+        --legal-links-gap: 15px; /* Abstand Impressum / Datenschutz mobil */
     }
 
     #credentials .feedback-card {
@@ -1464,76 +1410,53 @@ section.anchor {
         overflow-x: hidden;
     }
 
-    .nav-inner {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 var(--side-pad);
-    }
-
-    .nav-items {
-        width: 100%;
-        min-height: var(--banner-h);
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
-    }
-
-    .nav-items a.nav-link:not(.nav-link--home) {
+    .nav-grid-desktop {
         display: none;
     }
 
-    .nav-link--home {
-        left: auto;
-        position: relative;
-        top: auto;
-        justify-self: start;
-        align-self: center;
-        width: auto;
-        height: calc(var(--nav-home-h) * 1.25);
-        min-width: calc(var(--nav-home-h) * 1.25);
-        min-height: calc(var(--nav-home-h) * 1.25);
-        padding: calc(var(--nav-home-h) * 0.125);
+    .nav-grid-mobile {
+        display: grid;
+        height: 100%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-areas: "a_mobile b_mobile c_mobile";
+        align-items: center;
     }
 
-    .nav-link--home img {
+    .nav-a_mobile {
+        grid-area: a_mobile;
+        justify-self: start;
+    }
+
+    .nav-b_mobile {
+        grid-area: b_mobile;
+        justify-self: center;
+    }
+
+    .nav-c_mobile {
+        grid-area: c_mobile;
+        justify-self: end;
+    }
+
+    .nav-grid-mobile .nav-link--home {
+        width: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+        height: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+        min-width: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+        min-height: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+        padding: calc((var(--nav-home-h) * var(--nav-icon-touch-scale) - var(--nav-home-h)) / 2);
+    }
+
+    .nav-grid-mobile .nav-link--home img {
         height: var(--nav-home-h);
         width: auto;
-        object-fit: var(--nav-home-fit);
     }
 
-    .nav-menu-toggle {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        justify-self: center;
-        align-self: center;
-        z-index: 10001;
+    .nav-grid-mobile .nav-menu-toggle {
         display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: calc(var(--nav-menu-btn-h) * 1.25);
-        height: calc(var(--nav-menu-btn-h) * 1.25);
-        min-width: calc(var(--nav-menu-btn-h) * 1.25);
-        min-height: calc(var(--nav-menu-btn-h) * 1.25);
-        padding: calc(var(--nav-menu-btn-h) * 0.125);
     }
 
-    .lang-toggle {
-        position: relative;
-        top: auto;
-        right: auto;
-        justify-self: end;
-        align-self: center;
-        width: calc(var(--lang-btn-h) * 1.25);
-        height: calc(var(--lang-btn-h) * 1.25);
-        min-width: calc(var(--lang-btn-h) * 1.25);
-        min-height: calc(var(--lang-btn-h) * 1.25);
-    }
-
-    .lang-btn .gold-frame {
-        width: var(--lang-btn-h);
-        height: var(--lang-btn-h);
+    .nav-grid-mobile .lang-toggle {
+        width: calc(var(--lang-btn-h) * var(--nav-icon-touch-scale));
+        height: calc(var(--lang-btn-h) * var(--nav-icon-touch-scale));
     }
 
     .nav-mobile-panel {
@@ -1557,8 +1480,7 @@ section.anchor {
     .nav-mobile-link {
         display: block;
         text-align: center;
-        min-height: calc(var(--fs-body) * 1.25);
-        padding: calc(var(--fs-body) * 0.125) 0;
+        padding: 8px 0;
     }
 
     .header-image picture,
@@ -1576,11 +1498,6 @@ section.anchor {
 
     .form-row-2 {
         grid-template-columns: 1fr;
-    }
-
-    .contact-cta {
-        align-items: center;
-        text-align: center;
     }
 
     .pre-footer {
@@ -1613,23 +1530,6 @@ section.anchor {
 
     .pre-footer-link {
         justify-content: center;
-        min-width: calc(var(--pre-footer-icon-h) * 1.25);
-        min-height: calc(var(--pre-footer-icon-h) * 1.25);
-        padding: calc(var(--pre-footer-icon-h) * 0.125);
-    }
-
-    .pre-footer-item .gold-frame {
-        width: auto;
-        height: var(--pre-footer-icon-h);
-        flex: 0 0 auto;
-        border-radius: var(--pre-footer-icon-radius);
-    }
-
-    .pre-footer-item .gold-frame > img {
-        width: auto;
-        height: 100%;
-        object-fit: var(--pre-footer-icon-fit);
-        object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos-y);
     }
 
     .footer {
@@ -1643,49 +1543,54 @@ section.anchor {
         box-sizing: border-box;
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: auto auto auto auto auto auto;
         grid-template-areas:
-            "a"
-            "b"
-            "c"
-            "d"
-            "e"
-            "f";
+            "a_mobile"
+            "b_mobile"
+            "c_mobile"
+            "d_mobile"
+            "e_mobile"
+            "f_mobile";
         row-gap: 0;
         min-height: 0;
         padding: 0 var(--side-pad);
     }
 
-    .footer-a {
-        grid-area: a;
+    .footer-a_mobile {
+        grid-area: a_mobile;
     }
 
-    .footer-b {
-        grid-area: b;
+    .footer-b_mobile {
+        grid-area: b_mobile;
     }
 
-    .footer-c {
-        grid-area: c;
+    .footer-c_mobile {
+        grid-area: c_mobile;
     }
 
-    .footer-d {
-        grid-area: d;
+    .footer-d_mobile {
+        grid-area: d_mobile;
     }
 
-    .footer-e {
-        grid-area: e;
+    .footer-e_mobile {
+        grid-area: e_mobile;
     }
 
-    .footer-f {
-        grid-area: f;
+    .footer-f_mobile {
+        grid-area: f_mobile;
     }
 
-    .footer-a,
-    .footer-b,
-    .footer-c,
-    .footer-d,
-    .footer-e,
-    .footer-f {
+    .footer-a_desktop,
+    .footer-b_desktop,
+    .footer-c_desktop,
+    .footer-d_desktop,
+    .footer-e_desktop,
+    .footer-f_desktop,
+    .footer-a_mobile,
+    .footer-b_mobile,
+    .footer-c_mobile,
+    .footer-d_mobile,
+    .footer-e_mobile,
+    .footer-f_mobile {
         width: 100%;
         justify-self: stretch;
         align-self: stretch;
@@ -1697,139 +1602,127 @@ section.anchor {
         box-sizing: border-box;
     }
 
-    .footer-a,
-    .footer-d,
-    .footer-e,
-    .footer-f {
+    .footer-a_mobile,
+    .footer-d_mobile,
+    .footer-e_mobile,
+    .footer-f_mobile {
         padding-top: var(--footer-mobile-row-pad-top);
         padding-bottom: var(--footer-mobile-row-pad-bottom);
     }
 
-    .footer-f {
+    .footer-f_mobile {
         padding-bottom: var(--footer-mobile-row-pad-bottom-f);
     }
 
-    .footer-b,
-    .footer-c {
+    .footer-b_mobile,
+    .footer-c_mobile {
         padding-top: var(--footer-mobile-row-pad-top);
     }
 
-    .footer-b {
+    .footer-b_mobile {
         gap: var(--footer-mobile-b-gap);
     }
 
-    .footer-c {
+    .footer-c_mobile {
         gap: var(--footer-mobile-c-gap);
     }
 
-    .footer-a .backtop {
+    .footer-a_mobile .backtop {
         align-items: center;
         justify-content: center;
-        min-width: calc(var(--backtop-icon-h-mobile) * 1.25);
-        min-height: calc(var(--backtop-icon-h-mobile) * 1.25);
-        padding: calc(var(--backtop-icon-h-mobile) * 0.125);
     }
 
-    .footer-a .backtop .chevron-img {
+    .footer-a_mobile .backtop .chevron-img {
         height: var(--backtop-icon-h-mobile);
         width: auto;
     }
 
-    .footer-b .qualifications-label,
-    .footer-c .follow-label {
+    .footer-b_mobile .qualifications-label,
+    .footer-c_mobile .follow-label {
         margin-bottom: 0;
     }
 
-    .footer-b .qualifications-logos,
-    .footer-c .follow-icons {
+    .footer-b_mobile .qualifications-logos,
+    .footer-c_mobile .follow-icons {
         justify-content: center;
     }
 
-    .footer-b .qualifications-logos {
+    .footer-b_mobile .qualifications-logos {
         gap: var(--qual-logo-gap-mobile);
     }
 
-    .footer-c .follow-icons {
+    .footer-c_mobile .follow-icons {
         gap: var(--follow-icon-gap-mobile);
         flex-wrap: nowrap;
     }
 
-    .footer .qualifications-logos .gold-frame {
-        border-width: var(--qual-logo-frame-mobile);
+    .footer-b_mobile .qualifications-logos a {
+        min-height: calc(var(--qual-logo-round-h-mobile) * var(--qual-logo-touch-scale));
+        padding: calc((var(--qual-logo-round-h-mobile) * var(--qual-logo-touch-scale) - var(--qual-logo-round-h-mobile)) / 2);
     }
 
-    .footer .qualifications-logos .gold-frame.shape--rect {
-        width: auto;
+    .footer-b_mobile .qualifications-logos .gold-frame.shape--rect {
+        width: var(--qual-logo-rect-h-mobile);
         height: var(--qual-logo-rect-h-mobile);
-        flex: 0 0 auto;
+        flex: 0 0 var(--qual-logo-rect-h-mobile);
+        aspect-ratio: 1 / 1;
         border-radius: var(--qual-logo-rect-radius-mobile);
     }
 
-    .footer .qualifications-logos .gold-frame.shape--round {
-        width: auto;
+    .footer-b_mobile .qualifications-logos .gold-frame.shape--round {
+        width: var(--qual-logo-round-h-mobile);
         height: var(--qual-logo-round-h-mobile);
-        flex: 0 0 auto;
+        flex: 0 0 var(--qual-logo-round-h-mobile);
         aspect-ratio: 1 / 1;
         border-radius: var(--qual-logo-round-radius-mobile);
     }
 
-    .footer .qualifications-logos .gold-frame.shape--rect > img,
-    .footer .qualifications-logos .gold-frame.shape--rect > picture,
-    .footer .qualifications-logos .gold-frame.shape--rect > picture > img {
-        width: auto;
-        height: 100%;
-    }
-
-    .footer .qualifications-logos .gold-frame.shape--round > img,
-    .footer .qualifications-logos .gold-frame.shape--round > picture,
-    .footer .qualifications-logos .gold-frame.shape--round > picture > img {
+    .footer-b_mobile .qualifications-logos .gold-frame.shape--rect > img,
+    .footer-b_mobile .qualifications-logos .gold-frame.shape--rect > picture > img {
         width: 100%;
         height: 100%;
-    }
-
-    .footer .qualifications-logos .gold-frame.shape--rect > img,
-    .footer .qualifications-logos .gold-frame.shape--rect > picture > img {
         object-fit: var(--qual-logo-rect-fit-mobile);
         object-position: var(--qual-logo-rect-pos-x-mobile) var(--qual-logo-rect-pos-y-mobile);
         padding: 0;
         border-radius: inherit;
     }
 
-    .footer .qualifications-logos .gold-frame.shape--round > img,
-    .footer .qualifications-logos .gold-frame.shape--round > picture > img {
+    .footer-b_mobile .qualifications-logos .gold-frame.shape--round > img,
+    .footer-b_mobile .qualifications-logos .gold-frame.shape--round > picture > img {
+        width: 100%;
+        height: 100%;
         object-fit: var(--qual-logo-round-fit-mobile);
         object-position: var(--qual-logo-round-pos-x-mobile) var(--qual-logo-round-pos-y-mobile);
         padding: 0;
         border-radius: inherit;
     }
 
-    .footer .follow-icons .gold-frame {
-        width: auto;
+    .footer-c_mobile .follow-icons a {
+        min-height: calc(var(--follow-icon-h-mobile) * var(--follow-icon-touch-scale));
+        padding: calc((var(--follow-icon-h-mobile) * var(--follow-icon-touch-scale) - var(--follow-icon-h-mobile)) / 2);
+    }
+
+    .footer-c_mobile .follow-icons .gold-frame {
+        width: var(--follow-icon-h-mobile);
         height: var(--follow-icon-h-mobile);
-        flex: 0 0 auto;
+        flex: 0 0 var(--follow-icon-h-mobile);
         aspect-ratio: 1 / 1;
         border-radius: var(--follow-icon-radius-mobile);
-        border-width: var(--follow-icon-frame-mobile);
     }
 
-    .footer .follow-icons .gold-frame > img,
-    .footer .follow-icons .gold-frame > picture,
-    .footer .follow-icons .gold-frame > picture > img {
+    .footer-c_mobile .follow-icons .gold-frame > img,
+    .footer-c_mobile .follow-icons .gold-frame > picture > img {
         width: 100%;
         height: 100%;
-    }
-
-    .footer .follow-icons .gold-frame > img,
-    .footer .follow-icons .gold-frame > picture > img {
         object-fit: var(--follow-icon-fit-mobile);
         object-position: var(--follow-icon-pos-x-mobile) var(--follow-icon-pos-y-mobile);
         padding: var(--follow-icon-pad-mobile);
         border-radius: inherit;
     }
 
-    .footer-d .legal-copy,
-    .footer-e .legal-copy,
-    .footer-f .legal-links {
+    .footer-d_mobile .legal-copy,
+    .footer-e_mobile .legal-copy,
+    .footer-f_mobile .legal-links {
         text-align: center;
         justify-content: center;
     }

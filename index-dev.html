@@ -1,6 +1,4 @@
-<!-- ===== FILE: index-dev.html ===== -->
 <!DOCTYPE html>
-
 <html lang="de">
 
     <head>
@@ -10,16 +8,16 @@
         <title>haukethimm.com</title>
 
         <!-- ==== FAVICON ==== -->
-        <link rel="icon" href="/assets/img/favicon.ico" sizes="any">
-        <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" sizes="16x16">
-        <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+        <link rel="icon" href="/assets/img/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
 
         <!-- ==== STYLES ==== -->
         <link rel="stylesheet" href="/assets/css/styles.css" />
 
         <!-- ==== MANIFEST ==== -->
-        <link rel="manifest" href="/site.webmanifest">
+        <link rel="manifest" href="/site.webmanifest" />
     </head>
 
     <body>
@@ -27,33 +25,76 @@
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
                 <div class="nav-inner">
-                    <div class="nav-items">
-                        <a class="nav-link nav-link--home" href="#top" aria-label="Home">
-                            <img src="assets/img/home.png" alt="Home" />
-                        </a>
+                    <!-- ==== NAV GRID DESKTOP ==== -->
+                    <div class="nav-grid-desktop">
+                        <div class="nav-a_desktop">
+                            <a class="nav-link nav-link--home" href="#top" aria-label="Home">
+                                <img src="assets/img/home.png" alt="Home" />
+                            </a>
+                        </div>
 
-                        <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
-                        <a class="nav-link" href="#contact" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
-                        <a class="nav-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
-                        <!-- <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
-                        <!-- <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
+                        <div class="nav-b_desktop">
+                            <a class="nav-link" href="#about" data-en="ABOUT ME" data-de="ÜBER MICH">ABOUT ME</a>
+                        </div>
 
-                        <button type="button" class="nav-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobilePanel">
-                            <img src="assets/img/nav-menu.png" alt="" />
-                        </button>
+                        <div class="nav-c_desktop">
+                            <a class="nav-link" href="#services" data-en="SERVICES" data-de="SERVICES">SERVICES</a>
+                        </div>
 
-                        <div class="lang-toggle" aria-label="Language selector">
-                            <button type="button" class="lang-btn" data-lang="en" aria-label="English">
-                                <span class="gold-frame frame--sm shape--round">
-                                    <img src="assets/img/flag-uk.png" alt="EN" />
-                                </span>
+                        <div class="nav-d_desktop">
+                            <!-- <a class="nav-link" href="#credentials" data-en="CREDENTIALS" data-de="EXPERTISE">CREDENTIALS</a> -->
+                        </div>
+
+                        <div class="nav-e_desktop">
+                            <a class="nav-link" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="CONTACT" data-de="KONTAKT">CONTACT</a>
+                            <!-- <a class="nav-link" href="/contact/" data-en="CONTACT" data-de="KONTAKT">CONTACT</a> -->
+                        </div>
+
+                        <div class="nav-f_desktop">
+                            <div class="lang-toggle" aria-label="Language selector">
+                                <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+                                    <span class="gold-frame frame--sm shape--round">
+                                        <img src="assets/img/flag-uk.png" alt="EN" />
+                                    </span>
+                                </button>
+
+                                <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
+                                    <span class="gold-frame frame--sm shape--round">
+                                        <img src="assets/img/flag-de.png" alt="DE" />
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==== NAV GRID MOBILE ==== -->
+                    <div class="nav-grid-mobile">
+                        <div class="nav-a_mobile">
+                            <a class="nav-link nav-link--home" href="#top" aria-label="Home">
+                                <img src="assets/img/home.png" alt="Home" />
+                            </a>
+                        </div>
+
+                        <div class="nav-b_mobile">
+                            <button type="button" class="nav-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobilePanel">
+                                <img src="assets/img/nav_menu.png" alt="" />
                             </button>
+                        </div>
 
-                            <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
-                                <span class="gold-frame frame--sm shape--round">
-                                    <img src="assets/img/flag-de.png" alt="DE" />
-                                </span>
-                            </button>
+                        <div class="nav-c_mobile">
+                            <div class="lang-toggle" aria-label="Language selector">
+                                <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+                                    <span class="gold-frame frame--sm shape--round">
+                                        <img src="assets/img/flag-uk.png" alt="EN" />
+                                    </span>
+                                </button>
+
+                                <button type="button" class="lang-btn is-active" data-lang="de" aria-label="Deutsch">
+                                    <span class="gold-frame frame--sm shape--round">
+                                        <img src="assets/img/flag-de.png" alt="DE" />
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,67 +153,6 @@
                     </div>
                 </section>
 
-                <!-- ==== CONTACT ==== -->
-                <section class="section contact-page anchor" id="contact-page">
-                    <h2 class="about-label" data-en="Contact" data-de="Kontakt">Contact</h2>
-
-                    <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
-                        Let’s discuss your project
-                    </div>
-
-                    <p class="body-text contact-cta">
-                        <a class="cta-btn" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="Send email" data-de="E-Mail senden">E-Mail senden</a>
-                    </p>
-
-                    <p class="body-text"
-                    data-en="All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly."
-                    data-de="Alle Anfragen werden diskret behandelt. Wenn Sie mit mir in Kontakt treten möchten, schreiben Sie mir bitte direkt per E-Mail.">
-                        All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly.
-                    </p>
-
-                    <!-- ==== KONTAKTFORMULAR (DERZEIT DEAKTIVIERT) ==== -->
-                    <!--
-                    <form class="contact-form" action="mailto:mail@haukethimm.com" method="post" enctype="text/plain">
-                        <label class="form-label" for="cf-name" data-en="Name *" data-de="Name *">Name *</label>
-                        <input class="form-field" id="cf-name" name="name" type="text" autocomplete="name" required />
-
-                        <label class="form-label" for="cf-email" data-en="Email *" data-de="E-Mail *">Email *</label>
-                        <input class="form-field" id="cf-email" name="email" type="email" autocomplete="email" required />
-
-                        <label class="form-label" for="cf-phone" data-en="Phone (optional)" data-de="Telefon (optional)">Phone (optional)</label>
-                        <input class="form-field" id="cf-phone" name="phone" type="tel" autocomplete="tel" />
-
-                        <div class="form-row-2">
-                            <div>
-                                <label class="form-label" for="cf-start" data-en="Event start (optional)" data-de="Eventbeginn (optional)">
-                                    Event start (optional)
-                                </label>
-                                <input class="form-field" id="cf-start" name="event_start" type="date" />
-                            </div>
-
-                            <div>
-                                <label class="form-label" for="cf-end" data-en="Event end (optional)" data-de="Eventende (optional)">
-                                    Event end (optional)
-                                </label>
-                                <input class="form-field" id="cf-end" name="event_end" type="date" />
-                            </div>
-                        </div>
-
-                        <label class="form-label" for="cf-message" data-en="Message *" data-de="Nachricht *">Message *</label>
-                        <textarea class="form-field form-textarea" id="cf-message" name="message" rows="7" required></textarea>
-
-                        <p class="form-privacy body-text"
-                        data-en="By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry. See Privacy policy."
-                        data-de="Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zum Zweck der Bearbeitung Ihrer Anfrage zu. Siehe Datenschutz.">
-                            By submitting this form, you consent to the processing of your data for the purpose of handling your enquiry.
-                            <a class="form-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy policy" data-de="Datenschutz">Privacy policy</a>.
-                        </p>
-
-                        <button class="form-submit" type="submit" data-en="Send" data-de="Absenden">Send</button>
-                    </form>
-                    -->
-                </section>
-
                 <!-- ==== VALUES ==== -->
                 <section class="values-band anchor" id="values">
                     <picture>
@@ -183,7 +163,7 @@
 
                 <!-- ==== ABOUT ==== -->
                 <section class="section about anchor" id="about">
-                    <h2 class="about-label" data-en="About me" data-de="Über mich">Über mich</h2>
+                    <h2 class="about-label" data-en="ABOUT ME" data-de="ÜBER MICH">ÜBER MICH</h2>
 
                     <p
                         class="body-text"
@@ -316,23 +296,19 @@
                     <h2 data-en="Approach" data-de="Arbeitsweise">Arbeitsweise</h2>
 
                     <ol class="approach-list">
-                        <li data-en="Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations."
-                            data-de="Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen.">
+                        <li data-en="Briefing & Objectives — Clarifying goals, stakeholders, risks and expectations." data-de="Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen.">
                             Briefing & Ziele — Klärung von Zielen, Stakeholdern, Risiken und Erwartungen.
                         </li>
 
-                        <li data-en="Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically."
-                            data-de="Protokoll & Struktur — Gestaltung des passenden Rahmens — prozessual, kulturell und symbolisch.">
+                        <li data-en="Protocol & Structure — Designing the appropriate framework — procedurally, culturally and symbolically." data-de="Protokoll & Struktur — Gestaltung des passenden Rahmens — prozessual, kulturell und symbolisch.">
                             Protokoll & Struktur — Gestaltung des passenden Rahmens — prozessual, kulturell und symbolisch.
                         </li>
 
-                        <li data-en="Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination."
-                            data-de="Umsetzung & Führung vor Ort — Operatives Kommando, Entscheidungen in Echtzeit und ruhige Koordination.">
+                        <li data-en="Execution & On-Site Leadership — Operational command, real-time decision-making and calm coordination." data-de="Umsetzung & Führung vor Ort — Operatives Kommando, Entscheidungen in Echtzeit und ruhige Koordination.">
                             Umsetzung & Führung vor Ort — Operatives Kommando, Entscheidungen in Echtzeit und ruhige Koordination.
                         </li>
 
-                        <li data-en="Review & Continuity — Evaluation, documentation and preparation for future engagements."
-                            data-de="Review & Kontinuität — Auswertung, Dokumentation und Vorbereitung zukünftiger Einsätze.">
+                        <li data-en="Review & Continuity — Evaluation, documentation and preparation for future engagements." data-de="Review & Kontinuität — Auswertung, Dokumentation und Vorbereitung zukünftiger Einsätze.">
                             Review & Kontinuität — Auswertung, Dokumentation und Vorbereitung zukünftiger Einsätze.
                         </li>
                     </ol>
@@ -342,26 +318,34 @@
                 <!--
                 <section class="section anchor" id="credentials">
                     <h2 data-en="Credentials" data-de="Expertise">Credentials</h2>
-
-                    <div class="subline" data-en="Track Record" data-de="Erfahrung &amp; Kontexte">Erfahrung &amp; Kontexte</div>
-                    <p
-                        class="body-text"
-                        data-en="My experience spans international, political and corporate environments, including executive meetings, institutional ceremonies and high-stakes events. I regularly collaborate with organisations, agencies and leadership teams operating at the intersection of public visibility and strategic relevance."
-                        data-de="Meine Erfahrung umfasst internationale, politische und Corporate-Umfelder — darunter Executive Meetings, institutionelle Zeremonien und High-Stakes-Formate. Ich arbeite regelmäßig mit Organisationen, Agenturen und Führungsteams zusammen, die an der Schnittstelle von öffentlicher Sichtbarkeit und strategischer Relevanz agieren."
-                    >
-                        Meine Erfahrung umfasst internationale, politische und Corporate-Umfelder — darunter Executive Meetings, institutionelle Zeremonien und High-Stakes-Formate. Ich arbeite regelmäßig mit Organisationen, Agenturen und Führungsteams zusammen, die an der Schnittstelle von öffentlicher Sichtbarkeit und strategischer Relevanz agieren.
-                    </p>
-
-                    <div class="subline" data-en="Endorsements" data-de="Empfehlungen">Empfehlungen</div>
-
-                    <p class="body-text"
-                       data-en="Endorsements will be added here shortly."
-                       data-de="Empfehlungen werden hier in Kürze ergänzt.">
-                        Empfehlungen werden hier in Kürze ergänzt.
-                    </p>
                 </section>
                 -->
             </main>
+
+            <!-- ==== CONTACT ==== -->
+            <section class="section contact-page anchor" id="contact-page">
+                <div class="content">
+                    <h2 class="about-label" data-en="CONTACT" data-de="KONTAKT">CONTACT</h2>
+
+                    <div class="subline" data-en="Let’s discuss your project" data-de="Lassen Sie uns Ihr Projekt besprechen">
+                        Let’s discuss your project
+                    </div>
+
+                    <p class="body-text"
+                       data-en="All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly."
+                       data-de="Alle Anfragen werden diskret behandelt. Wenn Sie mit mir in Kontakt treten möchten, schreiben Sie mir bitte direkt per E-Mail.">
+                        All enquiries are handled discreetly. If you would like to get in touch, please send me an email directly.
+                    </p>
+
+                    <p class="body-text contact-cta">
+                        <a class="cta-btn" href="mailto:mail@haukethimm.com?subject=Anfrage%20%C3%BCber%20haukethimm.com" data-en="Send email" data-de="E-Mail senden">E-Mail senden</a>
+
+                        <span data-en="Your default email application will open with a pre-filled recipient and subject line." data-de="Ihr Standard-E-Mail-Programm öffnet sich mit vorausgefüllter Empfängeradresse und Betreffzeile.">
+                            Ihr Standard-E-Mail-Programm öffnet sich mit vorausgefüllter Empfängeradresse und Betreffzeile.
+                        </span>
+                    </p>
+                </div>
+            </section>
 
             <!-- ==== PRE-FOOTER ==== -->
             <section class="pre-footer" aria-label="Additional contact options">
@@ -404,8 +388,8 @@
             <!-- ==== FOOTER ==== -->
             <footer class="footer anchor" id="footer">
                 <div class="footer-inner">
-                    <!-- ==== DESKTOP SLOTS ==== -->
-                    <div class="footer-a1 footer-b">
+                    <!-- ==== FOOTER DESKTOP ==== -->
+                    <div class="footer-a_desktop footer-b_mobile">
                         <p class="qualifications-label" data-en="Qualifications:" data-de="Qualifikationen:">Qualifikationen:</p>
 
                         <div class="qualifications-logos">
@@ -419,7 +403,7 @@
                             </a>
 
                             <a href="https://protocolbureau.com/" target="_blank" rel="noopener noreferrer" aria-label="Protocolbureau">
-                                <span class="gold-frame frame--md shape--rect">
+                                <span class="gold-frame frame--md shape--round">
                                     <picture>
                                         <source media="(max-width: 768px)" srcset="assets/img/protocolbureau.png" />
                                         <img src="assets/img/protocolbureau.jpg" alt="Protocolbureau" />
@@ -429,14 +413,14 @@
                         </div>
                     </div>
 
-                    <div class="footer-b1 footer-a">
+                    <div class="footer-b_desktop footer-a_mobile">
                         <a class="backtop" href="#top" aria-label="Back to top">
                             <img class="chevron-img" src="assets/img/chevron.png" alt="" />
                             <span class="backtop-text" data-en="Back to top" data-de="Seitenanfang">Seitenanfang</span>
                         </a>
                     </div>
 
-                    <div class="footer-c1 footer-c">
+                    <div class="footer-c_desktop footer-c_mobile">
                         <p class="follow-label" data-en="Follow / Connect:" data-de="Folgen / Vernetzen:">Folgen / Vernetzen:</p>
 
                         <div class="follow-icons">
@@ -454,15 +438,15 @@
                         </div>
                     </div>
 
-                    <div class="footer-a2 footer-d">
-                        <a class="legal-link legal-copy" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Image Credits" data-de="Bildnachweise">Bildnachweise</a>
+                    <div class="footer-d_desktop footer-d_mobile">
+                        <!-- <div></div> -->
                     </div>
 
-                    <div class="footer-b2 footer-e">
+                    <div class="footer-e_desktop footer-e_mobile">
                         <span class="legal-copy" data-en="© Hauke Thimm" data-de="© Hauke Thimm">© Hauke Thimm</span>
                     </div>
 
-                    <div class="footer-c2 footer-f">
+                    <div class="footer-f_desktop footer-f_mobile">
                         <div class="legal-links" aria-label="Legal navigation">
                             <a class="legal-link" href="/imprint/" target="_blank" rel="noopener noreferrer" data-en="Imprint" data-de="Impressum">Impressum</a>
                             <a class="legal-link" href="/privacy/" target="_blank" rel="noopener noreferrer" data-en="Privacy" data-de="Datenschutz">Datenschutz</a>
@@ -474,7 +458,6 @@
 
         <!-- ==== SCRIPTS ==== -->
         <script defer src="assets/js/main.js"></script>
-
     </body>
 
 </html>
