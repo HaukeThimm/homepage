@@ -1069,7 +1069,7 @@ section.anchor {
 
 .grid-pre-footer-desktop_C {
     grid-area: C;
-    justify-self: end;
+    justify-self: start;
 }
 
 .pre-footer-col {
@@ -1173,7 +1173,7 @@ section.anchor {
 
 .grid-footer-desktop_C1 {
     grid-area: C1;
-    justify-self: end;
+    justify-self: start;
 }
 
 .grid-footer-desktop_A2 {
@@ -1188,7 +1188,7 @@ section.anchor {
 
 .grid-footer-desktop_C2 {
     grid-area: C2;
-    justify-self: end;
+    justify-self: start;
 }
 
 .qualifications-label,
