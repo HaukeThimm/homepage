@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
     <head>
         <!-- ==== META / GRUNDLAGEN ==== -->
         <meta charset="utf-8" />
@@ -20,6 +21,8 @@
     </head>
 
     <body>
+        <div id="top"></div>
+
         <!-- ==== FIXED NAV ==== -->
         <div class="nav-shell">
             <nav class="main-nav" aria-label="Primary">
@@ -28,7 +31,9 @@
                     <div class="grid-nav-desktop">
                         <div class="grid-nav-desktop_A">
                             <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
-                                <img src="/assets/img/home.png" alt="Home" />
+                                <span class="gold-frame frame--sm shape--round">
+                                    <img src="/assets/img/home.png" alt="Home" />
+                                </span>
                             </a>
                         </div>
 
@@ -73,13 +78,17 @@
                     <div class="grid-nav-mobile">
                         <div class="grid-nav-mobile_A">
                             <a class="nav-link nav-link--home" href="/#top" aria-label="Home">
-                                <img src="/assets/img/home.png" alt="Home" />
+                                <span class="gold-frame frame--sm shape--round">
+                                    <img src="/assets/img/home.png" alt="Home" />
+                                </span>
                             </a>
                         </div>
 
                         <div class="grid-nav-mobile_B">
                             <button type="button" class="nav-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobilePanel">
-                                <img src="/assets/img/nav-menu.png" alt="" />
+                                <span class="gold-frame frame--sm shape--round">
+                                    <img src="/assets/img/nav-menu.png" alt="" />
+                                </span>
                             </button>
                         </div>
 
@@ -122,22 +131,15 @@
                     </div>
 
                     <p class="body-text contact-form-intro"
-                    data-en="All enquiries are handled discreetly. Please complete the contact form below."
-                    data-de="Alle Anfragen werden diskret behandelt. Bitte füllen Sie das folgende Kontaktformular aus.">
+                       data-en="All enquiries are handled discreetly. Please complete the contact form below."
+                       data-de="Alle Anfragen werden diskret behandelt. Bitte füllen Sie das folgende Kontaktformular aus.">
                         Alle Anfragen werden diskret behandelt. Bitte füllen Sie das folgende Kontaktformular aus.
                     </p>
 
                     <form class="contact-form contact-form--standalone"
-                        action="#"
-                        method="post"
-                        autocomplete="on"
-                        novalidate>
-                        <!-- Beispiel später:
-                        <form class="contact-form contact-form--standalone"
-                            action="https://formspree.io/f/DEINE-ID"
-                            method="post"
-                            autocomplete="on">
-                        -->
+                          action="#"
+                          method="post"
+                          autocomplete="on">
 
                         <div class="visually-hidden">
                             <label for="name" data-en="Name *" data-de="Name *">Name *</label>
@@ -357,4 +359,5 @@
         <!-- ==== SCRIPTS ==== -->
         <script defer src="/assets/js/main.js"></script>
     </body>
+
 </html>

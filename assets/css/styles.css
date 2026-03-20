@@ -98,175 +98,175 @@
 
 /* ==== ROOT TOKENS (DESKTOP STANDARD) ==== */
 :root {
-    --cream: #fdf7f2; /* Grundfarbe Hintergrund / helle Flächen */
-    --blue: #003153; /* Primärfarbe für Navigation, Footer und CTA */
+    --cream: #fdf7f2;
+    --blue: #003153;
 
-    --font-head: "Cormorant Garamond", serif; /* Schriftfamilie Headlines */
-    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* Schriftfamilie Fließtext */
+    --font-head: "Cormorant Garamond", serif;
+    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-    --fs-head: 30px; /* Schriftgröße Headlines */
-    --fs-sub: 24px; /* Schriftgröße Sublines */
-    --fs-body: 18px; /* Schriftgröße Body */
-    --fs-hero-name: 42px; /* Schriftgröße Hero-Name */
-    --fs-nav-link: 15px; /* Schriftgröße Navigation Desktop */
-    --fs-backtop: 18px; /* Schriftgröße Seitenanfang-Link */
+    --fs-head: 30px;
+    --fs-sub: 24px;
+    --fs-body: 18px;
+    --fs-hero-name: 42px;
+    --fs-nav-link: 15px;
+    --fs-backtop: 18px;
 
-    --fw-head: 700; /* Schriftgewicht Headlines */
-    --fw-sub: 500; /* Schriftgewicht Sublines */
-    --fw-body: 300; /* Schriftgewicht Body */
-    --fw-nav-link: 500; /* Schriftgewicht Navigation */
-    --fw-backtop: 300; /* Schriftgewicht Seitenanfang */
-    --fw-backtop-hover: 700; /* Schriftgewicht Seitenanfang Hover */
-    --fw-approach-num: 500; /* Schriftgewicht Nummern Arbeitsweise */
+    --fw-head: 700;
+    --fw-sub: 500;
+    --fw-body: 300;
+    --fw-nav-link: 500;
+    --fw-backtop: 300;
+    --fw-backtop-hover: 700;
+    --fw-approach-num: 500;
 
-    --lh-head: 1.25; /* Zeilenhöhe Headlines */
-    --lh-sub: 1.25; /* Zeilenhöhe Sublines */
-    --lh-body: 1.5; /* Zeilenhöhe Body */
+    --lh-head: 1.25;
+    --lh-sub: 1.25;
+    --lh-body: 1.5;
 
-    --top-offset: 0px; /* globaler oberer Offset */
-    --banner-h: 75px; /* Höhe Nav-Banner */
-    --page-top-gap: 40px; /* Abstand auf Unterseiten */
-    --side-pad: 150px; /* horizontaler Seiteninnenabstand */
-    --max-width: 1400px; /* maximale Inhaltsbreite */
+    --top-offset: 0px;
+    --banner-h: 75px;
+    --page-top-gap: 40px;
+    --side-pad: 150px;
+    --max-width: 1400px;
 
-    --section-pad-y: 60px; /* vertikales Padding pro Section */
-    --hero-offset: 25px; /* Abstand Headerbild zu Hero */
-    --hero-pad-bottom: 30px; /* Abstand unter Hero */
+    --section-pad-y: 60px;
+    --hero-offset: 25px;
+    --hero-pad-bottom: 30px;
 
-    --h-gap-bottom: 14px; /* Abstand nach Headlines */
-    --sub-gap-bottom: 12px; /* Abstand nach Sublines */
-    --p-gap: 14px; /* Abstand zwischen Absätzen */
-    --block-gap: 40px; /* Abstand zwischen Inhaltsblöcken */
+    --h-gap-bottom: 14px;
+    --sub-gap-bottom: 12px;
+    --p-gap: 14px;
+    --block-gap: 40px;
 
-    --frame-w-sm: 2px; /* Goldrahmen dünn */
-    --frame-w-md: 4px; /* Goldrahmen Standard */
-    --frame-w-lg: 6px; /* Goldrahmen dick */
+    --frame-w-sm: 2px;
+    --frame-w-md: 4px;
+    --frame-w-lg: 6px;
 
-    --frame-r-sm: 2px; /* kleine Abrundung */
-    --frame-r-md: 4px; /* Standard-Abrundung */
-    --frame-r-lg: 6px; /* starke Abrundung */
+    --frame-r-sm: 2px;
+    --frame-r-md: 4px;
+    --frame-r-lg: 6px;
 
-    --goldframe-img: url("../img/highlights_gold.png"); /* Bilddatei Goldtextur */
+    --goldframe-img: url("../img/highlights_gold.png");
 
-    --nav-home-h: 36px; /* Höhe Home-Icon Desktop */
-    --nav-home-fit: contain; /* Objektverhalten Home-Icon */
-    --nav-menu-btn-h: 32px; /* Höhe Mobile-Menü-Icon */
-    --lang-btn-h: 36px; /* Höhe Language-Icon */
-    --nav-icon-touch-scale: 1.25; /* Touch-Target-Vergrößerung Nav */
-    --nav-letter-spacing: 0.1em; /* Laufweite Navigation */
-    --nav-text-transform: uppercase; /* Großschreibung Navigation */
-    --nav-menu-panel-top: 75px; /* Oberkante Mobile-Menü-Panel */
-    --nav-menu-panel-pad-x: 24px; /* horizontales Padding Mobile-Menü */
-    --nav-menu-panel-pad-y: 18px; /* vertikales Padding Mobile-Menü */
-    --nav-menu-panel-gap: 14px; /* Abstand Links Mobile-Menü */
+    --nav-home-h: 36px;
+    --nav-home-fit: contain;
+    --nav-menu-btn-h: 32px;
+    --lang-btn-h: 36px;
+    --nav-icon-touch-scale: 1.25;
+    --nav-letter-spacing: 0.1em;
+    --nav-text-transform: uppercase;
+    --nav-menu-panel-top: 75px;
+    --nav-menu-panel-pad-x: 24px;
+    --nav-menu-panel-pad-y: 18px;
+    --nav-menu-panel-gap: 14px;
 
-    --service-pad: 18px; /* Innenpadding Service */
-    --services-gap: 18px; /* Abstand Service-Elemente */
-    --service-grid-col-1: 30px; /* erste Spalte Service */
-    --service-grid-col-3: 22px; /* dritte Spalte Service */
-    --service-col-gap: 12px; /* Abstand Service-Spalten */
-    --service-bullet-h: 22px; /* Höhe Service-Bullet */
-    --service-arrow-h: 18px; /* Höhe Service-Pfeil */
-    --service-body-pad-top: 14px; /* Abstand Service-Body */
-    --service-max-h: 600px; /* Maximalhöhe Service-Body */
+    --service-pad: 18px;
+    --services-gap: 18px;
+    --service-grid-col-1: 30px;
+    --service-grid-col-3: 22px;
+    --service-col-gap: 12px;
+    --service-bullet-h: 22px;
+    --service-arrow-h: 18px;
+    --service-body-pad-top: 14px;
+    --service-max-h: 600px;
 
-    --approach-item-gap: 14px; /* Abstand Listenpunkte */
-    --approach-num-left: 14px; /* linke Position Nummer */
-    --approach-num-top: 0px; /* obere Position Nummer */
-    --approach-text-indent: 46px; /* Texteinzug */
+    --approach-item-gap: 14px;
+    --approach-num-left: 14px;
+    --approach-num-top: 0px;
+    --approach-text-indent: 46px;
 
-    --carousel-fade: 40px; /* seitlicher Fade */
-    --carousel-arrow-h: 40px; /* Höhe Carousel-Pfeile */
-    --carousel-gap: 28px; /* Abstand Carousel-Karten */
-    --carousel-card-w: 400px; /* Breite Karte */
-    --carousel-card-h: 300px; /* Höhe Karte */
-    --carousel-card-pad: 26px; /* Innenpadding Karte */
-    --carousel-sign-gap-top: 22px; /* Abstand Signatur */
-    --carousel-shell-top: 18px; /* Abstand Carousel oben */
+    --carousel-fade: 40px;
+    --carousel-arrow-h: 40px;
+    --carousel-gap: 28px;
+    --carousel-card-w: 400px;
+    --carousel-card-h: 300px;
+    --carousel-card-pad: 26px;
+    --carousel-sign-gap-top: 22px;
+    --carousel-shell-top: 18px;
 
-    --cta-gap: 14px; /* Abstand CTA-Elemente */
-    --cta-pad-y: 0.45em; /* vertikales Padding CTA */
-    --cta-pad-x: 0.9em; /* horizontales Padding CTA */
+    --cta-gap: 14px;
+    --cta-pad-y: 0.45em;
+    --cta-pad-x: 0.9em;
 
-    --contact-form-max-w: 25vw; /* maximale Breite Kontaktformular */
-    --contact-form-min-w: 320px; /* minimale Breite Kontaktformular */
-    --contact-form-gap: 14px; /* Abstand Felder */
-    --contact-form-field-pad-y: 12px; /* vertikales Padding Feld */
-    --contact-form-field-pad-x: 14px; /* horizontales Padding Feld */
-    --contact-form-radius: var(--frame-r-md); /* Radius Formular */
-    --contact-form-submit-pad-y: 0.45em; /* vertikales Padding Submit */
-    --contact-form-submit-pad-x: 0.9em; /* horizontales Padding Submit */
+    --contact-form-max-w: 25vw;
+    --contact-form-min-w: 320px;
+    --contact-form-gap: 14px;
+    --contact-form-field-pad-y: 12px;
+    --contact-form-field-pad-x: 14px;
+    --contact-form-radius: var(--frame-r-md);
+    --contact-form-submit-pad-y: 0.45em;
+    --contact-form-submit-pad-x: 0.9em;
 
-    --pre-footer-min-h: 120px; /* Mindesthöhe Pre-Footer */
-    --pre-footer-pad-y: 0px; /* vertikales Padding Pre-Footer */
-    --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
-    --pre-footer-item-gap: 18px; /* Abstand Icon zu Text */
-    --pre-footer-margin-bottom: 20px; /* Abstand zu Footer */
-    --pre-footer-icon-h: 80px; /* Höhe Pre-Footer-Icons Desktop */
-    --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons */
-    --pre-footer-icon-pos-x: 50%; /* horizontale Position Bild */
-    --pre-footer-icon-pos-y: 50%; /* vertikale Position Bild */
-    --pre-footer-icon-radius: 50%; /* Form Pre-Footer-Icons */
-    --pre-footer-touch-scale: 1.25; /* Touch-Target Pre-Footer */
-    --pre-footer-text-font: var(--font-body); /* Schrift Pre-Footer */
-    --pre-footer-text-size: var(--fs-body); /* Schriftgröße Pre-Footer */
-    --pre-footer-text-weight: var(--fw-body); /* Schriftgewicht Pre-Footer */
-    --pre-footer-text-lh: var(--lh-body); /* Zeilenhöhe Pre-Footer */
-    --pre-footer-text-nowrap: nowrap; /* Zeilenumbruch verhindern */
+    --pre-footer-min-h: 120px;
+    --pre-footer-pad-y: 0px;
+    --pre-footer-col-gap: 30px;
+    --pre-footer-item-gap: 18px;
+    --pre-footer-margin-bottom: 20px;
+    --pre-footer-icon-h: 80px;
+    --pre-footer-icon-fit: contain;
+    --pre-footer-icon-pos-x: 50%;
+    --pre-footer-icon-pos-y: 50%;
+    --pre-footer-icon-radius: 50%;
+    --pre-footer-touch-scale: 1.25;
+    --pre-footer-text-font: var(--font-body);
+    --pre-footer-text-size: var(--fs-body);
+    --pre-footer-text-weight: var(--fw-body);
+    --pre-footer-text-lh: var(--lh-body);
+    --pre-footer-text-nowrap: nowrap;
 
-    --footer-min-h: 300px; /* Mindesthöhe Footer */
-    --footer-pad-top: 20px; /* oberes Padding Footer */
-    --footer-pad-bottom: 20px; /* unteres Padding Footer */
-    --footer-row-gap: 18px; /* Zeilenabstand Footer */
-    --footer-col-gap: 24px; /* Spaltenabstand Footer */
-    --footer-row2-baseline-pad: 0px; /* Feinkorrektur Footer */
+    --footer-min-h: 300px;
+    --footer-pad-top: 20px;
+    --footer-pad-bottom: 20px;
+    --footer-row-gap: 18px;
+    --footer-col-gap: 24px;
+    --footer-row2-baseline-pad: 0px;
 
-    --footer-label-font: var(--font-body); /* Schrift Footer-Labels */
-    --footer-label-size: var(--fs-body); /* Schriftgröße Footer-Labels */
-    --footer-label-weight: var(--fw-sub); /* Schriftgewicht Footer-Labels */
-    --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
-    --footer-label-gap-bottom: 12px; /* Abstand unter Labels */
+    --footer-label-font: var(--font-body);
+    --footer-label-size: var(--fs-body);
+    --footer-label-weight: var(--fw-sub);
+    --footer-label-lh: var(--lh-body);
+    --footer-label-gap-bottom: 12px;
 
-    --qual-logo-rect-h: 80px; /* Höhe rechteckige Logos Desktop */
-    --qual-logo-round-h: 80px; /* Höhe runde Logos Desktop */
-    --qual-logo-gap: 24px; /* Abstand Logos Desktop */
-    --qual-logo-rect-radius: 4px; /* Form rechteckige Logos Desktop */
-    --qual-logo-round-radius: 50%; /* Form runde Logos Desktop */
-    --qual-logo-rect-fit: contain; /* Objektverhalten rechteckige Logos Desktop */
-    --qual-logo-round-fit: contain; /* Objektverhalten runde Logos Desktop */
-    --qual-logo-rect-pos-x: 50%; /* horizontale Position rechteckiges Logo Desktop */
-    --qual-logo-rect-pos-y: 50%; /* vertikale Position rechteckiges Logo Desktop */
-    --qual-logo-round-pos-x: 50%; /* horizontale Position rundes Logo Desktop */
-    --qual-logo-round-pos-y: 50%; /* vertikale Position rundes Logo Desktop */
-    --qual-logo-pad: 0px; /* Innenpadding Logos Desktop */
-    --qual-logo-touch-scale: 1.25; /* Touch-Target Logos Desktop */
+    --qual-logo-rect-h: 80px;
+    --qual-logo-round-h: 80px;
+    --qual-logo-gap: 24px;
+    --qual-logo-rect-radius: 4px;
+    --qual-logo-round-radius: 50%;
+    --qual-logo-rect-fit: contain;
+    --qual-logo-round-fit: contain;
+    --qual-logo-rect-pos-x: 50%;
+    --qual-logo-rect-pos-y: 50%;
+    --qual-logo-round-pos-x: 50%;
+    --qual-logo-round-pos-y: 50%;
+    --qual-logo-pad: 0px;
+    --qual-logo-touch-scale: 1.25;
 
-    --follow-icon-h: 80px; /* Höhe Follow-Icons Desktop */
-    --follow-icon-gap: 18px; /* Abstand Follow-Icons Desktop */
-    --follow-icon-radius: 50%; /* Form Follow-Icons Desktop */
-    --follow-icon-fit: contain; /* Objektverhalten Follow-Icons Desktop */
-    --follow-icon-pos-x: 50%; /* horizontale Position Follow-Icons Desktop */
-    --follow-icon-pos-y: 50%; /* vertikale Position Follow-Icons Desktop */
-    --follow-icon-pad: 0px; /* Innenpadding Follow-Icons Desktop */
-    --follow-icon-touch-scale: 1.25; /* Touch-Target Follow Desktop */
+    --follow-icon-h: 80px;
+    --follow-icon-gap: 18px;
+    --follow-icon-radius: 50%;
+    --follow-icon-fit: contain;
+    --follow-icon-pos-x: 50%;
+    --follow-icon-pos-y: 50%;
+    --follow-icon-pad: 0px;
+    --follow-icon-touch-scale: 1.25;
 
-    --backtop-icon-h: 4px; /* Höhe Chevron Desktop */
-    --backtop-gap: 3px; /* Abstand Chevron zu Text */
+    --backtop-icon-h: 4px;
+    --backtop-gap: 3px;
 
-    --legal-font: var(--font-body); /* Schrift Legal */
-    --legal-size: var(--fs-body); /* Schriftgröße Legal */
-    --legal-weight: var(--fw-body); /* Schriftgewicht Legal */
-    --legal-lh: var(--lh-body); /* Zeilenhöhe Legal */
-    --legal-links-gap: 10px; /* Abstand Impressum / Datenschutz Desktop */
-    --legal-wrap: nowrap; /* Umbruchverhalten Legal */
+    --legal-font: var(--font-body);
+    --legal-size: var(--fs-body);
+    --legal-weight: var(--fw-body);
+    --legal-lh: var(--lh-body);
+    --legal-links-gap: 10px;
+    --legal-wrap: nowrap;
 
-    --anchor-offset: 20px; /* Scroll-Offset Ankerziele */
+    --anchor-offset: 20px;
 
-    --footer-mobile-row-pad-top: 10px; /* oberes Padding mobile Footer-Zeilen */
-    --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
-    --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding Zeile F mobil */
-    --footer-mobile-b-gap: 18px; /* Abstand Inhalte Zeile B mobil */
-    --footer-mobile-c-gap: 18px; /* Abstand Inhalte Zeile C mobil */
+    --footer-mobile-row-pad-top: 10px;
+    --footer-mobile-row-pad-bottom: 0px;
+    --footer-mobile-row-pad-bottom-f: 22px;
+    --footer-mobile-b-gap: 18px;
+    --footer-mobile-c-gap: 18px;
 }
 
 /* ==== ALLGEMEINE EINSTELLUNGEN ==== */
@@ -341,6 +341,10 @@ body {
     border-radius: 999px;
 }
 
+.shape--rect {
+    border-radius: var(--frame-r-md);
+}
+
 .gold-frame > img,
 .gold-frame > picture {
     display: block;
@@ -356,19 +360,13 @@ body {
     border-radius: inherit;
 }
 
-/* ==== GOLD-FRAME NUR IN NAV / PRE-FOOTER / FOOTER DEAKTIVIEREN ==== */
-.main-nav .gold-frame,
-.pre-footer .gold-frame,
+/* ==== GOLD-FRAME IM FOOTER DEAKTIVIEREN ==== */
 .footer .gold-frame {
     border-color: transparent;
     background: none;
     background-image: none;
 }
 
-.main-nav .gold-frame > img,
-.main-nav .gold-frame > picture > img,
-.pre-footer .gold-frame > img,
-.pre-footer .gold-frame > picture > img,
 .footer .gold-frame > img,
 .footer .gold-frame > picture > img {
     border-radius: inherit;
@@ -379,6 +377,14 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    border-bottom: var(--frame-w-md) solid transparent;
+    background:
+        linear-gradient(var(--cream), var(--cream)) padding-box,
+        var(--goldframe-img) border-box;
+    background-size: auto, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-clip: padding-box, border-box;
 }
 
 .header-image img {
@@ -429,36 +435,43 @@ body {
 .grid-nav-desktop_A {
     grid-area: A;
     justify-self: start;
+    align-self: center;
 }
 
 .grid-nav-desktop_B {
     grid-area: B;
     justify-self: center;
+    align-self: center;
 }
 
 .grid-nav-desktop_C {
     grid-area: C;
     justify-self: center;
+    align-self: center;
 }
 
 .grid-nav-desktop_D {
     grid-area: D;
     justify-self: center;
+    align-self: center;
 }
 
 .grid-nav-desktop_E {
     grid-area: E;
     justify-self: center;
+    align-self: center;
 }
 
 .grid-nav-desktop_F {
     grid-area: F;
     justify-self: center;
+    align-self: center;
 }
 
 .grid-nav-desktop_G {
     grid-area: G;
     justify-self: end;
+    align-self: center;
 }
 
 .grid-nav-mobile {
@@ -491,10 +504,16 @@ body {
     text-decoration: none;
 }
 
+.nav-link--home .gold-frame {
+    width: var(--nav-home-h);
+    height: var(--nav-home-h);
+    border-radius: 50%;
+}
+
 .nav-link--home img {
     display: block;
-    height: var(--nav-home-h);
-    width: auto;
+    height: 100%;
+    width: 100%;
     object-fit: var(--nav-home-fit);
 }
 
@@ -553,10 +572,16 @@ body {
     cursor: pointer;
 }
 
+.nav-menu-toggle .gold-frame {
+    width: var(--nav-menu-btn-h);
+    height: var(--nav-menu-btn-h);
+    border-radius: 50%;
+}
+
 .nav-menu-toggle img {
     display: block;
-    height: var(--nav-menu-btn-h);
-    width: auto;
+    height: 100%;
+    width: 100%;
     object-fit: contain;
 }
 
@@ -1158,10 +1183,7 @@ section.anchor {
     border: 0 !important;
 }
 
-.form-field--contact:required:invalid {
-    box-shadow: none;
-}
-
+.form-field--contact:required:invalid,
 .form-field--contact:required:valid {
     box-shadow: none;
 }
@@ -1193,16 +1215,19 @@ section.anchor {
 .grid-pre-footer-desktop_A {
     grid-area: A;
     justify-self: start;
+    align-self: center;
 }
 
 .grid-pre-footer-desktop_B {
     grid-area: B;
     justify-self: center;
+    align-self: center;
 }
 
 .grid-pre-footer-desktop_C {
     grid-area: C;
     justify-self: start;
+    align-self: center;
 }
 
 .pre-footer-col {
@@ -1290,23 +1315,26 @@ section.anchor {
         "A2 B2 C2";
     column-gap: var(--footer-col-gap);
     row-gap: var(--footer-row-gap);
-    align-items: end;
+    align-items: start;
     min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom));
 }
 
 .grid-footer-desktop_A1 {
     grid-area: A1;
     justify-self: start;
+    align-self: start;
 }
 
 .grid-footer-desktop_B1 {
     grid-area: B1;
     justify-self: center;
+    align-self: start;
 }
 
 .grid-footer-desktop_C1 {
     grid-area: C1;
     justify-self: start;
+    align-self: start;
 }
 
 .grid-footer-desktop_A2 {
@@ -1503,53 +1531,60 @@ section.anchor {
     text-decoration: underline;
 }
 
+/* ==== SIMPLE LEGAL PAGE SPACING ==== */
+.imprint,
+.privacy {
+    padding-top: calc(var(--banner-h) + 34px);
+    padding-bottom: 80px;
+}
+
 /* ==== MOBILE ANPASSUNGEN ==== */
 @media (max-width: 768px) {
 
     :root {
-        --side-pad: 18px; /* horizontaler Seiteninnenabstand mobil */
-        --banner-h: 64px; /* Höhe Nav-Banner mobil */
+        --side-pad: 18px;
+        --banner-h: 64px;
 
-        --nav-home-h: 32px; /* Höhe Home-Icon mobil */
-        --nav-menu-btn-h: 32px; /* Höhe Menü-Icon mobil */
-        --lang-btn-h: 32px; /* Höhe Sprachbutton mobil */
-        --nav-menu-panel-top: 64px; /* Oberkante Mobile-Menü mobil */
+        --nav-home-h: 32px;
+        --nav-menu-btn-h: 32px;
+        --lang-btn-h: 32px;
+        --nav-menu-panel-top: 64px;
 
-        --contact-form-max-w: 75vw; /* maximale Breite Formular mobil */
-        --contact-form-min-w: 0px; /* minimale Breite Formular mobil */
+        --contact-form-max-w: 75vw;
+        --contact-form-min-w: 0px;
 
-        --pre-footer-item-gap: 12px; /* Abstand Icon zu Text Pre-Footer mobil */
-        --pre-footer-col-gap: 12px; /* Spaltenabstand Pre-Footer mobil */
-        --pre-footer-icon-h: 64px; /* Höhe Pre-Footer-Icons mobil */
+        --pre-footer-item-gap: 12px;
+        --pre-footer-col-gap: 12px;
+        --pre-footer-icon-h: 64px;
 
-        --qual-logo-rect-h-mobile: 48px; /* Höhe rechteckige Qualification-Logos mobil */
-        --qual-logo-round-h-mobile: 48px; /* Höhe runde Qualification-Logos mobil */
-        --qual-logo-gap-mobile: 18px; /* Abstand Qualification-Logos mobil */
-        --qual-logo-rect-radius-mobile: 50%; /* Form rechteckige Qualification-Logos mobil */
-        --qual-logo-round-radius-mobile: 50%; /* Form runde Qualification-Logos mobil */
-        --qual-logo-rect-fit-mobile: cover; /* Objektverhalten rechteckige Qualification-Logos mobil */
-        --qual-logo-round-fit-mobile: cover; /* Objektverhalten runde Qualification-Logos mobil */
-        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale Position rechteckige Qualification-Logos mobil */
-        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale Position rechteckige Qualification-Logos mobil */
-        --qual-logo-round-pos-x-mobile: 50%; /* horizontale Position runde Qualification-Logos mobil */
-        --qual-logo-round-pos-y-mobile: 50%; /* vertikale Position runde Qualification-Logos mobil */
+        --qual-logo-rect-h-mobile: 48px;
+        --qual-logo-round-h-mobile: 48px;
+        --qual-logo-gap-mobile: 18px;
+        --qual-logo-rect-radius-mobile: 50%;
+        --qual-logo-round-radius-mobile: 50%;
+        --qual-logo-rect-fit-mobile: cover;
+        --qual-logo-round-fit-mobile: cover;
+        --qual-logo-rect-pos-x-mobile: 50%;
+        --qual-logo-rect-pos-y-mobile: 50%;
+        --qual-logo-round-pos-x-mobile: 50%;
+        --qual-logo-round-pos-y-mobile: 50%;
 
-        --follow-icon-h-mobile: 48px; /* Höhe Follow-Icons mobil */
-        --follow-icon-gap-mobile: 18px; /* Abstand Follow-Icons mobil */
-        --follow-icon-radius-mobile: 50%; /* Form Follow-Icons mobil */
-        --follow-icon-fit-mobile: cover; /* Objektverhalten Follow-Icons mobil */
-        --follow-icon-pos-x-mobile: 50%; /* horizontale Position Follow-Icons mobil */
-        --follow-icon-pos-y-mobile: 50%; /* vertikale Position Follow-Icons mobil */
-        --follow-icon-pad-mobile: 0px; /* Innenpadding Follow-Icons mobil */
+        --follow-icon-h-mobile: 48px;
+        --follow-icon-gap-mobile: 18px;
+        --follow-icon-radius-mobile: 50%;
+        --follow-icon-fit-mobile: cover;
+        --follow-icon-pos-x-mobile: 50%;
+        --follow-icon-pos-y-mobile: 50%;
+        --follow-icon-pad-mobile: 0px;
 
-        --backtop-icon-h-mobile: 18px; /* Höhe Chevron mobil */
+        --backtop-icon-h-mobile: 18px;
 
-        --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
-        --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
-        --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding Zeile F mobil */
-        --footer-mobile-b-gap: 18px; /* Abstand Inhalte Zeile B mobil */
-        --footer-mobile-c-gap: 18px; /* Abstand Inhalte Zeile C mobil */
-        --legal-links-gap: 15px; /* Abstand Impressum / Datenschutz mobil */
+        --footer-mobile-row-pad-top: 22px;
+        --footer-mobile-row-pad-bottom: 0px;
+        --footer-mobile-row-pad-bottom-f: 22px;
+        --footer-mobile-b-gap: 18px;
+        --footer-mobile-c-gap: 18px;
+        --legal-links-gap: 15px;
     }
 
     #credentials .feedback-card {
@@ -1581,16 +1616,19 @@ section.anchor {
     .grid-nav-mobile_A {
         grid-area: A;
         justify-self: start;
+        align-self: center;
     }
 
     .grid-nav-mobile_B {
         grid-area: B;
         justify-self: center;
+        align-self: center;
     }
 
     .grid-nav-mobile_C {
         grid-area: C;
         justify-self: end;
+        align-self: center;
     }
 
     .grid-nav-mobile .nav-link--home {
@@ -1601,13 +1639,23 @@ section.anchor {
         padding: calc((var(--nav-home-h) * var(--nav-icon-touch-scale) - var(--nav-home-h)) / 2);
     }
 
-    .grid-nav-mobile .nav-link--home img {
+    .grid-nav-mobile .nav-link--home .gold-frame {
+        width: var(--nav-home-h);
         height: var(--nav-home-h);
-        width: auto;
+    }
+
+    .grid-nav-mobile .nav-link--home img {
+        width: 100%;
+        height: 100%;
     }
 
     .grid-nav-mobile .nav-menu-toggle {
         display: inline-flex;
+    }
+
+    .grid-nav-mobile .nav-menu-toggle .gold-frame {
+        width: var(--nav-menu-btn-h);
+        height: var(--nav-menu-btn-h);
     }
 
     .grid-nav-mobile .lang-toggle {
@@ -1698,6 +1746,12 @@ section.anchor {
         font-size: 18px;
     }
 
+    .imprint,
+    .privacy {
+        padding-top: calc(var(--banner-h) + 22px);
+        padding-bottom: 60px;
+    }
+
     .pre-footer {
         width: 100%;
         overflow: hidden;
@@ -1718,16 +1772,19 @@ section.anchor {
     .grid-pre-footer-mobile_A {
         grid-area: A;
         justify-self: center;
+        align-self: center;
     }
 
     .grid-pre-footer-mobile_B {
         grid-area: B;
         justify-self: center;
+        align-self: center;
     }
 
     .grid-pre-footer-mobile_C {
         grid-area: C;
         justify-self: center;
+        align-self: center;
     }
 
     .pre-footer-col {

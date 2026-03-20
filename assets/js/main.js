@@ -1,4 +1,4 @@
-/* ==== LANGUAGE TOGGLE (data-en/data-de) ==== */
+/* ==== LANGUAGE TOGGLE (data-en/data-de + placeholders) ==== */
 (function () {
     const buttons = Array.from(document.querySelectorAll(".lang-btn"));
     if (!buttons.length) return;
@@ -12,12 +12,21 @@
         return true;
     });
 
+    const placeholderFields = Array.from(
+        document.querySelectorAll("[data-placeholder-en][data-placeholder-de]")
+    );
+
     function setLang(lang) {
         const isDe = lang === "de";
 
         translatable.forEach((el) => {
             const val = el.getAttribute(isDe ? "data-de" : "data-en");
             if (val != null) el.textContent = val;
+        });
+
+        placeholderFields.forEach((field) => {
+            const val = field.getAttribute(isDe ? "data-placeholder-de" : "data-placeholder-en");
+            if (val != null) field.setAttribute("placeholder", val);
         });
 
         buttons.forEach((b) => b.classList.toggle("is-active", b.dataset.lang === lang));
