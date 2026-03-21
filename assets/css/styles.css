@@ -138,6 +138,8 @@
     --p-gap: 14px;
     --block-gap: 40px;
 
+    --goldframe-img: url("../img/highlights_gold.png");
+
     --frame-w-sm: 2px;
     --frame-w-md: 4px;
     --frame-w-lg: 6px;
@@ -146,7 +148,12 @@
     --frame-r-md: 4px;
     --frame-r-lg: 6px;
 
-    --goldframe-img: url("../img/highlights_gold.png");
+    --service-frame-radius-outer: 15%;
+    --service-frame-radius-inner: 12%;
+    --feedback-frame-radius-outer: 15%;
+    --feedback-frame-radius-inner: 12%;
+    --cta-frame-radius-outer: 15%;
+    --cta-frame-radius-inner: 12%;
 
     --nav-home-h: 36px;
     --nav-home-fit: contain;
@@ -731,7 +738,7 @@ section.anchor {
 
 .service-item {
     border: var(--frame-w-md) solid transparent;
-    border-radius: var(--frame-r-md);
+    border-radius: var(--service-frame-radius-outer);
     background:
         linear-gradient(var(--cream), var(--cream)) padding-box,
         var(--goldframe-img) border-box;
@@ -876,7 +883,7 @@ section.anchor {
     align-items: center;
     text-align: center;
     border: var(--frame-w-lg) solid transparent;
-    border-radius: var(--frame-r-lg);
+    border-radius: var(--feedback-frame-radius-outer);
     background:
         linear-gradient(var(--cream), var(--cream)) padding-box,
         var(--goldframe-img) border-box;
@@ -948,7 +955,7 @@ section.anchor {
     font-weight: var(--fw-head);
     line-height: 1;
     border: var(--frame-w-md) solid transparent;
-    border-radius: var(--frame-r-md);
+    border-radius: var(--cta-frame-radius-outer);
     background:
         linear-gradient(var(--blue), var(--blue)) padding-box,
         var(--goldframe-img) border-box;
@@ -1553,6 +1560,13 @@ section.anchor {
         --contact-form-max-w: 75vw;
         --contact-form-min-w: 0px;
 
+        --service-frame-radius-outer-mobile: 15%;
+        --service-frame-radius-inner-mobile: 12%;
+        --feedback-frame-radius-outer-mobile: 15%;
+        --feedback-frame-radius-inner-mobile: 12%;
+        --cta-frame-radius-outer-mobile: 15%;
+        --cta-frame-radius-inner-mobile: 12%;
+
         --pre-footer-item-gap: 12px;
         --pre-footer-col-gap: 12px;
         --pre-footer-icon-h: 64px;
@@ -1585,6 +1599,18 @@ section.anchor {
         --footer-mobile-b-gap: 18px;
         --footer-mobile-c-gap: 18px;
         --legal-links-gap: 15px;
+    }
+
+    .service-item {
+    border-radius: var(--service-frame-radius-outer-mobile);
+    }
+
+    .feedback-card {
+        border-radius: var(--feedback-frame-radius-outer-mobile);
+    }
+
+    .cta-btn {
+        border-radius: var(--cta-frame-radius-outer-mobile);
     }
 
     #credentials .feedback-card {
