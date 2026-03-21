@@ -158,7 +158,7 @@
 
     --nav-home-h: 24px;
     --nav-home-fit: contain;
-    --nav-menu-btn-h: 10px;
+    --nav-menu-btn-h: 32px;
     --lang-btn-h: 24px;
     --nav-icon-touch-scale: 1.25;
     --nav-letter-spacing: 0.1em;
@@ -305,7 +305,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: var(--gold-border-width-md) solid transparent;
+    border: var(--gold-border-width-sm) solid transparent;
     border-radius: var(--frame-r-md);
     overflow: hidden;
     background:
@@ -1324,6 +1324,7 @@ section.anchor {
     column-gap: var(--footer-col-gap);
     row-gap: var(--footer-row-gap);
     align-items: start;
+    align-content: start;
     min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom));
 }
 
@@ -1374,6 +1375,14 @@ section.anchor {
 }
 
 .footer-qualifications-block,
+.footer-follow-block,
+.footer-backtop-block {
+    align-self: start;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.footer-qualifications-block,
 .footer-follow-block {
     display: flex;
     flex-direction: column;
@@ -1398,6 +1407,12 @@ section.anchor {
 .footer-qualifications-block .qualifications-logos,
 .footer-follow-block .follow-icons {
     justify-content: flex-start;
+}
+
+.qualifications-label,
+.follow-label,
+.backtop {
+    margin-top: 0;
 }
 
 /* ==== FOOTER QUALIFICATIONS (DESKTOP) ==== */
