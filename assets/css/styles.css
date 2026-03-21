@@ -140,25 +140,26 @@
 
     --goldframe-img: url("../img/highlights_gold.png");
 
-    --frame-w-sm: 2px;
-    --frame-w-md: 4px;
-    --frame-w-lg: 6px;
+    --gold-border-width-sm: 2px;
+    --gold-border-width-md: 4px;
+    --gold-border-width-lg: 6px;
+
+    --frame-w-sm: var(--gold-border-width-sm);
+    --frame-w-md: var(--gold-border-width-md);
+    --frame-w-lg: var(--gold-border-width-lg);
 
     --frame-r-sm: 2px;
     --frame-r-md: 4px;
     --frame-r-lg: 6px;
 
-    --service-frame-radius-outer: 15%;
-    --service-frame-radius-inner: 12%;
-    --feedback-frame-radius-outer: 15%;
-    --feedback-frame-radius-inner: 12%;
-    --cta-frame-radius-outer: 15%;
-    --cta-frame-radius-inner: 12%;
+    --service-frame-radius-outer: 32px;
+    --feedback-frame-radius-outer: 32px;
+    --cta-frame-radius-outer: 28px;
 
-    --nav-home-h: 36px;
+    --nav-home-h: 24px;
     --nav-home-fit: contain;
-    --nav-menu-btn-h: 32px;
-    --lang-btn-h: 36px;
+    --nav-menu-btn-h: 10px;
+    --lang-btn-h: 24px;
     --nav-icon-touch-scale: 1.25;
     --nav-letter-spacing: 0.1em;
     --nav-text-transform: uppercase;
@@ -304,7 +305,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: var(--frame-w-md) solid transparent;
+    border: var(--gold-border-width-md) solid transparent;
     border-radius: var(--frame-r-md);
     overflow: hidden;
     background:
@@ -737,7 +738,7 @@ section.anchor {
 }
 
 .service-item {
-    border: var(--frame-w-md) solid transparent;
+    border: var(--gold-border-width-md) solid transparent;
     border-radius: var(--service-frame-radius-outer);
     background:
         linear-gradient(var(--cream), var(--cream)) padding-box,
@@ -882,7 +883,7 @@ section.anchor {
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: var(--frame-w-lg) solid transparent;
+    border: var(--gold-border-width-lg) solid transparent;
     border-radius: var(--feedback-frame-radius-outer);
     background:
         linear-gradient(var(--cream), var(--cream)) padding-box,
@@ -954,7 +955,7 @@ section.anchor {
     font-size: var(--fs-head);
     font-weight: var(--fw-head);
     line-height: 1;
-    border: var(--frame-w-md) solid transparent;
+    border: var(--gold-border-width-md) solid transparent;
     border-radius: var(--cta-frame-radius-outer);
     background:
         linear-gradient(var(--blue), var(--blue)) padding-box,
@@ -1347,16 +1348,19 @@ section.anchor {
 .grid-footer-desktop_A2 {
     grid-area: A2;
     justify-self: start;
+    align-self: end;
 }
 
 .grid-footer-desktop_B2 {
     grid-area: B2;
     justify-self: center;
+    align-self: end;
 }
 
 .grid-footer-desktop_C2 {
     grid-area: C2;
     justify-self: start;
+    align-self: end;
 }
 
 .qualifications-label,
@@ -1365,8 +1369,35 @@ section.anchor {
     font-size: var(--footer-label-size);
     font-weight: var(--footer-label-weight);
     line-height: var(--footer-label-lh);
-    margin: 0 0 var(--footer-label-gap-bottom) 0;
+    margin: 0;
     color: var(--cream);
+}
+
+.footer-qualifications-block,
+.footer-follow-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 14px;
+    min-width: 0;
+}
+
+.footer-backtop-block {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+}
+
+.footer-qualifications-block .qualifications-label,
+.footer-follow-block .follow-label {
+    margin: 0;
+}
+
+.footer-qualifications-block .qualifications-logos,
+.footer-follow-block .follow-icons {
+    justify-content: flex-start;
 }
 
 /* ==== FOOTER QUALIFICATIONS (DESKTOP) ==== */
@@ -1560,12 +1591,9 @@ section.anchor {
         --contact-form-max-w: 75vw;
         --contact-form-min-w: 0px;
 
-        --service-frame-radius-outer-mobile: 15%;
-        --service-frame-radius-inner-mobile: 12%;
-        --feedback-frame-radius-outer-mobile: 15%;
-        --feedback-frame-radius-inner-mobile: 12%;
-        --cta-frame-radius-outer-mobile: 15%;
-        --cta-frame-radius-inner-mobile: 12%;
+        --service-frame-radius-outer-mobile: 24px;
+        --feedback-frame-radius-outer-mobile: 24px;
+        --cta-frame-radius-outer-mobile: 22px;
 
         --pre-footer-item-gap: 12px;
         --pre-footer-col-gap: 12px;
@@ -1602,7 +1630,7 @@ section.anchor {
     }
 
     .service-item {
-    border-radius: var(--service-frame-radius-outer-mobile);
+        border-radius: var(--service-frame-radius-outer-mobile);
     }
 
     .feedback-card {
