@@ -140,17 +140,17 @@
 
     --goldframe-img: url("../img/highlights_gold.png"); /* Bilddatei für Goldtextur */
 
-    --gold-border-width-sm: 2px; /* dünne Goldrahmenstärke */
-    --gold-border-width-md: 4px; /* mittlere Goldrahmenstärke */
-    --gold-border-width-lg: 6px; /* starke Goldrahmenstärke */
+    --gold-border-width-sm: 1px; /* dünne Goldrahmenstärke */
+    --gold-border-width-md: 3px; /* mittlere Goldrahmenstärke */
+    --gold-border-width-lg: 5px; /* starke Goldrahmenstärke */
 
     --frame-w-sm: var(--gold-border-width-sm); /* Alias für dünnen Rahmen */
     --frame-w-md: var(--gold-border-width-md); /* Alias für mittleren Rahmen */
     --frame-w-lg: var(--gold-border-width-lg); /* Alias für starken Rahmen */
 
-    --frame-r-sm: 2px; /* kleiner Standardradius */
-    --frame-r-md: 4px; /* mittlerer Standardradius */
-    --frame-r-lg: 6px; /* größerer Standardradius */
+    --frame-r-sm: 1px; /* kleiner Standardradius */
+    --frame-r-md: 3px; /* mittlerer Standardradius */
+    --frame-r-lg: 5px; /* größerer Standardradius */
 
     --service-frame-radius-outer: 24px; /* Außenradius der Service-Rahmen */
     --feedback-frame-radius-outer: 24px; /* Außenradius der Feedback-/Empfehlungs-Karten */
