@@ -152,9 +152,9 @@
     --frame-r-md: 3px; /* mittlerer Standardradius */
     --frame-r-lg: 5px; /* größerer Standardradius */
 
-    --service-frame-radius-outer: 24px; /* Außenradius der Service-Rahmen */
-    --feedback-frame-radius-outer: 24px; /* Außenradius der Feedback-/Empfehlungs-Karten */
-    --cta-frame-radius-outer: 24px; /* Außenradius der CTA-Buttons */
+    --service-frame-radius-outer: 15px; /* Außenradius der Service-Rahmen */
+    --feedback-frame-radius-outer: 15px; /* Außenradius der Feedback-/Empfehlungs-Karten */
+    --cta-frame-radius-outer: 15px; /* Außenradius der CTA-Buttons */
 
     --nav-home-h: 40px; /* Höhe des Home-Icons im Nav */
     --nav-home-fit: contain; /* Objektverhalten Home-Icon */
@@ -210,7 +210,7 @@
     --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
     --pre-footer-item-gap: 18px; /* Abstand Icon zu Text im Pre-Footer */
     --pre-footer-margin-bottom: 20px; /* Abstand zwischen Pre-Footer und Footer */
-    --pre-footer-icon-h: 75px; /* Höhe der Pre-Footer-Icons */
+    --pre-footer-icon-h: 65px; /* Höhe der Pre-Footer-Icons */
     --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons */
     --pre-footer-icon-pos-x: 50%; /* horizontale Position Pre-Footer-Icon */
     --pre-footer-icon-pos-y: 50%; /* vertikale Position Pre-Footer-Icon */
@@ -236,8 +236,8 @@
     --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
     --footer-label-gap-bottom: 12px; /* historischer Abstandswert unter Labels */
 
-    --qual-logo-rect-h: 30px; /* Höhe rechteckiges Qualifications-Logo */
-    --qual-logo-round-h: 30px; /* Höhe rundes Qualifications-Logo */
+    --qual-logo-rect-h: 35px; /* Höhe rechteckiges Qualifications-Logo */
+    --qual-logo-round-h: 35px; /* Höhe rundes Qualifications-Logo */
     --qual-logo-gap: 24px; /* Abstand zwischen Qualifications-Logos */
     --qual-logo-rect-radius: 4px; /* Radius rechteckiges Qualifications-Logo */
     --qual-logo-round-radius: 50%; /* Radius rundes Qualifications-Logo */
