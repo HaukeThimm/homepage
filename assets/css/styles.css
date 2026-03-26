@@ -156,10 +156,10 @@
     --feedback-frame-radius-outer: 24px; /* Außenradius der Feedback-/Empfehlungs-Karten */
     --cta-frame-radius-outer: 24px; /* Außenradius der CTA-Buttons */
 
-    --nav-home-h: 50px; /* Höhe des Home-Icons im Nav */
+    --nav-home-h: 40px; /* Höhe des Home-Icons im Nav */
     --nav-home-fit: contain; /* Objektverhalten Home-Icon */
-    --nav-menu-btn-h: 50px; /* Höhe des Menü-Icons */
-    --lang-btn-h: 50px; /* Höhe des Sprachbuttons */
+    --nav-menu-btn-h: 40px; /* Höhe des Menü-Icons */
+    --lang-btn-h: 40px; /* Höhe des Sprachbuttons */
     --nav-icon-touch-scale: 1.25; /* Vergrößerungsfaktor für Touchfläche der Nav-Icons */
     --nav-letter-spacing: 0.1em; /* Laufweite der Navigationsschrift */
     --nav-text-transform: uppercase; /* Großschreibung der Nav-Links */
@@ -210,7 +210,7 @@
     --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
     --pre-footer-item-gap: 18px; /* Abstand Icon zu Text im Pre-Footer */
     --pre-footer-margin-bottom: 20px; /* Abstand zwischen Pre-Footer und Footer */
-    --pre-footer-icon-h: 80px; /* Höhe der Pre-Footer-Icons */
+    --pre-footer-icon-h: 75px; /* Höhe der Pre-Footer-Icons */
     --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons */
     --pre-footer-icon-pos-x: 50%; /* horizontale Position Pre-Footer-Icon */
     --pre-footer-icon-pos-y: 50%; /* vertikale Position Pre-Footer-Icon */
@@ -223,8 +223,8 @@
     --pre-footer-text-nowrap: nowrap; /* Umbruchverhalten Pre-Footer-Text */
 
     --footer-min-h: 300px; /* Mindesthöhe Footer */
-    --footer-pad-top: 20px; /* oberes Padding Footer */
-    --footer-pad-bottom: 20px; /* unteres Padding Footer */
+    --footer-pad-top: 10px; /* oberes Padding Footer */
+    --footer-pad-bottom: 10px; /* unteres Padding Footer */
     --footer-row-gap: 18px; /* Abstand zwischen Footer-Zeilen */
     --footer-col-gap: 24px; /* Abstand zwischen Footer-Spalten */
     --footer-row2-baseline-pad: 0px; /* Feinkorrektur zweite Footer-Zeile */
@@ -236,8 +236,8 @@
     --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
     --footer-label-gap-bottom: 12px; /* historischer Abstandswert unter Labels */
 
-    --qual-logo-rect-h: 80px; /* Höhe rechteckiges Qualifications-Logo */
-    --qual-logo-round-h: 80px; /* Höhe rundes Qualifications-Logo */
+    --qual-logo-rect-h: 50px; /* Höhe rechteckiges Qualifications-Logo */
+    --qual-logo-round-h: 50px; /* Höhe rundes Qualifications-Logo */
     --qual-logo-gap: 24px; /* Abstand zwischen Qualifications-Logos */
     --qual-logo-rect-radius: 4px; /* Radius rechteckiges Qualifications-Logo */
     --qual-logo-round-radius: 50%; /* Radius rundes Qualifications-Logo */
@@ -250,7 +250,7 @@
     --qual-logo-pad: 0px; /* Innenpadding Qualifications-Logo */
     --qual-logo-touch-scale: 1.25; /* Touchfläche Qualifications-Logo */
 
-    --follow-icon-h: 80px; /* Höhe der Follow-Icons */
+    --follow-icon-h: 50px; /* Höhe der Follow-Icons */
     --follow-icon-gap: 18px; /* Abstand zwischen Follow-Icons */
     --follow-icon-radius: 50%; /* Radius der Follow-Icons */
     --follow-icon-fit: contain; /* Objektverhalten Follow-Icons */
