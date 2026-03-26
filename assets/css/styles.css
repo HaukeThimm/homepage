@@ -116,7 +116,7 @@
     --fw-body: 300; /* Schriftgewicht Fließtext */
     --fw-nav-link: 500; /* Schriftgewicht Navigationslinks */
     --fw-backtop: 300; /* Schriftgewicht Back-to-top */
-    --fw-backtop-hover: 700; /* Schriftgewicht Back-to-top Hover */
+    --fw-backtop-hover: 500; /* Schriftgewicht Back-to-top Hover */
     --fw-approach-num: 500; /* Schriftgewicht Nummern in Arbeitsweise */
 
     --lh-head: 1.25; /* Zeilenhöhe Headlines */
@@ -1983,10 +1983,10 @@ section.anchor {
         justify-content: center;
     }
 
-    /* .grid-footer-mobile_A .backtop .chevron-img {
+    .grid-footer-mobile_A .backtop .chevron-img {
         height: var(--backtop-icon-h-mobile);
         width: auto;
-    } */
+    }
 
     .grid-footer-mobile_B .qualifications-label,
     .grid-footer-mobile_C .follow-label {
