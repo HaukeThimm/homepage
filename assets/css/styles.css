@@ -236,9 +236,9 @@
     --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
     --footer-label-gap-bottom: 12px; /* historischer Abstandswert unter Labels */
 
-    --qual-logo-rect-h: 35px; /* Höhe rechteckiges Qualifications-Logo */
-    --qual-logo-round-h: 35px; /* Höhe rundes Qualifications-Logo */
-    --qual-logo-gap: 24px; /* Abstand zwischen Qualifications-Logos */
+    --qual-logo-rect-h: 50px; /* Höhe rechteckiges Qualifications-Logo */
+    --qual-logo-round-h: 50px; /* Höhe rundes Qualifications-Logo */
+    --qual-logo-gap: 18px; /* Abstand zwischen Qualifications-Logos */
     --qual-logo-rect-radius: 4px; /* Radius rechteckiges Qualifications-Logo */
     --qual-logo-round-radius: 50%; /* Radius rundes Qualifications-Logo */
     --qual-logo-rect-fit: contain; /* Objektverhalten rechteckiges Qualifications-Logo */
