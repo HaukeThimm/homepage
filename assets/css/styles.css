@@ -140,7 +140,6 @@
 
     --goldframe-img: url("../img/highlights_gold.png");
 
-    /* Desktop: explizite 0px-Variante */
     --gold-border-width-no: 0px;
     --gold-border-width-sm: 2px;
     --gold-border-width-md: 3px;
@@ -159,7 +158,6 @@
     --feedback-frame-radius-outer: 15px;
     --cta-frame-radius-outer: 15px;
 
-    /* harmonisiert */
     --nav-home-h: 36px;
     --nav-home-fit: contain;
     --nav-menu-btn-h: 36px;
@@ -195,6 +193,7 @@
     --carousel-card-pad: 26px;
     --carousel-sign-gap-top: 22px;
     --carousel-shell-top: 18px;
+    --carousel-card-pad: 30px;
 
     --cta-gap: 14px;
     --cta-pad-y: 0.45em;
@@ -1722,6 +1721,8 @@ section.anchor {
         --service-frame-radius-outer-mobile: 20px;
         --feedback-frame-radius-outer-mobile: 20px;
         --cta-frame-radius-outer-mobile: 20px;
+
+        --carousel-card-pad: 24px;
 
         --pre-footer-item-gap: 12px;
         --pre-footer-col-gap: 12px;
