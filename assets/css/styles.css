@@ -98,184 +98,188 @@
 
 /* ==== ROOT TOKENS (DESKTOP STANDARD) ==== */
 :root {
-    --cream: #fdf7f2; /* helle Grundfarbe für Hintergründe und Innenflächen */
-    --blue: #003153; /* Hauptfarbe für Navigation, Footer, Texte und CTA-Flächen */
+    --cream: #fdf7f2;
+    --blue: #003153;
 
-    --font-head: "Cormorant Garamond", serif; /* Schriftfamilie für Headlines und Subheads */
-    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* Schriftfamilie für Fließtext */
+    --font-head: "Cormorant Garamond", serif;
+    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-    --fs-head: 30px; /* Schriftgröße Headlines */
-    --fs-sub: 24px; /* Schriftgröße Subline / Service-Titel */
-    --fs-body: 18px; /* Schriftgröße Fließtext */
-    --fs-hero-name: 42px; /* Schriftgröße Name im Hero */
-    --fs-nav-link: 15px; /* Schriftgröße Desktop-Navigation */
-    --fs-backtop: 18px; /* Schriftgröße "zum Seitenanfang" */
+    --fs-head: 30px;
+    --fs-sub: 24px;
+    --fs-body: 18px;
+    --fs-hero-name: 42px;
+    --fs-nav-link: 15px;
+    --fs-backtop: 18px;
 
-    --fw-head: 700; /* Schriftgewicht Headlines */
-    --fw-sub: 500; /* Schriftgewicht Subheads */
-    --fw-body: 300; /* Schriftgewicht Fließtext */
-    --fw-nav-link: 500; /* Schriftgewicht Navigationslinks */
-    --fw-backtop: 300; /* Schriftgewicht Back-to-top */
-    --fw-backtop-hover: 500; /* Schriftgewicht Back-to-top Hover */
-    --fw-approach-num: 500; /* Schriftgewicht Nummern in Arbeitsweise */
+    --fw-head: 700;
+    --fw-sub: 500;
+    --fw-body: 300;
+    --fw-nav-link: 500;
+    --fw-backtop: 300;
+    --fw-backtop-hover: 500;
+    --fw-approach-num: 500;
 
-    --lh-head: 1.25; /* Zeilenhöhe Headlines */
-    --lh-sub: 1.25; /* Zeilenhöhe Subheads */
-    --lh-body: 1.5; /* Zeilenhöhe Fließtext */
+    --lh-head: 1.25;
+    --lh-sub: 1.25;
+    --lh-body: 1.5;
 
-    --top-offset: 0px; /* oberer globaler Offset */
-    --banner-h: 75px; /* Höhe des fixen Nav-Banners */
-    --page-top-gap: 40px; /* allgemeiner Seitenabstand oben */
-    --side-pad: 150px; /* horizontaler Innenabstand der Content-Bereiche */
-    --max-width: 1400px; /* maximale Inhaltsbreite */
+    --top-offset: 0px;
+    --banner-h: 75px;
+    --page-top-gap: 40px;
+    --side-pad: 150px;
+    --max-width: 1400px;
 
-    --section-pad-y: 60px; /* vertikales Padding pro Section */
-    --hero-offset: 25px; /* Abstand zwischen Headerbild und Hero */
-    --hero-pad-bottom: 30px; /* Abstand unter dem Hero */
+    --section-pad-y: 60px;
+    --hero-offset: 25px;
+    --hero-pad-bottom: 30px;
 
-    --h-gap-bottom: 14px; /* Abstand unter Headlines */
-    --sub-gap-bottom: 12px; /* Abstand unter Subheads */
-    --p-gap: 14px; /* Abstand zwischen Absätzen */
-    --block-gap: 40px; /* Abstand zwischen größeren Inhaltsblöcken */
+    --h-gap-bottom: 14px;
+    --sub-gap-bottom: 12px;
+    --p-gap: 14px;
+    --block-gap: 40px;
 
-    --goldframe-img: url("../img/highlights_gold.png"); /* Bilddatei für Goldtextur */
+    --goldframe-img: url("../img/highlights_gold.png");
 
-    --gold-border-width-sm: 1px; /* dünne Goldrahmenstärke */
-    --gold-border-width-md: 3px; /* mittlere Goldrahmenstärke */
-    --gold-border-width-lg: 5px; /* starke Goldrahmenstärke */
+    /* Desktop: explizite 0px-Variante */
+    --gold-border-width-no: 0px;
+    --gold-border-width-sm: 2px;
+    --gold-border-width-md: 3px;
+    --gold-border-width-lg: 4px;
 
-    --frame-w-sm: var(--gold-border-width-sm); /* Alias für dünnen Rahmen */
-    --frame-w-md: var(--gold-border-width-md); /* Alias für mittleren Rahmen */
-    --frame-w-lg: var(--gold-border-width-lg); /* Alias für starken Rahmen */
+    --frame-w-no: var(--gold-border-width-no);
+    --frame-w-sm: var(--gold-border-width-sm);
+    --frame-w-md: var(--gold-border-width-md);
+    --frame-w-lg: var(--gold-border-width-lg);
 
-    --frame-r-sm: 1px; /* kleiner Standardradius */
-    --frame-r-md: 3px; /* mittlerer Standardradius */
-    --frame-r-lg: 5px; /* größerer Standardradius */
+    --frame-r-sm: 2px;
+    --frame-r-md: 3px;
+    --frame-r-lg: 4px;
 
-    --service-frame-radius-outer: 15px; /* Außenradius der Service-Rahmen */
-    --feedback-frame-radius-outer: 15px; /* Außenradius der Feedback-/Empfehlungs-Karten */
-    --cta-frame-radius-outer: 15px; /* Außenradius der CTA-Buttons */
+    --service-frame-radius-outer: 15px;
+    --feedback-frame-radius-outer: 15px;
+    --cta-frame-radius-outer: 15px;
 
-    --nav-home-h: 40px; /* Höhe des Home-Icons im Nav */
-    --nav-home-fit: contain; /* Objektverhalten Home-Icon */
-    --nav-menu-btn-h: 40px; /* Höhe des Menü-Icons */
-    --lang-btn-h: 40px; /* Höhe des Sprachbuttons */
-    --nav-icon-touch-scale: 1.25; /* Vergrößerungsfaktor für Touchfläche der Nav-Icons */
-    --nav-letter-spacing: 0.1em; /* Laufweite der Navigationsschrift */
-    --nav-text-transform: uppercase; /* Großschreibung der Nav-Links */
-    --nav-menu-panel-top: 75px; /* obere Position des mobilen Menüs */
-    --nav-menu-panel-pad-x: 24px; /* horizontales Padding des mobilen Menüpanels */
-    --nav-menu-panel-pad-y: 18px; /* vertikales Padding des mobilen Menüpanels */
-    --nav-menu-panel-gap: 14px; /* Abstand zwischen den mobilen Menülinks */
+    /* harmonisiert */
+    --nav-home-h: 36px;
+    --nav-home-fit: contain;
+    --nav-menu-btn-h: 36px;
+    --lang-btn-h: 36px;
+    --nav-icon-touch-scale: 1.25;
+    --nav-letter-spacing: 0.1em;
+    --nav-text-transform: uppercase;
+    --nav-menu-panel-top: 75px;
+    --nav-menu-panel-pad-x: 24px;
+    --nav-menu-panel-pad-y: 18px;
+    --nav-menu-panel-gap: 14px;
 
-    --service-pad: 18px; /* Innenpadding Service-Box */
-    --services-gap: 18px; /* Abstand zwischen Service-Boxen */
-    --service-grid-col-1: 30px; /* Breite Bullet-Spalte in Services */
-    --service-grid-col-3: 22px; /* Breite Pfeil-Spalte in Services */
-    --service-col-gap: 12px; /* Abstand zwischen Service-Spalten */
-    --service-bullet-h: 22px; /* Höhe des Service-Bullets */
-    --service-arrow-h: 18px; /* Höhe des Service-Pfeils */
-    --service-body-pad-top: 14px; /* Abstand zwischen Service-Kopf und Inhalt */
-    --service-max-h: 600px; /* Maximalhöhe des geöffneten Service-Inhalts */
+    --service-pad: 18px;
+    --services-gap: 18px;
+    --service-grid-col-1: 30px;
+    --service-grid-col-3: 22px;
+    --service-col-gap: 12px;
+    --service-bullet-h: 22px;
+    --service-arrow-h: 18px;
+    --service-body-pad-top: 14px;
+    --service-max-h: 600px;
 
-    --approach-item-gap: 14px; /* Abstand zwischen Punkten in Arbeitsweise */
-    --approach-num-left: 14px; /* linke Position der Nummer */
-    --approach-num-top: 0px; /* obere Position der Nummer */
-    --approach-text-indent: 46px; /* Einzug des Arbeitsweise-Texts */
+    --approach-item-gap: 14px;
+    --approach-num-left: 14px;
+    --approach-num-top: 0px;
+    --approach-text-indent: 46px;
 
-    --carousel-fade: 40px; /* seitlicher Fade im Carousel */
-    --carousel-arrow-h: 40px; /* Höhe der Carousel-Pfeile */
-    --carousel-gap: 28px; /* Abstand zwischen Carousel-Karten */
-    --carousel-card-w: 400px; /* Breite der Feedback-Karte */
-    --carousel-card-h: 300px; /* Höhe der Feedback-Karte */
-    --carousel-card-pad: 26px; /* Innenpadding der Feedback-Karte */
-    --carousel-sign-gap-top: 22px; /* Abstand zur Signatur */
-    --carousel-shell-top: 18px; /* Abstand über dem Carousel */
+    --carousel-fade: 40px;
+    --carousel-arrow-h: 40px;
+    --carousel-gap: 28px;
+    --carousel-card-w: 400px;
+    --carousel-card-h: 300px;
+    --carousel-card-pad: 26px;
+    --carousel-sign-gap-top: 22px;
+    --carousel-shell-top: 18px;
 
-    --cta-gap: 14px; /* Abstand innerhalb CTA-Bereich */
-    --cta-pad-y: 0.45em; /* vertikales Padding CTA */
-    --cta-pad-x: 0.9em; /* horizontales Padding CTA */
+    --cta-gap: 14px;
+    --cta-pad-y: 0.45em;
+    --cta-pad-x: 0.9em;
 
-    --contact-form-max-w: 25vw; /* maximale Breite Kontaktformular */
-    --contact-form-min-w: 320px; /* minimale Breite Kontaktformular */
-    --contact-form-gap: 14px; /* Abstand zwischen Formularfeldern */
-    --contact-form-field-pad-y: 12px; /* vertikales Padding Formularfeld */
-    --contact-form-field-pad-x: 14px; /* horizontales Padding Formularfeld */
-    --contact-form-radius: var(--frame-r-md); /* Radius Standardformular */
-    --contact-form-submit-pad-y: 0.45em; /* vertikales Padding Formularbutton */
-    --contact-form-submit-pad-x: 0.9em; /* horizontales Padding Formularbutton */
+    --contact-form-max-w: 25vw;
+    --contact-form-min-w: 320px;
+    --contact-form-gap: 14px;
+    --contact-form-field-pad-y: 12px;
+    --contact-form-field-pad-x: 14px;
+    --contact-form-radius: var(--frame-r-md);
+    --contact-form-submit-pad-y: 0.45em;
+    --contact-form-submit-pad-x: 0.9em;
 
-    --pre-footer-min-h: 120px; /* Mindesthöhe des Pre-Footers */
-    --pre-footer-pad-y: 0px; /* vertikales Padding Pre-Footer */
-    --pre-footer-col-gap: 30px; /* Spaltenabstand Pre-Footer */
-    --pre-footer-item-gap: 18px; /* Abstand Icon zu Text im Pre-Footer */
-    --pre-footer-margin-bottom: 20px; /* Abstand zwischen Pre-Footer und Footer */
-    --pre-footer-icon-h: 65px; /* Höhe der Pre-Footer-Icons */
-    --pre-footer-icon-fit: contain; /* Objektverhalten Pre-Footer-Icons */
-    --pre-footer-icon-pos-x: 50%; /* horizontale Position Pre-Footer-Icon */
-    --pre-footer-icon-pos-y: 50%; /* vertikale Position Pre-Footer-Icon */
-    --pre-footer-icon-radius: 50%; /* Radius Pre-Footer-Icon */
-    --pre-footer-touch-scale: 1.25; /* Touchfläche Pre-Footer */
-    --pre-footer-text-font: var(--font-body); /* Schriftfamilie Pre-Footer-Text */
-    --pre-footer-text-size: var(--fs-body); /* Schriftgröße Pre-Footer-Text */
-    --pre-footer-text-weight: var(--fw-body); /* Schriftgewicht Pre-Footer-Text */
-    --pre-footer-text-lh: var(--lh-body); /* Zeilenhöhe Pre-Footer-Text */
-    --pre-footer-text-nowrap: nowrap; /* Umbruchverhalten Pre-Footer-Text */
+    --pre-footer-min-h: 120px;
+    --pre-footer-pad-y: 0px;
+    --pre-footer-col-gap: 30px;
+    --pre-footer-item-gap: 18px;
+    --pre-footer-margin-bottom: 20px;
+    --pre-footer-icon-h: 65px;
+    --pre-footer-icon-fit: contain;
+    --pre-footer-icon-pos-x: 50%;
+    --pre-footer-icon-pos-y: 50%;
+    --pre-footer-icon-radius: 50%;
+    --pre-footer-touch-scale: 1.25;
+    --pre-footer-text-font: var(--font-body);
+    --pre-footer-text-size: var(--fs-body);
+    --pre-footer-text-weight: var(--fw-body);
+    --pre-footer-text-lh: var(--lh-body);
+    --pre-footer-text-nowrap: nowrap;
 
-    --footer-min-h: 300px; /* Mindesthöhe Footer */
-    --footer-pad-top: 10px; /* oberes Padding Footer */
-    --footer-pad-bottom: 10px; /* unteres Padding Footer */
-    --footer-row-gap: 18px; /* Abstand zwischen Footer-Zeilen */
-    --footer-col-gap: 24px; /* Abstand zwischen Footer-Spalten */
-    --footer-row2-baseline-pad: 0px; /* Feinkorrektur zweite Footer-Zeile */
-    --footer-topline-offset: 0px; /* zusätzlicher Oberkanten-Offset für die erste Footer-Zeile */
+    --footer-min-h: 300px;
+    --footer-pad-top: 10px;
+    --footer-pad-bottom: 10px;
+    --footer-row-gap: 18px;
+    --footer-col-gap: 24px;
+    --footer-row2-baseline-pad: 0px;
+    --footer-topline-offset: 0px;
 
-    --footer-label-font: var(--font-body); /* Schriftfamilie Footer-Labels */
-    --footer-label-size: var(--fs-body); /* Schriftgröße Footer-Labels */
-    --footer-label-weight: var(--fw-sub); /* Schriftgewicht Footer-Labels */
-    --footer-label-lh: var(--lh-body); /* Zeilenhöhe Footer-Labels */
-    --footer-label-gap-bottom: 12px; /* historischer Abstandswert unter Labels */
+    --footer-label-font: var(--font-body);
+    --footer-label-size: var(--fs-body);
+    --footer-label-weight: var(--fw-sub);
+    --footer-label-lh: var(--lh-body);
+    --footer-label-gap-bottom: 12px;
 
-    --qual-logo-rect-h: 50px; /* Höhe rechteckiges Qualifications-Logo */
-    --qual-logo-round-h: 50px; /* Höhe rundes Qualifications-Logo */
-    --qual-logo-gap: 18px; /* Abstand zwischen Qualifications-Logos */
-    --qual-logo-rect-radius: 4px; /* Radius rechteckiges Qualifications-Logo */
-    --qual-logo-round-radius: 50%; /* Radius rundes Qualifications-Logo */
-    --qual-logo-rect-fit: contain; /* Objektverhalten rechteckiges Qualifications-Logo */
-    --qual-logo-round-fit: contain; /* Objektverhalten rundes Qualifications-Logo */
-    --qual-logo-rect-pos-x: 50%; /* horizontale Bildposition rechteckiges Qualifications-Logo */
-    --qual-logo-rect-pos-y: 50%; /* vertikale Bildposition rechteckiges Qualifications-Logo */
-    --qual-logo-round-pos-x: 50%; /* horizontale Bildposition rundes Qualifications-Logo */
-    --qual-logo-round-pos-y: 50%; /* vertikale Bildposition rundes Qualifications-Logo */
-    --qual-logo-pad: 0px; /* Innenpadding Qualifications-Logo */
-    --qual-logo-touch-scale: 1.25; /* Touchfläche Qualifications-Logo */
+    --qual-logo-rect-h: 50px;
+    --qual-logo-round-h: 50px;
+    --qual-logo-gap: 18px;
+    --qual-logo-rect-radius: 4px;
+    --qual-logo-round-radius: 50%;
+    --qual-logo-rect-fit: contain;
+    --qual-logo-round-fit: contain;
+    --qual-logo-rect-pos-x: 50%;
+    --qual-logo-rect-pos-y: 50%;
+    --qual-logo-round-pos-x: 50%;
+    --qual-logo-round-pos-y: 50%;
+    --qual-logo-pad: 0px;
+    --qual-logo-touch-scale: 1.25;
 
-    --follow-icon-h: 60px; /* Höhe der Follow-Icons */
-    --follow-icon-gap: 18px; /* Abstand zwischen Follow-Icons */
-    --follow-icon-radius: 50%; /* Radius der Follow-Icons */
-    --follow-icon-fit: contain; /* Objektverhalten Follow-Icons */
-    --follow-icon-pos-x: 50%; /* horizontale Bildposition Follow-Icon */
-    --follow-icon-pos-y: 50%; /* vertikale Bildposition Follow-Icon */
-    --follow-icon-pad: 0px; /* Innenpadding Follow-Icon */
-    --follow-icon-touch-scale: 1.25; /* Touchfläche Follow-Icon */
+    --follow-icon-h: 60px;
+    --follow-icon-gap: 18px;
+    --follow-icon-radius: 50%;
+    --follow-icon-fit: contain;
+    --follow-icon-pos-x: 50%;
+    --follow-icon-pos-y: 50%;
+    --follow-icon-pad: 0px;
+    --follow-icon-touch-scale: 1.25;
 
-    --backtop-icon-h: 4px; /* Höhe des Chevron im Back-to-top-Link */
-    --backtop-gap: 3px; /* Abstand zwischen Chevron und Text "zum Seitenanfang" */
+    --backtop-icon-h: 4px;
+    --backtop-gap: 3px;
 
-    --legal-font: var(--font-body); /* Schriftfamilie Legal-Bereich */
-    --legal-size: var(--fs-body); /* Schriftgröße Legal-Bereich */
-    --legal-weight: var(--fw-body); /* Schriftgewicht Legal-Bereich */
-    --legal-lh: var(--lh-body); /* Zeilenhöhe Legal-Bereich */
-    --legal-links-gap: 10px; /* Abstand zwischen Impressum und Datenschutz */
-    --legal-wrap: nowrap; /* Umbruchverhalten Legal-Bereich */
+    --legal-font: var(--font-body);
+    --legal-size: var(--fs-body);
+    --legal-weight: var(--fw-body);
+    --legal-lh: var(--lh-body);
+    --legal-links-gap: 10px;
+    --legal-wrap: nowrap;
 
-    --anchor-offset: 20px; /* Scroll-Offset für Anchor-Links */
+    --anchor-offset: 20px;
 
-    --footer-mobile-row-pad-top: 10px; /* oberes Padding mobile Footer-Zeilen */
-    --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
-    --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding letzte mobile Footer-Zeile */
-    --footer-mobile-b-gap: 18px; /* Abstand im mobilen Qualifications-Block */
-    --footer-mobile-c-gap: 18px; /* Abstand im mobilen Follow-Block */
+    --footer-mobile-row-pad-top: 10px;
+    --footer-mobile-row-pad-bottom: 0px;
+    --footer-mobile-row-pad-bottom-f: 22px;
+    --footer-mobile-b-gap: 18px;
+    --footer-mobile-c-gap: 18px;
 }
 
 /* ==== ALLGEMEINE EINSTELLUNGEN ==== */
@@ -301,84 +305,125 @@ body {
     line-height: var(--lh-body);
 }
 
+img,
+picture {
+    max-width: 100%;
+}
+
 /* ==== GOLD-FRAME SYSTEM ==== */
+/* Sauberer, gleichmäßiger Gold-Rahmen auch in runden Ecken */
 .gold-frame {
+    --gf-border-width: var(--frame-w-sm);
+    --gf-radius: var(--frame-r-md);
+
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: var(--gold-border-width-sm) solid transparent;
-    border-radius: var(--frame-r-md);
+    border-radius: var(--gf-radius);
     overflow: hidden;
-    background:
-        linear-gradient(var(--cream), var(--cream)) padding-box,
-        var(--goldframe-img) border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-clip: padding-box, border-box;
+    background: var(--cream);
+    isolation: isolate;
+}
+
+.gold-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: var(--gf-border-width);
+    border-radius: inherit;
+    background-image: var(--goldframe-img);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+.frame--no {
+    --gf-border-width: var(--frame-w-no);
 }
 
 .frame--sm {
-    border-width: var(--frame-w-sm);
+    --gf-border-width: var(--frame-w-sm);
 }
 
 .frame--md {
-    border-width: var(--frame-w-md);
+    --gf-border-width: var(--frame-w-md);
 }
 
 .frame--lg {
-    border-width: var(--frame-w-lg);
+    --gf-border-width: var(--frame-w-lg);
 }
 
 .shape--r-sm {
+    --gf-radius: var(--frame-r-sm);
     border-radius: var(--frame-r-sm);
 }
 
 .shape--r-md {
+    --gf-radius: var(--frame-r-md);
     border-radius: var(--frame-r-md);
 }
 
 .shape--r-lg {
+    --gf-radius: var(--frame-r-lg);
     border-radius: var(--frame-r-lg);
 }
 
 .shape--pill {
+    --gf-radius: 999px;
     border-radius: 999px;
 }
 
 .shape--round {
+    --gf-radius: 999px;
     border-radius: 999px;
 }
 
 .shape--rect {
+    --gf-radius: var(--frame-r-md);
     border-radius: var(--frame-r-md);
 }
 
 .gold-frame > img,
-.gold-frame > picture {
-    display: block;
-    width: 100%;
-    height: 100%;
+.gold-frame > picture,
+.gold-frame > picture > img,
+.gold-frame > span,
+.gold-frame > svg {
+    position: relative;
+    z-index: 1;
 }
 
+/* ==== EINHEITLICHE ICON-/LOGO-BILDLOGIK ==== */
+/* feste Höhe, Breite auto, kein Cropping */
 .gold-frame > img,
 .gold-frame > picture > img {
-    width: 100%;
+    display: block;
     height: 100%;
-    object-fit: cover;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
     border-radius: inherit;
 }
 
 /* ==== GOLD-FRAME IM FOOTER DEAKTIVIEREN ==== */
-.footer .gold-frame {
-    border-color: transparent;
-    background: none;
-    background-image: none;
+.footer .gold-frame::before {
+    display: none;
 }
 
-.footer .gold-frame > img,
-.footer .gold-frame > picture > img {
-    border-radius: inherit;
+.footer .gold-frame {
+    background: transparent;
 }
 
 /* ==== HEADER ==== */
@@ -386,14 +431,22 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    border-bottom: var(--frame-w-md) solid transparent;
-    background:
-        linear-gradient(var(--cream), var(--cream)) padding-box,
-        var(--goldframe-img) border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-clip: padding-box, border-box;
+    position: relative;
+    background: var(--cream);
+}
+
+.header-image::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--frame-w-md);
+    background-image: var(--goldframe-img);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
 }
 
 .header-image img {
@@ -520,10 +573,9 @@ body {
 }
 
 .nav-link--home img {
-    display: block;
     height: 100%;
-    width: 100%;
-    object-fit: var(--nav-home-fit);
+    width: auto;
+    object-fit: contain;
 }
 
 .lang-toggle {
@@ -561,9 +613,9 @@ body {
 }
 
 .lang-btn .gold-frame > img {
-    width: auto;
     height: 100%;
-    object-fit: cover;
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-menu-toggle {
@@ -588,9 +640,8 @@ body {
 }
 
 .nav-menu-toggle img {
-    display: block;
     height: 100%;
-    width: 100%;
+    width: auto;
     object-fit: contain;
 }
 
@@ -691,9 +742,7 @@ section.anchor {
     margin: 0 0 var(--sub-gap-bottom) 0;
 }
 
-.body-text,
-.feedback-text,
-.feedback-signature {
+.body-text {
     font-family: var(--font-body);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
@@ -739,16 +788,38 @@ section.anchor {
 }
 
 .service-item {
-    border: var(--gold-border-width-md) solid transparent;
+    position: relative;
     border-radius: var(--service-frame-radius-outer);
-    background:
-        linear-gradient(var(--cream), var(--cream)) padding-box,
-        var(--goldframe-img) border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-clip: padding-box, border-box;
+    background: var(--cream);
     padding: var(--service-pad);
+    overflow: hidden;
+}
+
+.service-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: var(--frame-w-md);
+    border-radius: inherit;
+    background-image: var(--goldframe-img);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+.service-item > * {
+    position: relative;
+    z-index: 1;
 }
 
 .service-head {
@@ -876,35 +947,76 @@ section.anchor {
 }
 
 .feedback-card {
+    position: relative;
     flex: 0 0 auto;
     width: var(--carousel-card-w);
     height: var(--carousel-card-h);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: stretch;
+    text-align: center;
+    border-radius: var(--feedback-frame-radius-outer);
+    background: var(--cream);
+    padding: var(--carousel-card-pad);
+    overflow: hidden;
+}
+
+.feedback-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: var(--frame-w-lg);
+    border-radius: inherit;
+    background-image: var(--goldframe-img);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+.feedback-card-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    border: var(--gold-border-width-lg) solid transparent;
-    border-radius: var(--feedback-frame-radius-outer);
-    background:
-        linear-gradient(var(--cream), var(--cream)) padding-box,
-        var(--goldframe-img) border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-clip: padding-box, border-box;
-    padding: var(--carousel-card-pad);
 }
 
 .feedback-text {
     width: 100%;
-    white-space: pre-line;
     margin: 0;
+    white-space: pre-line;
+    font-family: var(--font-head);
+    font-size: var(--fs-body);
+    font-weight: 500;
+    line-height: var(--lh-body);
 }
 
 .feedback-signature {
-    margin-top: var(--carousel-sign-gap-top);
+    margin: 0;
     white-space: pre-line;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: 400;
+    line-height: var(--lh-body);
+}
+
+.feedback-signature-linebreak {
+    display: inline;
 }
 
 .carousel-btn {
@@ -925,9 +1037,10 @@ section.anchor {
 }
 
 .carousel-btn img {
-    width: var(--carousel-arrow-h);
     height: var(--carousel-arrow-h);
+    width: auto;
     display: block;
+    object-fit: contain;
 }
 
 #credentials .carousel-btn.left {
@@ -948,6 +1061,7 @@ section.anchor {
 }
 
 .cta-btn {
+    position: relative;
     display: inline-block;
     padding: var(--cta-pad-y) var(--cta-pad-x);
     color: var(--cream);
@@ -956,16 +1070,32 @@ section.anchor {
     font-size: var(--fs-head);
     font-weight: var(--fw-head);
     line-height: 1;
-    border: var(--gold-border-width-md) solid transparent;
     border-radius: var(--cta-frame-radius-outer);
-    background:
-        linear-gradient(var(--blue), var(--blue)) padding-box,
-        var(--goldframe-img) border-box;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-clip: padding-box, border-box;
+    background: var(--blue);
     white-space: nowrap;
+    overflow: hidden;
+}
+
+.cta-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: var(--frame-w-md);
+    border-radius: inherit;
+    background-image: var(--goldframe-img);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
 }
 
 .cta-btn:hover {
@@ -1283,8 +1413,8 @@ section.anchor {
 }
 
 .pre-footer-item .gold-frame > img {
-    width: 100%;
     height: 100%;
+    width: auto;
     object-fit: var(--pre-footer-icon-fit);
     object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos-y);
     padding: 0;
@@ -1303,287 +1433,258 @@ section.anchor {
 
 /* ==== FOOTER ==== */
 .footer {
-    background-color: var(--blue); /* Hintergrundfarbe Footer */
-    color: var(--cream); /* Textfarbe Footer */
-    min-height: var(--footer-min-h); /* Mindesthöhe Footer */
-    padding: var(--footer-pad-top) 0 var(--footer-pad-bottom); /* oberes und unteres Footer-Padding */
-    font-family: var(--font-body); /* Standardschrift Footer */
-    font-size: var(--fs-body); /* Standard-Schriftgröße Footer */
-    font-weight: var(--fw-body); /* Standard-Schriftgewicht Footer */
-    line-height: var(--lh-body); /* Standard-Zeilenhöhe Footer */
+    background-color: var(--blue);
+    color: var(--cream);
+    min-height: var(--footer-min-h);
+    padding: var(--footer-pad-top) 0 var(--footer-pad-bottom);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
 }
 
 .footer-inner {
-    max-width: var(--max-width); /* maximale Breite Footer-Inhalt */
-    margin: 0 auto; /* zentriert den Footer-Inhalt */
-    padding: 0 var(--side-pad); /* horizontaler Innenabstand */
-    display: grid; /* Grid-Layout */
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 gleich breite Spalten */
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--side-pad);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-areas:
         "A1 B1 C1"
-        "A2 B2 C2"; /* 2 Zeilen, 3 Spalten */
-    column-gap: var(--footer-col-gap); /* Abstand zwischen Spalten */
-    row-gap: var(--footer-row-gap); /* Abstand zwischen Zeilen */
-    align-items: start; /* alle Grid-Items oben ausrichten */
-    align-content: start; /* Grid-Inhalt insgesamt oben halten */
-    min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom)); /* nutzbare Mindesthöhe */
+        "A2 B2 C2";
+    column-gap: var(--footer-col-gap);
+    row-gap: var(--footer-row-gap);
+    align-items: start;
+    align-content: start;
+    min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom));
 }
 
 .grid-footer-desktop_A1 {
-    grid-area: A1; /* linke Zelle oben */
-    justify-self: start; /* linksbündig in der Zelle */
-    align-self: start; /* oben in der Zelle */
+    grid-area: A1;
+    justify-self: start;
+    align-self: start;
 }
 
 .grid-footer-desktop_B1 {
-    grid-area: B1; /* mittlere Zelle oben */
-    justify-self: center; /* zentriert in der Zelle */
-    align-self: start; /* oben in der Zelle */
+    grid-area: B1;
+    justify-self: center;
+    align-self: start;
 }
 
 .grid-footer-desktop_C1 {
-    grid-area: C1; /* rechte Zelle oben */
-    justify-self: start; /* linksbündig in der Zelle */
-    align-self: start; /* oben in der Zelle */
+    grid-area: C1;
+    justify-self: start;
+    align-self: start;
 }
 
 .grid-footer-desktop_A2 {
-    grid-area: A2; /* linke Zelle unten */
-    justify-self: start; /* linksbündig */
-    align-self: end; /* unten in der Zelle */
+    grid-area: A2;
+    justify-self: start;
+    align-self: end;
 }
 
 .grid-footer-desktop_B2 {
-    grid-area: B2; /* mittlere Zelle unten */
-    justify-self: center; /* zentriert */
-    align-self: end; /* unten in der Zelle */
+    grid-area: B2;
+    justify-self: center;
+    align-self: end;
 }
 
 .grid-footer-desktop_C2 {
-    grid-area: C2; /* rechte Zelle unten */
-    justify-self: start; /* linksbündig */
-    align-self: end; /* unten in der Zelle */
+    grid-area: C2;
+    justify-self: start;
+    align-self: end;
 }
 
 .qualifications-label,
 .follow-label {
-    font-family: var(--footer-label-font); /* Schriftfamilie der oberen Footer-Labels */
-    font-size: var(--footer-label-size); /* Schriftgröße der oberen Footer-Labels */
-    font-weight: var(--footer-label-weight); /* Schriftgewicht der oberen Footer-Labels */
-    line-height: var(--footer-label-lh); /* Zeilenhöhe der oberen Footer-Labels */
-    margin: 0; /* kein Außenabstand */
-    color: var(--cream); /* Textfarbe */
+    font-family: var(--footer-label-font);
+    font-size: var(--footer-label-size);
+    font-weight: var(--footer-label-weight);
+    line-height: var(--footer-label-lh);
+    margin: 0;
+    color: var(--cream);
 }
 
 .qualifications-label,
 .follow-label,
 .backtop {
-    margin-top: 0; /* keine zusätzliche Verschiebung nach unten */
+    margin-top: 0;
 }
 
 .footer-qualifications-block,
 .footer-follow-block,
 .footer-backtop-block {
-    align-self: start; /* obere Ausrichtung innerhalb der Grid-Zelle */
-    margin-top: 0; /* kein externer Abstand oben */
-    padding-top: var(--footer-topline-offset); /* globaler zusätzlicher Offset für die erste Footer-Zeile */
+    align-self: start;
+    margin-top: 0;
+    padding-top: var(--footer-topline-offset);
 }
 
 .footer-qualifications-block,
 .footer-follow-block {
-    display: flex; /* vertikale Stapelung von Label und Icons/Logos */
-    flex-direction: column; /* untereinander */
-    align-items: flex-start; /* linksbündig */
-    justify-content: flex-start; /* oben beginnen */
-    gap: 14px; /* Abstand zwischen Label und Logos/Icons */
-    min-width: 0; /* verhindert Überlaufen */
-    padding-top: calc(var(--footer-topline-offset) + var(--backtop-icon-h) + var(--backtop-gap)); /* richtet die Label-Höhe an der Textlinie von "zum Seitenanfang" aus */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 14px;
+    min-width: 0;
+    padding-top: calc(var(--footer-topline-offset) + var(--backtop-icon-h) + var(--backtop-gap));
 }
 
 .footer-backtop-block {
-    display: flex; /* Wrapper für Backtop-Link */
-    align-items: flex-start; /* oben ausrichten */
-    justify-content: center; /* horizontal zentrieren */
-    min-width: 0; /* verhindert Überlaufen */
-}
-
-.footer-qualifications-block .qualifications-label,
-.footer-follow-block .follow-label {
-    margin: 0; /* kein zusätzlicher Abstand */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
 }
 
 .footer-qualifications-block .qualifications-logos,
 .footer-follow-block .follow-icons {
-    justify-content: flex-start; /* Logos/Icons linksbündig unter dem jeweiligen Label */
+    justify-content: flex-start;
 }
 
 /* ==== FOOTER QUALIFICATIONS (DESKTOP) ==== */
 .qualifications-logos {
-    display: flex; /* Logos nebeneinander */
-    gap: var(--qual-logo-gap); /* Abstand zwischen den Logos */
-    align-items: center; /* vertikal zentrieren */
-    flex-wrap: wrap; /* umbrechen bei Platzmangel */
+    display: flex;
+    gap: var(--qual-logo-gap);
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .qualifications-logos a {
-    display: inline-flex; /* klickbarer Bereich als Inline-Flex */
-    align-items: center; /* vertikale Zentrierung */
-    justify-content: center; /* horizontale Zentrierung */
-    min-height: calc(var(--qual-logo-round-h) * var(--qual-logo-touch-scale)); /* Mindesthöhe inkl. Touchfläche */
-    padding: calc((var(--qual-logo-round-h) * var(--qual-logo-touch-scale) - var(--qual-logo-round-h)) / 2); /* zentrierter Touch-Puffer */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(var(--qual-logo-round-h) * var(--qual-logo-touch-scale));
+    padding: calc((var(--qual-logo-round-h) * var(--qual-logo-touch-scale) - var(--qual-logo-round-h)) / 2);
 }
 
 .qualifications-logos .gold-frame {
-    display: inline-flex; /* Rahmen als Flexbox */
-    align-items: center; /* vertikale Zentrierung */
-    justify-content: center; /* horizontale Zentrierung */
-    overflow: hidden; /* Bild bleibt innerhalb der Form */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .qualifications-logos .gold-frame.shape--rect {
-    height: var(--qual-logo-rect-h); /* Höhe des rechteckigen Logos */
-    width: auto; /* Breite passt sich Bild an */
-    border-radius: var(--qual-logo-rect-radius); /* Radius rechteckiges Logo */
+    height: var(--qual-logo-rect-h);
+    width: auto;
+    border-radius: var(--qual-logo-rect-radius);
 }
 
 .qualifications-logos .gold-frame.shape--round {
-    width: var(--qual-logo-round-h); /* Breite des runden Logos */
-    height: var(--qual-logo-round-h); /* Höhe des runden Logos */
-    flex: 0 0 var(--qual-logo-round-h); /* feste Breite */
-    aspect-ratio: 1 / 1; /* quadratisch */
-    border-radius: var(--qual-logo-round-radius); /* Radius rundes Logo */
-}
-
-.qualifications-logos .gold-frame > img,
-.qualifications-logos .gold-frame > picture {
-    display: block; /* block-level für saubere Bilddarstellung */
-    height: 100%; /* volle Höhe des Rahmens */
-    width: auto; /* proportionale Breite */
+    width: var(--qual-logo-round-h);
+    height: var(--qual-logo-round-h);
+    flex: 0 0 var(--qual-logo-round-h);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--qual-logo-round-radius);
 }
 
 .qualifications-logos .gold-frame > img,
 .qualifications-logos .gold-frame > picture > img {
-    display: block; /* block-level */
-    height: 100%; /* volle Höhe */
-    width: auto; /* proportionale Breite */
-    max-width: none; /* keine Begrenzung */
-    padding: var(--qual-logo-pad); /* optionales Innenpadding */
-}
-
-.qualifications-logos .gold-frame.shape--rect > img,
-.qualifications-logos .gold-frame.shape--rect > picture > img {
-    object-fit: var(--qual-logo-rect-fit); /* Bildverhalten rechteckiges Logo */
-    object-position: var(--qual-logo-rect-pos-x) var(--qual-logo-rect-pos-y); /* Bildposition rechteckiges Logo */
-}
-
-.qualifications-logos .gold-frame.shape--round > img,
-.qualifications-logos .gold-frame.shape--round > picture > img {
-    width: 100%; /* volle Breite im Kreis */
-    height: 100%; /* volle Höhe im Kreis */
-    object-fit: var(--qual-logo-round-fit); /* Bildverhalten rundes Logo */
-    object-position: var(--qual-logo-round-pos-x) var(--qual-logo-round-pos-y); /* Bildposition rundes Logo */
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    padding: var(--qual-logo-pad);
 }
 
 /* ==== BACK TO TOP ==== */
 .backtop {
-    display: inline-flex; /* Backtop als vertikaler Flex-Block */
-    flex-direction: column; /* Chevron über Text */
-    align-items: center; /* horizontal zentriert */
-    justify-content: flex-start; /* oben beginnen */
-    gap: var(--backtop-gap); /* Abstand Chevron zu Text */
-    color: var(--cream); /* Textfarbe */
-    text-decoration: none; /* kein Standard-Unterstreichen */
-    font-size: var(--fs-backtop); /* Schriftgröße Backtop */
-    font-weight: var(--fw-backtop); /* Schriftgewicht Backtop */
-    min-height: calc(var(--backtop-icon-h) * 2); /* Mindesthöhe */
-    padding: 8px; /* zusätzlicher Innenraum */
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--backtop-gap);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: var(--fs-backtop);
+    font-weight: var(--fw-backtop);
+    min-height: calc(var(--backtop-icon-h) * 2);
+    padding: 8px;
 }
 
 .backtop .chevron-img {
-    height: var(--backtop-icon-h); /* Höhe des Chevron */
-    width: auto; /* proportionale Breite */
-    display: block; /* block-level */
+    height: var(--backtop-icon-h);
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .backtop:hover {
-    font-weight: var(--fw-backtop-hover); /* stärkeres Gewicht bei Hover */
+    font-weight: var(--fw-backtop-hover);
 }
 
 .backtop:hover .backtop-text {
-    text-decoration: underline; /* Unterstreichung nur des Texts bei Hover */
+    text-decoration: underline;
 }
 
 /* ==== FOOTER FOLLOW (DESKTOP) ==== */
 .follow-icons {
-    display: flex; /* Icons nebeneinander */
-    gap: var(--follow-icon-gap); /* Abstand zwischen den Icons */
-    align-items: center; /* vertikal zentrieren */
-    flex-wrap: wrap; /* umbrechen bei Platzmangel */
+    display: flex;
+    gap: var(--follow-icon-gap);
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .follow-icons a {
-    display: inline-flex; /* klickbarer Bereich als Inline-Flex */
-    align-items: center; /* vertikale Zentrierung */
-    justify-content: center; /* horizontale Zentrierung */
-    min-height: calc(var(--follow-icon-h) * var(--follow-icon-touch-scale)); /* Mindesthöhe inkl. Touchfläche */
-    padding: calc((var(--follow-icon-h) * var(--follow-icon-touch-scale) - var(--follow-icon-h)) / 2); /* Touch-Puffer */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(var(--follow-icon-h) * var(--follow-icon-touch-scale));
+    padding: calc((var(--follow-icon-h) * var(--follow-icon-touch-scale) - var(--follow-icon-h)) / 2);
 }
 
 .follow-icons .gold-frame.shape--round {
-    width: var(--follow-icon-h); /* Breite Follow-Icon */
-    height: var(--follow-icon-h); /* Höhe Follow-Icon */
-    flex: 0 0 var(--follow-icon-h); /* feste Breite */
-    aspect-ratio: 1 / 1; /* quadratisch */
-    border-radius: var(--follow-icon-radius); /* Radius Follow-Icon */
-}
-
-.follow-icons .gold-frame > img,
-.follow-icons .gold-frame > picture {
-    display: block; /* block-level */
-    width: 100%; /* volle Breite */
-    height: 100%; /* volle Höhe */
+    width: var(--follow-icon-h);
+    height: var(--follow-icon-h);
+    flex: 0 0 var(--follow-icon-h);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--follow-icon-radius);
 }
 
 .follow-icons .gold-frame > img,
 .follow-icons .gold-frame > picture > img {
-    width: 100%; /* volle Breite */
-    height: 100%; /* volle Höhe */
-    object-fit: var(--follow-icon-fit); /* Bildverhalten Follow-Icon */
-    object-position: var(--follow-icon-pos-x) var(--follow-icon-pos-y); /* Bildposition Follow-Icon */
-    padding: var(--follow-icon-pad); /* optionales Innenpadding */
-    display: block; /* block-level */
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: var(--follow-icon-pos-x) var(--follow-icon-pos-y);
+    padding: var(--follow-icon-pad);
+    display: block;
 }
 
 /* ==== FOOTER LEGAL ==== */
 .legal-copy {
-    font-family: var(--legal-font); /* Schriftfamilie Legal-Bereich */
-    font-size: var(--legal-size); /* Schriftgröße Legal-Bereich */
-    font-weight: var(--legal-weight); /* Schriftgewicht Legal-Bereich */
-    line-height: var(--legal-lh); /* Zeilenhöhe Legal-Bereich */
-    color: inherit; /* übernimmt Footer-Textfarbe */
-    white-space: var(--legal-wrap); /* Umbruchverhalten */
+    font-family: var(--legal-font);
+    font-size: var(--legal-size);
+    font-weight: var(--legal-weight);
+    line-height: var(--legal-lh);
+    color: inherit;
+    white-space: var(--legal-wrap);
 }
 
 .legal-links {
-    display: inline-flex; /* Links nebeneinander */
-    align-items: baseline; /* an Textgrundlinie ausrichten */
-    justify-content: flex-start; /* links starten */
-    gap: var(--legal-links-gap); /* Abstand zwischen Impressum und Datenschutz */
-    font-family: var(--legal-font); /* Schriftfamilie */
-    font-size: var(--legal-size); /* Schriftgröße */
-    font-weight: var(--legal-weight); /* Schriftgewicht */
-    line-height: var(--legal-lh); /* Zeilenhöhe */
-    white-space: var(--legal-wrap); /* Umbruchverhalten */
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: var(--legal-links-gap);
+    font-family: var(--legal-font);
+    font-size: var(--legal-size);
+    font-weight: var(--legal-weight);
+    line-height: var(--legal-lh);
+    white-space: var(--legal-wrap);
 }
 
 .legal-link {
-    color: var(--cream); /* Linkfarbe */
-    text-decoration: none; /* keine Standard-Unterstreichung */
-    font: inherit; /* erbt Font-Eigenschaften */
+    color: var(--cream);
+    text-decoration: none;
+    font: inherit;
 }
 
 .legal-link:hover {
-    text-decoration: underline; /* Unterstreichung bei Hover */
+    text-decoration: underline;
 }
 
 /* ==== SIMPLE LEGAL PAGE SPACING ==== */
@@ -1595,76 +1696,79 @@ section.anchor {
 
 /* ==== MOBILE ANPASSUNGEN ==== */
 @media (max-width: 768px) {
-
     :root {
-        --side-pad: 18px; /* horizontaler Innenabstand mobil */
-        --banner-h: 64px; /* Höhe des mobilen Nav-Banners */
+        --side-pad: 18px;
+        --banner-h: 64px;
 
-        --nav-home-h: 50px; /* Höhe Home-Icon mobil */
-        --nav-menu-btn-h: 50px; /* Höhe Menü-Icon mobil */
-        --lang-btn-h: 50px; /* Höhe Sprachbutton mobil */
-        --nav-menu-panel-top: 64px; /* obere Position des mobilen Panels */
+        /* Mobile: explizite 0px-Variante */
+        --gold-border-width-no-mobile: 0px;
+        --gold-border-width-sm-mobile: 2px;
+        --gold-border-width-md-mobile: 3px;
+        --gold-border-width-lg-mobile: 4px;
 
-        --contact-form-max-w: 75vw; /* maximale Formularbreite mobil */
-        --contact-form-min-w: 0px; /* minimale Formularbreite mobil */
+        --frame-w-no: var(--gold-border-width-no-mobile);
+        --frame-w-sm: var(--gold-border-width-sm-mobile);
+        --frame-w-md: var(--gold-border-width-md-mobile);
+        --frame-w-lg: var(--gold-border-width-lg-mobile);
 
-        --service-frame-radius-outer-mobile: 20px; /* Außenradius Service-Rahmen mobil */
-        --feedback-frame-radius-outer-mobile: 20px; /* Außenradius Feedback-Karten mobil */
-        --cta-frame-radius-outer-mobile: 20px; /* Außenradius CTA mobil */
+        --nav-home-h: 42px;
+        --nav-menu-btn-h: 42px;
+        --lang-btn-h: 42px;
+        --nav-menu-panel-top: 64px;
 
-        --gold-border-width-sm-mobile: 2px; /* dünne Goldrahmenstärke mobil */
-        --gold-border-width-md-mobile: 3px; /* mittlere Goldrahmenstärke mobil */
-        --gold-border-width-lg-mobile: 4px; /* starke Goldrahmenstärke mobil */
+        --contact-form-max-w: 75vw;
+        --contact-form-min-w: 0px;
 
-        --pre-footer-item-gap: 12px; /* Abstand Icon zu Text Pre-Footer mobil */
-        --pre-footer-col-gap: 12px; /* Spaltenabstand Pre-Footer mobil */
-        --pre-footer-icon-h: 64px; /* Höhe Pre-Footer-Icons mobil */
+        --service-frame-radius-outer-mobile: 20px;
+        --feedback-frame-radius-outer-mobile: 20px;
+        --cta-frame-radius-outer-mobile: 20px;
 
-        --qual-logo-rect-h-mobile: 64px; /* Höhe rechteckiges Qualifications-Logo mobil */
-        --qual-logo-round-h-mobile: 64px; /* Höhe rundes Qualifications-Logo mobil */
-        --qual-logo-gap-mobile: 18px; /* Abstand Qualifications-Logos mobil */
-        --qual-logo-rect-radius-mobile: 50%; /* Radius rechteckiges Qualifications-Logo mobil */
-        --qual-logo-round-radius-mobile: 50%; /* Radius rundes Qualifications-Logo mobil */
-        --qual-logo-rect-fit-mobile: cover; /* Objektverhalten rechteckiges Qualifications-Logo mobil */
-        --qual-logo-round-fit-mobile: cover; /* Objektverhalten rundes Qualifications-Logo mobil */
-        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale Bildposition rechteckiges Qualifications-Logo mobil */
-        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale Bildposition rechteckiges Qualifications-Logo mobil */
-        --qual-logo-round-pos-x-mobile: 50%; /* horizontale Bildposition rundes Qualifications-Logo mobil */
-        --qual-logo-round-pos-y-mobile: 50%; /* vertikale Bildposition rundes Qualifications-Logo mobil */
+        --pre-footer-item-gap: 12px;
+        --pre-footer-col-gap: 12px;
+        --pre-footer-icon-h: 64px;
 
-        --follow-icon-h-mobile: 64px; /* Höhe Follow-Icons mobil */
-        --follow-icon-gap-mobile: 18px; /* Abstand Follow-Icons mobil */
-        --follow-icon-radius-mobile: 50%; /* Radius Follow-Icons mobil */
-        --follow-icon-fit-mobile: cover; /* Objektverhalten Follow-Icons mobil */
-        --follow-icon-pos-x-mobile: 50%; /* horizontale Bildposition Follow-Icons mobil */
-        --follow-icon-pos-y-mobile: 50%; /* vertikale Bildposition Follow-Icons mobil */
-        --follow-icon-pad-mobile: 0px; /* Innenpadding Follow-Icons mobil */
+        --qual-logo-rect-h-mobile: 64px;
+        --qual-logo-round-h-mobile: 64px;
+        --qual-logo-gap-mobile: 18px;
+        --qual-logo-rect-radius-mobile: 50%;
+        --qual-logo-round-radius-mobile: 50%;
+        --qual-logo-rect-fit-mobile: contain;
+        --qual-logo-round-fit-mobile: contain;
+        --qual-logo-rect-pos-x-mobile: 50%;
+        --qual-logo-rect-pos-y-mobile: 50%;
+        --qual-logo-round-pos-x-mobile: 50%;
+        --qual-logo-round-pos-y-mobile: 50%;
 
-        --backtop-icon-h: 4px; /* Höhe Chevron mobil */
-        --backtop-gap: 3px; /* Abstand Chevron zu Text mobil */
-        --footer-topline-offset: 0px; /* zusätzlicher Oberkanten-Offset der ersten Footer-Zeile mobil */
+        --follow-icon-h-mobile: 64px;
+        --follow-icon-gap-mobile: 18px;
+        --follow-icon-radius-mobile: 50%;
+        --follow-icon-fit-mobile: contain;
+        --follow-icon-pos-x-mobile: 50%;
+        --follow-icon-pos-y-mobile: 50%;
+        --follow-icon-pad-mobile: 0px;
 
-        --footer-mobile-row-pad-top: 22px; /* oberes Padding mobile Footer-Zeilen */
-        --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobile Footer-Zeilen */
-        --footer-mobile-row-pad-bottom-f: 22px; /* unteres Padding letzte mobile Footer-Zeile */
-        --footer-mobile-b-gap: 18px; /* Abstand im mobilen Qualifications-Block */
-        --footer-mobile-c-gap: 18px; /* Abstand im mobilen Follow-Block */
-        --legal-links-gap: 15px; /* Abstand zwischen Impressum und Datenschutz mobil */
+        --backtop-icon-h: 4px;
+        --backtop-gap: 3px;
+        --footer-topline-offset: 0px;
+
+        --footer-mobile-row-pad-top: 22px;
+        --footer-mobile-row-pad-bottom: 0px;
+        --footer-mobile-row-pad-bottom-f: 22px;
+        --footer-mobile-b-gap: 18px;
+        --footer-mobile-c-gap: 18px;
+        --legal-links-gap: 15px;
     }
 
     .service-item {
         border-radius: var(--service-frame-radius-outer-mobile);
-        /* border-width: var(--gold-border-width-md-mobile); */
     }
 
     .feedback-card {
         border-radius: var(--feedback-frame-radius-outer-mobile);
-        /* border-width: var(--gold-border-width-lg-mobile); */
     }
 
     .cta-btn {
         border-radius: var(--cta-frame-radius-outer-mobile);
-        /* border-width: var(--gold-border-width-md-mobile); */
     }
 
     #credentials .feedback-card {
@@ -1725,8 +1829,8 @@ section.anchor {
     }
 
     .grid-nav-mobile .nav-link--home img {
-        width: 100%;
         height: 100%;
+        width: auto;
     }
 
     .grid-nav-mobile .nav-menu-toggle {
@@ -1984,7 +2088,7 @@ section.anchor {
     }
 
     .grid-footer-mobile_A .backtop .chevron-img {
-        height: var(--backtop-icon-h-mobile);
+        height: var(--backtop-icon-h);
         width: auto;
     }
 
@@ -2029,21 +2133,14 @@ section.anchor {
     }
 
     .grid-footer-mobile_B .qualifications-logos .gold-frame.shape--rect > img,
-    .grid-footer-mobile_B .qualifications-logos .gold-frame.shape--rect > picture > img {
-        width: 100%;
-        height: 100%;
-        object-fit: var(--qual-logo-rect-fit-mobile);
-        object-position: var(--qual-logo-rect-pos-x-mobile) var(--qual-logo-rect-pos-y-mobile);
-        padding: 0;
-        border-radius: inherit;
-    }
-
+    .grid-footer-mobile_B .qualifications-logos .gold-frame.shape--rect > picture > img,
     .grid-footer-mobile_B .qualifications-logos .gold-frame.shape--round > img,
     .grid-footer-mobile_B .qualifications-logos .gold-frame.shape--round > picture > img {
-        width: 100%;
+        width: auto;
         height: 100%;
-        object-fit: var(--qual-logo-round-fit-mobile);
-        object-position: var(--qual-logo-round-pos-x-mobile) var(--qual-logo-round-pos-y-mobile);
+        max-width: 100%;
+        object-fit: contain;
+        object-position: center;
         padding: 0;
         border-radius: inherit;
     }
@@ -2063,9 +2160,10 @@ section.anchor {
 
     .grid-footer-mobile_C .follow-icons .gold-frame > img,
     .grid-footer-mobile_C .follow-icons .gold-frame > picture > img {
-        width: 100%;
+        width: auto;
         height: 100%;
-        object-fit: var(--follow-icon-fit-mobile);
+        max-width: 100%;
+        object-fit: contain;
         object-position: var(--follow-icon-pos-x-mobile) var(--follow-icon-pos-y-mobile);
         padding: var(--follow-icon-pad-mobile);
         border-radius: inherit;

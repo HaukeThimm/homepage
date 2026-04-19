@@ -120,3 +120,59 @@
         link.addEventListener("click", closePanel);
     });
 })();
+
+/* ==== REFERENCES CAROUSEL ==== */
+(function () {
+    const shell = document.querySelector(".credentials-carousel");
+    if (!shell) return;
+
+    const track = shell.querySelector(".carousel-track");
+    const cards = Array.from(shell.querySelectorAll(".feedback-card"));
+    const btnPrev = shell.querySelector(".carousel-btn.left");
+    const btnNext = shell.querySelector(".carousel-btn.right");
+
+    if (!track || !cards.length || !btnPrev || !btnNext) return;
+
+    let currentIndex = 0;
+
+    function getCardStep() {
+        if (cards.length < 2) return cards[0].getBoundingClientRect().width;
+
+        const firstRect = cards[0].getBoundingClientRect();
+        const secondRect = cards[1].getBoundingClientRect();
+
+        return secondRect.left - firstRect.left;
+    }
+
+    function updateCarousel() {
+        const step = getCardStep();
+        const translateX = -(currentIndex * step);
+        track.style.transform = `translate3d(${translateX}px, 0, 0)`;
+
+        cards.forEach((card, index) => {
+            card.classList.toggle("is-active", index === currentIndex);
+            card.setAttribute("aria-hidden", index === currentIndex ? "false" : "true");
+        });
+
+        btnPrev.disabled = currentIndex === 0;
+        btnNext.disabled = currentIndex === cards.length - 1;
+    }
+
+    btnPrev.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex -= 1;
+            updateCarousel();
+        }
+    });
+
+    btnNext.addEventListener("click", () => {
+        if (currentIndex < cards.length - 1) {
+            currentIndex += 1;
+            updateCarousel();
+        }
+    });
+
+    window.addEventListener("resize", updateCarousel);
+
+    updateCarousel();
+})();
