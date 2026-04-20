@@ -107,7 +107,7 @@
     --fs-head: 30px; /* Schriftgröße für Hauptüberschriften */
     --fs-sub: 24px; /* Schriftgröße für Subheads und Zwischenüberschriften */
     --fs-body: 18px; /* Standard-Schriftgröße für Fließtext */
-    --fs-hero-name: 42px; /* Schriftgröße für den Namen im Hero-Bereich */
+    --fs-hero-name: 36px; /* Schriftgröße für den Namen im Hero-Bereich */
     --fs-nav-link: 15px; /* Schriftgröße der Desktop-Navigation */
     --fs-backtop: 18px; /* Schriftgröße des Back-to-top-Links */
 
@@ -118,7 +118,7 @@
     --fw-sub: 500; /* Schriftgewicht für Subheads */
     --fw-body: 300; /* Schriftgewicht für Fließtext */
     --fw-nav-link: 500; /* Schriftgewicht der Navigationslinks */
-    --fw-backtop: 300; /* normales Schriftgewicht des Back-to-top-Links */
+    --fw-backtop: 400; /* normales Schriftgewicht des Back-to-top-Links */
     --fw-backtop-hover: 500; /* Schriftgewicht des Back-to-top-Links im Hover-Zustand */
     --fw-approach-num: 500; /* Schriftgewicht der Nummerierung in der Arbeitsweise-Liste */
 
@@ -161,7 +161,7 @@
     --feedback-frame-radius-outer: 15px; /* Außenradius der Feedback-Karten */
     --cta-frame-radius-outer: 15px; /* Außenradius der CTA-Buttons */
 
-    --nav-home-h: 36px; /* Höhe des Home-Motivs in der Desktop-Navigation */
+    --nav-home-h: 20px; /* Höhe des Home-Motivs in der Desktop-Navigation */
     --nav-home-fit: contain; /* Skalierungsverhalten des Home-Motivs */
     --nav-menu-btn-h: 36px; /* Höhe des Menü-Buttons */
     --lang-btn-h: 36px; /* Höhe des Sprach-Buttons */
