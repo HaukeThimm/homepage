@@ -98,185 +98,198 @@
 
 /* ==== ROOT TOKENS (DESKTOP STANDARD) ==== */
 :root {
-    --cream: #fdf7f2;
-    --blue: #003153;
+    --cream: #fdf7f2; /* helle Grundfarbe für Flächen, Karten und Hintergründe */
+    --blue: #003153; /* Hauptfarbe für Navigation, Footer und zentrale Typografie */
 
-    --font-head: "Cormorant Garamond", serif;
-    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    --font-head: "Cormorant Garamond", serif; /* Standardschrift für Headlines und betonte Texte */
+    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* Standardschrift für Fließtext und funktionale Inhalte */
 
-    --fs-head: 30px;
-    --fs-sub: 24px;
-    --fs-body: 18px;
-    --fs-hero-name: 42px;
-    --fs-nav-link: 18px;
-    --fs-backtop: 18px;
+    --fs-head: 30px; /* Schriftgröße für Hauptüberschriften */
+    --fs-sub: 24px; /* Schriftgröße für Subheads und Zwischenüberschriften */
+    --fs-body: 18px; /* Standard-Schriftgröße für Fließtext */
+    --fs-hero-name: 42px; /* Schriftgröße für den Namen im Hero-Bereich */
+    --fs-nav-link: 15px; /* Schriftgröße der Desktop-Navigation */
+    --fs-backtop: 18px; /* Schriftgröße des Back-to-top-Links */
 
-    --fw-head: 700;
-    --fw-sub: 500;
-    --fw-body: 300;
-    --fw-nav-link: 500;
-    --fw-backtop: 300;
-    --fw-backtop-hover: 500;
-    --fw-approach-num: 500;
+    --fs-feedback: 22px; /* separate Schriftgröße des Feedback-Texts in den Feedback-Karten */
+    --fs-feedback-sign: 18px; /* separate Schriftgröße der Verfasser-Details in den Feedback-Karten */
 
-    --lh-head: 1.25;
-    --lh-sub: 1.25;
-    --lh-body: 1.5;
+    --fw-head: 700; /* Schriftgewicht für Headlines */
+    --fw-sub: 500; /* Schriftgewicht für Subheads */
+    --fw-body: 300; /* Schriftgewicht für Fließtext */
+    --fw-nav-link: 500; /* Schriftgewicht der Navigationslinks */
+    --fw-backtop: 300; /* normales Schriftgewicht des Back-to-top-Links */
+    --fw-backtop-hover: 500; /* Schriftgewicht des Back-to-top-Links im Hover-Zustand */
+    --fw-approach-num: 500; /* Schriftgewicht der Nummerierung in der Arbeitsweise-Liste */
 
-    --top-offset: 0px;
-    --banner-h: 75px;
-    --page-top-gap: 40px;
-    --side-pad: 150px;
-    --max-width: 1400px;
+    --lh-head: 1.25; /* Zeilenhöhe für Headlines */
+    --lh-sub: 1.25; /* Zeilenhöhe für Subheads */
+    --lh-body: 1.5; /* Zeilenhöhe für Fließtext */
 
-    --section-pad-y: 60px;
-    --hero-offset: 25px;
-    --hero-pad-bottom: 30px;
+    --top-offset: 0px; /* globaler oberer Offset für fixierte Elemente */
+    --banner-h: 75px; /* Höhe des fixen Desktop-Navigationsbanners */
+    --page-top-gap: 40px; /* genereller oberer Seitenabstand */
+    --side-pad: 150px; /* horizontaler Innenabstand der Hauptinhalte */
+    --max-width: 1400px; /* maximale Breite des Layouts */
 
-    --h-gap-bottom: 14px;
-    --sub-gap-bottom: 12px;
-    --p-gap: 14px;
-    --block-gap: 40px;
+    --section-pad-y: 60px; /* vertikaler Innenabstand jeder Section */
+    --hero-offset: 25px; /* Abstand zwischen Headerbild und Hero-Bereich */
+    --hero-pad-bottom: 30px; /* Abstand unter dem Hero-Bereich */
 
-    --goldframe-img: url("../img/highlights_gold.png");
+    --h-gap-bottom: 14px; /* Abstand unter Headlines */
+    --sub-gap-bottom: 12px; /* Abstand unter Subheads */
+    --p-gap: 14px; /* Standardabstand zwischen Textabsätzen */
+    --block-gap: 40px; /* größerer Abstand zwischen Inhaltsblöcken */
 
-    --gold-border-width-no: 0px;
-    --gold-border-width-sm: 2px;
-    --gold-border-width-md: 3px;
-    --gold-border-width-lg: 4px;
+    --goldframe-img: url("../img/highlights_gold.png"); /* Textur-/Bildquelle für Goldrahmen */
 
-    --frame-w-no: var(--gold-border-width-no);
-    --frame-w-sm: var(--gold-border-width-sm);
-    --frame-w-md: var(--gold-border-width-md);
-    --frame-w-lg: var(--gold-border-width-lg);
+    --gold-border-width-no: 0px; /* Goldrahmen-Variante ohne sichtbaren Rahmen */
+    --gold-border-width-sm: 2px; /* dünne Goldrahmenstärke */
+    --gold-border-width-md: 3px; /* mittlere Goldrahmenstärke */
+    --gold-border-width-lg: 4px; /* starke Goldrahmenstärke */
 
-    --frame-r-sm: 2px;
-    --frame-r-md: 3px;
-    --frame-r-lg: 4px;
+    --frame-w-no: var(--gold-border-width-no); /* Alias für rahmenlose Variante */
+    --frame-w-sm: var(--gold-border-width-sm); /* Alias für dünnen Rahmen */
+    --frame-w-md: var(--gold-border-width-md); /* Alias für mittleren Rahmen */
+    --frame-w-lg: var(--gold-border-width-lg); /* Alias für starken Rahmen */
 
-    --service-frame-radius-outer: 15px;
-    --feedback-frame-radius-outer: 15px;
-    --cta-frame-radius-outer: 15px;
+    --frame-r-sm: 2px; /* kleiner Radius für Rahmen */
+    --frame-r-md: 3px; /* mittlerer Radius für Rahmen */
+    --frame-r-lg: 4px; /* größerer Radius für Rahmen */
 
-    --nav-home-h: 18px;
-    --nav-home-fit: contain;
-    --nav-menu-btn-h: 36px;
-    --lang-btn-h: 36px;
-    --nav-icon-touch-scale: 1.25;
-    --nav-letter-spacing: 0.1em;
-    --nav-text-transform: uppercase;
-    --nav-menu-panel-top: 75px;
-    --nav-menu-panel-pad-x: 24px;
-    --nav-menu-panel-pad-y: 18px;
-    --nav-menu-panel-gap: 14px;
+    --service-frame-radius-outer: 15px; /* Außenradius der Service-Elemente */
+    --feedback-frame-radius-outer: 15px; /* Außenradius der Feedback-Karten */
+    --cta-frame-radius-outer: 15px; /* Außenradius der CTA-Buttons */
 
-    --service-pad: 18px;
-    --services-gap: 18px;
-    --service-grid-col-1: 30px;
-    --service-grid-col-3: 22px;
-    --service-col-gap: 12px;
-    --service-bullet-h: 22px;
-    --service-arrow-h: 18px;
-    --service-body-pad-top: 14px;
-    --service-max-h: 600px;
+    --nav-home-h: 36px; /* Höhe des Home-Motivs in der Desktop-Navigation */
+    --nav-home-fit: contain; /* Skalierungsverhalten des Home-Motivs */
+    --nav-menu-btn-h: 36px; /* Höhe des Menü-Buttons */
+    --lang-btn-h: 36px; /* Höhe des Sprach-Buttons */
+    --nav-icon-touch-scale: 1.25; /* Vergrößerungsfaktor der klickbaren Icon-Fläche */
+    --nav-letter-spacing: 0.1em; /* Laufweite der Navigationsschrift */
+    --nav-text-transform: uppercase; /* Darstellung der Nav-Texte in Großbuchstaben */
+    --nav-menu-panel-top: 75px; /* obere Position des mobilen Nav-Panels */
+    --nav-menu-panel-pad-x: 24px; /* horizontaler Innenabstand des mobilen Nav-Panels */
+    --nav-menu-panel-pad-y: 18px; /* vertikaler Innenabstand des mobilen Nav-Panels */
+    --nav-menu-panel-gap: 14px; /* Abstand zwischen Links im mobilen Nav-Panel */
 
-    --approach-item-gap: 14px;
-    --approach-num-left: 14px;
-    --approach-num-top: 0px;
-    --approach-text-indent: 46px;
+    --service-pad: 18px; /* Innenabstand innerhalb der Service-Boxen */
+    --services-gap: 18px; /* Abstand zwischen den Service-Boxen */
+    --service-grid-col-1: 30px; /* Breite der ersten Spalte im Service-Header */
+    --service-grid-col-3: 22px; /* Breite der dritten Spalte im Service-Header */
+    --service-col-gap: 12px; /* horizontaler Abstand zwischen Service-Header-Spalten */
+    --service-bullet-h: 22px; /* Höhe des Service-Bullets */
+    --service-arrow-h: 18px; /* Höhe des Service-Pfeils */
+    --service-body-pad-top: 14px; /* Abstand zwischen Service-Header und geöffnetem Inhalt */
+    --service-max-h: 600px; /* maximale Höhe eines geöffneten Service-Elements */
 
-    --carousel-card-w: 800px;
-    --carousel-card-pad: 30px;
-    --carousel-shell-top: 18px;
-    --carousel-btn-gap: 18px;
-    --carousel-btn-size: 40px;
-    --carousel-desktop-max-w: 1400px;
-    --carousel-mobile-card-w: min(86vw, 800px);
+    --approach-item-gap: 14px; /* Abstand zwischen Punkten der Arbeitsweise-Liste */
+    --approach-num-left: 14px; /* linke Position der Nummerierung */
+    --approach-num-top: 0px; /* obere Position der Nummerierung */
+    --approach-text-indent: 46px; /* linker Einzug des Listentextes */
 
-    --cta-gap: 14px;
-    --cta-pad-y: 0.45em;
-    --cta-pad-x: 0.9em;
+    --carousel-card-w: 800px; /* feste Zielbreite der Feedback-Karte auf Desktop */
+    --carousel-card-pad: 30px; /* umlaufender Innenabstand innerhalb der Feedback-Karte */
+    --carousel-shell-top: 18px; /* Abstand oberhalb des gesamten Carousel-Bereichs */
+    --carousel-btn-gap: 18px; /* Abstand zwischen Pfeilbuttons und Karte */
+    --carousel-btn-size: 40px; /* Größe der Carousel-Pfeilbuttons */
+    --carousel-desktop-max-w: 1400px; /* maximale Breite des Desktop-Carousel-Layouts */
+    --carousel-mobile-card-w: min(86vw, 800px); /* Zielbreite der mobilen Karten, als Fallback bereits gesetzt */
 
-    --contact-form-max-w: 25vw;
-    --contact-form-min-w: 320px;
-    --contact-form-gap: 14px;
-    --contact-form-field-pad-y: 12px;
-    --contact-form-field-pad-x: 14px;
-    --contact-form-radius: var(--frame-r-md);
-    --contact-form-submit-pad-y: 0.45em;
-    --contact-form-submit-pad-x: 0.9em;
+    --feedback-text-font: var(--font-head); /* separate Schriftfamilie für den Feedback-Text */
+    --feedback-text-size: var(--fs-feedback); /* separate Schriftgröße für den Feedback-Text */
+    --feedback-text-weight: 500; /* separates Schriftgewicht für den Feedback-Text */
+    --feedback-text-line-height: var(--lh-body); /* separate Zeilenhöhe für den Feedback-Text */
 
-    --pre-footer-min-h: 120px;
-    --pre-footer-pad-y: 0px;
-    --pre-footer-col-gap: 30px;
-    --pre-footer-item-gap: 18px;
-    --pre-footer-margin-bottom: 20px;
-    --pre-footer-icon-h: 65px;
-    --pre-footer-icon-fit: contain;
-    --pre-footer-icon-pos-x: 50%;
-    --pre-footer-icon-pos-y: 50%;
-    --pre-footer-icon-radius: 50%;
-    --pre-footer-touch-scale: 1.25;
-    --pre-footer-text-font: var(--font-body);
-    --pre-footer-text-size: var(--fs-body);
-    --pre-footer-text-weight: var(--fw-body);
-    --pre-footer-text-lh: var(--lh-body);
-    --pre-footer-text-nowrap: nowrap;
+    --feedback-signature-font: var(--font-head); /* separate Schriftfamilie für Verfasser-Details */
+    --feedback-signature-size: var(--fs-feedback-sign); /* separate Schriftgröße für Verfasser-Details */
+    --feedback-signature-weight: 500; /* separates Schriftgewicht für Verfasser-Details */
+    --feedback-signature-line-height: var(--lh-body); /* separate Zeilenhöhe für Verfasser-Details */
 
-    --footer-min-h: 300px;
-    --footer-pad-top: 10px;
-    --footer-pad-bottom: 10px;
-    --footer-row-gap: 18px;
-    --footer-col-gap: 24px;
-    --footer-row2-baseline-pad: 0px;
-    --footer-topline-offset: 0px;
+    --cta-gap: 14px; /* vertikaler Abstand innerhalb der CTA-Sektion */
+    --cta-pad-y: 0.45em; /* vertikales Innenpadding von CTA-Buttons */
+    --cta-pad-x: 0.9em; /* horizontales Innenpadding von CTA-Buttons */
 
-    --footer-label-font: var(--font-body);
-    --footer-label-size: var(--fs-body);
-    --footer-label-weight: var(--fw-sub);
-    --footer-label-lh: var(--lh-body);
-    --footer-label-gap-bottom: 12px;
+    --contact-form-max-w: 25vw; /* maximale Breite des Kontaktformulars */
+    --contact-form-min-w: 320px; /* minimale Breite des Kontaktformulars */
+    --contact-form-gap: 14px; /* Abstand zwischen Formularfeldern */
+    --contact-form-field-pad-y: 12px; /* vertikales Innenpadding der Formularfelder */
+    --contact-form-field-pad-x: 14px; /* horizontales Innenpadding der Formularfelder */
+    --contact-form-radius: var(--frame-r-md); /* Radius der Formularfelder */
+    --contact-form-submit-pad-y: 0.45em; /* vertikales Innenpadding des Submit-Buttons */
+    --contact-form-submit-pad-x: 0.9em; /* horizontales Innenpadding des Submit-Buttons */
 
-    --qual-logo-rect-h: 50px;
-    --qual-logo-round-h: 50px;
-    --qual-logo-gap: 18px;
-    --qual-logo-rect-radius: 4px;
-    --qual-logo-round-radius: 50%;
-    --qual-logo-rect-fit: contain;
-    --qual-logo-round-fit: contain;
-    --qual-logo-rect-pos-x: 50%;
-    --qual-logo-rect-pos-y: 50%;
-    --qual-logo-round-pos-x: 50%;
-    --qual-logo-round-pos-y: 50%;
-    --qual-logo-pad: 0px;
-    --qual-logo-touch-scale: 1.25;
+    --pre-footer-min-h: 120px; /* Mindesthöhe des Pre-Footers */
+    --pre-footer-pad-y: 0px; /* vertikales Padding des Pre-Footers */
+    --pre-footer-col-gap: 30px; /* horizontaler Abstand der Pre-Footer-Spalten */
+    --pre-footer-item-gap: 18px; /* Abstand zwischen Pre-Footer-Icon und Text */
+    --pre-footer-margin-bottom: 20px; /* Abstand zwischen Pre-Footer und Footer */
+    --pre-footer-icon-h: 65px; /* Höhe der Pre-Footer-Icons */
+    --pre-footer-icon-fit: contain; /* Skalierungsverhalten der Pre-Footer-Icons */
+    --pre-footer-icon-pos-x: 50%; /* horizontale Bildposition im Pre-Footer-Icon */
+    --pre-footer-icon-pos-y: 50%; /* vertikale Bildposition im Pre-Footer-Icon */
+    --pre-footer-icon-radius: 50%; /* Radius der Pre-Footer-Icon-Fläche */
+    --pre-footer-touch-scale: 1.25; /* Vergrößerungsfaktor der klickbaren Pre-Footer-Fläche */
+    --pre-footer-text-font: var(--font-body); /* Schriftfamilie des Pre-Footer-Texts */
+    --pre-footer-text-size: var(--fs-body); /* Schriftgröße des Pre-Footer-Texts */
+    --pre-footer-text-weight: var(--fw-body); /* Schriftgewicht des Pre-Footer-Texts */
+    --pre-footer-text-lh: var(--lh-body); /* Zeilenhöhe des Pre-Footer-Texts */
+    --pre-footer-text-nowrap: nowrap; /* verhindert Umbruch im Pre-Footer-Text */
 
-    --follow-icon-h: 60px;
-    --follow-icon-gap: 18px;
-    --follow-icon-radius: 50%;
-    --follow-icon-fit: contain;
-    --follow-icon-pos-x: 50%;
-    --follow-icon-pos-y: 50%;
-    --follow-icon-pad: 0px;
-    --follow-icon-touch-scale: 1.25;
+    --footer-min-h: 300px; /* Mindesthöhe des Footers */
+    --footer-pad-top: 10px; /* oberes Padding des Footers */
+    --footer-pad-bottom: 10px; /* unteres Padding des Footers */
+    --footer-row-gap: 18px; /* Abstand zwischen den Footer-Zeilen */
+    --footer-col-gap: 24px; /* Abstand zwischen den Footer-Spalten */
+    --footer-row2-baseline-pad: 0px; /* Feinkorrektur der unteren Footer-Zeile */
+    --footer-topline-offset: 0px; /* zusätzlicher vertikaler Offset der oberen Footer-Zeile */
 
-    --backtop-icon-h: 4px;
-    --backtop-gap: 3px;
+    --footer-label-font: var(--font-body); /* Schriftfamilie der Footer-Überschriften */
+    --footer-label-size: var(--fs-body); /* Schriftgröße der Footer-Überschriften */
+    --footer-label-weight: var(--fw-sub); /* Schriftgewicht der Footer-Überschriften */
+    --footer-label-lh: var(--lh-body); /* Zeilenhöhe der Footer-Überschriften */
+    --footer-label-gap-bottom: 12px; /* Abstand unter Footer-Überschriften */
 
-    --legal-font: var(--font-body);
-    --legal-size: var(--fs-body);
-    --legal-weight: var(--fw-body);
-    --legal-lh: var(--lh-body);
-    --legal-links-gap: 10px;
-    --legal-wrap: nowrap;
+    --qual-logo-rect-h: 50px; /* Höhe rechteckiger Qualifications-Logos */
+    --qual-logo-round-h: 50px; /* Höhe runder Qualifications-Logos */
+    --qual-logo-gap: 18px; /* Abstand zwischen Qualifications-Logos */
+    --qual-logo-rect-radius: 4px; /* Radius rechteckiger Qualifications-Logos */
+    --qual-logo-round-radius: 50%; /* Radius runder Qualifications-Logos */
+    --qual-logo-rect-fit: contain; /* Skalierungsverhalten rechteckiger Qualifications-Logos */
+    --qual-logo-round-fit: contain; /* Skalierungsverhalten runder Qualifications-Logos */
+    --qual-logo-rect-pos-x: 50%; /* horizontale Bildposition rechteckiger Qualifications-Logos */
+    --qual-logo-rect-pos-y: 50%; /* vertikale Bildposition rechteckiger Qualifications-Logos */
+    --qual-logo-round-pos-x: 50%; /* horizontale Bildposition runder Qualifications-Logos */
+    --qual-logo-round-pos-y: 50%; /* vertikale Bildposition runder Qualifications-Logos */
+    --qual-logo-pad: 0px; /* Innenpadding der Qualifications-Logos */
+    --qual-logo-touch-scale: 1.25; /* Vergrößerungsfaktor der klickbaren Logo-Fläche */
 
-    --anchor-offset: 20px;
+    --follow-icon-h: 60px; /* Höhe der Follow-Icons */
+    --follow-icon-gap: 18px; /* Abstand zwischen den Follow-Icons */
+    --follow-icon-radius: 50%; /* Radius der Follow-Icon-Fläche */
+    --follow-icon-fit: contain; /* Skalierungsverhalten der Follow-Icons */
+    --follow-icon-pos-x: 50%; /* horizontale Bildposition der Follow-Icons */
+    --follow-icon-pos-y: 50%; /* vertikale Bildposition der Follow-Icons */
+    --follow-icon-pad: 0px; /* Innenpadding der Follow-Icons */
+    --follow-icon-touch-scale: 1.25; /* Vergrößerungsfaktor der klickbaren Follow-Fläche */
 
-    --footer-mobile-row-pad-top: 10px;
-    --footer-mobile-row-pad-bottom: 0px;
-    --footer-mobile-row-pad-bottom-f: 22px;
-    --footer-mobile-b-gap: 18px;
-    --footer-mobile-c-gap: 18px;
+    --backtop-icon-h: 4px; /* Höhe des Chevron-Symbols im Back-to-top-Link */
+    --backtop-gap: 3px; /* Abstand zwischen Chevron und Text im Back-to-top-Link */
+
+    --legal-font: var(--font-body); /* Schriftfamilie des Legal-Bereichs */
+    --legal-size: var(--fs-body); /* Schriftgröße des Legal-Bereichs */
+    --legal-weight: var(--fw-body); /* Schriftgewicht des Legal-Bereichs */
+    --legal-lh: var(--lh-body); /* Zeilenhöhe des Legal-Bereichs */
+    --legal-links-gap: 10px; /* Abstand zwischen Impressum und Datenschutz */
+    --legal-wrap: nowrap; /* verhindert automatischen Umbruch im Legal-Bereich */
+
+    --anchor-offset: 20px; /* zusätzlicher Scroll-Offset für Anchor-Ziele */
+
+    --footer-mobile-row-pad-top: 10px; /* oberes Padding mobiler Footer-Reihen */
+    --footer-mobile-row-pad-bottom: 0px; /* unteres Padding mobiler Footer-Reihen */
+    --footer-mobile-row-pad-bottom-f: 22px; /* zusätzliches unteres Padding der letzten mobilen Footer-Reihe */
+    --footer-mobile-b-gap: 18px; /* Abstand innerhalb des mobilen Qualifications-Blocks */
+    --footer-mobile-c-gap: 18px; /* Abstand innerhalb des mobilen Follow-Blocks */
 }
 
 /* ==== ALLGEMEINE EINSTELLUNGEN ==== */
@@ -1736,71 +1749,84 @@ section.anchor {
     padding-bottom: 80px;
 }
 
-/* ==== MOBILE ANPASSUNGEN ==== */
+/* ==== MOBILE ROOT TOKENS ==== */
 @media (max-width: 768px) {
     :root {
-        --side-pad: 18px;
-        --banner-h: 64px;
+        --side-pad: 18px; /* reduziert den horizontalen Innenabstand für Mobilgeräte */
+        --banner-h: 64px; /* verringert die Höhe des mobilen Navigationsbanners */
 
-        --gold-border-width-no-mobile: 0px;
-        --gold-border-width-sm-mobile: 2px;
-        --gold-border-width-md-mobile: 3px;
-        --gold-border-width-lg-mobile: 4px;
+        --gold-border-width-no-mobile: 0px; /* rahmenlose Goldframe-Variante auf Mobil */
+        --gold-border-width-sm-mobile: 2px; /* dünne Goldrahmenstärke auf Mobil */
+        --gold-border-width-md-mobile: 3px; /* mittlere Goldrahmenstärke auf Mobil */
+        --gold-border-width-lg-mobile: 4px; /* starke Goldrahmenstärke auf Mobil */
 
-        --frame-w-no: var(--gold-border-width-no-mobile);
-        --frame-w-sm: var(--gold-border-width-sm-mobile);
-        --frame-w-md: var(--gold-border-width-md-mobile);
-        --frame-w-lg: var(--gold-border-width-lg-mobile);
+        --frame-w-no: var(--gold-border-width-no-mobile); /* aktiviert die mobile 0px-Rahmenvariante */
+        --frame-w-sm: var(--gold-border-width-sm-mobile); /* aktiviert die mobile dünne Rahmenvariante */
+        --frame-w-md: var(--gold-border-width-md-mobile); /* aktiviert die mobile mittlere Rahmenvariante */
+        --frame-w-lg: var(--gold-border-width-lg-mobile); /* aktiviert die mobile starke Rahmenvariante */
 
-        --nav-home-h: 42px;
-        --nav-menu-btn-h: 42px;
-        --lang-btn-h: 42px;
-        --nav-menu-panel-top: 64px;
+        --nav-home-h: 42px; /* erhöht die sichtbare Höhe des Home-Elements auf Mobil */
+        --nav-menu-btn-h: 42px; /* erhöht die sichtbare Höhe des Menü-Buttons auf Mobil */
+        --lang-btn-h: 42px; /* erhöht die sichtbare Höhe des Sprach-Buttons auf Mobil */
+        --nav-menu-panel-top: 64px; /* positioniert das mobile Nav-Panel direkt unter dem Banner */
 
-        --contact-form-max-w: 75vw;
-        --contact-form-min-w: 0px;
+        --contact-form-max-w: 75vw; /* begrenzt die Kontaktformularbreite auf Mobil */
+        --contact-form-min-w: 0px; /* entfernt die feste Mindestbreite des Formulars auf Mobil */
 
-        --service-frame-radius-outer-mobile: 20px;
-        --feedback-frame-radius-outer-mobile: 20px;
-        --cta-frame-radius-outer-mobile: 20px;
+        --service-frame-radius-outer-mobile: 20px; /* größerer Außenradius der Service-Elemente auf Mobil */
+        --feedback-frame-radius-outer-mobile: 20px; /* größerer Außenradius der Feedback-Karten auf Mobil */
+        --cta-frame-radius-outer-mobile: 20px; /* größerer Außenradius der CTA-Buttons auf Mobil */
 
-        --carousel-card-pad: 30px;
-        --carousel-mobile-card-w: 86vw;
+        --carousel-card-pad: 30px; /* hält den umlaufenden Innenabstand der Feedback-Karten auch mobil bei 30px */
+        --carousel-mobile-card-w: 86vw; /* definiert die Breite der swipbaren Feedback-Karten auf Mobil */
 
-        --pre-footer-item-gap: 12px;
-        --pre-footer-col-gap: 12px;
-        --pre-footer-icon-h: 64px;
+        --fs-feedback: 20px; /* separate Schriftgröße des Feedback-Texts auch auf Mobil */
+        --fs-feedback-sign: 18px; /* separate Schriftgröße der Verfasser-Details auch auf Mobil */
 
-        --qual-logo-rect-h-mobile: 64px;
-        --qual-logo-round-h-mobile: 64px;
-        --qual-logo-gap-mobile: 18px;
-        --qual-logo-rect-radius-mobile: 50%;
-        --qual-logo-round-radius-mobile: 50%;
-        --qual-logo-rect-fit-mobile: contain;
-        --qual-logo-round-fit-mobile: contain;
-        --qual-logo-rect-pos-x-mobile: 50%;
-        --qual-logo-rect-pos-y-mobile: 50%;
-        --qual-logo-round-pos-x-mobile: 50%;
-        --qual-logo-round-pos-y-mobile: 50%;
+        --feedback-text-font: var(--font-head); /* Schriftfamilie des Feedback-Texts auf Mobil */
+        --feedback-text-size: var(--fs-feedback); /* nutzt die separate Mobil-Schriftgröße für den Feedback-Text */
+        --feedback-text-weight: 500; /* Schriftgewicht des Feedback-Texts auf Mobil */
+        --feedback-text-line-height: var(--lh-body); /* Zeilenhöhe des Feedback-Texts auf Mobil */
 
-        --follow-icon-h-mobile: 64px;
-        --follow-icon-gap-mobile: 18px;
-        --follow-icon-radius-mobile: 50%;
-        --follow-icon-fit-mobile: contain;
-        --follow-icon-pos-x-mobile: 50%;
-        --follow-icon-pos-y-mobile: 50%;
-        --follow-icon-pad-mobile: 0px;
+        --feedback-signature-font: var(--font-body); /* Schriftfamilie der Verfasser-Details auf Mobil */
+        --feedback-signature-size: var(--fs-feedback-sign); /* nutzt die separate Mobil-Schriftgröße für Verfasser-Details */
+        --feedback-signature-weight: 400; /* Schriftgewicht der Verfasser-Details auf Mobil */
+        --feedback-signature-line-height: var(--lh-body); /* Zeilenhöhe der Verfasser-Details auf Mobil */
 
-        --backtop-icon-h: 4px;
-        --backtop-gap: 3px;
-        --footer-topline-offset: 0px;
+        --pre-footer-item-gap: 12px; /* reduziert den Abstand zwischen Icon und Text im Pre-Footer auf Mobil */
+        --pre-footer-col-gap: 12px; /* reduziert den Spaltenabstand des Pre-Footers auf Mobil */
+        --pre-footer-icon-h: 64px; /* definiert die Höhe der Pre-Footer-Icons auf Mobil */
 
-        --footer-mobile-row-pad-top: 22px;
-        --footer-mobile-row-pad-bottom: 0px;
-        --footer-mobile-row-pad-bottom-f: 22px;
-        --footer-mobile-b-gap: 18px;
-        --footer-mobile-c-gap: 18px;
-        --legal-links-gap: 15px;
+        --qual-logo-rect-h-mobile: 64px; /* Höhe rechteckiger Qualifications-Logos auf Mobil */
+        --qual-logo-round-h-mobile: 64px; /* Höhe runder Qualifications-Logos auf Mobil */
+        --qual-logo-gap-mobile: 18px; /* Abstand zwischen Qualifications-Logos auf Mobil */
+        --qual-logo-rect-radius-mobile: 50%; /* Radius rechteckiger Qualifications-Logos auf Mobil */
+        --qual-logo-round-radius-mobile: 50%; /* Radius runder Qualifications-Logos auf Mobil */
+        --qual-logo-rect-fit-mobile: contain; /* Skalierungsverhalten rechteckiger Qualifications-Logos auf Mobil */
+        --qual-logo-round-fit-mobile: contain; /* Skalierungsverhalten runder Qualifications-Logos auf Mobil */
+        --qual-logo-rect-pos-x-mobile: 50%; /* horizontale Bildposition rechteckiger Qualifications-Logos auf Mobil */
+        --qual-logo-rect-pos-y-mobile: 50%; /* vertikale Bildposition rechteckiger Qualifications-Logos auf Mobil */
+        --qual-logo-round-pos-x-mobile: 50%; /* horizontale Bildposition runder Qualifications-Logos auf Mobil */
+        --qual-logo-round-pos-y-mobile: 50%; /* vertikale Bildposition runder Qualifications-Logos auf Mobil */
+
+        --follow-icon-h-mobile: 64px; /* Höhe der Follow-Icons auf Mobil */
+        --follow-icon-gap-mobile: 18px; /* Abstand zwischen den Follow-Icons auf Mobil */
+        --follow-icon-radius-mobile: 50%; /* Radius der Follow-Icon-Fläche auf Mobil */
+        --follow-icon-fit-mobile: contain; /* Skalierungsverhalten der Follow-Icons auf Mobil */
+        --follow-icon-pos-x-mobile: 50%; /* horizontale Bildposition der Follow-Icons auf Mobil */
+        --follow-icon-pos-y-mobile: 50%; /* vertikale Bildposition der Follow-Icons auf Mobil */
+        --follow-icon-pad-mobile: 0px; /* Innenpadding der Follow-Icons auf Mobil */
+
+        --backtop-icon-h: 4px; /* Höhe des Back-to-top-Chevrons auf Mobil */
+        --backtop-gap: 3px; /* Abstand zwischen Chevron und Text auf Mobil */
+        --footer-topline-offset: 0px; /* zusätzlicher Offset der oberen Footer-Zeile auf Mobil */
+
+        --footer-mobile-row-pad-top: 22px; /* oberes Padding der mobilen Footer-Reihen */
+        --footer-mobile-row-pad-bottom: 0px; /* unteres Padding der mobilen Footer-Reihen */
+        --footer-mobile-row-pad-bottom-f: 22px; /* zusätzliches unteres Padding der letzten mobilen Footer-Reihe */
+        --footer-mobile-b-gap: 18px; /* Abstand innerhalb des mobilen Qualifications-Bereichs */
+        --footer-mobile-c-gap: 18px; /* Abstand innerhalb des mobilen Follow-Bereichs */
+        --legal-links-gap: 15px; /* vergrößert den Abstand zwischen Legal-Links auf Mobil */
     }
 
     .service-item {
