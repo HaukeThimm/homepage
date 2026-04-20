@@ -121,6 +121,32 @@
     });
 })();
 
+/* ==== FEEDBACK CARD EQUAL HEIGHT ==== */
+(function () {
+    const cards = Array.from(document.querySelectorAll(".feedback-card-inner"));
+    if (!cards.length) return;
+
+    function equalizeFeedbackCardHeights() {
+        cards.forEach((card) => {
+            card.style.minHeight = "0px";
+        });
+
+        let maxHeight = 0;
+
+        cards.forEach((card) => {
+            const height = card.offsetHeight;
+            if (height > maxHeight) maxHeight = height;
+        });
+
+        cards.forEach((card) => {
+            card.style.minHeight = `${maxHeight}px`;
+        });
+    }
+
+    window.addEventListener("load", equalizeFeedbackCardHeights);
+    window.addEventListener("resize", equalizeFeedbackCardHeights);
+})();
+
 /* ==== REFERENCES CAROUSEL ==== */
 (function () {
     const shell = document.querySelector(".credentials-carousel");
@@ -135,18 +161,29 @@
 
     let currentIndex = 0;
 
-    function getCardStep() {
-        if (cards.length < 2) return cards[0].getBoundingClientRect().width;
-
-        const firstRect = cards[0].getBoundingClientRect();
-        const secondRect = cards[1].getBoundingClientRect();
-
-        return secondRect.left - firstRect.left;
+    function isMobile() {
+        return window.innerWidth <= 768;
     }
 
     function updateCarousel() {
-        const step = getCardStep();
-        const translateX = -(currentIndex * step);
+        if (isMobile()) {
+            track.style.transform = "none";
+
+            cards.forEach((card) => {
+                card.setAttribute("aria-hidden", "false");
+            });
+
+            btnPrev.disabled = false;
+            btnNext.disabled = false;
+            return;
+        }
+
+        const viewport = shell.querySelector(".carousel-viewport");
+        if (!viewport) return;
+
+        const viewportWidth = viewport.clientWidth;
+        const translateX = -(currentIndex * viewportWidth);
+
         track.style.transform = `translate3d(${translateX}px, 0, 0)`;
 
         cards.forEach((card, index) => {
@@ -159,6 +196,7 @@
     }
 
     btnPrev.addEventListener("click", () => {
+        if (isMobile()) return;
         if (currentIndex > 0) {
             currentIndex -= 1;
             updateCarousel();
@@ -166,6 +204,7 @@
     });
 
     btnNext.addEventListener("click", () => {
+        if (isMobile()) return;
         if (currentIndex < cards.length - 1) {
             currentIndex += 1;
             updateCarousel();
@@ -173,6 +212,7 @@
     });
 
     window.addEventListener("resize", updateCarousel);
+    window.addEventListener("load", updateCarousel);
 
     updateCarousel();
 })();
