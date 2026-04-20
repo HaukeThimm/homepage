@@ -158,10 +158,10 @@
     --feedback-frame-radius-outer: 15px;
     --cta-frame-radius-outer: 15px;
 
-    --nav-home-h: 36px;
+    --nav-home-h: 30px;
     --nav-home-fit: contain;
-    --nav-menu-btn-h: 36px;
-    --lang-btn-h: 36px;
+    --nav-menu-btn-h: 30px;
+    --lang-btn-h: 30px;
     --nav-icon-touch-scale: 1.25;
     --nav-letter-spacing: 0.1em;
     --nav-text-transform: uppercase;
@@ -1729,9 +1729,9 @@ section.anchor {
         --frame-w-md: var(--gold-border-width-md-mobile);
         --frame-w-lg: var(--gold-border-width-lg-mobile);
 
-        --nav-home-h: 42px;
-        --nav-menu-btn-h: 42px;
-        --lang-btn-h: 42px;
+        --nav-home-h: 38px;
+        --nav-menu-btn-h: 38px;
+        --lang-btn-h: 38px;
         --nav-menu-panel-top: 64px;
 
         --contact-form-max-w: 75vw;
