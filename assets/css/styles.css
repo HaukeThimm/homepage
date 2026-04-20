@@ -1418,12 +1418,12 @@ section.anchor {
 }
 
 .pre-footer-item .gold-frame {
-    width: auto;
+    width: var(--pre-footer-icon-h);
     height: var(--pre-footer-icon-h);
-    flex: 0 1 auto;
-    aspect-ratio: auto;
+    flex: 0 0 var(--pre-footer-icon-h);
+    aspect-ratio: 1 / 1;
     border-radius: var(--pre-footer-icon-radius);
-    padding: 0 10px;
+    padding: 0;
 }
 
 .pre-footer-item .gold-frame > img {
