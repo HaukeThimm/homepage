@@ -1465,13 +1465,14 @@ section.anchor {
     padding: 0 var(--side-pad);
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 1fr auto;
     grid-template-areas:
         "A1 B1 C1"
         "A2 B2 C2";
     column-gap: var(--footer-col-gap);
     row-gap: var(--footer-row-gap);
     align-items: start;
-    align-content: start;
+    align-content: stretch;
     min-height: calc(var(--footer-min-h) - var(--footer-pad-top) - var(--footer-pad-bottom));
 }
 
@@ -1497,18 +1498,24 @@ section.anchor {
     grid-area: A2;
     justify-self: start;
     align-self: end;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .grid-footer-desktop_B2 {
     grid-area: B2;
     justify-self: center;
     align-self: end;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .grid-footer-desktop_C2 {
     grid-area: C2;
-    justify-self: start;
+    justify-self: end;
     align-self: end;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .qualifications-label,
@@ -1543,6 +1550,7 @@ section.anchor {
     justify-content: flex-start;
     gap: 14px;
     min-width: 0;
+    width: 100%;
     padding-top: calc(var(--footer-topline-offset) + var(--backtop-icon-h) + var(--backtop-gap));
 }
 
@@ -1553,9 +1561,19 @@ section.anchor {
     min-width: 0;
 }
 
+.footer-qualifications-block .qualifications-label,
+.footer-follow-block .follow-label,
+.footer-qualifications-block .qualifications-logos,
+.footer-follow-block .follow-icons {
+    margin-left: 0;
+    padding-left: 0;
+}
+
 .footer-qualifications-block .qualifications-logos,
 .footer-follow-block .follow-icons {
     justify-content: flex-start;
+    align-items: center;
+    width: 100%;
 }
 
 /* ==== FOOTER QUALIFICATIONS (DESKTOP) ==== */
