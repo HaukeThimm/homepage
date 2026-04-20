@@ -190,10 +190,8 @@
     --carousel-gap: 28px;
     --carousel-card-w: 400px;
     --carousel-card-h: 300px;
-    --carousel-card-pad: 26px;
-    --carousel-sign-gap-top: 22px;
-    --carousel-shell-top: 18px;
     --carousel-card-pad: 30px;
+    --carousel-shell-top: 18px;
 
     --cta-gap: 14px;
     --cta-pad-y: 0.45em;
@@ -563,6 +561,28 @@ picture {
     min-height: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
     padding: calc((var(--nav-home-h) * var(--nav-icon-touch-scale) - var(--nav-home-h)) / 2);
     text-decoration: none;
+}
+
+.nav-link--home--desktop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+    height: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+    min-width: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+    min-height: calc(var(--nav-home-h) * var(--nav-icon-touch-scale));
+    padding: calc((var(--nav-home-h) * var(--nav-icon-touch-scale) - var(--nav-home-h)) / 2);
+    text-decoration: none;
+}
+
+.nav-link--home--desktop img {
+    display: block;
+    width: auto;
+    height: var(--nav-home-h);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
 }
 
 .nav-link--home .gold-frame {
@@ -1699,7 +1719,6 @@ section.anchor {
         --side-pad: 18px;
         --banner-h: 64px;
 
-        /* Mobile: explizite 0px-Variante */
         --gold-border-width-no-mobile: 0px;
         --gold-border-width-sm-mobile: 2px;
         --gold-border-width-md-mobile: 3px;
@@ -1722,7 +1741,7 @@ section.anchor {
         --feedback-frame-radius-outer-mobile: 20px;
         --cta-frame-radius-outer-mobile: 20px;
 
-        --carousel-card-pad: 24px;
+        --carousel-card-pad: 30px;
 
         --pre-footer-item-gap: 12px;
         --pre-footer-col-gap: 12px;
