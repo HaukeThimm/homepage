@@ -7,6 +7,9 @@
         const tag = el.tagName;
         const hasElementChildren = el.children && el.children.length > 0;
 
+        /* Keine Sprachumschaltung für Referenztexte */
+        if (el.hasAttribute("data-feedback-text")) return false;
+
         if ((tag === "A" || tag === "BUTTON") && hasElementChildren) return false;
 
         return true;
@@ -190,7 +193,7 @@
     updateActiveSection();
 })();
 
-/* ==== FEEDBACK TEXT TRUNCATION + EXPAND/COLLAPSE ==== */
+/* ==== FEEDBACK TEXT TRUNCATION + EXPAND/COLLAPSE + MOBILE SWIPE BUTTONS ==== */
 (function () {
     const shell = document.querySelector(".references-carousel");
     const cards = Array.from(document.querySelectorAll("[data-feedback-card]"));
@@ -204,10 +207,6 @@
         return window.innerWidth <= 768;
     }
 
-    function currentLang() {
-        return document.documentElement.lang === "en" ? "en" : "de";
-    }
-
     function getMaxChars() {
         const cssValue = getComputedStyle(document.documentElement)
             .getPropertyValue("--references-preview-chars")
@@ -217,24 +216,28 @@
         return Number.isFinite(parsed) ? parsed : 150;
     }
 
-    function suffix(lang) {
-        return lang === "en" ? "... (More)" : "... (Mehr)";
+    function getSuffix() {
+        return document.documentElement.lang === "en" ? "... (More)" : "... (Mehr)";
     }
 
-    function getFullText(textEl, lang) {
-        const attrText = textEl.getAttribute(`data-${lang}`);
-        return (attrText || textEl.textContent || "").trim();
+    /* Referenzen bleiben immer im Original und werden NICHT übersetzt */
+    function getFullText(textEl) {
+        if (!textEl.dataset.fullOriginal) {
+            textEl.dataset.fullOriginal = (textEl.textContent || "").trim();
+        }
+        return textEl.dataset.fullOriginal;
     }
 
-    function truncateText(text, lang, maxChars) {
+    function truncateText(text, maxChars) {
         const normalized = text.trim();
         if (normalized.length <= maxChars) return normalized;
 
-        const ending = suffix(lang);
+        const ending = getSuffix();
         const rawLimit = Math.max(0, maxChars - ending.length);
-        let trimmed = normalized.slice(0, rawLimit);
 
+        let trimmed = normalized.slice(0, rawLimit);
         const lastSpace = trimmed.lastIndexOf(" ");
+
         if (lastSpace > Math.floor(rawLimit * 0.6)) {
             trimmed = trimmed.slice(0, lastSpace);
         }
@@ -248,17 +251,16 @@
     }
 
     function renderCard(card) {
-        const lang = currentLang();
         const maxChars = getMaxChars();
         const textEl = card.querySelector("[data-feedback-text]");
         if (!textEl) return;
 
-        const fullText = getFullText(textEl, lang);
+        const fullText = getFullText(textEl);
         const isExpanded = card.classList.contains("is-expanded");
 
         textEl.textContent = isExpanded
             ? fullText
-            : truncateText(fullText, lang, maxChars);
+            : truncateText(fullText, maxChars);
 
         card.setAttribute("aria-expanded", isExpanded ? "true" : "false");
     }
@@ -344,14 +346,12 @@
     if (viewport && btnPrev && btnNext) {
         btnPrev.addEventListener("click", () => {
             if (!isMobile()) return;
-
             const step = viewport.clientWidth * 0.9;
             viewport.scrollBy({ left: -step, behavior: "smooth" });
         });
 
         btnNext.addEventListener("click", () => {
             if (!isMobile()) return;
-
             const step = viewport.clientWidth * 0.9;
             viewport.scrollBy({ left: step, behavior: "smooth" });
         });
