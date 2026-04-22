@@ -120,12 +120,12 @@
     --feedback-font: var(--font-head);
     --feedback-font-style: italic;
     --feedback-font-weight: 500;
-    --feedback-line-height: var(--lh-body);
+    --feedback-line-height: 1.35;
 
-    --feedback-sign-font: var(--font-sub);
+    --feedback-sign-font: var(--font-head);
     --feedback-sign-font-style: normal;
-    --feedback-sign-font-weight: 400;
-    --feedback-sign-line-height: var(--lh-sub);
+    --feedback-sign-font-weight: 500;
+    --feedback-sign-line-height: 1.3;
 
     /* Font weights */
     --fw-head: 700;
@@ -181,10 +181,10 @@
     --cta-frame-radius-outer: 15px;
 
     /* Nav */
-    --nav-home-h: 36px;
+    --nav-home-h: 28px;
     --nav-home-fit: contain;
     --nav-menu-btn-h: 36px;
-    --lang-btn-h: 36px;
+    --lang-btn-h: 28px;
     --nav-icon-touch-scale: 1.25;
     --nav-letter-spacing: 0.1em;
     --nav-text-transform: none;
@@ -210,7 +210,20 @@
     --approach-num-top: 0px;
     --approach-text-indent: 46px;
 
-    /* Carousel / references */
+    /* References */
+    --references-gap: 18px;
+    --references-preview-h: 320px;
+    --references-preview-pad: 30px;
+    --references-preview-chars: 200;
+    --references-sign-gap: 18px;
+
+    --references-expanded-w: 1200px;
+    --references-expanded-h: 800px;
+    --references-expanded-pad: 42px;
+    --references-expanded-z: 9998;
+    --references-overlay-gap: 40px;
+
+    /* Legacy carousel tokens kept for compatibility */
     --carousel-card-w: 800px;
     --carousel-card-pad: 30px;
     --carousel-shell-top: 18px;
@@ -341,6 +354,19 @@ body {
 img,
 picture {
     max-width: 100%;
+}
+
+body.references-expanded {
+    overflow: hidden;
+}
+
+body.references-expanded::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.14);
+    z-index: calc(var(--references-expanded-z) - 1);
+    pointer-events: none;
 }
 
 /* =============== GOLD-FRAME SYSTEM =============== */
@@ -969,76 +995,59 @@ section.anchor {
     max-width: var(--carousel-desktop-max-w);
     margin: var(--carousel-shell-top) auto 0;
     padding: 0 var(--side-pad);
-    display: grid;
-    grid-template-columns:
-        auto
-        var(--carousel-btn-size)
-        var(--carousel-btn-gap)
-        minmax(0, 1fr)
-        var(--carousel-btn-gap)
-        var(--carousel-btn-size)
-        auto;
-    align-items: center;
     box-sizing: border-box;
 }
 
-#references .carousel-btn.left {
-    grid-column: 2;
-    position: static;
-    transform: none;
-}
-
-#references .carousel-btn.right {
-    grid-column: 6;
-    position: static;
-    transform: none;
+#references .carousel-btn {
+    display: none !important;
 }
 
 #references .carousel-viewport {
-    grid-column: 4;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
     box-sizing: border-box;
 }
 
-.carousel-track {
-    display: flex;
-    gap: 0;
-    margin: 0;
-    padding: 0;
-    transition: transform 320ms ease;
-    will-change: transform;
+#references .carousel-track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--references-gap);
+    width: 100%;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+    align-items: start;
 }
 
 .feedback-card {
     position: relative;
-    flex: 0 0 100%;
     width: 100%;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    box-sizing: border-box;
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
+    min-width: 0;
     overflow: visible;
+    z-index: 1;
+    display: block;
 }
 
 .feedback-card::before {
     display: none;
 }
 
+.feedback-card.is-expanded {
+    z-index: var(--references-expanded-z);
+}
+
 .feedback-card-inner {
     position: relative;
-    width: min(100%, 300px);
-    min-height: 200px;
+    width: 100%;
+    height: var(--references-preview-h);
+    min-height: var(--references-preview-h);
+    max-height: var(--references-preview-h);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: var(--carousel-card-pad);
+    justify-content: space-between;
+    align-items: stretch;
+    text-align: left;
+    padding: var(--references-preview-pad);
     border-radius: var(--feedback-frame-radius-outer);
     background: var(--cream);
     overflow: hidden;
@@ -1046,10 +1055,12 @@ section.anchor {
     cursor: pointer;
     transition:
         width 240ms ease,
+        height 240ms ease,
         min-height 240ms ease,
-        max-width 240ms ease,
+        max-height 240ms ease,
         padding 240ms ease,
-        transform 240ms ease;
+        transform 240ms ease,
+        box-shadow 240ms ease;
 }
 
 .feedback-card-inner::before {
@@ -1081,17 +1092,28 @@ section.anchor {
 .feedback-text {
     width: 100%;
     margin: 0;
-    white-space: pre-line;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
     font-family: var(--feedback-font);
     font-size: var(--fs-feedback);
     font-style: var(--feedback-font-style);
     font-weight: var(--feedback-font-weight);
     line-height: var(--feedback-line-height);
     transition: font-size 240ms ease, line-height 240ms ease;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
 }
 
 .feedback-signature {
-    margin: 0;
+    width: 100%;
+    margin: var(--references-sign-gap) 0 0 0;
+    flex: 0 0 auto;
     white-space: pre-line;
     font-family: var(--feedback-sign-font);
     font-size: var(--fs-feedback-sign);
@@ -1101,23 +1123,35 @@ section.anchor {
 }
 
 .feedback-signature-linebreak {
-    display: inline;
+    display: none;
 }
 
-/* Desktop expanded */
-.feedback-card.is-expanded {
-    z-index: 20;
-}
-
+/* Expanded */
 .feedback-card.is-expanded .feedback-card-inner {
-    width: min(100%, 1200px);
-    min-height: 800px;
-    padding: 42px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(var(--references-expanded-w), calc(100vw - (var(--references-overlay-gap) * 2)));
+    height: min(var(--references-expanded-h), calc(100vh - (var(--references-overlay-gap) * 2)));
+    min-height: min(var(--references-expanded-h), calc(100vh - (var(--references-overlay-gap) * 2)));
+    max-height: min(var(--references-expanded-h), calc(100vh - (var(--references-overlay-gap) * 2)));
+    padding: var(--references-expanded-pad);
+    overflow: auto;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
 }
 
 .feedback-card.is-expanded .feedback-text {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
     font-size: calc(var(--fs-feedback) + 2px);
-    line-height: calc(var(--feedback-line-height) + 0.05);
+    line-height: 1.45;
+}
+
+.feedback-card.is-expanded .feedback-signature {
+    font-size: calc(var(--fs-feedback-sign) + 1px);
 }
 
 .carousel-btn {
@@ -1831,9 +1865,9 @@ section.anchor {
         --frame-w-lg: var(--gold-border-width-lg-mobile);
 
         /* Nav */
-        --nav-home-h: 42px;
-        --nav-menu-btn-h: 42px;
-        --lang-btn-h: 42px;
+        --nav-home-h: 32px;
+        --nav-menu-btn-h: 32px;
+        --lang-btn-h: 32px;
         --nav-menu-panel-top: 64px;
 
         /* Contact form */
@@ -1845,9 +1879,17 @@ section.anchor {
         --feedback-frame-radius-outer-mobile: 20px;
         --cta-frame-radius-outer-mobile: 20px;
 
-        /* Feedback / carousel */
-        --carousel-card-pad: 30px;
-        --carousel-mobile-card-w: 86vw;
+        /* References */
+        --references-gap: 14px;
+        --references-preview-h: 280px;
+        --references-preview-pad: 24px;
+        --references-preview-chars: 170;
+        --references-sign-gap: 14px;
+
+        --references-expanded-w: calc(100vw - (var(--side-pad) * 2));
+        --references-expanded-h: auto;
+        --references-expanded-pad: 28px;
+        --references-overlay-gap: 20px;
 
         /* Feedback typography — mobile */
         --fs-feedback: 20px;
@@ -1856,12 +1898,12 @@ section.anchor {
         --feedback-font: var(--font-head);
         --feedback-font-style: italic;
         --feedback-font-weight: 500;
-        --feedback-line-height: var(--lh-body);
+        --feedback-line-height: 1.35;
 
-        --feedback-sign-font: var(--font-body);
+        --feedback-sign-font: var(--font-head);
         --feedback-sign-font-style: normal;
-        --feedback-sign-font-weight: 400;
-        --feedback-sign-line-height: var(--lh-body);
+        --feedback-sign-font-weight: 500;
+        --feedback-sign-line-height: 1.3;
 
         /* Pre-footer */
         --pre-footer-item-gap: 12px;
@@ -2094,12 +2136,8 @@ section.anchor {
 
     #references .carousel-viewport {
         width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-        padding: 0 var(--side-pad);
+        overflow: visible;
+        padding: 0;
         box-sizing: border-box;
     }
 
@@ -2109,29 +2147,38 @@ section.anchor {
 
     #references .carousel-track {
         display: flex;
-        gap: 18px;
-        width: max-content;
+        flex-direction: column;
+        gap: var(--references-gap);
+        width: 100%;
         transform: none !important;
         transition: none !important;
         will-change: auto;
     }
 
     #references .feedback-card {
-        flex: 0 0 auto;
-        width: var(--carousel-mobile-card-w);
-        scroll-snap-align: center;
+        width: 100%;
     }
 
     #references .feedback-card-inner {
         width: 100%;
-        min-height: 200px;
+        height: var(--references-preview-h);
+        min-height: var(--references-preview-h);
+        max-height: var(--references-preview-h);
+        padding: var(--references-preview-pad);
+    }
+
+    #references .feedback-text {
+        -webkit-line-clamp: 7;
+        line-clamp: 7;
     }
 
     #references .feedback-card.is-expanded .feedback-card-inner {
-        width: 100%;
+        width: min(100%, var(--references-expanded-w));
+        max-width: calc(100vw - (var(--references-overlay-gap) * 2));
+        height: auto;
         min-height: 0;
-        max-height: none;
-        padding: 34px 28px;
+        max-height: calc(100vh - (var(--references-overlay-gap) * 2));
+        padding: var(--references-expanded-pad);
     }
 
     #references .feedback-card.is-expanded .feedback-text {

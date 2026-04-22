@@ -195,10 +195,17 @@
     const cards = Array.from(document.querySelectorAll("[data-feedback-card]"));
     if (!cards.length) return;
 
-    const MAX_CHARS = 200;
-
     function currentLang() {
         return document.documentElement.lang === "en" ? "en" : "de";
+    }
+
+    function getMaxChars() {
+        const cssValue = getComputedStyle(document.documentElement)
+            .getPropertyValue("--references-preview-chars")
+            .trim();
+
+        const parsed = parseInt(cssValue, 10);
+        return Number.isFinite(parsed) ? parsed : 200;
     }
 
     function suffix(lang) {
@@ -206,13 +213,50 @@
     }
 
     function getFullText(textEl, lang) {
-        return textEl.getAttribute(`data-${lang}`) || textEl.textContent.trim();
+        const attrText = textEl.getAttribute(`data-${lang}`);
+        return (attrText || textEl.textContent || "").trim();
     }
 
-    function truncateText(text, lang) {
+    function truncateText(text, lang, maxChars) {
         const normalized = text.trim();
-        if (normalized.length <= MAX_CHARS) return normalized;
-        return normalized.slice(0, MAX_CHARS).trim() + suffix(lang);
+        if (normalized.length <= maxChars) return normalized;
+
+        const ending = suffix(lang);
+        const rawLimit = Math.max(0, maxChars - ending.length);
+        let trimmed = normalized.slice(0, rawLimit);
+
+        const lastSpace = trimmed.lastIndexOf(" ");
+        if (lastSpace > Math.floor(rawLimit * 0.6)) {
+            trimmed = trimmed.slice(0, lastSpace);
+        }
+
+        return trimmed.trim() + ending;
+    }
+
+    function updateBodyState() {
+        const hasExpanded = cards.some((card) => card.classList.contains("is-expanded"));
+        document.body.classList.toggle("references-expanded", hasExpanded);
+    }
+
+    function renderCard(card) {
+        const lang = currentLang();
+        const maxChars = getMaxChars();
+        const textEl = card.querySelector("[data-feedback-text]");
+        if (!textEl) return;
+
+        const fullText = getFullText(textEl, lang);
+        const isExpanded = card.classList.contains("is-expanded");
+
+        textEl.textContent = isExpanded
+            ? fullText
+            : truncateText(fullText, lang, maxChars);
+
+        card.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+    }
+
+    function renderAllCards() {
+        cards.forEach(renderCard);
+        updateBodyState();
     }
 
     function collapseAllExcept(exceptionCard) {
@@ -223,166 +267,70 @@
         });
     }
 
-    function renderFeedbackTexts() {
-        const lang = currentLang();
-
-        cards.forEach((card) => {
-            const textEl = card.querySelector("[data-feedback-text]");
-            if (!textEl) return;
-
-            const full = getFullText(textEl, lang);
-            const expanded = card.classList.contains("is-expanded");
-
-            textEl.textContent = expanded ? full : truncateText(full, lang);
-        });
-
-        window.dispatchEvent(new Event("feedback:contentchange"));
-    }
-
     cards.forEach((card) => {
         const inner = card.querySelector(".feedback-card-inner");
         if (!inner) return;
 
-        inner.addEventListener("click", () => {
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-expanded", "false");
+
+        inner.addEventListener("click", (e) => {
+            e.stopPropagation();
+
             const wasExpanded = card.classList.contains("is-expanded");
 
-            if (!wasExpanded) {
+            if (wasExpanded) {
+                card.classList.remove("is-expanded");
+            } else {
                 collapseAllExcept(card);
                 card.classList.add("is-expanded");
-            } else {
-                card.classList.remove("is-expanded");
             }
 
-            renderFeedbackTexts();
-            window.dispatchEvent(new Event("resize"));
+            renderAllCards();
+        });
+
+        card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+
+                const wasExpanded = card.classList.contains("is-expanded");
+
+                if (wasExpanded) {
+                    card.classList.remove("is-expanded");
+                } else {
+                    collapseAllExcept(card);
+                    card.classList.add("is-expanded");
+                }
+
+                renderAllCards();
+            }
+
+            if (e.key === "Escape") {
+                card.classList.remove("is-expanded");
+                renderAllCards();
+            }
         });
     });
 
-    window.addEventListener("feedback:languagechange", renderFeedbackTexts);
-    window.addEventListener("load", renderFeedbackTexts);
-
-    renderFeedbackTexts();
-})();
-
-/* ==== FEEDBACK CARD EQUAL HEIGHT ==== */
-(function () {
-    const cards = Array.from(document.querySelectorAll(".feedback-card"));
-    if (!cards.length) return;
-
-    function isMobile() {
-        return window.innerWidth <= 768;
-    }
-
-    function equalizeFeedbackCardHeights() {
-        const innerCards = cards
-            .filter((card) => !card.classList.contains("is-expanded"))
-            .map((card) => card.querySelector(".feedback-card-inner"))
-            .filter(Boolean);
-
-        if (!innerCards.length) return;
-
-        innerCards.forEach((card) => {
-            card.style.minHeight = "";
-        });
-
-        if (isMobile()) return;
-
-        let maxHeight = 0;
-
-        innerCards.forEach((card) => {
-            const height = card.offsetHeight;
-            if (height > maxHeight) maxHeight = height;
-        });
-
-        innerCards.forEach((card) => {
-            card.style.minHeight = `${maxHeight}px`;
-        });
-    }
-
-    window.addEventListener("load", equalizeFeedbackCardHeights);
-    window.addEventListener("resize", equalizeFeedbackCardHeights);
-    window.addEventListener("feedback:contentchange", equalizeFeedbackCardHeights);
-
-    equalizeFeedbackCardHeights();
-})();
-
-/* ==== REFERENCES CAROUSEL ==== */
-(function () {
-    const shell = document.querySelector(".references-carousel");
-    if (!shell) return;
-
-    const track = shell.querySelector(".carousel-track");
-    const cards = Array.from(shell.querySelectorAll(".feedback-card"));
-    const btnPrev = shell.querySelector(".carousel-btn.left");
-    const btnNext = shell.querySelector(".carousel-btn.right");
-
-    if (!track || !cards.length || !btnPrev || !btnNext) return;
-
-    let currentIndex = 0;
-
-    function isMobile() {
-        return window.innerWidth <= 768;
-    }
-
-    function collapseExpandedCards() {
-        cards.forEach((card) => card.classList.remove("is-expanded"));
-        window.dispatchEvent(new Event("feedback:contentchange"));
-    }
-
-    function updateCarousel() {
-        if (isMobile()) {
-            track.style.transform = "none";
-
-            cards.forEach((card) => {
-                card.setAttribute("aria-hidden", "false");
-                card.classList.remove("is-active");
-            });
-
-            btnPrev.disabled = false;
-            btnNext.disabled = false;
-            return;
-        }
-
-        const viewport = shell.querySelector(".carousel-viewport");
-        if (!viewport) return;
-
-        const viewportWidth = viewport.clientWidth;
-        const translateX = -(currentIndex * viewportWidth);
-
-        track.style.transform = `translate3d(${translateX}px, 0, 0)`;
-
-        cards.forEach((card, index) => {
-            card.classList.toggle("is-active", index === currentIndex);
-            card.setAttribute("aria-hidden", index === currentIndex ? "false" : "true");
-        });
-
-        btnPrev.disabled = currentIndex === 0;
-        btnNext.disabled = currentIndex === cards.length - 1;
-    }
-
-    btnPrev.addEventListener("click", () => {
-        if (isMobile()) return;
-        if (currentIndex > 0) {
-            collapseExpandedCards();
-            currentIndex -= 1;
-            updateCarousel();
-            window.dispatchEvent(new Event("resize"));
+    document.addEventListener("click", (e) => {
+        const clickedCard = e.target.closest("[data-feedback-card]");
+        if (!clickedCard) {
+            cards.forEach((card) => card.classList.remove("is-expanded"));
+            renderAllCards();
         }
     });
 
-    btnNext.addEventListener("click", () => {
-        if (isMobile()) return;
-        if (currentIndex < cards.length - 1) {
-            collapseExpandedCards();
-            currentIndex += 1;
-            updateCarousel();
-            window.dispatchEvent(new Event("resize"));
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            cards.forEach((card) => card.classList.remove("is-expanded"));
+            renderAllCards();
         }
     });
 
-    window.addEventListener("resize", updateCarousel);
-    window.addEventListener("load", updateCarousel);
-    window.addEventListener("feedback:contentchange", updateCarousel);
+    window.addEventListener("feedback:languagechange", renderAllCards);
+    window.addEventListener("load", renderAllCards);
+    window.addEventListener("resize", renderAllCards);
 
-    updateCarousel();
+    renderAllCards();
 })();
