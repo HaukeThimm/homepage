@@ -296,8 +296,8 @@
     --qual-logo-touch-scale: 1.25;
 
     /* Footer follow */
-    --follow-icon-h: 60px;
-    --follow-icon-gap: 18px;
+    --follow-icon-h: 50px;
+    --follow-icon-gap: 10px;
     --follow-icon-radius: 50%;
     --follow-icon-fit: contain;
     --follow-icon-pos_x: 50%;
@@ -1192,9 +1192,13 @@ section.anchor {
 .contact-cta {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--cta-gap);
-    text-align: center;
+    text-align: left;
+}
+
+.contact-cta .cta-btn {
+    align-self: center;
 }
 
 .cta-btn {
@@ -1689,6 +1693,11 @@ section.anchor {
     padding-left: 0;
 }
 
+.footer-qualifications-block .qualifications-label,
+.footer-follow-block .follow-label {
+    align-self: flex-start;
+}
+
 .footer-qualifications-block .qualifications-logos,
 .footer-follow-block .follow-icons {
     justify-content: flex-start;
@@ -1699,40 +1708,45 @@ section.anchor {
 /* ==== FOOTER QUALIFICATIONS (DESKTOP) ==== */
 .qualifications-logos {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: var(--qual-logo-gap);
-    align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .qualifications-logos a {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    min-height: calc(var(--qual-logo-rect-h) * var(--qual-logo-touch-scale));
-    padding: calc((var(--qual-logo-rect-h) * var(--qual-logo-touch-scale) - var(--qual-logo-rect-h)) / 2);
+    justify-content: flex-start;
+    min-height: var(--qual-logo-rect-h);
+    padding: 0;
+    margin: 0;
 }
 
 .qualifications-logos .gold-frame {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
     width: auto;
     max-width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .qualifications-logos .gold-frame.shape--rect {
     height: var(--qual-logo-rect-h);
     width: auto;
     border-radius: var(--qual-logo-rect-radius);
-    padding: 0 10px;
+    padding: 0;
 }
 
 .qualifications-logos .gold-frame.shape--round {
     height: var(--qual-logo-round-h);
     width: auto;
     border-radius: var(--qual-logo-round-radius);
-    padding: 0 10px;
+    padding: 0;
     aspect-ratio: auto;
     flex: 0 1 auto;
 }
@@ -1785,15 +1799,17 @@ section.anchor {
     display: flex;
     gap: var(--follow-icon-gap);
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
 }
 
 .follow-icons a {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    min-height: calc(var(--follow-icon-h) * var(--follow-icon-touch-scale));
-    padding: calc((var(--follow-icon-h) * var(--follow-icon-touch-scale) - var(--follow-icon-h)) / 2);
+    justify-content: flex-start;
+    min-height: var(--follow-icon-h);
+    padding: 0;
+    margin: 0;
 }
 
 .follow-icons .gold-frame.shape--round {
@@ -1802,7 +1818,7 @@ section.anchor {
     flex: 0 1 auto;
     aspect-ratio: auto;
     border-radius: var(--follow-icon-radius);
-    padding: 0 10px;
+    padding: 0;
 }
 
 .follow-icons .gold-frame > img,
@@ -1865,10 +1881,6 @@ section.anchor {
 .privacy {
     padding-top: calc(var(--banner-h) + 34px);
     padding-bottom: 80px;
-}
-
-#photo-credits {
-    scroll-margin-top: calc(var(--banner-h) + 20px);
 }
 
 /* =============== ROOT TOKENS — MOBILE =============== */
@@ -1938,9 +1950,9 @@ section.anchor {
         --pre-footer-icon-h: 64px;
 
         /* Footer qualifications */
-        --qual-logo-rect-h-mobile: 64px;
-        --qual-logo-round-h-mobile: 64px;
-        --qual-logo-gap-mobile: 18px;
+        --qual-logo-rect-h-mobile: 75px;
+        --qual-logo-round-h-mobile: 75px;
+        --qual-logo-gap-mobile: 10px;
         --qual-logo-rect-radius-mobile: 50%;
         --qual-logo-round-radius-mobile: 50%;
         --qual-logo-rect-fit-mobile: contain;
@@ -1951,8 +1963,8 @@ section.anchor {
         --qual-logo-round-pos-y-mobile: 50%;
 
         /* Footer follow icons */
-        --follow-icon-h-mobile: 64px;
-        --follow-icon-gap-mobile: 18px;
+        --follow-icon-h-mobile: 75px;
+        --follow-icon-gap-mobile: 10px;
         --follow-icon-radius-mobile: 50%;
         --follow-icon-fit-mobile: contain;
         --follow-icon-pos-x-mobile: 50%;
@@ -1962,7 +1974,7 @@ section.anchor {
         /* Back to top / footer spacing */
         --backtop-icon-h: 4px;
         --backtop-gap: 3px;
-        --footer-topline-offset: 0px;
+        --footer-topline-offset: 12px;
 
         --footer-mobile-row-pad-top: 22px;
         --footer-mobile-row-pad-bottom: 0px;
