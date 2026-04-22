@@ -1,5 +1,4 @@
-/* ==== FONTS (LOKAL) ==== */
-/* Pfade relativ zu assets/css/ -> ../fonts/... */
+/* =============== FONTS (LOKAL) =============== */
 @font-face {
     font-family: "Cormorant Garamond";
     src: url("../fonts/cormorant_garamond/static/CormorantGaramond-Light.ttf") format("truetype");
@@ -96,23 +95,28 @@
     font-display: swap;
 }
 
-/* ==== ROOT TOKENS (DESKTOP STANDARD) ==== */
+/* =============== ROOT TOKENS — DESKTOP STANDARD =============== */
 :root {
+    /* Colors */
     --cream: #fdf7f2;
     --blue: #003153;
 
+    /* Fonts */
     --font-head: "Cormorant Garamond", serif;
     --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
+    /* Font sizes */
     --fs-head: 30px;
     --fs-sub: 24px;
     --fs-body: 18px;
     --fs-hero-name: 42px;
     --fs-nav-link: 15px;
     --fs-backtop: 18px;
+
+    /* Feedback typography — desktop */
     --fs-feedback: 20px;
     --fs-feedback-sign: 18px;
-    
+
     --feedback-font: var(--font-head);
     --feedback-font-style: italic;
     --feedback-font-weight: 500;
@@ -123,6 +127,7 @@
     --feedback-sign-font-weight: 400;
     --feedback-sign-line-height: var(--lh-body);
 
+    /* Font weights */
     --fw-head: 700;
     --fw-sub: 500;
     --fw-body: 300;
@@ -131,16 +136,19 @@
     --fw-backtop-hover: 500;
     --fw-approach-num: 500;
 
+    /* Line heights */
     --lh-head: 1.25;
     --lh-sub: 1.25;
     --lh-body: 1.5;
 
+    /* Global layout */
     --top-offset: 0px;
     --banner-h: 75px;
     --page-top-gap: 40px;
     --side-pad: 150px;
     --max-width: 1400px;
 
+    /* Section spacing */
     --section-pad-y: 60px;
     --hero-offset: 25px;
     --hero-pad-bottom: 30px;
@@ -150,6 +158,7 @@
     --p-gap: 14px;
     --block-gap: 40px;
 
+    /* Gold frame */
     --goldframe-img: url("../img/highlights_gold.png");
 
     --gold-border-width-no: 0px;
@@ -166,10 +175,12 @@
     --frame-r-md: 3px;
     --frame-r-lg: 4px;
 
+    /* Component radii */
     --service-frame-radius-outer: 15px;
     --feedback-frame-radius-outer: 15px;
     --cta-frame-radius-outer: 15px;
 
+    /* Nav */
     --nav-home-h: 36px;
     --nav-home-fit: contain;
     --nav-menu-btn-h: 36px;
@@ -182,6 +193,7 @@
     --nav-menu-panel-pad-y: 18px;
     --nav-menu-panel-gap: 14px;
 
+    /* Services */
     --service-pad: 18px;
     --services-gap: 18px;
     --service-grid-col-1: 30px;
@@ -192,11 +204,13 @@
     --service-body-pad-top: 14px;
     --service-max-h: 600px;
 
+    /* Approach */
     --approach-item-gap: 14px;
     --approach-num-left: 14px;
     --approach-num-top: 0px;
     --approach-text-indent: 46px;
 
+    /* Carousel / references */
     --carousel-card-w: 800px;
     --carousel-card-pad: 30px;
     --carousel-shell-top: 18px;
@@ -205,10 +219,12 @@
     --carousel-desktop-max-w: 1400px;
     --carousel-mobile-card-w: min(86vw, 800px);
 
+    /* CTA */
     --cta-gap: 14px;
     --cta-pad-y: 0.45em;
     --cta-pad-x: 0.9em;
 
+    /* Contact form */
     --contact-form-max-w: 25vw;
     --contact-form-min-w: 320px;
     --contact-form-gap: 14px;
@@ -218,6 +234,7 @@
     --contact-form-submit-pad-y: 0.45em;
     --contact-form-submit-pad-x: 0.9em;
 
+    /* Pre-footer */
     --pre-footer-min-h: 120px;
     --pre-footer-pad-y: 0px;
     --pre-footer-col-gap: 30px;
@@ -235,6 +252,7 @@
     --pre-footer-text-lh: var(--lh-body);
     --pre-footer-text-nowrap: nowrap;
 
+    /* Footer */
     --footer-min-h: 300px;
     --footer-pad-top: 10px;
     --footer-pad-bottom: 10px;
@@ -249,6 +267,7 @@
     --footer-label-lh: var(--lh-body);
     --footer-label-gap-bottom: 12px;
 
+    /* Footer qualifications */
     --qual-logo-rect-h: 50px;
     --qual-logo-round-h: 50px;
     --qual-logo-gap: 18px;
@@ -263,6 +282,7 @@
     --qual-logo-pad: 0px;
     --qual-logo-touch-scale: 1.25;
 
+    /* Footer follow */
     --follow-icon-h: 60px;
     --follow-icon-gap: 18px;
     --follow-icon-radius: 50%;
@@ -272,9 +292,11 @@
     --follow-icon-pad: 0px;
     --follow-icon-touch-scale: 1.25;
 
+    /* Back to top */
     --backtop-icon-h: 4px;
     --backtop-gap: 3px;
 
+    /* Legal */
     --legal-font: var(--font-body);
     --legal-size: var(--fs-body);
     --legal-weight: var(--fw-body);
@@ -282,8 +304,10 @@
     --legal-links-gap: 10px;
     --legal-wrap: nowrap;
 
+    /* Anchor offset */
     --anchor-offset: 20px;
 
+    /* Mobile footer fallback tokens */
     --footer-mobile-row-pad-top: 10px;
     --footer-mobile-row-pad-bottom: 0px;
     --footer-mobile-row-pad-bottom-f: 22px;
@@ -291,7 +315,7 @@
     --footer-mobile-c-gap: 18px;
 }
 
-/* ==== ALLGEMEINE EINSTELLUNGEN ==== */
+/* =============== GLOBAL / RESET =============== */
 * {
     box-sizing: border-box;
 }
@@ -319,7 +343,7 @@ picture {
     max-width: 100%;
 }
 
-/* ==== GOLD-FRAME SYSTEM ==== */
+/* =============== GOLD-FRAME SYSTEM =============== */
 .gold-frame {
     --gf-border-width: var(--frame-w-sm);
     --gf-radius: var(--frame-r-md);
@@ -432,7 +456,7 @@ picture {
     background: transparent;
 }
 
-/* ==== HEADER ==== */
+/* =============== HEADER =============== */
 .header-image {
     width: 100%;
     margin: 0;
@@ -464,7 +488,7 @@ picture {
     object-position: center top;
 }
 
-/* ==== NAV-BANNER ==== */
+/* =============== NAV-BANNER =============== */
 .nav-shell {
     position: fixed;
     top: var(--top-offset);
@@ -544,6 +568,16 @@ picture {
 
 .grid-nav-mobile {
     display: none;
+}
+
+.nav-link,
+.nav-mobile-link {
+    transition: font-weight 160ms ease, opacity 160ms ease;
+}
+
+.nav-link.is-active,
+.nav-mobile-link.is-active {
+    font-weight: 600;
 }
 
 .nav-link {
@@ -694,7 +728,7 @@ picture {
     text-transform: var(--nav-text-transform);
 }
 
-/* ==== LAYOUT / WRAPPER ==== */
+/* =============== LAYOUT / WRAPPER =============== */
 .page-offset {
     padding-top: 0;
     margin-top: 0;
@@ -714,7 +748,7 @@ section.anchor {
     padding: var(--section-pad-y) 0;
 }
 
-/* ==== HERO ==== */
+/* =============== HERO =============== */
 .hero {
     padding-top: var(--hero-offset);
     padding-bottom: var(--hero-pad-bottom);
@@ -757,7 +791,7 @@ section.anchor {
     white-space: pre-line;
 }
 
-/* ==== TYPOGRAFIE / ALLGEMEINE INHALTSBLÖCKE ==== */
+/* ===============TYPOGRAPHY / GENERAL CONTENT BLOCKS =============== */
 .section h2,
 .about .about-label {
     font-family: var(--font-head);
@@ -781,9 +815,6 @@ section.anchor {
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
     line-height: var(--lh-body);
-}
-
-.body-text {
     margin: 0;
 }
 
@@ -801,7 +832,7 @@ section.anchor {
     letter-spacing: 0.04em;
 }
 
-/* ==== VALUES ==== */
+/* =============== VALUES =============== */
 .values-band {
     padding: var(--section-pad-y) 0;
     text-align: center;
@@ -814,7 +845,7 @@ section.anchor {
     height: auto;
 }
 
-/* ==== SERVICES ==== */
+/* =============== SERVICES =============== */
 .services-list {
     display: flex;
     flex-direction: column;
@@ -902,7 +933,7 @@ section.anchor {
     max-height: var(--service-max-h);
 }
 
-/* ==== APPROACH ==== */
+/* =============== APPROACH =============== */
 .approach-list {
     margin: 0;
     padding: 0;
@@ -932,31 +963,38 @@ section.anchor {
     font-weight: var(--fw-approach-num);
 }
 
-/* ==== CAROUSEL (CREDENTIALS) ==== */
-#credentials .carousel-shell {
+/* =============== CAROUSEL (REFERENCES) =============== */
+#references .carousel-shell {
     width: 100%;
     max-width: var(--carousel-desktop-max-w);
     margin: var(--carousel-shell-top) auto 0;
     padding: 0 var(--side-pad);
     display: grid;
-    grid-template-columns: auto var(--carousel-btn-size) var(--carousel-btn-gap) minmax(0, 1fr) var(--carousel-btn-gap) var(--carousel-btn-size) auto;
+    grid-template-columns:
+        auto
+        var(--carousel-btn-size)
+        var(--carousel-btn-gap)
+        minmax(0, 1fr)
+        var(--carousel-btn-gap)
+        var(--carousel-btn-size)
+        auto;
     align-items: center;
     box-sizing: border-box;
 }
 
-#credentials .carousel-btn.left {
+#references .carousel-btn.left {
     grid-column: 2;
     position: static;
     transform: none;
 }
 
-#credentials .carousel-btn.right {
+#references .carousel-btn.right {
     grid-column: 6;
     position: static;
     transform: none;
 }
 
-#credentials .carousel-viewport {
+#references .carousel-viewport {
     grid-column: 4;
     width: 100%;
     overflow: hidden;
@@ -993,8 +1031,8 @@ section.anchor {
 
 .feedback-card-inner {
     position: relative;
-    width: min(100%, var(--carousel-card-w));
-    min-height: 0;
+    width: min(100%, 600px);
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1005,6 +1043,13 @@ section.anchor {
     background: var(--cream);
     overflow: hidden;
     box-sizing: border-box;
+    cursor: pointer;
+    transition:
+        width 240ms ease,
+        min-height 240ms ease,
+        max-width 240ms ease,
+        padding 240ms ease,
+        transform 240ms ease;
 }
 
 .feedback-card-inner::before {
@@ -1034,14 +1079,20 @@ section.anchor {
 }
 
 .feedback-text {
+    width: 100%;
+    margin: 0;
+    white-space: pre-line;
     font-family: var(--feedback-font);
     font-size: var(--fs-feedback);
     font-style: var(--feedback-font-style);
     font-weight: var(--feedback-font-weight);
     line-height: var(--feedback-line-height);
+    transition: font-size 240ms ease, line-height 240ms ease;
 }
 
 .feedback-signature {
+    margin: 0;
+    white-space: pre-line;
     font-family: var(--feedback-sign-font);
     font-size: var(--fs-feedback-sign);
     font-style: var(--feedback-sign-font-style);
@@ -1049,27 +1100,24 @@ section.anchor {
     line-height: var(--feedback-sign-line-height);
 }
 
-/* .feedback-text {
-    width: 100%;
-    margin: 0;
-    white-space: pre-line;
-    font-family: var(--font-head);
-    font-size: var(--fs-body);
-    font-weight: 500;
-    line-height: var(--lh-body);
-}
-
-.feedback-signature {
-    margin: 0;
-    white-space: pre-line;
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    font-weight: 400;
-    line-height: var(--lh-body);
-} */
-
 .feedback-signature-linebreak {
     display: inline;
+}
+
+/* Desktop expanded */
+.feedback-card.is-expanded {
+    z-index: 20;
+}
+
+.feedback-card.is-expanded .feedback-card-inner {
+    width: min(100%, 1200px);
+    min-height: 800px;
+    padding: 42px;
+}
+
+.feedback-card.is-expanded .feedback-text {
+    font-size: calc(var(--fs-feedback) + 2px);
+    line-height: calc(var(--feedback-line-height) + 0.05);
 }
 
 .carousel-btn {
@@ -1093,7 +1141,7 @@ section.anchor {
     object-fit: contain;
 }
 
-/* ==== CTA ==== */
+/* =============== CTA =============== */
 .contact-cta {
     display: flex;
     flex-direction: column;
@@ -1143,7 +1191,7 @@ section.anchor {
     text-decoration: underline;
 }
 
-/* ==== CONTACT FORM ==== */
+/* =============== CONTACT FORM =============== */
 .contact-form {
     width: min(var(--contact-form-max-w), 100%);
     min-width: var(--contact-form-min-w);
@@ -1238,7 +1286,7 @@ section.anchor {
     text-decoration: underline;
 }
 
-/* ==== CONTACT PAGE / STANDALONE FORM ==== */
+/* =============== CONTACT PAGE / STANDALONE FORM =============== */
 .contact-page-shell {
     padding-top: calc(var(--banner-h) + 34px);
 }
@@ -1368,7 +1416,7 @@ section.anchor {
     box-shadow: none;
 }
 
-/* ==== PRE-FOOTER ==== */
+/* =============== PRE-FOOTER =============== */
 .pre-footer {
     width: 100%;
     min-height: var(--pre-footer-min-h);
@@ -1475,7 +1523,7 @@ section.anchor {
     white-space: var(--pre-footer-text-nowrap);
 }
 
-/* ==== FOOTER ==== */
+/* =============== FOOTER =============== */
 .footer {
     background-color: var(--blue);
     color: var(--cream);
@@ -1725,7 +1773,7 @@ section.anchor {
     display: block;
 }
 
-/* ==== FOOTER LEGAL ==== */
+/* =============== FOOTER LEGAL =============== */
 .legal-copy {
     font-family: var(--legal-font);
     font-size: var(--legal-size);
@@ -1757,19 +1805,21 @@ section.anchor {
     text-decoration: underline;
 }
 
-/* ==== SIMPLE LEGAL PAGE SPACING ==== */
+/* =============== SIMPLE LEGAL PAGE SPACING =============== */
 .imprint,
 .privacy {
     padding-top: calc(var(--banner-h) + 34px);
     padding-bottom: 80px;
 }
 
-/* ==== MOBILE ROOT TOKENS ==== */
+/* =============== ROOT TOKENS — MOBILE =============== */
 @media (max-width: 768px) {
     :root {
+        /* Layout */
         --side-pad: 18px;
         --banner-h: 64px;
 
+        /* Gold frame widths */
         --gold-border-width-no-mobile: 0px;
         --gold-border-width-sm-mobile: 2px;
         --gold-border-width-md-mobile: 3px;
@@ -1780,24 +1830,29 @@ section.anchor {
         --frame-w-md: var(--gold-border-width-md-mobile);
         --frame-w-lg: var(--gold-border-width-lg-mobile);
 
+        /* Nav */
         --nav-home-h: 42px;
         --nav-menu-btn-h: 42px;
         --lang-btn-h: 42px;
         --nav-menu-panel-top: 64px;
 
+        /* Contact form */
         --contact-form-max-w: 75vw;
         --contact-form-min-w: 0px;
 
+        /* Radius overrides */
         --service-frame-radius-outer-mobile: 20px;
         --feedback-frame-radius-outer-mobile: 20px;
         --cta-frame-radius-outer-mobile: 20px;
 
+        /* Feedback / carousel */
         --carousel-card-pad: 30px;
         --carousel-mobile-card-w: 86vw;
 
-        /* Feedback-Karten – Mobile separat steuerbar */
+        /* Feedback typography — mobile */
         --fs-feedback: 20px;
         --fs-feedback-sign: 18px;
+
         --feedback-font: var(--font-head);
         --feedback-font-style: italic;
         --feedback-font-weight: 500;
@@ -1808,10 +1863,12 @@ section.anchor {
         --feedback-sign-font-weight: 400;
         --feedback-sign-line-height: var(--lh-body);
 
+        /* Pre-footer */
         --pre-footer-item-gap: 12px;
         --pre-footer-col-gap: 12px;
         --pre-footer-icon-h: 64px;
 
+        /* Footer qualifications */
         --qual-logo-rect-h-mobile: 64px;
         --qual-logo-round-h-mobile: 64px;
         --qual-logo-gap-mobile: 18px;
@@ -1824,6 +1881,7 @@ section.anchor {
         --qual-logo-round-pos-x-mobile: 50%;
         --qual-logo-round-pos-y-mobile: 50%;
 
+        /* Footer follow icons */
         --follow-icon-h-mobile: 64px;
         --follow-icon-gap-mobile: 18px;
         --follow-icon-radius-mobile: 50%;
@@ -1832,6 +1890,7 @@ section.anchor {
         --follow-icon-pos-y-mobile: 50%;
         --follow-icon-pad-mobile: 0px;
 
+        /* Back to top / footer spacing */
         --backtop-icon-h: 4px;
         --backtop-gap: 3px;
         --footer-topline-offset: 0px;
@@ -1844,6 +1903,7 @@ section.anchor {
         --legal-links-gap: 15px;
     }
 
+    /* =============== GLOBAL MOBILE SHAPE ADJUSTMENTS =============== */
     .service-item {
         border-radius: var(--service-frame-radius-outer-mobile);
     }
@@ -1856,6 +1916,7 @@ section.anchor {
         border-radius: var(--cta-frame-radius-outer-mobile);
     }
 
+    /* =============== MOBILE NAV =============== */
     .nav-shell,
     .main-nav,
     .nav-mobile-panel {
@@ -1950,6 +2011,7 @@ section.anchor {
         padding: 8px 0;
     }
 
+    /* =============== RESPONSIVE IMAGES =============== */
     .header-image picture,
     .values-band picture {
         display: block;
@@ -1963,6 +2025,7 @@ section.anchor {
         height: auto;
     }
 
+    /* =============== CONTACT FORM / LEGAL PAGES =============== */
     .form-row-2 {
         grid-template-columns: 1fr;
     }
@@ -2015,8 +2078,8 @@ section.anchor {
         padding-bottom: 60px;
     }
 
-    /* ==== MOBILE CAROUSEL / SWIPE ==== */
-    #credentials .carousel-shell {
+    /* =============== MOBILE CAROUSEL / SWIPE =============== */
+    #references .carousel-shell {
         width: 100%;
         max-width: 100%;
         margin: var(--carousel-shell-top) auto 0;
@@ -2024,12 +2087,12 @@ section.anchor {
         display: block;
     }
 
-    #credentials .carousel-btn.left,
-    #credentials .carousel-btn.right {
+    #references .carousel-btn.left,
+    #references .carousel-btn.right {
         display: none;
     }
 
-    #credentials .carousel-viewport {
+    #references .carousel-viewport {
         width: 100%;
         overflow-x: auto;
         overflow-y: hidden;
@@ -2040,11 +2103,11 @@ section.anchor {
         box-sizing: border-box;
     }
 
-    #credentials .carousel-viewport::-webkit-scrollbar {
+    #references .carousel-viewport::-webkit-scrollbar {
         display: none;
     }
 
-    #credentials .carousel-track {
+    #references .carousel-track {
         display: flex;
         gap: 18px;
         width: max-content;
@@ -2053,16 +2116,29 @@ section.anchor {
         will-change: auto;
     }
 
-    #credentials .feedback-card {
+    #references .feedback-card {
         flex: 0 0 auto;
         width: var(--carousel-mobile-card-w);
         scroll-snap-align: center;
     }
 
-    #credentials .feedback-card-inner {
+    #references .feedback-card-inner {
         width: 100%;
+        min-height: 400px;
     }
 
+    #references .feedback-card.is-expanded .feedback-card-inner {
+        width: 100%;
+        min-height: 0;
+        max-height: none;
+        padding: 34px 28px;
+    }
+
+    #references .feedback-card.is-expanded .feedback-text {
+        font-size: calc(var(--fs-feedback) + 1px);
+    }
+
+    /* =============== PRE-FOOTER =============== */
     .pre-footer {
         width: 100%;
         overflow: hidden;
@@ -2114,6 +2190,7 @@ section.anchor {
         justify-content: center;
     }
 
+    /* =============== MOBILE FOOTER LAYOUT =============== */
     .footer {
         width: 100%;
         overflow-x: hidden;
