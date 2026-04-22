@@ -122,10 +122,10 @@
     --feedback-font-weight: 500;
     --feedback-line-height: var(--lh-body);
 
-    --feedback-sign-font: var(--font-body);
+    --feedback-sign-font: var(--font-sub);
     --feedback-sign-font-style: normal;
     --feedback-sign-font-weight: 400;
-    --feedback-sign-line-height: var(--lh-body);
+    --feedback-sign-line-height: var(--lh-sub);
 
     /* Font weights */
     --fw-head: 700;
