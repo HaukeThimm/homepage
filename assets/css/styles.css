@@ -1031,8 +1031,8 @@ section.anchor {
 
 .feedback-card-inner {
     position: relative;
-    width: min(100%, 600px);
-    min-height: 400px;
+    width: min(100%, 300px);
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2124,7 +2124,7 @@ section.anchor {
 
     #references .feedback-card-inner {
         width: 100%;
-        min-height: 400px;
+        min-height: 200px;
     }
 
     #references .feedback-card.is-expanded .feedback-card-inner {
