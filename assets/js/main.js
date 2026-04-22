@@ -192,8 +192,17 @@
 
 /* ==== FEEDBACK TEXT TRUNCATION + EXPAND/COLLAPSE ==== */
 (function () {
+    const shell = document.querySelector(".references-carousel");
     const cards = Array.from(document.querySelectorAll("[data-feedback-card]"));
-    if (!cards.length) return;
+    if (!shell || !cards.length) return;
+
+    const viewport = shell.querySelector(".carousel-viewport");
+    const btnPrev = shell.querySelector(".carousel-btn.left");
+    const btnNext = shell.querySelector(".carousel-btn.right");
+
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
 
     function currentLang() {
         return document.documentElement.lang === "en" ? "en" : "de";
@@ -205,7 +214,7 @@
             .trim();
 
         const parsed = parseInt(cssValue, 10);
-        return Number.isFinite(parsed) ? parsed : 200;
+        return Number.isFinite(parsed) ? parsed : 150;
     }
 
     function suffix(lang) {
@@ -267,6 +276,10 @@
         });
     }
 
+    function collapseAll() {
+        cards.forEach((card) => card.classList.remove("is-expanded"));
+    }
+
     cards.forEach((card) => {
         const inner = card.querySelector(".feedback-card-inner");
         if (!inner) return;
@@ -316,17 +329,33 @@
     document.addEventListener("click", (e) => {
         const clickedCard = e.target.closest("[data-feedback-card]");
         if (!clickedCard) {
-            cards.forEach((card) => card.classList.remove("is-expanded"));
+            collapseAll();
             renderAllCards();
         }
     });
 
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
-            cards.forEach((card) => card.classList.remove("is-expanded"));
+            collapseAll();
             renderAllCards();
         }
     });
+
+    if (viewport && btnPrev && btnNext) {
+        btnPrev.addEventListener("click", () => {
+            if (!isMobile()) return;
+
+            const step = viewport.clientWidth * 0.9;
+            viewport.scrollBy({ left: -step, behavior: "smooth" });
+        });
+
+        btnNext.addEventListener("click", () => {
+            if (!isMobile()) return;
+
+            const step = viewport.clientWidth * 0.9;
+            viewport.scrollBy({ left: step, behavior: "smooth" });
+        });
+    }
 
     window.addEventListener("feedback:languagechange", renderAllCards);
     window.addEventListener("load", renderAllCards);
