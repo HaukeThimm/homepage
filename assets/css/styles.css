@@ -218,8 +218,8 @@
     --references-preview-chars: 150;
     --references-sign-gap: 18px;
 
-    --references-expanded-w: 1200px;
-    --references-expanded-h: 800px;
+    --references-expanded-w: 800px;
+    --references-expanded-h: 600px;
     --references-expanded-pad: 42px;
     --references-expanded-z: 9998;
     --references-overlay-gap: 40px;
@@ -1863,9 +1863,9 @@ section.anchor {
 
         /* References */
         --references-gap: 14px;
-        --references-preview-h: 280px;
+        --references-preview-h: 300px;
         --references-preview-pad: 24px;
-        --references-preview-chars: 170;
+        --references-preview-chars: 150;
         --references-sign-gap: 14px;
 
         --references-expanded-w: calc(100vw - (var(--side-pad) * 2));
