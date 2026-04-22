@@ -828,8 +828,8 @@ section.anchor {
 }
 
 .about .about-label {
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 /* =============== VALUES =============== */
