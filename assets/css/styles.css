@@ -308,6 +308,13 @@
     /* Back to top */
     --backtop-icon-h: 4px;
     --backtop-gap: 3px;
+    --backtop-pad-top: 8px;
+    --footer-label-top-offset: calc(
+        var(--footer-topline-offset) +
+        var(--backtop-pad-top) +
+        var(--backtop-icon-h) +
+        var(--backtop-gap)
+    );
 
     /* Legal */
     --legal-font: var(--font-body);
@@ -1675,7 +1682,7 @@ section.anchor {
     gap: 14px;
     min-width: 0;
     width: 100%;
-    padding-top: calc(var(--footer-topline-offset) + var(--backtop-icon-h) + var(--backtop-gap));
+    padding-top: var(--footer-label-top-offset);
 }
 
 .footer-backtop-block {
@@ -1780,7 +1787,7 @@ section.anchor {
     font-size: var(--fs-backtop);
     font-weight: var(--fw-backtop);
     min-height: calc(var(--backtop-icon-h) * 2);
-    padding: 8px;
+    padding: var(--backtop-pad-top) 8px 8px 8px;
 }
 
 .backtop .chevron-img {
