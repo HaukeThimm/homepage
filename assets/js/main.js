@@ -202,7 +202,7 @@
     updateActiveSection();
 })();
 
-/* ==== FEEDBACK TEXT TRUNCATION + EXPAND/COLLAPSE + MOBILE SWIPE BUTTONS ==== */
+/* ==== FEEDBACK TEXT TRUNCATION + EXPAND/COLLAPSE + MOBILE SWIPE ==== */
 (function () {
     const shell = document.querySelector(".references-carousel");
     const cards = Array.from(document.querySelectorAll("[data-feedback-card]"));
@@ -239,19 +239,19 @@
 
     function truncateText(text, maxChars) {
         const normalized = text.trim();
+        const ending = getSuffix();
+
         if (normalized.length <= maxChars) return normalized;
 
-        const ending = getSuffix();
-        const rawLimit = Math.max(0, maxChars - ending.length);
+        const rawLimit = Math.max(1, maxChars - ending.length);
+        let trimmed = normalized.slice(0, rawLimit).trim();
 
-        let trimmed = normalized.slice(0, rawLimit);
         const lastSpace = trimmed.lastIndexOf(" ");
-
         if (lastSpace > Math.floor(rawLimit * 0.6)) {
-            trimmed = trimmed.slice(0, lastSpace);
+            trimmed = trimmed.slice(0, lastSpace).trim();
         }
 
-        return trimmed.trim() + ending;
+        return trimmed + ending;
     }
 
     function updateBodyState() {
@@ -265,18 +265,16 @@
         if (!textEl) return;
 
         const fullText = getFullText(textEl);
-        const isExpanded = card.classList.contains("is-expanded");
+        const expanded = card.classList.contains("is-expanded");
 
-        textEl.textContent = isExpanded
-            ? fullText
-            : truncateText(fullText, maxChars);
-
-        card.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+        textEl.textContent = expanded ? fullText : truncateText(fullText, maxChars);
+        card.setAttribute("aria-expanded", expanded ? "true" : "false");
     }
 
     function renderAllCards() {
         cards.forEach(renderCard);
         updateBodyState();
+        window.dispatchEvent(new Event("references:render"));
     }
 
     function collapseAllExcept(exceptionCard) {
@@ -291,9 +289,27 @@
         cards.forEach((card) => card.classList.remove("is-expanded"));
     }
 
+    function toggleCard(card) {
+        const wasExpanded = card.classList.contains("is-expanded");
+
+        if (wasExpanded) {
+            card.classList.remove("is-expanded");
+        } else {
+            collapseAllExcept(card);
+            card.classList.add("is-expanded");
+        }
+
+        renderAllCards();
+    }
+
     cards.forEach((card) => {
         const inner = card.querySelector(".feedback-card-inner");
         if (!inner) return;
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
 
         card.setAttribute("tabindex", "0");
         card.setAttribute("role", "button");
@@ -301,33 +317,13 @@
 
         inner.addEventListener("click", (e) => {
             e.stopPropagation();
-
-            const wasExpanded = card.classList.contains("is-expanded");
-
-            if (wasExpanded) {
-                card.classList.remove("is-expanded");
-            } else {
-                collapseAllExcept(card);
-                card.classList.add("is-expanded");
-            }
-
-            renderAllCards();
+            toggleCard(card);
         });
 
         card.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-
-                const wasExpanded = card.classList.contains("is-expanded");
-
-                if (wasExpanded) {
-                    card.classList.remove("is-expanded");
-                } else {
-                    collapseAllExcept(card);
-                    card.classList.add("is-expanded");
-                }
-
-                renderAllCards();
+                toggleCard(card);
             }
 
             if (e.key === "Escape") {
@@ -335,6 +331,28 @@
                 renderAllCards();
             }
         });
+
+        inner.addEventListener("touchstart", (e) => {
+            if (!card.classList.contains("is-expanded")) return;
+            const touch = e.changedTouches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+        }, { passive: true });
+
+        inner.addEventListener("touchend", (e) => {
+            if (!card.classList.contains("is-expanded")) return;
+            const touch = e.changedTouches[0];
+            touchEndX = touch.clientX;
+            touchEndY = touch.clientY;
+
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            if (Math.abs(deltaX) >= 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                card.classList.remove("is-expanded");
+                renderAllCards();
+            }
+        }, { passive: true });
     });
 
     document.addEventListener("click", (e) => {

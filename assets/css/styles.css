@@ -212,28 +212,28 @@
 
     /* References */
     --references-gap: 18px;
-    --references-preview-h: 220px;
-    --references-preview-pad: 30px;
+    --references-preview-h: 240px;
+    --references-preview-pad: 28px;
     --references-preview-chars: 150;
     --references-sign-gap: 18px;
 
-    --references-expanded-w: 1200px;
-    --references-expanded-h: 800px;
-    --references-expanded-pad: 42px;
+    --references-expanded-w: 960px;
+    --references-expanded-h: 560px;
+    --references-expanded-pad: 34px;
     --references-expanded-z: 9998;
-    --references-overlay-gap: 40px;
+    --references-overlay-gap: 32px;
 
     /* Legacy carousel tokens kept for compatibility */
     --carousel-card-w: 800px;
-    --carousel-card-pad: 30px;
+    --carousel-card-pad: 28px;
     --carousel-shell-top: 18px;
     --carousel-btn-gap: 18px;
     --carousel-btn-size: 40px;
     --carousel-desktop-max-w: 1400px;
-    --carousel-mobile-card-w: 86vw;
+    --carousel-mobile-card-w: calc(100vw - 112px);
 
     /* CTA */
-    --cta-gap: none;
+    --cta-gap: 0px;
     --cta-pad-y: 0.45em;
     --cta-pad-x: 0.9em;
 
@@ -255,8 +255,8 @@
     --pre-footer-margin-bottom: 20px;
     --pre-footer-icon-h: 65px;
     --pre-footer-icon-fit: contain;
-    --pre-footer-icon-pos-x: 50%;
-    --pre-footer-icon-pos-y: 50%;
+    --pre-footer-icon-pos_x: 50%;
+    --pre-footer-icon-pos_y: 50%;
     --pre-footer-icon-radius: 50%;
     --pre-footer-touch-scale: 1.25;
     --pre-footer-text-font: var(--font-body);
@@ -1020,13 +1020,28 @@ section.anchor {
     padding: 0 var(--side-pad);
     box-sizing: border-box;
     position: relative;
+    display: grid;
+    grid-template-columns: var(--carousel-btn-size) minmax(0, 1fr) var(--carousel-btn-size);
+    gap: var(--carousel-btn-gap);
+    align-items: start;
 }
 
-#references .carousel-btn {
-    display: none !important;
+#references .carousel-btn.left {
+    grid-column: 1;
+    display: inline-flex;
+    position: static;
+    transform: none;
+}
+
+#references .carousel-btn.right {
+    grid-column: 3;
+    display: inline-flex;
+    position: static;
+    transform: none;
 }
 
 #references .carousel-viewport {
+    grid-column: 2;
     width: 100%;
     overflow: visible;
     box-sizing: border-box;
@@ -1155,11 +1170,12 @@ section.anchor {
     left: 50%;
     transform: translate(-50%, -50%);
     width: min(var(--references-expanded-w), calc(100vw - (var(--references-overlay-gap) * 2)));
-    height: min(var(--references-expanded-h), calc(100vh - (var(--references-overlay-gap) * 2)));
-    min-height: min(var(--references-expanded-h), calc(100vh - (var(--references-overlay-gap) * 2)));
-    max-height: min(var(--references-expanded-h), calc(100vh - (var(--references-overlay-gap) * 2)));
+    height: min(var(--references-expanded-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
+    min-height: min(var(--references-expanded-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
+    max-height: min(var(--references-expanded-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
     padding: var(--references-expanded-pad);
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
 }
 
@@ -1186,6 +1202,11 @@ section.anchor {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
 }
 
 .carousel-btn img {
@@ -1563,7 +1584,7 @@ section.anchor {
     max-width: 100%;
     max-height: 100%;
     object-fit: var(--pre-footer-icon-fit);
-    object-position: var(--pre-footer-icon-pos-x) var(--pre-footer-icon-pos_y);
+    object-position: var(--pre-footer-icon-pos_x) var(--pre-footer-icon-pos_y);
     padding: 0;
     display: block;
 }
@@ -1928,16 +1949,17 @@ section.anchor {
         /* References */
         --references-gap: 18px;
         --references-preview-h: 220px;
-        --references-preview-pad: 24px;
+        --references-preview-pad: 22px;
         --references-preview-chars: 150;
         --references-sign-gap: 14px;
 
-        --references-expanded-w: calc(100vw - (var(--side-pad) * 2));
+        --references-expanded-w: calc(100vw - 36px);
         --references-expanded-h: auto;
-        --references-expanded-pad: 28px;
-        --references-overlay-gap: 20px;
+        --references-expanded-mobile-h: 68dvh;
+        --references-expanded-pad: 24px;
+        --references-overlay-gap: 18px;
 
-        --carousel-mobile-card-w: 86vw;
+        --carousel-mobile-card-w: calc(100vw - 112px);
 
         /* Feedback typography — mobile */
         --fs-feedback: 20px;
@@ -1966,18 +1988,18 @@ section.anchor {
         --qual-logo-round-radius-mobile: 50%;
         --qual-logo-rect-fit-mobile: contain;
         --qual-logo-round-fit-mobile: contain;
-        --qual-logo-rect-pos-x-mobile: 50%;
-        --qual-logo-rect-pos-y-mobile: 50%;
-        --qual-logo-round-pos-x-mobile: 50%;
-        --qual-logo-round-pos-y-mobile: 50%;
+        --qual-logo-rect-pos_x-mobile: 50%;
+        --qual-logo-rect-pos_y-mobile: 50%;
+        --qual-logo-round-pos_x-mobile: 50%;
+        --qual-logo-round-pos_y-mobile: 50%;
 
         /* Footer follow icons */
         --follow-icon-h-mobile: 65px;
         --follow-icon-gap-mobile: 10px;
         --follow-icon-radius-mobile: 50%;
         --follow-icon-fit-mobile: contain;
-        --follow-icon-pos-x-mobile: 50%;
-        --follow-icon-pos-y-mobile: 50%;
+        --follow-icon-pos_x-mobile: 50%;
+        --follow-icon-pos_y-mobile: 50%;
         --follow-icon-pad-mobile: 0px;
 
         /* Back to top / footer spacing */
@@ -2253,12 +2275,18 @@ section.anchor {
     }
 
     #references .feedback-card.is-expanded .feedback-card-inner {
-        width: min(100%, var(--references-expanded-w));
-        max-width: calc(100vw - (var(--references-overlay-gap) * 2));
-        height: auto;
-        min-height: 0;
-        max-height: calc(100vh - (var(--references-overlay-gap) * 2));
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(var(--references-expanded-w), calc(100vw - (var(--references-overlay-gap) * 2)));
+        height: min(var(--references-expanded-mobile-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
+        min-height: min(var(--references-expanded-mobile-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
+        max-height: min(var(--references-expanded-mobile-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
         padding: var(--references-expanded-pad);
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
     }
 
     #references .feedback-card.is-expanded .feedback-text {
