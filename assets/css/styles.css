@@ -1719,7 +1719,7 @@ section.anchor {
     align-items: center;
     justify-content: flex-start;
     gap: var(--qual-logo-gap);
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
 }
 
