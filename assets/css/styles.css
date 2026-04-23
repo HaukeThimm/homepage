@@ -154,7 +154,7 @@
     --hero-pad-bottom: 30px;
 
     --h-gap-bottom: 14px;
-    --sub-gap-bottom: 12px;
+    --sub-gap-bottom: 24px;
     --p-gap: 14px;
     --block-gap: 40px;
 
@@ -233,7 +233,7 @@
     --carousel-mobile-card-w: 86vw;
 
     /* CTA */
-    --cta-gap: 14px;
+    --cta-gap: none;
     --cta-pad-y: 0.45em;
     --cta-pad-x: 0.9em;
 
