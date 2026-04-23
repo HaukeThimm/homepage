@@ -281,8 +281,8 @@
     --footer-label-gap-bottom: 12px;
 
     /* Footer qualifications */
-    --qual-logo-rect-h: 50px;
-    --qual-logo-round-h: 50px;
+    --qual-logo-rect-h: 75px;
+    --qual-logo-round-h: 75px;
     --qual-logo-gap: 18px;
     --qual-logo-rect-radius: 2px;
     --qual-logo-round-radius: 50%;
@@ -296,7 +296,7 @@
     --qual-logo-touch-scale: 1.25;
 
     /* Footer follow */
-    --follow-icon-h: 50px;
+    --follow-icon-h: 75px;
     --follow-icon-gap: 18px;
     --follow-icon-radius: 50%;
     --follow-icon-fit: contain;
@@ -1959,8 +1959,8 @@ section.anchor {
         --pre-footer-icon-h: 64px;
 
         /* Footer qualifications */
-        --qual-logo-rect-h-mobile: 75px;
-        --qual-logo-round-h-mobile: 75px;
+        --qual-logo-rect-h-mobile: 80px;
+        --qual-logo-round-h-mobile: 80px;
         --qual-logo-gap-mobile: 10px;
         --qual-logo-rect-radius-mobile: 50%;
         --qual-logo-round-radius-mobile: 50%;
@@ -1972,7 +1972,7 @@ section.anchor {
         --qual-logo-round-pos-y-mobile: 50%;
 
         /* Footer follow icons */
-        --follow-icon-h-mobile: 75px;
+        --follow-icon-h-mobile: 80px;
         --follow-icon-gap-mobile: 10px;
         --follow-icon-radius-mobile: 50%;
         --follow-icon-fit-mobile: contain;
