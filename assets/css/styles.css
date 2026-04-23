@@ -283,7 +283,7 @@
     /* Footer qualifications */
     --qual-logo-rect-h: 50px;
     --qual-logo-round-h: 50px;
-    --qual-logo-gap: 18px;
+    --qual-logo-gap: 15px;
     --qual-logo-rect-radius: 4px;
     --qual-logo-round-radius: 50%;
     --qual-logo-rect-fit: contain;
@@ -297,7 +297,7 @@
 
     /* Footer follow */
     --follow-icon-h: 50px;
-    --follow-icon-gap: 10px;
+    --follow-icon-gap: 15px;
     --follow-icon-radius: 50%;
     --follow-icon-fit: contain;
     --follow-icon-pos_x: 50%;
@@ -1700,19 +1700,20 @@ section.anchor {
 
 .footer-qualifications-block .qualifications-logos,
 .footer-follow-block .follow-icons {
+    width: 100%;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
 }
 
 /* ==== FOOTER QUALIFICATIONS (DESKTOP) ==== */
 .qualifications-logos {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
     gap: var(--qual-logo-gap);
     flex-wrap: nowrap;
+    width: 100%;
 }
 
 .qualifications-logos a {
@@ -1722,33 +1723,35 @@ section.anchor {
     min-height: var(--qual-logo-rect-h);
     padding: 0;
     margin: 0;
+    flex: 0 0 auto;
 }
 
 .qualifications-logos .gold-frame {
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
-    overflow: hidden;
     width: auto;
     max-width: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 .qualifications-logos .gold-frame.shape--rect {
-    height: var(--qual-logo-rect-h);
     width: auto;
+    height: var(--qual-logo-rect-h);
     border-radius: var(--qual-logo-rect-radius);
     padding: 0;
+    flex: 0 0 auto;
 }
 
 .qualifications-logos .gold-frame.shape--round {
-    height: var(--qual-logo-round-h);
     width: auto;
+    height: var(--qual-logo-round-h);
     border-radius: var(--qual-logo-round-radius);
     padding: 0;
     aspect-ratio: auto;
-    flex: 0 1 auto;
+    flex: 0 0 auto;
 }
 
 .qualifications-logos .gold-frame > img,
@@ -1760,8 +1763,9 @@ section.anchor {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    object-position: center center;
+    object-position: left center;
     padding: 0;
+    margin: 0;
 }
 
 /* ==== BACK TO TOP ==== */
@@ -1797,10 +1801,12 @@ section.anchor {
 /* ==== FOOTER FOLLOW (DESKTOP) ==== */
 .follow-icons {
     display: flex;
-    gap: var(--follow-icon-gap);
+    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    gap: var(--follow-icon-gap);
     flex-wrap: nowrap;
+    width: 100%;
 }
 
 .follow-icons a {
@@ -1810,26 +1816,29 @@ section.anchor {
     min-height: var(--follow-icon-h);
     padding: 0;
     margin: 0;
+    flex: 0 0 auto;
 }
 
 .follow-icons .gold-frame.shape--round {
     width: auto;
     height: var(--follow-icon-h);
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     aspect-ratio: auto;
     border-radius: var(--follow-icon-radius);
     padding: 0;
 }
 
 .follow-icons .gold-frame > img,
+.follow-icons .gold-frame > picture,
 .follow-icons .gold-frame > picture > img {
     width: auto;
     height: 100%;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    object-position: center center;
+    object-position: left center;
     padding: var(--follow-icon-pad);
+    margin: 0;
     display: block;
 }
 
@@ -1874,13 +1883,6 @@ section.anchor {
 
 .inline-link:hover {
     text-decoration: underline;
-}
-
-/* =============== SIMPLE LEGAL PAGE SPACING =============== */
-.imprint,
-.privacy {
-    padding-top: calc(var(--banner-h) + 34px);
-    padding-bottom: 80px;
 }
 
 /* =============== ROOT TOKENS — MOBILE =============== */
