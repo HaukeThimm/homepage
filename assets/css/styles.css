@@ -281,8 +281,8 @@
     --footer-label-gap-bottom: 12px;
 
     /* Footer qualifications */
-    --qual-logo-rect-h: 45px;
-    --qual-logo-round-h: 45px;
+    --qual-logo-rect-h: 50px;
+    --qual-logo-round-h: 50px;
     --qual-logo-gap: 18px;
     --qual-logo-rect-radius: 2px;
     --qual-logo-round-radius: 50%;
@@ -296,7 +296,7 @@
     --qual-logo-touch-scale: 1.25;
 
     /* Footer follow */
-    --follow-icon-h: 45px;
+    --follow-icon-h: 50px;
     --follow-icon-gap: 18px;
     --follow-icon-radius: 50%;
     --follow-icon-fit: contain;
