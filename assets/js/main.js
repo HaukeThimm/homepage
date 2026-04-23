@@ -19,6 +19,10 @@
         document.querySelectorAll("[data-placeholder-en][data-placeholder-de]")
     );
 
+    const localizedLinks = Array.from(
+        document.querySelectorAll("[data-href-en][data-href-de]")
+    );
+
     function setLang(lang) {
         const isDe = lang === "de";
 
@@ -30,6 +34,11 @@
         placeholderFields.forEach((field) => {
             const val = field.getAttribute(isDe ? "data-placeholder-de" : "data-placeholder-en");
             if (val != null) field.setAttribute("placeholder", val);
+        });
+
+        localizedLinks.forEach((link) => {
+            const href = link.getAttribute(isDe ? "data-href-de" : "data-href-en");
+            if (href) link.setAttribute("href", href);
         });
 
         buttons.forEach((b) => b.classList.toggle("is-active", b.dataset.lang === lang));
