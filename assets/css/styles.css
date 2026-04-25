@@ -213,7 +213,7 @@
     /* References */
     --references-gap: 18px;
     --references-preview-chars: 190;
-    --references-preview-w: clamp(600px, 20vw, 400px);
+    --references-preview-w: clamp(400px, 20vw, 600px);
     --references-preview-ratio: 3 / 2;
     --references-preview-pad: 24px;
 
