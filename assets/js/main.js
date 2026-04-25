@@ -202,34 +202,29 @@
     updateActiveSection();
 })();
 
-/* ==== FEEDBACK TEXT TRUNCATION + EXPAND/COLLAPSE + MOBILE SWIPE ==== */
+/* ==== REFERENCES ==== */
 (function () {
-    const shell = document.querySelector(".references-carousel");
-    const cards = Array.from(document.querySelectorAll("[data-feedback-card]"));
-    if (!shell || !cards.length) return;
+    const shell = document.querySelector("[data-references-shell]");
+    if (!shell) return;
 
-    const viewport = shell.querySelector(".carousel-viewport");
-    const btnPrev = shell.querySelector(".carousel-btn.left");
-    const btnNext = shell.querySelector(".carousel-btn.right");
+    const viewport = shell.querySelector("[data-ref-viewport]");
+    const track = shell.querySelector("[data-ref-track]");
+    const cards = Array.from(shell.querySelectorAll("[data-feedback-card]"));
+    const btnPrev = shell.querySelector('[data-ref-nav="prev"]');
+    const btnNext = shell.querySelector('[data-ref-nav="next"]');
+
+    if (!viewport || !track || !cards.length || !btnPrev || !btnNext) return;
+
+    let currentIndex = 0;
 
     function isMobile() {
         return window.innerWidth <= 768;
     }
 
-    function getMaxChars() {
-        const cssValue = getComputedStyle(document.documentElement)
-            .getPropertyValue("--references-preview-chars")
-            .trim();
-
-        const parsed = parseInt(cssValue, 10);
-        return Number.isFinite(parsed) ? parsed : 150;
-    }
-
     function getSuffix() {
-        return document.documentElement.lang === "en" ? "... (More)" : "... (Mehr)";
+        return document.documentElement.lang === "en" ? "… (More)" : "… (Mehr)";
     }
 
-    /* Referenzen bleiben immer im Original und werden NICHT übersetzt */
     function getFullText(textEl) {
         if (!textEl.dataset.fullOriginal) {
             textEl.dataset.fullOriginal = (textEl.textContent || "").trim();
@@ -237,9 +232,21 @@
         return textEl.dataset.fullOriginal;
     }
 
-    function truncateText(text, maxChars) {
+    function getPreviewCharLimit() {
+        const cssValue = getComputedStyle(document.documentElement)
+            .getPropertyValue("--references-preview-chars")
+            .trim();
+
+        const parsed = parseInt(cssValue, 10);
+        if (Number.isFinite(parsed)) return parsed;
+
+        return isMobile() ? 205 : 190;
+    }
+
+    function truncateText(text) {
         const normalized = text.trim();
         const ending = getSuffix();
+        const maxChars = getPreviewCharLimit();
 
         if (normalized.length <= maxChars) return normalized;
 
@@ -254,56 +261,132 @@
         return trimmed + ending;
     }
 
-    function updateBodyState() {
-        const hasExpanded = cards.some((card) => card.classList.contains("is-expanded"));
-        document.body.classList.toggle("references-expanded", hasExpanded);
+    function anyExpanded() {
+        return cards.some((card) => card.classList.contains("is-expanded"));
+    }
+
+    function getExpandedIndex() {
+        return cards.findIndex((card) => card.classList.contains("is-expanded"));
+    }
+
+    function updateBodyAndShellState() {
+        const expanded = anyExpanded();
+        document.body.classList.toggle("references-expanded", expanded);
+        shell.classList.toggle("has-expanded", expanded);
     }
 
     function renderCard(card) {
-        const maxChars = getMaxChars();
         const textEl = card.querySelector("[data-feedback-text]");
-        if (!textEl) return;
+        const inner = card.querySelector(".reference-card-inner");
+        if (!textEl || !inner) return;
 
         const fullText = getFullText(textEl);
         const expanded = card.classList.contains("is-expanded");
 
-        textEl.textContent = expanded ? fullText : truncateText(fullText, maxChars);
-        card.setAttribute("aria-expanded", expanded ? "true" : "false");
+        textEl.textContent = expanded ? fullText : truncateText(fullText);
+        inner.setAttribute("aria-expanded", expanded ? "true" : "false");
     }
 
     function renderAllCards() {
         cards.forEach(renderCard);
-        updateBodyState();
-        window.dispatchEvent(new Event("references:render"));
-    }
-
-    function collapseAllExcept(exceptionCard) {
-        cards.forEach((card) => {
-            if (card !== exceptionCard) {
-                card.classList.remove("is-expanded");
-            }
-        });
+        updateBodyAndShellState();
+        updateNavState();
     }
 
     function collapseAll() {
         cards.forEach((card) => card.classList.remove("is-expanded"));
     }
 
-    function toggleCard(card) {
-        const wasExpanded = card.classList.contains("is-expanded");
-
-        if (wasExpanded) {
-            card.classList.remove("is-expanded");
-        } else {
-            collapseAllExcept(card);
-            card.classList.add("is-expanded");
-        }
-
+    function expandCard(index) {
+        collapseAll();
+        currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+        cards[currentIndex].classList.add("is-expanded");
         renderAllCards();
     }
 
-    cards.forEach((card) => {
-        const inner = card.querySelector(".feedback-card-inner");
+    function toggleCard(index) {
+        const card = cards[index];
+        if (!card) return;
+
+        if (card.classList.contains("is-expanded")) {
+            card.classList.remove("is-expanded");
+            renderAllCards();
+            return;
+        }
+
+        expandCard(index);
+    }
+
+    function updateNavState() {
+        if (anyExpanded()) {
+            const expandedIndex = getExpandedIndex();
+            btnPrev.disabled = expandedIndex <= 0;
+            btnNext.disabled = expandedIndex >= cards.length - 1;
+            return;
+        }
+
+        if (isMobile()) {
+            btnPrev.disabled = false;
+            btnNext.disabled = false;
+            return;
+        }
+
+        btnPrev.disabled = false;
+        btnNext.disabled = false;
+    }
+
+    function scrollMobileToIndex(index) {
+        if (!isMobile()) return;
+        const card = cards[index];
+        if (!card) return;
+
+        const left = card.offsetLeft - Math.max(0, (viewport.clientWidth - card.clientWidth) / 2);
+        viewport.scrollTo({
+            left,
+            behavior: "smooth"
+        });
+    }
+
+    function goPrev() {
+        if (anyExpanded()) {
+            const expandedIndex = getExpandedIndex();
+            if (expandedIndex > 0) {
+                expandCard(expandedIndex - 1);
+            }
+            return;
+        }
+
+        if (isMobile()) {
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+            scrollMobileToIndex(currentIndex);
+            return;
+        }
+
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+        cards[currentIndex].querySelector(".reference-card-inner")?.focus();
+    }
+
+    function goNext() {
+        if (anyExpanded()) {
+            const expandedIndex = getExpandedIndex();
+            if (expandedIndex < cards.length - 1) {
+                expandCard(expandedIndex + 1);
+            }
+            return;
+        }
+
+        if (isMobile()) {
+            currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : cards.length - 1;
+            scrollMobileToIndex(currentIndex);
+            return;
+        }
+
+        currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+        cards[currentIndex].querySelector(".reference-card-inner")?.focus();
+    }
+
+    cards.forEach((card, index) => {
+        const inner = card.querySelector(".reference-card-inner");
         if (!inner) return;
 
         let touchStartX = 0;
@@ -311,36 +394,40 @@
         let touchEndX = 0;
         let touchEndY = 0;
 
-        card.setAttribute("tabindex", "0");
-        card.setAttribute("role", "button");
-        card.setAttribute("aria-expanded", "false");
-
         inner.addEventListener("click", (e) => {
             e.stopPropagation();
-            toggleCard(card);
+            toggleCard(index);
         });
 
-        card.addEventListener("keydown", (e) => {
+        inner.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                toggleCard(card);
+                toggleCard(index);
             }
 
             if (e.key === "Escape") {
-                card.classList.remove("is-expanded");
+                collapseAll();
                 renderAllCards();
+            }
+
+            if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                goPrev();
+            }
+
+            if (e.key === "ArrowRight") {
+                e.preventDefault();
+                goNext();
             }
         });
 
         inner.addEventListener("touchstart", (e) => {
-            if (!card.classList.contains("is-expanded")) return;
             const touch = e.changedTouches[0];
             touchStartX = touch.clientX;
             touchStartY = touch.clientY;
         }, { passive: true });
 
         inner.addEventListener("touchend", (e) => {
-            if (!card.classList.contains("is-expanded")) return;
             const touch = e.changedTouches[0];
             touchEndX = touch.clientX;
             touchEndY = touch.clientY;
@@ -348,16 +435,47 @@
             const deltaX = touchEndX - touchStartX;
             const deltaY = touchEndY - touchStartY;
 
-            if (Math.abs(deltaX) >= 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
-                card.classList.remove("is-expanded");
-                renderAllCards();
+            if (anyExpanded()) {
+                if (Math.abs(deltaX) >= 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                    if (deltaX > 0) {
+                        goPrev();
+                    } else {
+                        goNext();
+                    }
+                }
+                return;
+            }
+
+            if (isMobile() && Math.abs(deltaX) >= 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > 0) {
+                    currentIndex = Math.max(0, index - 1);
+                } else {
+                    currentIndex = Math.min(cards.length - 1, index + 1);
+                }
+                scrollMobileToIndex(currentIndex);
             }
         }, { passive: true });
     });
 
+    btnPrev.addEventListener("click", () => {
+        goPrev();
+    });
+
+    btnNext.addEventListener("click", () => {
+        goNext();
+    });
+
     document.addEventListener("click", (e) => {
+        const clickedInsideReferences = e.target.closest("#references");
         const clickedCard = e.target.closest("[data-feedback-card]");
-        if (!clickedCard) {
+
+        if (!clickedInsideReferences) {
+            collapseAll();
+            renderAllCards();
+            return;
+        }
+
+        if (anyExpanded() && !clickedCard && !e.target.closest(".references-nav")) {
             collapseAll();
             renderAllCards();
         }
@@ -370,23 +488,41 @@
         }
     });
 
-    if (viewport && btnPrev && btnNext) {
-        btnPrev.addEventListener("click", () => {
-            if (!isMobile()) return;
-            const step = viewport.clientWidth * 0.9;
-            viewport.scrollBy({ left: -step, behavior: "smooth" });
+    viewport.addEventListener("scroll", () => {
+        if (!isMobile() || anyExpanded()) return;
+
+        let nearestIndex = 0;
+        let smallestDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const cardCenter = card.offsetLeft + (card.clientWidth / 2);
+            const viewportCenter = viewport.scrollLeft + (viewport.clientWidth / 2);
+            const distance = Math.abs(cardCenter - viewportCenter);
+
+            if (distance < smallestDistance) {
+                smallestDistance = distance;
+                nearestIndex = index;
+            }
         });
 
-        btnNext.addEventListener("click", () => {
-            if (!isMobile()) return;
-            const step = viewport.clientWidth * 0.9;
-            viewport.scrollBy({ left: step, behavior: "smooth" });
-        });
-    }
+        currentIndex = nearestIndex;
+        updateNavState();
+    }, { passive: true });
 
     window.addEventListener("feedback:languagechange", renderAllCards);
-    window.addEventListener("load", renderAllCards);
-    window.addEventListener("resize", renderAllCards);
+    window.addEventListener("resize", () => {
+        renderAllCards();
+        if (isMobile() && !anyExpanded()) {
+            scrollMobileToIndex(currentIndex);
+        }
+    });
+
+    window.addEventListener("load", () => {
+        renderAllCards();
+        if (isMobile()) {
+            scrollMobileToIndex(0);
+        }
+    });
 
     renderAllCards();
 })();

@@ -212,16 +212,21 @@
 
     /* References */
     --references-gap: 18px;
-    --references-preview-h: 240px;
-    --references-preview-pad: 28px;
-    --references-preview-chars: 150;
-    --references-sign-gap: 18px;
+    --references-preview-chars: 190;
+    --references-preview-w: clamp(240px, 20vw, 360px);
+    --references-preview-ratio: 3 / 2;
+    --references-preview-pad: 24px;
 
-    --references-expanded-w: 960px;
-    --references-expanded-h: 560px;
+    --references-expanded-w: min(80vw, 1200px);
+    --references-expanded-ratio: 3 / 2;
     --references-expanded-pad: 34px;
-    --references-expanded-z: 9998;
-    --references-overlay-gap: 32px;
+
+    --references-overlay-gap: 24px;
+    --references-shadow-expanded: 0 18px 48px rgba(0, 0, 0, 0.22);
+
+    --references-nav-bar-w: 34px;
+    --references-nav-bar-h: 148px;
+    --references-nav-icon-h: 34px;
 
     /* Legacy carousel tokens kept for compatibility */
     --carousel-card-w: 800px;
@@ -372,7 +377,7 @@ body.references-expanded::after {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.14);
-    z-index: calc(var(--references-expanded-z) - 1);
+    z-index: 9997;
     pointer-events: none;
 }
 
@@ -1012,97 +1017,67 @@ section.anchor {
     font-weight: var(--fw-approach-num);
 }
 
-/* =============== CAROUSEL (REFERENCES) =============== */
-#references .carousel-shell {
-    width: 100%;
-    max-width: var(--carousel-desktop-max-w);
-    margin: var(--carousel-shell-top) auto 0;
-    padding: 0 var(--side-pad);
-    box-sizing: border-box;
+/* =============== REFERENCES =============== */
+#references {
+    --ref-shadow-expanded: var(--references-shadow-expanded);
+}
+
+#references .references-shell {
     position: relative;
-    display: grid;
-    grid-template-columns: var(--carousel-btn-size) minmax(0, 1fr) var(--carousel-btn-size);
-    gap: var(--carousel-btn-gap);
-    align-items: start;
+    width: 100%;
+    max-width: 100%;
+    margin: var(--carousel-shell-top) auto 0;
+    padding: 0;
 }
 
-#references .carousel-btn.left {
-    grid-column: 1;
-    display: inline-flex;
-    position: static;
-    transform: none;
-}
-
-#references .carousel-btn.right {
-    grid-column: 3;
-    display: inline-flex;
-    position: static;
-    transform: none;
-}
-
-#references .carousel-viewport {
-    grid-column: 2;
+#references .references-viewport {
     width: 100%;
     overflow: visible;
     box-sizing: border-box;
 }
 
-#references .carousel-track {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+#references .references-track {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: var(--references-gap);
     width: 100%;
-    transform: none !important;
-    transition: none !important;
-    will-change: auto;
-    align-items: start;
 }
 
-.feedback-card {
+#references .reference-card {
     position: relative;
-    width: 100%;
+    flex: 0 1 var(--references-preview-w);
+    width: var(--references-preview-w);
+    max-width: calc((100% - (2 * var(--references-gap))) / 3);
     min-width: 0;
     overflow: visible;
     z-index: 1;
-    display: block;
 }
 
-.feedback-card::before {
-    display: none;
+#references .reference-card.is-expanded {
+    z-index: 9998;
 }
 
-.feedback-card.is-expanded {
-    z-index: var(--references-expanded-z);
-}
-
-.feedback-card-inner {
+#references .reference-card-inner {
     position: relative;
+    display: block;
     width: 100%;
-    height: var(--references-preview-h);
-    min-height: var(--references-preview-h);
-    max-height: var(--references-preview-h);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    text-align: left;
+    aspect-ratio: var(--references-preview-ratio);
     padding: var(--references-preview-pad);
+    border: 0;
     border-radius: var(--feedback-frame-radius-outer);
     background: var(--cream);
+    text-align: left;
+    cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
-    cursor: pointer;
     transition:
-        width 240ms ease,
-        height 240ms ease,
-        min-height 240ms ease,
-        max-height 240ms ease,
-        padding 240ms ease,
-        transform 240ms ease,
-        box-shadow 240ms ease;
+        box-shadow 220ms ease,
+        transform 220ms ease,
+        opacity 220ms ease;
 }
 
-.feedback-card-inner::before {
+#references .reference-card-inner::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -1113,6 +1088,7 @@ section.anchor {
     background-repeat: no-repeat;
     background-position: center;
     pointer-events: none;
+    z-index: 0;
     -webkit-mask:
         linear-gradient(#000 0 0) content-box,
         linear-gradient(#000 0 0);
@@ -1123,14 +1099,18 @@ section.anchor {
     mask-composite: exclude;
 }
 
-.feedback-card-inner > * {
+#references .reference-card-copy {
     position: relative;
     z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.feedback-text {
-    width: 100%;
+#references .feedback-text {
     margin: 0;
+    width: 100%;
     overflow: hidden;
     white-space: normal;
     word-break: normal;
@@ -1140,12 +1120,11 @@ section.anchor {
     font-style: var(--feedback-font-style);
     font-weight: var(--feedback-font-weight);
     line-height: var(--feedback-line-height);
-    transition: font-size 240ms ease, line-height 240ms ease;
 }
 
-.feedback-signature {
+#references .feedback-signature {
+    margin: 18px 0 0 0;
     width: 100%;
-    margin: var(--references-sign-gap) 0 0 0;
     white-space: normal;
     font-family: var(--feedback-sign-font);
     font-size: var(--fs-feedback-sign);
@@ -1154,66 +1133,86 @@ section.anchor {
     line-height: var(--feedback-sign-line-height);
 }
 
-.feedback-signature-linebreak {
-    display: none !important;
-}
-
-/* Collapsed */
-.feedback-card:not(.is-expanded) .feedback-signature {
+#references .reference-card:not(.is-expanded) .feedback-signature {
     display: none;
 }
 
-/* Expanded */
-.feedback-card.is-expanded .feedback-card-inner {
+#references .reference-card.is-expanded .reference-card-inner {
     position: fixed;
     top: 50%;
     left: 50%;
+    width: var(--references-expanded-w);
+    max-width: calc(100vw - (2 * var(--references-overlay-gap)));
+    aspect-ratio: var(--references-expanded-ratio);
+    height: auto;
+    max-height: calc(100dvh - (2 * var(--references-overlay-gap)));
     transform: translate(-50%, -50%);
-    width: min(var(--references-expanded-w), calc(100vw - (var(--references-overlay-gap) * 2)));
-    height: min(var(--references-expanded-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
-    min-height: min(var(--references-expanded-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
-    max-height: min(var(--references-expanded-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
     padding: var(--references-expanded-pad);
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+    box-shadow: var(--ref-shadow-expanded);
 }
 
-.feedback-card.is-expanded .feedback-text {
+#references .reference-card.is-expanded .feedback-text {
     font-size: calc(var(--fs-feedback) + 2px);
     line-height: 1.45;
-    overflow: visible;
 }
 
-.feedback-card.is-expanded .feedback-signature {
+#references .reference-card.is-expanded .feedback-signature {
     display: block;
     font-size: calc(var(--fs-feedback-sign) + 1px);
 }
 
-.carousel-btn {
-    width: var(--carousel-btn-size);
-    height: var(--carousel-btn-size);
+#references .references-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--references-nav-bar-w);
+    height: var(--references-nav-bar-h);
+    padding: 0;
     border: 0;
     background: transparent;
     cursor: pointer;
-    padding: 0;
-    z-index: 3;
-    opacity: 0.9;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+}
+
+#references .references-shell:hover .references-nav,
+#references .references-shell.has-expanded .references-nav {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#references .references-nav--left {
+    left: calc(-1 * (var(--references-nav-bar-w) + 10px));
+}
+
+#references .references-nav--right {
+    right: calc(-1 * (var(--references-nav-bar-w) + 10px));
+}
+
+#references .references-nav-bar {
+    width: 100%;
+    height: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background: rgba(0, 49, 83, 0.08);
+    backdrop-filter: blur(2px);
 }
 
-.carousel-btn:disabled {
-    opacity: 0.35;
-    cursor: default;
-}
-
-.carousel-btn img {
+#references .references-nav-bar img {
     width: auto;
-    height: var(--carousel-btn-size);
+    height: var(--references-nav-icon-h);
     display: block;
     object-fit: contain;
+}
+
+#references .references-nav:disabled {
+    opacity: 0.28 !important;
+    cursor: default;
 }
 
 /* =============== CTA =============== */
@@ -1947,19 +1946,21 @@ section.anchor {
         --cta-frame-radius-outer-mobile: 20px;
 
         /* References */
-        --references-gap: 18px;
-        --references-preview-h: 220px;
-        --references-preview-pad: 22px;
-        --references-preview-chars: 150;
-        --references-sign-gap: 14px;
+        --references-gap: 16px;
+        --references-preview-chars: 205;
+        --references-preview-w: 80vw;
+        --references-preview-ratio: 3 / 4;
+        --references-preview-pad: 20px;
 
-        --references-expanded-w: calc(100vw - 36px);
-        --references-expanded-h: auto;
-        --references-expanded-mobile-h: 68dvh;
-        --references-expanded-pad: 24px;
-        --references-overlay-gap: 18px;
+        --references-expanded-w: 80vw;
+        --references-expanded-max-h: 78dvh;
+        --references-expanded-pad: 22px;
 
-        --carousel-mobile-card-w: calc(100vw - 112px);
+        --references-overlay-gap: 16px;
+
+        --references-nav-bar-w: 26px;
+        --references-nav-bar-h: 96px;
+        --references-nav-icon-h: 24px;
 
         /* Feedback typography — mobile */
         --fs-feedback: 20px;
@@ -2020,7 +2021,7 @@ section.anchor {
         border-radius: var(--service-frame-radius-outer-mobile);
     }
 
-    .feedback-card-inner {
+    #references .reference-card-inner {
         border-radius: var(--feedback-frame-radius-outer-mobile);
     }
 
@@ -2190,106 +2191,80 @@ section.anchor {
         padding-bottom: 60px;
     }
 
-    /* =============== MOBILE CAROUSEL / SWIPE =============== */
-    #references .carousel-shell {
-        width: 100%;
-        max-width: 100%;
-        margin: var(--carousel-shell-top) auto 0;
-        padding: 0;
+    /* =============== MOBILE REFERENCES =============== */
+    #references .references-shell {
         display: grid;
-        grid-template-columns: 32px minmax(0, 1fr) 32px;
-        gap: 10px;
+        grid-template-columns: var(--references-nav-bar-w) minmax(0, 1fr) var(--references-nav-bar-w);
+        gap: 8px;
         align-items: center;
     }
 
-    #references .carousel-btn.left,
-    #references .carousel-btn.right {
-        display: inline-flex !important;
-        width: 32px;
-        height: 32px;
-        padding: 0;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: 0;
-        cursor: pointer;
+    #references .references-nav {
+        position: static;
+        transform: none;
+        width: var(--references-nav-bar-w);
+        height: var(--references-nav-bar-h);
+        opacity: 0.55;
+        pointer-events: auto;
     }
 
-    #references .carousel-btn.left {
+    #references .references-nav--left {
         grid-column: 1;
     }
 
-    #references .carousel-btn.right {
+    #references .references-nav--right {
         grid-column: 3;
     }
 
-    #references .carousel-btn img {
-        width: auto;
-        height: 32px;
-        object-fit: contain;
-        display: block;
+    #references .references-nav-bar img {
+        height: var(--references-nav-icon-h);
     }
 
-    #references .carousel-viewport {
+    #references .references-viewport {
         grid-column: 2;
-        width: 100%;
         overflow-x: auto;
         overflow-y: visible;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
         scrollbar-width: none;
-        padding: 0;
-        box-sizing: border-box;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
 
-    #references .carousel-viewport::-webkit-scrollbar {
+    #references .references-viewport::-webkit-scrollbar {
         display: none;
     }
 
-    #references .carousel-track {
+    #references .references-track {
         display: flex;
-        flex-direction: row;
         gap: var(--references-gap);
         width: max-content;
-        transform: none !important;
-        transition: none !important;
-        will-change: auto;
+        justify-content: flex-start;
     }
 
-    #references .feedback-card {
+    #references .reference-card {
         flex: 0 0 auto;
-        width: var(--carousel-mobile-card-w);
+        width: var(--references-preview-w);
+        max-width: none;
         scroll-snap-align: center;
     }
 
-    #references .feedback-card-inner {
-        width: 100%;
-        height: var(--references-preview-h);
-        min-height: var(--references-preview-h);
-        max-height: var(--references-preview-h);
+    #references .reference-card-inner {
+        aspect-ratio: var(--references-preview-ratio);
         padding: var(--references-preview-pad);
     }
 
-    #references .feedback-card:not(.is-expanded) .feedback-signature {
-        display: none;
-    }
-
-    #references .feedback-card.is-expanded .feedback-card-inner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: min(var(--references-expanded-w), calc(100vw - (var(--references-overlay-gap) * 2)));
-        height: min(var(--references-expanded-mobile-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
-        min-height: min(var(--references-expanded-mobile-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
-        max-height: min(var(--references-expanded-mobile-h), calc(100dvh - (var(--references-overlay-gap) * 2)));
+    #references .reference-card.is-expanded .reference-card-inner {
+        width: var(--references-expanded-w);
+        max-width: calc(100vw - (2 * var(--references-overlay-gap)));
+        height: min(calc(var(--references-expanded-w) * 16 / 9), var(--references-expanded-max-h));
+        max-height: var(--references-expanded-max-h);
+        aspect-ratio: auto;
         padding: var(--references-expanded-pad);
         overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+        overscroll-behavior: contain;
+        touch-action: pan-y;
     }
 
-    #references .feedback-card.is-expanded .feedback-text {
+    #references .reference-card.is-expanded .feedback-text {
         font-size: calc(var(--fs-feedback) + 1px);
     }
 
