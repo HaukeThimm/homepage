@@ -213,7 +213,7 @@
     /* References */
     --references-gap: 18px;
     --references-preview-chars: 190;
-    --references-preview-w: clamp(240px, 20vw, 360px);
+    --references-preview-w: clamp(600px, 20vw, 400px);
     --references-preview-ratio: 3 / 2;
     --references-preview-pad: 24px;
 
@@ -1106,6 +1106,9 @@ section.anchor {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
 }
 
 #references .feedback-text {
@@ -1131,6 +1134,18 @@ section.anchor {
     font-style: var(--feedback-sign-font-style);
     font-weight: var(--feedback-sign-font-weight);
     line-height: var(--feedback-sign-line-height);
+}
+
+/* Expanded: mittig + zentriert */
+#references .reference-card.is-expanded .reference-card-copy {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#references .reference-card.is-expanded .feedback-text,
+#references .reference-card.is-expanded .feedback-signature {
+    text-align: center;
 }
 
 #references .reference-card:not(.is-expanded) .feedback-signature {
@@ -1948,7 +1963,7 @@ section.anchor {
         /* References */
         --references-gap: 16px;
         --references-preview-chars: 205;
-        --references-preview-w: 80vw;
+        --references-preview-w: 40vw;
         --references-preview-ratio: 3 / 4;
         --references-preview-pad: 20px;
 
