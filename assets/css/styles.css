@@ -212,8 +212,8 @@
 
     /* References */
     --references-gap: 18px;
-    --references-preview-chars: 190;
-    --references-preview-w: clamp(400px, 20vw, 600px);
+    --references-preview-chars: 150;
+    --references-preview-w: clamp(400px, 30vw, 600px);
     --references-preview-ratio: 3 / 2;
     --references-preview-pad: 24px;
 
@@ -1967,7 +1967,7 @@ section.anchor {
         --references-preview-ratio: 3 / 4;
         --references-preview-pad: 20px;
 
-        --references-expanded-w: 80vw;
+        --references-expanded-w: 70vw;
         --references-expanded-max-h: 78dvh;
         --references-expanded-pad: 22px;
 
