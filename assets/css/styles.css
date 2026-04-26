@@ -217,7 +217,7 @@
     --references-preview-ratio: 3 / 2;
     --references-preview-pad: 24px;
 
-    --references-expanded-w: min(80vw, 1200px);
+    --references-expanded-w: min(50vw, 1200px);
     --references-expanded-ratio: 3 / 2;
     --references-expanded-pad: 34px;
 
