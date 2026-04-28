@@ -202,27 +202,35 @@
     updateActiveSection();
 })();
 
-/* ==== REFERENCES ==== */
+/* =============== REFERENCES =============== */
 (function () {
-    const shell = document.querySelector("[data-references-shell]");
-    if (!shell) return;
+    const section = document.getElementById("references");
+    if (!section) return;
 
-    const viewport = shell.querySelector("[data-ref-viewport]");
-    const track = shell.querySelector("[data-ref-track]");
-    const cards = Array.from(shell.querySelectorAll("[data-feedback-card]"));
-    const btnPrev = shell.querySelector('[data-ref-nav="prev"]');
-    const btnNext = shell.querySelector('[data-ref-nav="next"]');
+    const shell = section.querySelector(".references-shell");
+    const viewport = section.querySelector(".references-viewport");
+    const track = section.querySelector(".references-track");
+    const cards = Array.from(section.querySelectorAll(".reference-card"));
+    const btnPrev = section.querySelector(".references-nav--left");
+    const btnNext = section.querySelector(".references-nav--right");
 
-    if (!viewport || !track || !cards.length || !btnPrev || !btnNext) return;
-
-    let currentIndex = 0;
+    if (!shell || !viewport || !track || !cards.length) return;
 
     function isMobile() {
         return window.innerWidth <= 768;
     }
 
+    function getPreviewChars() {
+        const raw = getComputedStyle(document.documentElement)
+            .getPropertyValue("--references-preview-chars")
+            .trim();
+
+        const parsed = parseInt(raw, 10);
+        return Number.isFinite(parsed) ? parsed : 95;
+    }
+
     function getSuffix() {
-        return document.documentElement.lang === "en" ? "… (More)" : "… (Mehr)";
+        return document.documentElement.lang === "en" ? "... (More)" : "... (Mehr)";
     }
 
     function getFullText(textEl) {
@@ -232,64 +240,48 @@
         return textEl.dataset.fullOriginal;
     }
 
-    function getPreviewCharLimit() {
-        const cssValue = getComputedStyle(document.documentElement)
-            .getPropertyValue("--references-preview-chars")
-            .trim();
-
-        const parsed = parseInt(cssValue, 10);
-        if (Number.isFinite(parsed)) return parsed;
-
-        return isMobile() ? 205 : 190;
-    }
-
-    function truncateText(text) {
+    function truncateText(text, maxChars) {
         const normalized = text.trim();
-        const ending = getSuffix();
-        const maxChars = getPreviewCharLimit();
+        const suffix = getSuffix();
 
         if (normalized.length <= maxChars) return normalized;
 
-        const rawLimit = Math.max(1, maxChars - ending.length);
-        let trimmed = normalized.slice(0, rawLimit).trim();
+        const limit = Math.max(1, maxChars - suffix.length);
+        let cut = normalized.slice(0, limit).trim();
 
-        const lastSpace = trimmed.lastIndexOf(" ");
-        if (lastSpace > Math.floor(rawLimit * 0.6)) {
-            trimmed = trimmed.slice(0, lastSpace).trim();
+        const lastSpace = cut.lastIndexOf(" ");
+        if (lastSpace > Math.floor(limit * 0.6)) {
+            cut = cut.slice(0, lastSpace).trim();
         }
 
-        return trimmed + ending;
+        return cut + suffix;
     }
 
-    function anyExpanded() {
-        return cards.some((card) => card.classList.contains("is-expanded"));
+    function getExpandedCard() {
+        return cards.find((card) => card.classList.contains("is-expanded")) || null;
     }
 
-    function getExpandedIndex() {
-        return cards.findIndex((card) => card.classList.contains("is-expanded"));
-    }
-
-    function updateBodyAndShellState() {
-        const expanded = anyExpanded();
+    function updateBodyState() {
+        const expanded = !!getExpandedCard();
         document.body.classList.toggle("references-expanded", expanded);
         shell.classList.toggle("has-expanded", expanded);
     }
 
     function renderCard(card) {
-        const textEl = card.querySelector("[data-feedback-text]");
-        const inner = card.querySelector(".reference-card-inner");
-        if (!textEl || !inner) return;
+        const textEl = card.querySelector(".feedback-text");
+        if (!textEl) return;
 
-        const fullText = getFullText(textEl);
         const expanded = card.classList.contains("is-expanded");
+        const fullText = getFullText(textEl);
+        const maxChars = getPreviewChars();
 
-        textEl.textContent = expanded ? fullText : truncateText(fullText);
-        inner.setAttribute("aria-expanded", expanded ? "true" : "false");
+        textEl.textContent = expanded ? fullText : truncateText(fullText, maxChars);
+        card.setAttribute("aria-expanded", expanded ? "true" : "false");
     }
 
     function renderAllCards() {
         cards.forEach(renderCard);
-        updateBodyAndShellState();
+        updateBodyState();
         updateNavState();
     }
 
@@ -297,112 +289,123 @@
         cards.forEach((card) => card.classList.remove("is-expanded"));
     }
 
-    function expandCard(index) {
+    function expandCard(card) {
         collapseAll();
-        currentIndex = Math.max(0, Math.min(index, cards.length - 1));
-        cards[currentIndex].classList.add("is-expanded");
+        card.classList.add("is-expanded");
+    }
+
+    function toggleCard(card) {
+        const expanded = card.classList.contains("is-expanded");
+
+        if (expanded) {
+            card.classList.remove("is-expanded");
+        } else {
+            expandCard(card);
+        }
+
         renderAllCards();
     }
 
-    function toggleCard(index) {
+    function getCurrentIndex() {
+        const expanded = getExpandedCard();
+        if (expanded) return cards.indexOf(expanded);
+
+        const viewportRect = viewport.getBoundingClientRect();
+        const viewportCenter = viewportRect.left + viewportRect.width / 2;
+
+        let bestIndex = 0;
+        let bestDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const center = rect.left + rect.width / 2;
+            const distance = Math.abs(center - viewportCenter);
+
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                bestIndex = index;
+            }
+        });
+
+        return bestIndex;
+    }
+
+    function scrollToCard(index, behavior = "smooth") {
         const card = cards[index];
         if (!card) return;
 
-        if (card.classList.contains("is-expanded")) {
-            card.classList.remove("is-expanded");
-            renderAllCards();
-            return;
-        }
+        if (isMobile()) {
+            const left =
+                card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2;
 
-        expandCard(index);
+            viewport.scrollTo({
+                left,
+                behavior
+            });
+        } else {
+            const left =
+                card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2;
+
+            viewport.scrollTo({
+                left,
+                behavior
+            });
+        }
+    }
+
+    function showPrev() {
+        const expanded = getExpandedCard();
+        const currentIndex = getCurrentIndex();
+        const prevIndex = Math.max(0, currentIndex - 1);
+
+        if (expanded) {
+            expandCard(cards[prevIndex]);
+            renderAllCards();
+        } else {
+            scrollToCard(prevIndex);
+            updateNavState();
+        }
+    }
+
+    function showNext() {
+        const expanded = getExpandedCard();
+        const currentIndex = getCurrentIndex();
+        const nextIndex = Math.min(cards.length - 1, currentIndex + 1);
+
+        if (expanded) {
+            expandCard(cards[nextIndex]);
+            renderAllCards();
+        } else {
+            scrollToCard(nextIndex);
+            updateNavState();
+        }
     }
 
     function updateNavState() {
-        if (anyExpanded()) {
-            const expandedIndex = getExpandedIndex();
-            btnPrev.disabled = expandedIndex <= 0;
-            btnNext.disabled = expandedIndex >= cards.length - 1;
-            return;
-        }
+        if (!btnPrev || !btnNext) return;
 
-        if (isMobile()) {
-            btnPrev.disabled = false;
-            btnNext.disabled = false;
-            return;
-        }
-
-        btnPrev.disabled = false;
-        btnNext.disabled = false;
+        const currentIndex = getCurrentIndex();
+        btnPrev.disabled = currentIndex <= 0;
+        btnNext.disabled = currentIndex >= cards.length - 1;
     }
 
-    function scrollMobileToIndex(index) {
-        if (!isMobile()) return;
-        const card = cards[index];
-        if (!card) return;
-
-        const left = card.offsetLeft - Math.max(0, (viewport.clientWidth - card.clientWidth) / 2);
-        viewport.scrollTo({
-            left,
-            behavior: "smooth"
-        });
-    }
-
-    function goPrev() {
-        if (anyExpanded()) {
-            const expandedIndex = getExpandedIndex();
-            if (expandedIndex > 0) {
-                expandCard(expandedIndex - 1);
-            }
-            return;
-        }
-
-        if (isMobile()) {
-            currentIndex = currentIndex > 0 ? currentIndex - 1 : 0;
-            scrollMobileToIndex(currentIndex);
-            return;
-        }
-
-        currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
-        cards[currentIndex].querySelector(".reference-card-inner")?.focus();
-    }
-
-    function goNext() {
-        if (anyExpanded()) {
-            const expandedIndex = getExpandedIndex();
-            if (expandedIndex < cards.length - 1) {
-                expandCard(expandedIndex + 1);
-            }
-            return;
-        }
-
-        if (isMobile()) {
-            currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : cards.length - 1;
-            scrollMobileToIndex(currentIndex);
-            return;
-        }
-
-        currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
-        cards[currentIndex].querySelector(".reference-card-inner")?.focus();
-    }
-
-    cards.forEach((card, index) => {
+    cards.forEach((card) => {
         const inner = card.querySelector(".reference-card-inner");
         if (!inner) return;
 
-        let touchStartX = 0;
-        let touchStartY = 0;
-        let touchEndX = 0;
-        let touchEndY = 0;
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-expanded", "false");
 
         inner.addEventListener("click", (e) => {
             e.stopPropagation();
-            toggleCard(index);
+            toggleCard(card);
         });
 
-        inner.addEventListener("keydown", (e) => {
+        card.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                toggleCard(index);
+                toggleCard(card);
             }
 
             if (e.key === "Escape") {
@@ -412,14 +415,17 @@
 
             if (e.key === "ArrowLeft") {
                 e.preventDefault();
-                goPrev();
+                showPrev();
             }
 
             if (e.key === "ArrowRight") {
                 e.preventDefault();
-                goNext();
+                showNext();
             }
         });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
 
         inner.addEventListener("touchstart", (e) => {
             const touch = e.changedTouches[0];
@@ -429,53 +435,37 @@
 
         inner.addEventListener("touchend", (e) => {
             const touch = e.changedTouches[0];
-            touchEndX = touch.clientX;
-            touchEndY = touch.clientY;
+            const deltaX = touch.clientX - touchStartX;
+            const deltaY = touch.clientY - touchStartY;
 
-            const deltaX = touchEndX - touchStartX;
-            const deltaY = touchEndY - touchStartY;
+            const expanded = card.classList.contains("is-expanded");
 
-            if (anyExpanded()) {
-                if (Math.abs(deltaX) >= 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (expanded) {
+                if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
                     if (deltaX > 0) {
-                        goPrev();
+                        showPrev();
                     } else {
-                        goNext();
+                        showNext();
                     }
                 }
                 return;
             }
 
-            if (isMobile() && Math.abs(deltaX) >= 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (isMobile() && Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
-                    currentIndex = Math.max(0, index - 1);
+                    showPrev();
                 } else {
-                    currentIndex = Math.min(cards.length - 1, index + 1);
+                    showNext();
                 }
-                scrollMobileToIndex(currentIndex);
             }
         }, { passive: true });
     });
 
-    btnPrev.addEventListener("click", () => {
-        goPrev();
-    });
-
-    btnNext.addEventListener("click", () => {
-        goNext();
-    });
-
     document.addEventListener("click", (e) => {
-        const clickedInsideReferences = e.target.closest("#references");
-        const clickedCard = e.target.closest("[data-feedback-card]");
+        const insideReferenceCard = e.target.closest(".reference-card");
+        const insideReferenceNav = e.target.closest(".references-nav");
 
-        if (!clickedInsideReferences) {
-            collapseAll();
-            renderAllCards();
-            return;
-        }
-
-        if (anyExpanded() && !clickedCard && !e.target.closest(".references-nav")) {
+        if (!insideReferenceCard && !insideReferenceNav) {
             collapseAll();
             renderAllCards();
         }
@@ -488,41 +478,24 @@
         }
     });
 
-    viewport.addEventListener("scroll", () => {
-        if (!isMobile() || anyExpanded()) return;
-
-        let nearestIndex = 0;
-        let smallestDistance = Infinity;
-
-        cards.forEach((card, index) => {
-            const cardCenter = card.offsetLeft + (card.clientWidth / 2);
-            const viewportCenter = viewport.scrollLeft + (viewport.clientWidth / 2);
-            const distance = Math.abs(cardCenter - viewportCenter);
-
-            if (distance < smallestDistance) {
-                smallestDistance = distance;
-                nearestIndex = index;
-            }
+    if (btnPrev) {
+        btnPrev.addEventListener("click", (e) => {
+            e.stopPropagation();
+            showPrev();
         });
+    }
 
-        currentIndex = nearestIndex;
-        updateNavState();
-    }, { passive: true });
+    if (btnNext) {
+        btnNext.addEventListener("click", (e) => {
+            e.stopPropagation();
+            showNext();
+        });
+    }
 
+    viewport.addEventListener("scroll", updateNavState, { passive: true });
+    window.addEventListener("resize", renderAllCards);
+    window.addEventListener("load", renderAllCards);
     window.addEventListener("feedback:languagechange", renderAllCards);
-    window.addEventListener("resize", () => {
-        renderAllCards();
-        if (isMobile() && !anyExpanded()) {
-            scrollMobileToIndex(currentIndex);
-        }
-    });
-
-    window.addEventListener("load", () => {
-        renderAllCards();
-        if (isMobile()) {
-            scrollMobileToIndex(0);
-        }
-    });
 
     renderAllCards();
 })();

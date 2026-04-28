@@ -212,7 +212,7 @@
 
     /* References */
     --references-gap: 18px;
-    --references-preview-chars: 130;
+    --references-preview-chars: 90;
     --references-preview-w: clamp(220px, 30vw, 330px);
     --references-preview-ratio: 3 / 2;
     --references-preview-pad: 24px;
@@ -1041,7 +1041,7 @@ section.anchor {
 
 #references .references-track {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     gap: var(--references-gap);
     width: 100%;
@@ -1953,7 +1953,7 @@ section.anchor {
 
         /* References */
         --references-gap: 16px;
-        --references-preview-chars: 130;
+        --references-preview-chars: 80;
         --references-preview-w: 80vw;
         --references-preview-ratio: 3 / 4;
         --references-preview-pad: 20px;
