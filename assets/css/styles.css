@@ -212,13 +212,13 @@
 
     /* References */
     --references-gap: 18px;
-    --references-preview-chars: 90;
-    --references-preview-w: clamp(220px, 30vw, 330px);
-    --references-preview-ratio: 3 / 2;
+    --references-preview-chars: 110;
+    --references-preview-w: clamp(330px, 31vw, 400px);
+    --references-preview-ratio: 4 / 3;
     --references-preview-pad: 24px;
 
     --references-expanded-w: min(50vw, 1200px);
-    --references-expanded-ratio: 3 / 2;
+    --references-expanded-ratio: 4 / 3;
     --references-expanded-pad: 34px;
 
     --references-overlay-gap: 24px;
@@ -1192,15 +1192,9 @@ section.anchor {
     background: transparent;
     cursor: pointer;
     z-index: 9999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 180ms ease;
-}
-
-#references .references-shell:hover .references-nav,
-#references .references-shell.has-expanded .references-nav {
     opacity: 1;
     pointer-events: auto;
+    transition: opacity 180ms ease;
 }
 
 #references .references-nav--left {
@@ -1217,6 +1211,13 @@ section.anchor {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
+    backdrop-filter: none;
+    transition: background 180ms ease, backdrop-filter 180ms ease;
+}
+
+#references .references-shell:hover .references-nav-bar,
+#references .references-shell.has-expanded .references-nav-bar {
     background: rgba(0, 49, 83, 0.08);
     backdrop-filter: blur(2px);
 }
