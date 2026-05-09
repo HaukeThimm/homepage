@@ -211,15 +211,15 @@
     --approach-text-indent: 46px;
 
     /* References */
-    --references-gap: 18px;
-    --references-preview-chars: 110;
-    --references-preview-w: clamp(330px, 31vw, 400px);
-    --references-preview-ratio: 4 / 3;
-    --references-preview-pad: 24px;
+    --references-gap: 24px;
+    --references-preview-chars: 220;
+    --references-preview-w: clamp(520px, 42vw, 680px);
+    --references-preview-ratio: 3 / 2;
+    --references-preview-pad: 32px;
 
     --references-expanded-w: min(50vw, 1200px);
-    --references-expanded-ratio: 4 / 3;
-    --references-expanded-pad: 34px;
+    --references-expanded-ratio: 3 / 2;
+    --references-expanded-pad: 32px;
 
     --references-overlay-gap: 24px;
     --references-shadow-expanded: 0 18px 48px rgba(0, 0, 0, 0.22);
