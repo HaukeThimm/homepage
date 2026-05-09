@@ -217,19 +217,13 @@
     if (!shell || !viewport || !track || !cards.length) return;
 
     let desktopIndex = 0;
-    let touchStartX = 0;
-    let touchStartY = 0;
 
     function isMobile() {
         return window.innerWidth <= 768;
     }
 
-    function visibleDesktopCards() {
+    function getVisibleDesktopCount() {
         return Math.min(3, cards.length);
-    }
-
-    function desktopStepCount() {
-        return cards.length;
     }
 
     function getPreviewChars() {
@@ -291,6 +285,8 @@
         body.classList.remove("references-expanded");
         body.style.removeProperty("--scroll-lock-top");
         delete body.dataset.scrollY;
+
+        /* Wichtig: exakt an die alte Position zurück, kein Sprung zu den Referenzen */
         window.scrollTo(0, scrollY);
     }
 
@@ -306,10 +302,42 @@
         shell.classList.toggle("has-expanded", expanded);
     }
 
+    function applyDesktopWindow() {
+        if (isMobile()) {
+            cards.forEach((card, index) => {
+                card.style.display = "";
+                card.style.order = String(index);
+            });
+            track.style.transform = "";
+            return;
+        }
+
+        const expanded = getExpandedCard();
+        if (expanded) {
+            cards.forEach((card, index) => {
+                card.style.display = "";
+                card.style.order = String(index);
+            });
+            track.style.transform = "";
+            return;
+        }
+
+        const visibleCount = getVisibleDesktopCount();
+
+        cards.forEach((card, index) => {
+            const normalized = (index - desktopIndex + cards.length) % cards.length;
+            const visible = normalized < visibleCount;
+
+            card.style.order = String(normalized);
+            card.style.display = visible ? "" : "none";
+        });
+
+        track.style.transform = "";
+    }
+
     function renderCard(card) {
         const textEl = card.querySelector(".feedback-text");
-        const inner = card.querySelector(".reference-card-inner");
-        if (!textEl || !inner) return;
+        if (!textEl) return;
 
         const expanded = card.classList.contains("is-expanded");
         const fullText = getFullText(textEl);
@@ -317,45 +345,17 @@
 
         textEl.textContent = expanded ? fullText : truncateText(fullText, maxChars);
         card.setAttribute("aria-expanded", expanded ? "true" : "false");
-        inner.setAttribute("aria-expanded", expanded ? "true" : "false");
-    }
 
-    function getDesktopCardWidth() {
-        const first = cards[0];
-        if (!first) return 0;
-        return first.getBoundingClientRect().width;
-    }
-
-    function getDesktopGap() {
-        const styles = getComputedStyle(track);
-        const gap = parseFloat(styles.columnGap || styles.gap || "0");
-        return Number.isFinite(gap) ? gap : 0;
-    }
-
-    function applyDesktopCarouselPosition() {
-        if (isMobile()) {
-            track.style.transform = "";
-            return;
+        const inner = card.querySelector(".reference-card-inner");
+        if (inner) {
+            inner.setAttribute("aria-expanded", expanded ? "true" : "false");
         }
-
-        const expanded = getExpandedCard();
-        if (expanded) {
-            track.style.transform = "";
-            return;
-        }
-
-        const cardWidth = getDesktopCardWidth();
-        const gap = getDesktopGap();
-        const step = cardWidth + gap;
-        const index = ((desktopIndex % desktopStepCount()) + desktopStepCount()) % desktopStepCount();
-
-        track.style.transform = `translateX(${-index * step}px)`;
     }
 
     function renderAllCards() {
         cards.forEach(renderCard);
+        applyDesktopWindow();
         updateBodyState();
-        applyDesktopCarouselPosition();
         updateNavState();
     }
 
@@ -368,26 +368,28 @@
         card.classList.add("is-expanded");
     }
 
-    function toggleCard(card) {
-        const wasExpanded = card.classList.contains("is-expanded");
-        const currentScrollY = window.scrollY || window.pageYOffset || 0;
+    function collapseCard(card) {
+        if (!card) return;
+        card.classList.remove("is-expanded");
+    }
 
-        if (wasExpanded) {
-            card.classList.remove("is-expanded");
+    function toggleCard(card) {
+        const expanded = card.classList.contains("is-expanded");
+
+        if (expanded) {
+            collapseCard(card);
         } else {
             expandCard(card);
         }
 
         renderAllCards();
-
-        if (!wasExpanded) {
-            window.scrollTo(0, currentScrollY);
-        }
     }
 
-    function getCurrentMobileIndex() {
+    function getCurrentIndex() {
         const expanded = getExpandedCard();
         if (expanded) return cards.indexOf(expanded);
+
+        if (!isMobile()) return desktopIndex;
 
         const viewportRect = viewport.getBoundingClientRect();
         const viewportCenter = viewportRect.left + viewportRect.width / 2;
@@ -407,15 +409,6 @@
         });
 
         return bestIndex;
-    }
-
-    function getCurrentIndex() {
-        if (isMobile()) return getCurrentMobileIndex();
-
-        const expanded = getExpandedCard();
-        if (expanded) return cards.indexOf(expanded);
-
-        return desktopIndex;
     }
 
     function scrollToCard(index, behavior = "smooth") {
@@ -442,13 +435,14 @@
         }
 
         if (isMobile()) {
-            const currentIndex = getCurrentMobileIndex();
+            const currentIndex = getCurrentIndex();
             const prevIndex = Math.max(0, currentIndex - 1);
             scrollToCard(prevIndex);
+            updateNavState();
             return;
         }
 
-        desktopIndex = (desktopIndex - 1 + desktopStepCount()) % desktopStepCount();
+        desktopIndex = (desktopIndex - 1 + cards.length) % cards.length;
         renderAllCards();
     }
 
@@ -464,26 +458,37 @@
         }
 
         if (isMobile()) {
-            const currentIndex = getCurrentMobileIndex();
+            const currentIndex = getCurrentIndex();
             const nextIndex = Math.min(cards.length - 1, currentIndex + 1);
             scrollToCard(nextIndex);
+            updateNavState();
             return;
         }
 
-        desktopIndex = (desktopIndex + 1) % desktopStepCount();
+        desktopIndex = (desktopIndex + 1) % cards.length;
         renderAllCards();
     }
 
     function updateNavState() {
         if (!btnPrev || !btnNext) return;
 
-        btnPrev.disabled = false;
-        btnNext.disabled = false;
+        const expanded = getExpandedCard();
 
-        if (cards.length <= 1) {
-            btnPrev.disabled = true;
-            btnNext.disabled = true;
+        if (expanded) {
+            btnPrev.disabled = cards.length <= 1;
+            btnNext.disabled = cards.length <= 1;
+            return;
         }
+
+        if (isMobile()) {
+            const currentIndex = getCurrentIndex();
+            btnPrev.disabled = currentIndex <= 0;
+            btnNext.disabled = currentIndex >= cards.length - 1;
+            return;
+        }
+
+        btnPrev.disabled = cards.length <= 1;
+        btnNext.disabled = cards.length <= 1;
     }
 
     cards.forEach((card) => {
@@ -494,6 +499,7 @@
         card.setAttribute("role", "button");
         card.setAttribute("aria-expanded", "false");
 
+        /* Verhindert unerwünschte Fokus-/Scroll-Sprünge beim Klicken */
         inner.addEventListener("mousedown", (e) => {
             e.preventDefault();
         });
@@ -525,40 +531,43 @@
                 showNext();
             }
         });
-    });
 
-    viewport.addEventListener("touchstart", (e) => {
-        const touch = e.changedTouches[0];
-        touchStartX = touch.clientX;
-        touchStartY = touch.clientY;
-    }, { passive: true });
+        let touchStartX = 0;
+        let touchStartY = 0;
 
-    viewport.addEventListener("touchend", (e) => {
-        const touch = e.changedTouches[0];
-        const deltaX = touch.clientX - touchStartX;
-        const deltaY = touch.clientY - touchStartY;
+        inner.addEventListener("touchstart", (e) => {
+            const touch = e.changedTouches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+        }, { passive: true });
 
-        const expanded = getExpandedCard();
+        inner.addEventListener("touchend", (e) => {
+            const touch = e.changedTouches[0];
+            const deltaX = touch.clientX - touchStartX;
+            const deltaY = touch.clientY - touchStartY;
 
-        if (expanded) {
-            if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            const expanded = card.classList.contains("is-expanded");
+
+            if (expanded) {
+                if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                    if (deltaX > 0) {
+                        showPrev();
+                    } else {
+                        showNext();
+                    }
+                }
+                return;
+            }
+
+            if (isMobile() && Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
                     showPrev();
                 } else {
                     showNext();
                 }
             }
-            return;
-        }
-
-        if (isMobile() && Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
-            if (deltaX > 0) {
-                showPrev();
-            } else {
-                showNext();
-            }
-        }
-    }, { passive: true });
+        }, { passive: true });
+    });
 
     document.addEventListener("click", (e) => {
         const insideReferenceCard = e.target.closest(".reference-card");
@@ -601,14 +610,10 @@
         });
     }
 
-    viewport.addEventListener("scroll", () => {
-        if (isMobile()) updateNavState();
-    }, { passive: true });
+    viewport.addEventListener("scroll", updateNavState, { passive: true });
 
     window.addEventListener("resize", () => {
-        if (!isMobile()) {
-            desktopIndex = ((desktopIndex % desktopStepCount()) + desktopStepCount()) % desktopStepCount();
-        }
+        collapseAll();
         renderAllCards();
     });
 
