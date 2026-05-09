@@ -263,7 +263,24 @@
 
     function updateBodyState() {
         const expanded = !!getExpandedCard();
-        document.body.classList.toggle("references-expanded", expanded);
+        const body = document.body;
+
+        if (expanded) {
+            if (!body.classList.contains("references-expanded")) {
+                body.dataset.scrollY = String(window.scrollY || window.pageYOffset || 0);
+                body.style.setProperty("--scroll-lock-top", `-${body.dataset.scrollY}px`);
+                body.classList.add("references-expanded");
+            }
+        } else {
+            if (body.classList.contains("references-expanded")) {
+                const y = parseInt(body.dataset.scrollY || "0", 10);
+                body.classList.remove("references-expanded");
+                body.style.removeProperty("--scroll-lock-top");
+                delete body.dataset.scrollY;
+                window.scrollTo(0, y);
+            }
+        }
+
         shell.classList.toggle("has-expanded", expanded);
     }
 

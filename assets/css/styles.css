@@ -372,7 +372,11 @@ picture {
 }
 
 body.references-expanded {
+    position: fixed;
+    inset: 0;
+    width: 100%;
     overflow: hidden;
+    top: var(--scroll-lock-top, 0);
 }
 
 body.references-expanded::after {
@@ -1137,6 +1141,14 @@ section.anchor {
     font-style: var(--feedback-sign-font-style);
     font-weight: var(--feedback-sign-font-weight);
     line-height: var(--feedback-sign-line-height);
+}
+
+#references .reference-card-inner,
+#references .reference-card-copy,
+#references .feedback-text,
+#references .feedback-signature {
+    color: var(--blue);
+    -webkit-text-fill-color: var(--blue);
 }
 
 #references .reference-card:not(.is-expanded) .feedback-signature {
@@ -1952,21 +1964,21 @@ section.anchor {
         --cta-frame-radius-outer-mobile: 20px;
 
         /* References */
-        --references-gap: 16px;
-        --references-preview-chars: 80;
-        --references-preview-w: 80vw;
+        --references-gap: 14px;
+        --references-preview-chars: 68;
+        --references-preview-w: calc(100vw - (2 * var(--side-pad)) - (2 * var(--references-nav-bar-w)) - 16px);
         --references-preview-ratio: 3 / 4;
-        --references-preview-pad: 20px;
+        --references-preview-pad: 18px;
 
-        --references-expanded-w: 70vw;
+        --references-expanded-w: min(80vw, calc(100vw - (2 * var(--references-overlay-gap))));
         --references-expanded-max-h: 78dvh;
-        --references-expanded-pad: 22px;
+        --references-expanded-pad: 20px;
 
         --references-overlay-gap: 16px;
 
-        --references-nav-bar-w: 26px;
-        --references-nav-bar-h: 96px;
-        --references-nav-icon-h: 24px;
+        --references-nav-bar-w: 24px;
+        --references-nav-bar-h: 92px;
+        --references-nav-icon-h: 22px;
 
         /* Feedback typography — mobile */
         --fs-feedback: 20px;
@@ -2203,6 +2215,7 @@ section.anchor {
         grid-template-columns: var(--references-nav-bar-w) minmax(0, 1fr) var(--references-nav-bar-w);
         gap: 8px;
         align-items: center;
+        width: 100%;
     }
 
     #references .references-nav {
@@ -2228,6 +2241,8 @@ section.anchor {
 
     #references .references-viewport {
         grid-column: 2;
+        width: 100%;
+        min-width: 0;
         overflow-x: auto;
         overflow-y: visible;
         scrollbar-width: none;
@@ -2244,34 +2259,62 @@ section.anchor {
         gap: var(--references-gap);
         width: max-content;
         justify-content: flex-start;
+        align-items: stretch;
     }
 
     #references .reference-card {
         flex: 0 0 auto;
         width: var(--references-preview-w);
-        max-width: none;
+        max-width: var(--references-preview-w);
+        min-width: var(--references-preview-w);
         scroll-snap-align: center;
     }
 
     #references .reference-card-inner {
+        width: 100%;
         aspect-ratio: var(--references-preview-ratio);
         padding: var(--references-preview-pad);
+        color: var(--blue);
+        -webkit-text-fill-color: var(--blue);
+    }
+
+    #references .reference-card-copy,
+    #references .feedback-text,
+    #references .feedback-signature {
+        color: var(--blue);
+        -webkit-text-fill-color: var(--blue);
     }
 
     #references .reference-card.is-expanded .reference-card-inner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
         width: var(--references-expanded-w);
         max-width: calc(100vw - (2 * var(--references-overlay-gap)));
         height: min(calc(var(--references-expanded-w) * 16 / 9), var(--references-expanded-max-h));
         max-height: var(--references-expanded-max-h);
-        aspect-ratio: auto;
+        aspect-ratio: 9 / 16;
+        transform: translate(-50%, -50%);
         padding: var(--references-expanded-pad);
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         touch-action: pan-y;
+        box-shadow: var(--ref-shadow-expanded);
+        color: var(--blue);
+        -webkit-text-fill-color: var(--blue);
     }
 
     #references .reference-card.is-expanded .feedback-text {
         font-size: calc(var(--fs-feedback) + 1px);
+        color: var(--blue);
+        -webkit-text-fill-color: var(--blue);
+    }
+
+    #references .reference-card.is-expanded .feedback-signature {
+        color: var(--blue);
+        -webkit-text-fill-color: var(--blue);
     }
 
     /* =============== PRE-FOOTER =============== */
