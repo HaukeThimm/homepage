@@ -212,14 +212,13 @@
 
     /* References */
     --references-gap: 24px;
-    --references-preview-chars: 220;
-    --references-preview-w: clamp(520px, 42vw, 680px);
+    --references-preview-chars: 145;
     --references-preview-ratio: 3 / 2;
-    --references-preview-pad: 32px;
+    --references-preview-pad: 28px;
 
-    --references-expanded-w: min(50vw, 1200px);
+    --references-expanded-w: min(68vw, 1200px);
     --references-expanded-ratio: 3 / 2;
-    --references-expanded-pad: 32px;
+    --references-expanded-pad: 34px;
 
     --references-overlay-gap: 24px;
     --references-shadow-expanded: 0 18px 48px rgba(0, 0, 0, 0.22);
@@ -1035,28 +1034,31 @@ section.anchor {
     max-width: 100%;
     margin: var(--carousel-shell-top) auto 0;
     padding: 0;
+    overflow: visible;
 }
 
 #references .references-viewport {
     width: 100%;
     overflow: visible;
     box-sizing: border-box;
+    position: relative;
 }
 
 #references .references-track {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: var(--references-gap);
     width: 100%;
+    position: relative;
 }
 
 #references .reference-card {
     position: relative;
-    flex: 0 1 var(--references-preview-w);
-    width: var(--references-preview-w);
+    flex: 0 0 calc((100% - (2 * var(--references-gap))) / 3);
+    width: calc((100% - (2 * var(--references-gap))) / 3);
+    min-width: calc((100% - (2 * var(--references-gap))) / 3);
     max-width: calc((100% - (2 * var(--references-gap))) / 3);
-    min-width: 0;
     overflow: visible;
     z-index: 1;
 }
@@ -1967,11 +1969,11 @@ section.anchor {
         /* References */
         --references-gap: 14px;
         --references-preview-chars: 68;
-        --references-preview-w: calc(100vw - (2 * var(--side-pad)) - (2 * var(--references-nav-bar-w)) - 16px);
+        --references-preview-w: max(220px, calc(100vw - (2 * var(--side-pad)) - (2 * var(--references-nav-bar-w)) - 16px));
         --references-preview-ratio: 3 / 4;
         --references-preview-pad: 18px;
 
-        --references-expanded-w: min(80vw, calc(100vw - (2 * var(--references-overlay-gap))));
+        --references-expanded-w: calc(100vw - (2 * var(--references-overlay-gap)));
         --references-expanded-max-h: 78dvh;
         --references-expanded-pad: 20px;
 
@@ -2292,9 +2294,9 @@ section.anchor {
         left: 50%;
         width: var(--references-expanded-w);
         max-width: calc(100vw - (2 * var(--references-overlay-gap)));
-        height: min(calc(var(--references-expanded-w) * 16 / 9), var(--references-expanded-max-h));
-        max-height: var(--references-expanded-max-h);
         aspect-ratio: 9 / 16;
+        height: auto;
+        max-height: var(--references-expanded-max-h);
         transform: translate(-50%, -50%);
         padding: var(--references-expanded-pad);
         overflow-y: auto;

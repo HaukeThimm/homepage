@@ -216,8 +216,20 @@
 
     if (!shell || !viewport || !track || !cards.length) return;
 
+    let desktopIndex = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
     function isMobile() {
         return window.innerWidth <= 768;
+    }
+
+    function visibleDesktopCards() {
+        return Math.min(3, cards.length);
+    }
+
+    function desktopStepCount() {
+        return cards.length;
     }
 
     function getPreviewChars() {
@@ -261,24 +273,34 @@
         return cards.find((card) => card.classList.contains("is-expanded")) || null;
     }
 
+    function lockBodyScroll() {
+        const body = document.body;
+        if (body.classList.contains("references-expanded")) return;
+
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+        body.dataset.scrollY = String(scrollY);
+        body.style.setProperty("--scroll-lock-top", `-${scrollY}px`);
+        body.classList.add("references-expanded");
+    }
+
+    function unlockBodyScroll() {
+        const body = document.body;
+        if (!body.classList.contains("references-expanded")) return;
+
+        const scrollY = parseInt(body.dataset.scrollY || "0", 10);
+        body.classList.remove("references-expanded");
+        body.style.removeProperty("--scroll-lock-top");
+        delete body.dataset.scrollY;
+        window.scrollTo(0, scrollY);
+    }
+
     function updateBodyState() {
         const expanded = !!getExpandedCard();
-        const body = document.body;
 
         if (expanded) {
-            if (!body.classList.contains("references-expanded")) {
-                body.dataset.scrollY = String(window.scrollY || window.pageYOffset || 0);
-                body.style.setProperty("--scroll-lock-top", `-${body.dataset.scrollY}px`);
-                body.classList.add("references-expanded");
-            }
+            lockBodyScroll();
         } else {
-            if (body.classList.contains("references-expanded")) {
-                const y = parseInt(body.dataset.scrollY || "0", 10);
-                body.classList.remove("references-expanded");
-                body.style.removeProperty("--scroll-lock-top");
-                delete body.dataset.scrollY;
-                window.scrollTo(0, y);
-            }
+            unlockBodyScroll();
         }
 
         shell.classList.toggle("has-expanded", expanded);
@@ -286,7 +308,8 @@
 
     function renderCard(card) {
         const textEl = card.querySelector(".feedback-text");
-        if (!textEl) return;
+        const inner = card.querySelector(".reference-card-inner");
+        if (!textEl || !inner) return;
 
         const expanded = card.classList.contains("is-expanded");
         const fullText = getFullText(textEl);
@@ -294,11 +317,45 @@
 
         textEl.textContent = expanded ? fullText : truncateText(fullText, maxChars);
         card.setAttribute("aria-expanded", expanded ? "true" : "false");
+        inner.setAttribute("aria-expanded", expanded ? "true" : "false");
+    }
+
+    function getDesktopCardWidth() {
+        const first = cards[0];
+        if (!first) return 0;
+        return first.getBoundingClientRect().width;
+    }
+
+    function getDesktopGap() {
+        const styles = getComputedStyle(track);
+        const gap = parseFloat(styles.columnGap || styles.gap || "0");
+        return Number.isFinite(gap) ? gap : 0;
+    }
+
+    function applyDesktopCarouselPosition() {
+        if (isMobile()) {
+            track.style.transform = "";
+            return;
+        }
+
+        const expanded = getExpandedCard();
+        if (expanded) {
+            track.style.transform = "";
+            return;
+        }
+
+        const cardWidth = getDesktopCardWidth();
+        const gap = getDesktopGap();
+        const step = cardWidth + gap;
+        const index = ((desktopIndex % desktopStepCount()) + desktopStepCount()) % desktopStepCount();
+
+        track.style.transform = `translateX(${-index * step}px)`;
     }
 
     function renderAllCards() {
         cards.forEach(renderCard);
         updateBodyState();
+        applyDesktopCarouselPosition();
         updateNavState();
     }
 
@@ -312,18 +369,23 @@
     }
 
     function toggleCard(card) {
-        const expanded = card.classList.contains("is-expanded");
+        const wasExpanded = card.classList.contains("is-expanded");
+        const currentScrollY = window.scrollY || window.pageYOffset || 0;
 
-        if (expanded) {
+        if (wasExpanded) {
             card.classList.remove("is-expanded");
         } else {
             expandCard(card);
         }
 
         renderAllCards();
+
+        if (!wasExpanded) {
+            window.scrollTo(0, currentScrollY);
+        }
     }
 
-    function getCurrentIndex() {
+    function getCurrentMobileIndex() {
         const expanded = getExpandedCard();
         if (expanded) return cards.indexOf(expanded);
 
@@ -347,63 +409,81 @@
         return bestIndex;
     }
 
+    function getCurrentIndex() {
+        if (isMobile()) return getCurrentMobileIndex();
+
+        const expanded = getExpandedCard();
+        if (expanded) return cards.indexOf(expanded);
+
+        return desktopIndex;
+    }
+
     function scrollToCard(index, behavior = "smooth") {
         const card = cards[index];
         if (!card) return;
 
-        if (isMobile()) {
-            const left =
-                card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2;
+        const left = card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2;
 
-            viewport.scrollTo({
-                left,
-                behavior
-            });
-        } else {
-            const left =
-                card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2;
-
-            viewport.scrollTo({
-                left,
-                behavior
-            });
-        }
+        viewport.scrollTo({
+            left,
+            behavior
+        });
     }
 
     function showPrev() {
         const expanded = getExpandedCard();
-        const currentIndex = getCurrentIndex();
-        const prevIndex = Math.max(0, currentIndex - 1);
 
         if (expanded) {
+            const currentIndex = cards.indexOf(expanded);
+            const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
             expandCard(cards[prevIndex]);
             renderAllCards();
-        } else {
-            scrollToCard(prevIndex);
-            updateNavState();
+            return;
         }
+
+        if (isMobile()) {
+            const currentIndex = getCurrentMobileIndex();
+            const prevIndex = Math.max(0, currentIndex - 1);
+            scrollToCard(prevIndex);
+            return;
+        }
+
+        desktopIndex = (desktopIndex - 1 + desktopStepCount()) % desktopStepCount();
+        renderAllCards();
     }
 
     function showNext() {
         const expanded = getExpandedCard();
-        const currentIndex = getCurrentIndex();
-        const nextIndex = Math.min(cards.length - 1, currentIndex + 1);
 
         if (expanded) {
+            const currentIndex = cards.indexOf(expanded);
+            const nextIndex = (currentIndex + 1) % cards.length;
             expandCard(cards[nextIndex]);
             renderAllCards();
-        } else {
-            scrollToCard(nextIndex);
-            updateNavState();
+            return;
         }
+
+        if (isMobile()) {
+            const currentIndex = getCurrentMobileIndex();
+            const nextIndex = Math.min(cards.length - 1, currentIndex + 1);
+            scrollToCard(nextIndex);
+            return;
+        }
+
+        desktopIndex = (desktopIndex + 1) % desktopStepCount();
+        renderAllCards();
     }
 
     function updateNavState() {
         if (!btnPrev || !btnNext) return;
 
-        const currentIndex = getCurrentIndex();
-        btnPrev.disabled = currentIndex <= 0;
-        btnNext.disabled = currentIndex >= cards.length - 1;
+        btnPrev.disabled = false;
+        btnNext.disabled = false;
+
+        if (cards.length <= 1) {
+            btnPrev.disabled = true;
+            btnNext.disabled = true;
+        }
     }
 
     cards.forEach((card) => {
@@ -414,7 +494,12 @@
         card.setAttribute("role", "button");
         card.setAttribute("aria-expanded", "false");
 
+        inner.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+        });
+
         inner.addEventListener("click", (e) => {
+            e.preventDefault();
             e.stopPropagation();
             toggleCard(card);
         });
@@ -440,43 +525,40 @@
                 showNext();
             }
         });
+    });
 
-        let touchStartX = 0;
-        let touchStartY = 0;
+    viewport.addEventListener("touchstart", (e) => {
+        const touch = e.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+    }, { passive: true });
 
-        inner.addEventListener("touchstart", (e) => {
-            const touch = e.changedTouches[0];
-            touchStartX = touch.clientX;
-            touchStartY = touch.clientY;
-        }, { passive: true });
+    viewport.addEventListener("touchend", (e) => {
+        const touch = e.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
 
-        inner.addEventListener("touchend", (e) => {
-            const touch = e.changedTouches[0];
-            const deltaX = touch.clientX - touchStartX;
-            const deltaY = touch.clientY - touchStartY;
+        const expanded = getExpandedCard();
 
-            const expanded = card.classList.contains("is-expanded");
-
-            if (expanded) {
-                if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
-                    if (deltaX > 0) {
-                        showPrev();
-                    } else {
-                        showNext();
-                    }
-                }
-                return;
-            }
-
-            if (isMobile() && Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (expanded) {
+            if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
                     showPrev();
                 } else {
                     showNext();
                 }
             }
-        }, { passive: true });
-    });
+            return;
+        }
+
+        if (isMobile() && Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX > 0) {
+                showPrev();
+            } else {
+                showNext();
+            }
+        }
+    }, { passive: true });
 
     document.addEventListener("click", (e) => {
         const insideReferenceCard = e.target.closest(".reference-card");
@@ -496,21 +578,40 @@
     });
 
     if (btnPrev) {
+        btnPrev.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+        });
+
         btnPrev.addEventListener("click", (e) => {
+            e.preventDefault();
             e.stopPropagation();
             showPrev();
         });
     }
 
     if (btnNext) {
+        btnNext.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+        });
+
         btnNext.addEventListener("click", (e) => {
+            e.preventDefault();
             e.stopPropagation();
             showNext();
         });
     }
 
-    viewport.addEventListener("scroll", updateNavState, { passive: true });
-    window.addEventListener("resize", renderAllCards);
+    viewport.addEventListener("scroll", () => {
+        if (isMobile()) updateNavState();
+    }, { passive: true });
+
+    window.addEventListener("resize", () => {
+        if (!isMobile()) {
+            desktopIndex = ((desktopIndex % desktopStepCount()) + desktopStepCount()) % desktopStepCount();
+        }
+        renderAllCards();
+    });
+
     window.addEventListener("load", renderAllCards);
     window.addEventListener("feedback:languagechange", renderAllCards);
 
